@@ -1,8 +1,19 @@
 import React from 'react'
 
-function SplashScreen() {
+function SplashScreen({ onSkip }) {
     return (
         <div className="splash-container">
+            {/* Skip Button */}
+            {onSkip && (
+                <button 
+                    className="skip-button" 
+                    onClick={onSkip}
+                    aria-label="Skip splash screen"
+                >
+                    Skip
+                </button>
+            )}
+            
             <div className="splash-content">
                 {/* Animated Logo/Brand */}
                 <div className="splash-logo">
@@ -35,6 +46,30 @@ function SplashScreen() {
             </div>
 
             <style jsx>{`
+                .skip-button {
+                    position: absolute;
+                    top: 30px;
+                    right: 30px;
+                    background: rgba(255, 255, 255, 0.2);
+                    border: 2px solid rgba(255, 255, 255, 0.3);
+                    color: white;
+                    padding: 12px 24px;
+                    border-radius: 25px;
+                    font-weight: 600;
+                    font-size: 14px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    backdrop-filter: blur(10px);
+                    z-index: 10001;
+                }
+
+                .skip-button:hover {
+                    background: rgba(255, 255, 255, 0.3);
+                    border-color: rgba(255, 255, 255, 0.5);
+                    transform: translateY(-2px);
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                }
+
                 .splash-container {
                     position: fixed;
                     top: 0;

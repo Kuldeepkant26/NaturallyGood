@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState, useEffect } from 'react'
 
 export const MyContext = createContext()
 
@@ -363,7 +363,19 @@ function MyProvider({ children }) {
         }
     ]);
 
-    const [splash, setSplash] = useState(true)
+    // Initialize splash screen state based on session storage
+    // Only show splash screen once per browser session
+    const [splash, setSplash] = useState(() => {
+        const hasShownSplash = sessionStorage.getItem('hasShownSplash');
+        return !hasShownSplash; // Show splash only if it hasn't been shown in this session
+    });
+
+    // Update session storage when splash screen is closed
+    useEffect(() => {
+        if (!splash) {
+            sessionStorage.setItem('hasShownSplash', 'true');
+        }
+    }, [splash]);
 
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [activeCategory, setActiveCategory] = useState('All Products');

@@ -16,19 +16,25 @@ import { MyContext } from '@/context/MyProvider'
 
 function Home() {
 
-
     const { splash, setSplash } = useContext(MyContext)
+    
+    // Auto-hide splash screen after 4 seconds (only when splash is initially shown)
     useEffect(() => {
-        setTimeout(() => {
-            setSplash(false)
-        }, 4000)
-    },);
+        if (splash) {
+            const timer = setTimeout(() => {
+                setSplash(false)
+            }, 4000);
+            
+            // Cleanup timer if component unmounts
+            return () => clearTimeout(timer);
+        }
+    }, [splash, setSplash]);
 
 
     return (
         <>
             {splash ? (
-                <SplashScreen />
+                    <SplashScreen onSkip={() => setSplash(false)} />
             ) : (
                 <>
                     <HeroSection />
