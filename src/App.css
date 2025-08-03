@@ -1,0 +1,21 @@
+/* ==========================================================================
+   GLOBAL APP LAYOUT
+   ========================================================================== */
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure main content area takes available space */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Pages should flex to take available space above footer */
+.page-content {
+  flex: 1;
+}

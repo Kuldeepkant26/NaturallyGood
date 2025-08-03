@@ -1,0 +1,1547 @@
+/* ==========================================================================
+   ABOUT PAGE STYLES - Organic Natural Theme
+   ========================================================================== */
+
+:root {
+  --primary-green: #2d5a27;
+  --secondary-green: #4a7c59;
+  --accent-green: #6ba368;
+  --light-green: #a8d5ba;
+  --earth-brown: #8b4513;
+  --cream-white: #faf8f5;
+  --natural-beige: #f5f1e8;
+  --dark-text: #2c3e2d;
+  --medium-text: #5a6c57;
+  --light-text: #8fa285;
+}
+
+.about-page {
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-page .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ==========================================================================
+   DISTINCTION IN DETAIL SECTION - REDESIGNED
+   ========================================================================== */
+
+.about-page .distinction-section {
+  padding: 6rem 0;
+  background: var(--natural-beige);
+  position: relative;
+}
+
+.about-page .distinction-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.about-page .distinction-content {
+  max-width: 600px;
+}
+
+.about-page .distinction-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  color: var(--primary-green);
+  letter-spacing: -0.02em;
+}
+
+.about-page .distinction-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--medium-text);
+  margin-bottom: 3rem;
+  font-weight: 300;
+}
+
+.about-page .distinction-features {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.about-page .feature-item {
+  text-align: center;
+}
+
+.about-page .feature-number {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--primary-green);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.about-page .feature-text {
+  font-size: 0.9rem;
+  color: var(--medium-text);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.about-page .distinction-link {
+  margin-top: 2rem;
+}
+
+.about-page .discover-link {
+  font-size: 1.1rem;
+  color: var(--primary-green);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.about-page .discover-link:hover {
+  color: var(--secondary-green);
+  transform: translateX(5px);
+}
+
+.about-page .distinction-image {
+  position: relative;
+}
+
+.about-page .image-wrapper {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(45, 90, 39, 0.1);
+}
+
+.about-page .distinction-img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  display: block;
+}
+
+.about-page .image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(45, 90, 39, 0.8), rgba(74, 124, 89, 0.6));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-page .image-wrapper:hover .image-overlay {
+  opacity: 1;
+}
+
+.about-page .image-wrapper:hover .distinction-img {
+  transform: scale(1.05);
+}
+
+.about-page .overlay-content {
+  text-align: center;
+  color: white;
+}
+
+.about-page .overlay-text {
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ==========================================================================
+   DISTINCTION SECTION RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+  .about-page .distinction-section {
+    padding: 5rem 0;
+  }
+  
+  .about-page .distinction-layout {
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page .distinction-section {
+    padding: 4rem 0;
+  }
+  
+  .about-page .distinction-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .about-page .distinction-title {
+    font-size: clamp(2rem, 6vw, 3rem);
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-page .distinction-description {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .about-page .distinction-features {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  
+  .about-page .feature-number {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-page .distinction-section {
+    padding: 3rem 0;
+  }
+  
+  .about-page .distinction-title {
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
+  }
+  
+  .about-page .distinction-description {
+    font-size: 0.9rem;
+  }
+  
+  .about-page .distinction-features {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .about-page .distinction-img {
+    height: 300px;
+  }
+}
+
+/* ==========================================================================
+   MARINE EXCELLENCE SECTION - SAME AS DISTINCTION BUT REVERSED
+   ========================================================================== */
+
+.about-page .marine-excellence-section {
+  padding: 6rem 0;
+  background: var(--cream-white);
+  position: relative;
+}
+
+.about-page .marine-excellence-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.about-page .marine-excellence-content {
+  order: 2;
+}
+
+.about-page .marine-excellence-image {
+  order: 1;
+}
+
+.about-page .marine-excellence-content {
+  max-width: 600px;
+}
+
+.about-page .marine-excellence-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  color: var(--primary-green);
+  letter-spacing: -0.02em;
+}
+
+.about-page .marine-excellence-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--medium-text);
+  margin-bottom: 3rem;
+  font-weight: 300;
+}
+
+.about-page .marine-excellence-features {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.about-page .marine-feature-item {
+  text-align: center;
+}
+
+.about-page .marine-feature-number {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--primary-green);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.about-page .marine-feature-text {
+  font-size: 0.9rem;
+  color: var(--medium-text);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.about-page .marine-excellence-link {
+  margin-top: 2rem;
+}
+
+.about-page .marine-discover-link {
+  font-size: 1.1rem;
+  color: var(--primary-green);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.about-page .marine-discover-link:hover {
+  color: var(--secondary-green);
+  transform: translateX(5px);
+}
+
+.about-page .marine-excellence-image {
+  position: relative;
+}
+
+.about-page .marine-image-wrapper {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(45, 90, 39, 0.1);
+}
+
+.about-page .marine-excellence-img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  display: block;
+}
+
+.about-page .marine-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(45, 90, 39, 0.8), rgba(74, 124, 89, 0.6));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-page .marine-image-wrapper:hover .marine-image-overlay {
+  opacity: 1;
+}
+
+.about-page .marine-image-wrapper:hover .marine-excellence-img {
+  transform: scale(1.05);
+}
+
+.about-page .marine-overlay-content {
+  text-align: center;
+  color: white;
+}
+
+.about-page .marine-overlay-text {
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ==========================================================================
+   MARINE EXCELLENCE SECTION RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+  .about-page .marine-excellence-section {
+    padding: 5rem 0;
+  }
+  
+  .about-page .marine-excellence-layout {
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page .marine-excellence-section {
+    padding: 4rem 0;
+  }
+  
+  .about-page .marine-excellence-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .about-page .marine-excellence-content {
+    order: 1;
+  }
+  
+  .about-page .marine-excellence-image {
+    order: 2;
+  }
+  
+  .about-page .marine-excellence-title {
+    font-size: clamp(2rem, 6vw, 3rem);
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-page .marine-excellence-description {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .about-page .marine-excellence-features {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  
+  .about-page .marine-feature-number {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-page .marine-excellence-section {
+    padding: 3rem 0;
+  }
+  
+  .about-page .marine-excellence-title {
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
+  }
+  
+  .about-page .marine-excellence-description {
+    font-size: 0.9rem;
+  }
+  
+  .about-page .marine-excellence-features {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .about-page .marine-excellence-img {
+    height: 300px;
+  }
+}
+
+/* ==========================================================================
+   FLEET GALLERY SECTION
+   ========================================================================== */
+
+.about-page .fleet-gallery-section {
+  padding: 6rem 0;
+  overflow: hidden;
+  background: var(--natural-beige);
+}
+
+.about-page .section-title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 5rem;
+  color: var(--primary-green);
+  letter-spacing: -0.02em;
+}
+
+.about-page .fleet-gallery-section .section-title {
+  color: var(--primary-green);
+}
+
+.about-page .horizontal-scroll-container {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem 0;
+  will-change: transform;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.about-page .horizontal-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.about-page .gallery-item {
+  flex: 0 0 400px;
+  height: 500px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.about-page .gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.about-page .gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.about-page .gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(45, 90, 39, 0.9) 0%,
+    rgba(74, 124, 89, 0.8) 50%,
+    rgba(45, 90, 39, 0.85) 100%
+  );
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  backdrop-filter: blur(2px);
+}
+
+.about-page .gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.about-page .gallery-overlay-content {
+  transform: translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-page .gallery-item:hover .gallery-overlay-content {
+  transform: translateY(0);
+}
+
+.about-page .gallery-overlay-title {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: white;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.about-page .gallery-overlay-subtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 300;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.about-page .gallery-overlay-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  font-size: 0.85rem;
+  color: white;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.about-page .gallery-item:hover .gallery-overlay-badge {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   EXCELLENCE & INNOVATION SECTION
+   ========================================================================== */
+
+.about-page .excellence-innovation-section {
+  padding: 6rem 0;
+  background: var(--cream-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-page .excellence-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.about-page .excellence-image {
+  position: relative;
+}
+
+.about-page .excellence-image-wrapper {
+  position: relative;
+  transition: all;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+  transform: rotate(-2deg);
+  transition: transform 0.6s ease;
+  transition-duration: 1s;
+}
+
+.about-page .excellence-image-wrapper:hover {
+  transform: rotate(0deg) scale(1.02);
+  border-radius: 20px;
+}
+
+.about-page .excellence-img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+  display: block;
+}
+
+.about-page .excellence-image-wrapper:hover .excellence-img {
+  transform: scale(1.05);
+}
+
+.about-page .excellence-badge {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: rgba(45, 90, 39, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(45, 90, 39, 0.2);
+}
+
+.about-page .badge-text {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.25rem;
+}
+
+.about-page .badge-subtext {
+  display: block;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+}
+
+.about-page .excellence-content {
+  max-width: 600px;
+  color: var(--dark-text);
+}
+
+.about-page .excellence-tag {
+  display: inline-block;
+  background: linear-gradient(45deg, rgba(107, 163, 104, 0.2), rgba(168, 213, 186, 0.1));
+  backdrop-filter: blur(10px);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--primary-green);
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(107, 163, 104, 0.3);
+}
+
+.about-page .excellence-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  color: var(--primary-green);
+  letter-spacing: -0.02em;
+}
+
+.about-page .excellence-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--medium-text);
+  margin-bottom: 3rem;
+  font-weight: 300;
+}
+
+.about-page .excellence-highlights {
+  margin-bottom: 3rem;
+}
+
+.about-page .highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(107, 163, 104, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(107, 163, 104, 0.2);
+  transition: all 0.3s ease;
+}
+
+.about-page .highlight-item:hover {
+  background: rgba(107, 163, 104, 0.15);
+  transform: translateX(10px);
+  box-shadow: 0 5px 20px rgba(107, 163, 104, 0.2);
+}
+
+.about-page .highlight-icon {
+  font-size: 1.5rem;
+  min-width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(107, 163, 104, 0.2);
+  border-radius: 8px;
+}
+
+.about-page .highlight-content h4 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--primary-green);
+  margin-bottom: 0.25rem;
+}
+
+.about-page .highlight-content p {
+  font-size: 0.9rem;
+  color: var(--medium-text);
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.about-page .excellence-cta {
+  margin-top: 2rem;
+}
+
+.about-page .excellence-link {
+  font-size: 1.1rem;
+  color: var(--primary-green);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 0;
+  border-bottom: 2px solid rgba(107, 163, 104, 0.3);
+}
+
+.about-page .excellence-link:hover {
+  color: var(--secondary-green);
+  border-bottom-color: var(--secondary-green);
+  transform: translateX(5px);
+}
+
+/* Section Header Styles for Excellence Section */
+.about-page .excellence-innovation-section .section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-page .excellence-innovation-section .section-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: var(--primary-green);
+  letter-spacing: -0.02em;
+}
+
+.about-page .excellence-innovation-section .section-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #666;
+  font-weight: 300;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Fix excellence content spacing */
+.about-page .excellence-content .excellence-title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: 1.5rem;
+}
+
+/* Responsive adjustments for section header */
+@media (max-width: 768px) {
+  .about-page .excellence-innovation-section .section-header {
+    margin-bottom: 3rem;
+  }
+  
+  .about-page .excellence-innovation-section .section-title {
+    font-size: 2rem;
+  }
+  
+  .about-page .excellence-innovation-section .section-description {
+    font-size: 1rem;
+  }
+}
+
+/* ==========================================================================
+   EXCELLENCE & INNOVATION SECTION RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+  .about-page .excellence-innovation-section {
+    padding: 5rem 0;
+  }
+  
+  .about-page .excellence-layout {
+    gap: 4rem;
+  }
+  
+  .about-page .excellence-img {
+    height: 550px;
+  }
+}
+
+@media (max-width: 992px) {
+  .about-page .excellence-innovation-section {
+    padding: 4rem 0;
+  }
+  
+  .about-page .excellence-layout {
+    gap: 3rem;
+  }
+  
+  .about-page .excellence-img {
+    height: 500px;
+  }
+  
+  .about-page .excellence-badge {
+    top: 1.5rem;
+    right: 1.5rem;
+    padding: 0.875rem 1.25rem;
+  }
+  
+  .about-page .badge-text {
+    font-size: 1rem;
+  }
+  
+  .about-page .badge-subtext {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page .excellence-innovation-section {
+    padding: 3rem 0;
+  }
+  
+  .about-page .excellence-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .about-page .excellence-content {
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .about-page .excellence-image-wrapper {
+    transform: rotate(0deg);
+    border-radius: 16px;
+  }
+  
+  .about-page .excellence-image-wrapper:hover {
+    transform: scale(1.02);
+  }
+  
+  .about-page .excellence-img {
+    height: 400px;
+  }
+  
+  .about-page .excellence-badge {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.75rem 1rem;
+  }
+  
+  .about-page .excellence-tag {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.85rem;
+  }
+  
+  .about-page .excellence-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+  }
+  
+  .about-page .excellence-highlights {
+    margin-bottom: 2.5rem;
+  }
+  
+  .about-page .highlight-item {
+    padding: 0.875rem;
+    margin-bottom: 1.25rem;
+    gap: 0.875rem;
+  }
+  
+  .about-page .highlight-item:hover {
+    transform: translateY(-2px);
+  }
+  
+  .about-page .highlight-content h4 {
+    font-size: 1rem;
+  }
+  
+  .about-page .highlight-content p {
+    font-size: 0.875rem;
+  }
+  
+  .about-page .excellence-link {
+    font-size: 1rem;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-page .excellence-innovation-section {
+    padding: 2.5rem 0;
+  }
+  
+  .about-page .excellence-layout {
+    gap: 2rem;
+  }
+  
+  .about-page .excellence-img {
+    height: 350px;
+  }
+  
+  .about-page .excellence-badge {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    padding: 0.625rem 1rem;
+  }
+  
+  .about-page .excellence-tag {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .about-page .excellence-description {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+  
+  .about-page .excellence-highlights {
+    margin-bottom: 2rem;
+  }
+  
+  .about-page .highlight-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+    padding: 1rem 0.75rem;
+  }
+  
+  .about-page .highlight-icon {
+    align-self: center;
+    min-width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .about-page .highlight-content h4 {
+    font-size: 0.95rem;
+    margin-bottom: 0.375rem;
+  }
+  
+  .about-page .highlight-content p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-page .excellence-innovation-section {
+    padding: 2rem 0;
+  }
+  
+  .about-page .excellence-layout {
+    gap: 1.5rem;
+  }
+  
+  .about-page .excellence-img {
+    height: 300px;
+  }
+  
+  .about-page .excellence-badge {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.5rem 0.875rem;
+    border-radius: 40px;
+  }
+  
+  .about-page .badge-text {
+    font-size: 0.9rem;
+  }
+  
+  .about-page .badge-subtext {
+    font-size: 0.7rem;
+  }
+  
+  .about-page .excellence-tag {
+    padding: 0.5rem 0.875rem;
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .about-page .excellence-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-page .excellence-highlights {
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-page .highlight-item {
+    padding: 0.875rem 0.625rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+  }
+  
+  .about-page .highlight-icon {
+    min-width: 2rem;
+    height: 2rem;
+    font-size: 1.25rem;
+  }
+  
+  .about-page .highlight-content h4 {
+    font-size: 0.9rem;
+  }
+  
+  .about-page .highlight-content p {
+    font-size: 0.8rem;
+  }
+  
+  .about-page .excellence-cta {
+    margin-top: 1.5rem;
+  }
+  
+  .about-page .excellence-link {
+    font-size: 0.9rem;
+    padding: 0.625rem 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .about-page .excellence-innovation-section {
+    padding: 1.5rem 0;
+  }
+  
+  .about-page .excellence-img {
+    height: 250px;
+  }
+  
+  .about-page .excellence-badge {
+    position: absolute;
+    top: 0.375rem;
+    right: 0.375rem;
+    padding: 0.375rem 0.75rem;
+  }
+  
+  .about-page .badge-text {
+    font-size: 0.8rem;
+    margin-bottom: 0.125rem;
+  }
+  
+  .about-page .badge-subtext {
+    font-size: 0.65rem;
+  }
+  
+  .about-page .excellence-tag {
+    font-size: 0.7rem;
+    padding: 0.375rem 0.75rem;
+  }
+  
+  .about-page .excellence-description {
+    font-size: 0.85rem;
+  }
+  
+  .about-page .highlight-item {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .about-page .highlight-content h4 {
+    font-size: 0.85rem;
+  }
+  
+  .about-page .highlight-content p {
+    font-size: 0.75rem;
+  }
+}
+
+/* ==========================================================================
+   DASHBOARD SHOWCASE SECTION
+   ========================================================================== */
+
+.about-page .dashboard-showcase-section {
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+/* Underwater Video Background */
+.about-page .dashboard-video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.about-page .dashboard-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-page .dashboard-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(45, 90, 39, 0.9) 0%,
+    rgba(74, 124, 89, 0.8) 40%,
+    rgba(45, 90, 39, 0.85) 100%
+  );
+  z-index: 2;
+}
+
+/* Main Layout */
+.about-page .dashboard-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  min-height: 80vh;
+  position: relative;
+  z-index: 3;
+}
+
+/* Left Content */
+.about-page .dashboard-content-left {
+  padding: 2rem 0;
+}
+
+.about-page .dashboard-text-content {
+  max-width: 600px;
+}
+
+.about-page .dashboard-main-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  color: white;
+  letter-spacing: -0.02em;
+}
+
+.about-page .dashboard-main-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 300;
+  margin-bottom: 3rem;
+}
+
+/* Features List */
+.about-page .dashboard-features-list {
+  margin-bottom: 3rem;
+}
+
+.about-page .feature-point {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.about-page .feature-bullet {
+  color: #4fc3f7;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  font-weight: bold;
+}
+
+/* Stats Left */
+.about-page .dashboard-stats-left {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.about-page .stat-item-left {
+  text-align: left;
+}
+
+.about-page .stat-number-left {
+  font-size: 2rem;
+  font-weight: 300;
+  color: white;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.about-page .stat-label-left {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* CTA Left */
+.about-page .dashboard-cta-left {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.about-page .cta-btn {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  min-width: 150px;
+}
+
+.about-page .cta-btn.primary {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--primary-green);
+  backdrop-filter: blur(10px);
+}
+
+.about-page .cta-btn.primary:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.about-page .cta-btn.primary:disabled {
+  background: rgba(255, 255, 255, 0.6);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.about-page .cta-btn.primary:disabled:hover {
+  background: rgba(255, 255, 255, 0.6);
+  transform: none;
+  box-shadow: none;
+}
+
+.about-page .cta-btn.secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.about-page .cta-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-2px);
+}
+
+/* Right Images with Floating Animation */
+.about-page .dashboard-images-right {
+  position: relative;
+  height: 600px;
+  overflow: visible;
+}
+
+.about-page .floating-images-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.about-page .floating-image {
+  position: absolute;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(79, 195, 247, 0.1);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(2px);
+  border: 2px solid rgba(79, 195, 247, 0.1);
+}
+
+.about-page .floating-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+.about-page .image-glow {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: 
+    radial-gradient(ellipse at top, rgba(107, 163, 104, 0.4), transparent 70%),
+    radial-gradient(ellipse at bottom, rgba(45, 90, 39, 0.3), transparent 70%),
+    linear-gradient(45deg, rgba(168, 213, 186, 0.3), rgba(255, 255, 255, 0.1));
+  border-radius: 30px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  filter: blur(15px);
+  animation: organic-glow 6s ease-in-out infinite;
+}
+
+@keyframes organic-glow {
+  0%, 100% {
+    filter: blur(15px) hue-rotate(0deg);
+    transform: scale(1);
+  }
+  50% {
+    filter: blur(20px) hue-rotate(10deg);
+    transform: scale(1.1);
+  }
+}
+
+.about-page .floating-image:hover .image-glow {
+  opacity: 1;
+}
+
+/* Primary Image - Main Dashboard */
+.about-page .primary-image {
+  width: 500px;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  animation: float-primary 6s ease-in-out infinite;
+}
+
+/* Secondary Image - Analytics */
+.about-page .secondary-image {
+  width: 500px;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  animation: float-secondary 6s ease-in-out infinite reverse;
+}
+
+/* Floating Animations */
+@keyframes float-primary {
+  0%, 100% {
+    transform: translateY(0px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(-1deg);
+  }
+}
+
+@keyframes float-secondary {
+  0%, 100% {
+    transform: translateY(0px) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(1deg);
+  }
+}
+
+.about-page .floating-image:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 40px 80px rgba(45, 90, 39, 0.5);
+}
+
+/* ==========================================================================
+   DASHBOARD SHOWCASE RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+  .about-page .dashboard-layout {
+    gap: 3rem;
+  }
+  
+  .about-page .primary-image {
+    width: 350px;
+  }
+  
+  .about-page .secondary-image {
+    width: 300px;
+  }
+}
+
+@media (max-width: 992px) {
+  .about-page .dashboard-layout {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    text-align: center;
+  }
+  
+  .about-page .dashboard-images-right {
+    height: 500px;
+    order: -1;
+  }
+  
+  .about-page .dashboard-content-left {
+    order: 1;
+  }
+  
+  .about-page .dashboard-stats-left {
+    justify-content: center;
+  }
+  
+  .about-page .dashboard-cta-left {
+    justify-content: center;
+  }
+  
+  .about-page .primary-image {
+    width: 320px;
+    right: 20px;
+  }
+  
+  .about-page .secondary-image {
+    width: 280px;
+    left: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page .dashboard-showcase-section {
+    padding: 4rem 0;
+  }
+  
+  .about-page .dashboard-main-title {
+    font-size: 2.5rem;
+  }
+  
+  .about-page .dashboard-main-description {
+    font-size: 1rem;
+  }
+  
+  .about-page .dashboard-stats-left {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  
+  .about-page .dashboard-cta-left {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .about-page .cta-btn {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .about-page .dashboard-images-right {
+    height: 400px;
+  }
+  
+  .about-page .primary-image {
+    width: 280px;
+    right: 10px;
+  }
+  
+  .about-page .secondary-image {
+    width: 240px;
+    left: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-page .dashboard-showcase-section {
+    padding: 3rem 0;
+  }
+  
+  .about-page .dashboard-main-title {
+    font-size: 2rem;
+  }
+  
+  .about-page .dashboard-main-description {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+  
+  .about-page .feature-point {
+    font-size: 1rem;
+  }
+  
+  .about-page .dashboard-images-right {
+    height: 350px;
+  }
+  
+  .about-page .primary-image {
+    width: 240px;
+    right: 5px;
+  }
+  
+  .about-page .secondary-image {
+    width: 200px;
+    left: 5px;
+  }
+  
+  .about-page .stat-number-left {
+    font-size: 1.5rem;
+  }
+}
