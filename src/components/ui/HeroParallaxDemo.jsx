@@ -18,123 +18,123 @@ const handleProductClick = (e, productSlug) => {
 
 export const products = [
   {
-    title: "Seasonal Veggie Basket",
-    link: "#",
-    slug: "seasonal-veggie-basket",
-    thumbnail: "https://www.naturallygood.in/images/basket.png",
-    description: "Organically grown seasonal vegetables with amazing diversity of flavor and nutrients",
-    price: "₹1,500 Per Basket"
-  },
-  {
-    title: "Monthly Subscription",
-    link: "#",
-    slug: "monthly-subscription", 
-    thumbnail: "https://www.naturallygood.in/images/basket.png",
-    description: "4 Weekly Deliveries/Month - 6% off",
-    price: "₹5,999 (₹1,500 Per Basket)"
-  },
-  {
-    title: "Quarterly Subscription",
-    link: "#",
-    slug: "quarterly-subscription",
-    thumbnail: "https://www.naturallygood.in/images/basket.png", 
-    description: "4 Weekly Deliveries/Month for 3 Months - 22% off",
-    price: "₹14,999 (₹1,250 Per Basket)"
-  },
-  {
-    title: "Semi Annual Subscription", 
-    link: "#",
-    slug: "semi-annual-subscription",
-    thumbnail: "https://www.naturallygood.in/images/basket.png",
-    description: "4 Weekly Deliveries/Month for 6 Months - 30% off", 
-    price: "₹26,999 (₹1,125 per basket)"
-  },
-  {
-    title: "Annual Subscription",
-    link: "#", 
-    slug: "annual-subscription",
-    thumbnail: "https://www.naturallygood.in/images/basket.png",
-    description: "4 Weekly Deliveries/Month for 12 Months - 41% off",
-    price: "₹44,999 (₹937 per basket)"
-  },
-  {
-    title: "A2 Gir Pure Cow Ghee",
+    title: "Premium A2 Gir Cow Ghee",
     link: "#",
     slug: "a2-gir-pure-cow-ghee", 
-    thumbnail: "https://www.naturallygood.in/images/addon1.png",
-    description: "Premium quality A2 Gir cow ghee",
+    thumbnail: "https://agrinests.com/cdn/shop/files/A2vedicGhee_2024-05-17T17_17_44.400Z.png?v=1715966268",
+    description: "Artisanally crafted A2 Gir cow ghee, sourced from heritage breed cattle",
     price: "₹2,800 Per Kg"
   },
   {
-    title: "Pure Jaggery",
+    title: "Artisanal Pure Jaggery",
     link: "#",
     slug: "pure-jaggery",
-    thumbnail: "https://www.naturallygood.in/images/addon2.png",
-    description: "Natural and pure jaggery",
+    thumbnail: "https://file.hstatic.net/1000378166/article/c9255ea94c12864cdf03_03e94f445e2f43b6850952c832fa4b62_1024x1024.jpg",
+    description: "Traditional stone-ground jaggery, unrefined and mineral-rich",
     price: "₹90 for 100 gms"
   },
   {
-    title: "Natural Honey", 
+    title: "Wild Forest Honey", 
     link: "#",
     slug: "natural-honey",
-    thumbnail: "https://www.naturallygood.in/images/addon3.png",
-    description: "Pure natural honey",
+    thumbnail: "https://cdn-prod.medicalnewstoday.com/content/images/articles/324/324966/raw-honey-vs-regular-honey-on-table.jpg",
+    description: "Raw, unprocessed honey harvested from pristine forest apiaries",
     price: "₹600 Per 500gm"
   },
   {
-    title: "Veggies & Exotics Mix",
-    link: "#",
-    slug: "veggies-exotics-mix",
-    thumbnail: "https://images.unsplash.com/photo-1590779033100-9f60a05a013d?w=600&h=600&fit=crop&crop=center",
-    description: "3-4 KGs of 6-8 variety seasonal vegetables",
-    price: "Part of Basket"
-  },
-  {
-    title: "Seasonal Salads & Assortments", 
-    link: "#",
-    slug: "seasonal-salads-assortments",
-    thumbnail: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=600&fit=crop&crop=center",
-    description: "0.5-1 KG fresh seasonal salads and assortments",
-    price: "Part of Basket"
-  },
-  {
-    title: "Organic Greens & Herbs",
-    link: "#", 
-    slug: "organic-greens-herbs",
-    thumbnail: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=600&h=600&fit=crop&crop=center",
-    description: "Fresh organic greens including spinach, methi, coriander",
-    price: "Part of Basket"
-  },
-  {
-    title: "Farm Fresh Staples",
-    link: "#",
-    slug: "farm-fresh-staples", 
-    thumbnail: "https://images.unsplash.com/photo-1518843875459-f738682238a6?w=600&h=600&fit=crop&crop=center",
-    description: "Potatoes, onions, tomatoes, garlic, ginger essentials",
-    price: "Part of Basket"
-  },
-  {
-    title: "Organic Root Vegetables",
+    title: "Heritage Root Vegetables",
     link: "#",
     slug: "organic-root-vegetables",
-    thumbnail: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=600&h=600&fit=crop&crop=center", 
-    description: "Carrots, radish, beetroot, turnip and more",
-    price: "Part of Basket"
+    thumbnail: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=400&h=400&fit=crop&crop=center", 
+    description: "Heirloom varieties of carrots, radish, beetroot cultivated with care",
+    price: "Premium Selection"
   },
   {
-    title: "Exotic Vegetables",
-    link: "#",
-    slug: "exotic-vegetables",
-    thumbnail: "https://images.unsplash.com/photo-1471194402529-8e0f5a675de6?w=600&h=600&fit=crop&crop=center",
-    description: "Baby corn, bell peppers, broccoli, zucchini",
-    price: "Part of Basket"
-  },
-  {
-    title: "Fresh Herbs & Spices",
+    title: "Gourmet Herb Collection",
     link: "#",
     slug: "fresh-herbs-spices", 
-    thumbnail: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=600&fit=crop&crop=center",
-    description: "Basil, turmeric, curry leaves, lemon grass",
-    price: "Part of Basket"
+    thumbnail: "https://images.unsplash.com/photo-1516594798947-e65505dbb29d?w=400&h=400&fit=crop&crop=center",
+    description: "Hand-picked aromatic herbs and medicinal plants from our organic gardens",
+    price: "Curated Assortment"
+  },
+  {
+    title: "Exotic Vegetable Medley",
+    link: "#",
+    slug: "exotic-vegetables",
+    thumbnail: "https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?w=400&h=400&fit=crop&crop=center",
+    description: "Rare and specialty vegetables grown using biodynamic farming principles",
+    price: "Seasonal Availability"
+  },
+  {
+    title: "Premium Leafy Greens",
+    link: "#",
+    slug: "organic-greens-herbs",
+    thumbnail: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400&h=400&fit=crop&crop=center",
+    description: "Nutrient-dense organic spinach, kale, and seasonal microgreens",
+    price: "Farm Fresh Daily"
+  },
+  {
+    title: "Heirloom Tomato Varieties",
+    link: "#",
+    slug: "tomato-collection",
+    thumbnail: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=400&h=400&fit=crop&crop=center", 
+    description: "Heritage tomato cultivars bursting with authentic flavors and nutrition",
+    price: "Seasonal Harvest"
+  },
+  {
+    title: "Artisan Bell Peppers",
+    link: "#",
+    slug: "bell-peppers",
+    thumbnail: "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=400&h=400&fit=crop&crop=center",
+    description: "Vibrant, crisp bell peppers in rainbow varieties, naturally sweetened",
+    price: "Premium Quality"
+  },
+  {
+    title: "Traditional Turmeric & Ginger", 
+    link: "#",
+    slug: "ginger-turmeric",
+    thumbnail: "https://c.ndtvimg.com/2020-07/8trfft3_ginger-and-turmeric-_625x300_08_July_20.jpg",
+    description: "Fresh, organic turmeric and ginger roots with superior medicinal properties",
+    price: "Therapeutic Grade"
+  },
+  {
+    title: "Farm Staple Essentials",
+    link: "#",
+    slug: "farm-fresh-staples", 
+    thumbnail: "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?w=400&h=400&fit=crop&crop=center",
+    description: "Premium organic onions and garlic, foundation of authentic cuisine",
+    price: "Daily Essentials"
+  },
+  {
+    title: "Gourmet Potato Collection",
+    link: "#",
+    slug: "potato-varieties",
+    thumbnail: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=400&h=400&fit=crop&crop=center",
+    description: "Diverse potato varieties including fingerlings and heritage breeds",
+    price: "Artisan Selection"
+  },
+  {
+    title: "Seasonal Microgreens",
+    link: "#",
+    slug: "microgreens",
+    thumbnail: "https://integrishealth.org/-/media/blog/21-q3/oyh_microgreens.ashx",
+    description: "Nutrient-concentrated microgreens packed with vitamins and minerals",
+    price: "Superfood Grade"
+  },
+  {
+    title: "Heritage Lettuce Varieties",
+    link: "#",
+    slug: "lettuce-varieties",
+    thumbnail: "https://www.thespruceeats.com/thmb/DXYvPvPK2_j4IINIM3QsHtkXRnM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SES-varieties-of-lettuce-4065606-hero-01-0a5ac269169940de8f67d61c6dafbc19.jpg",
+    description: "Heirloom lettuce varieties offering unique textures and flavors",
+    price: "Gourmet Selection"
+  },
+  {
+    title: "Organic Brassica Collection",
+    link: "#",
+    slug: "brinjal-cabbage",
+    thumbnail: "https://images.unsplash.com/photo-1518977956812-cd3dbadaaf31?w=400&h=400&fit=crop&crop=center",
+    description: "Premium brinjal, cabbage, and cruciferous vegetables grown organically",
+    price: "Seasonal Bounty"
   }
 ];

@@ -105,12 +105,13 @@ export const Header = () => {
   return (
     <div className="max-w-7xl relative mx-auto py-10 md:py-20 px-4 w-full  left-0 top-0">
       <h1 className="text-2xl md:text-7xl font-bold text-emerald-800 dark:text-emerald-300">
-        NaturallyGood <br /> Organic Harvest
+        Our Legacy <br /> Cultivating Excellence
       </h1>
       <p className="max-w-2xl text-base md:text-xl mt-8 text-emerald-700 dark:text-emerald-200">
-        Farm-fresh organic vegetables delivered to your doorstep. Experience the 
-        pure taste of seasonal, sustainably grown produce from our certified 
-        organic farms in Delhi NCR.
+        Since our inception, NaturallyGood has been at the forefront of sustainable agriculture, 
+        pioneering innovative farming techniques while preserving traditional wisdom. Our commitment 
+        to excellence spans generations, delivering uncompromising quality and nutritional integrity 
+        through every harvest.
       </p>
     </div>
   );
