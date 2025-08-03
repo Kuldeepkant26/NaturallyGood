@@ -5,7 +5,6 @@ import { TimelineDemo } from '../components/ui/TimelineDemo'
 import HeroSection from '../components/ui/HeroSection'
 import '../css/Home.css'
 import SplashScreen from '@/components/ui/SplashScreen'
-import ChatBot from '../components/ui/ChatBot'
 import { WobbleCardDemo } from '@/components/ui/WobbleCardDemo'
 import SubscriptionSection from '../components/ui/SubscriptionSection'
 import ProductsSection from '../components/ui/ProductsSection'
@@ -36,8 +35,6 @@ function Home() {
                     <ProductsSection />
                     <SubscriptionSection />
                     <TimelineDemo></TimelineDemo>
-
-                    <ChatBot />
                 </>
             )}
         </>

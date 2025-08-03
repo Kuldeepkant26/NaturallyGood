@@ -4,6 +4,8 @@ import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Navbar from './components/ui/Navbar'
 import Footer from './components/ui/Footer'
+import ChatBot from './components/ui/ChatBot'
+import OrganicTag from './components/ui/OrganicTag'
 import './App.css'
 
 import MyProvider from './context/MyProvider'
@@ -20,6 +22,8 @@ function App() {
         </Routes>
       </div>
       <Footer />
+      <ChatBot />
+      <OrganicTag />
     </div>
 
   )
