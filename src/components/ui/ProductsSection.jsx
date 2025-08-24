@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { motion, useInView, useMotionValue, useSpring, useTransform, AnimatePresence } from 'motion/react';
+import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'motion/react';
 import { Leaf, Package, ShoppingBasket, Heart, Star, ArrowRight, CheckCircle, X, Plus, Minus } from 'lucide-react';
 
 // Import vegetable images configuration
@@ -11,7 +11,6 @@ const ProductsSection = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
   
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -149,35 +148,6 @@ const ProductsSection = () => {
     ]
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const productVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 30,
-      scale: 0.95
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 120,
-        damping: 12
-      }
-    }
-  };
-
   const handleMouseMove = (event, productIndex) => {
     if (hoveredProduct === productIndex) {
       const rect = event.currentTarget.getBoundingClientRect();
@@ -222,62 +192,43 @@ const ProductsSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-16"
-        >
-          <motion.div
-            initial={{ scale: 0, rotate: -180 }}
-            animate={isInView ? { scale: 1, rotate: 0 } : {}}
-            transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-            className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full mb-6"
-          >
-            <ShoppingBasket className="w-8 h-8 text-white" />
-          </motion.div>
+        <div className="text-center mb-12 sm:mb-16 px-4">
+          <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full mb-4 sm:mb-6">
+            <ShoppingBasket className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+          </div>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
             <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
               What's in Your Basket?
             </span>
           </h2>
           
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ delay: 0.4 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
-          >
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Discover the amazing variety of fresh, organic produce that comes in your seasonal veggie basket. 
             Each delivery is carefully curated based on seasonal availability.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         {/* Category Tabs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.6 }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
-        >
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-12 px-4">
           {categories.map((category, index) => (
             <motion.button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.7 + index * 0.1 }}
-              className={`relative px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 ${
+              className={`relative px-4 sm:px-6 py-3 sm:py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-1 sm:gap-2 text-sm sm:text-base min-h-[44px] touch-manipulation ${
                 activeCategory === category.id
-                  ? `bg-gradient-to-r ${category.color} text-white shadow-lg`
-                  : 'bg-white text-gray-600 hover:text-gray-900 border border-gray-200 hover:border-gray-300'
+                  ? `bg-gradient-to-r ${category.color} text-white shadow-lg border-2 border-transparent`
+                  : 'bg-white text-gray-700 hover:text-gray-900 border-2 border-gray-300 hover:border-gray-400 shadow-md'
               }`}
+              style={{
+                WebkitTapHighlightColor: 'transparent',
+                minWidth: 'max-content'
+              }}
             >
-              {category.icon}
-              <span>{category.name}</span>
+              <span className="flex-shrink-0">{category.icon}</span>
+              <span className="whitespace-nowrap font-medium">{category.name}</span>
               
               {activeCategory === category.id && (
                 <motion.div
@@ -288,20 +239,16 @@ const ProductsSection = () => {
               )}
             </motion.button>
           ))}
-        </motion.div>
+        </div>
 
         {/* Products Grid */}
-        <motion.div
+        <div
           key={activeCategory}
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-16 px-4 sm:px-0"
         >
           {products[activeCategory].map((product, index) => (
             <motion.div
               key={index}
-              variants={productVariants}
               style={{
                 rotateX: hoveredProduct === index ? rotateX : 0,
                 rotateY: hoveredProduct === index ? rotateY : 0,
@@ -375,49 +322,41 @@ const ProductsSection = () => {
                 <div className="relative z-10">
                   <ul className="space-y-2">
                     {product.features.map((feature, featureIndex) => (
-                      <motion.li
+                      <li
                         key={featureIndex}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.8 + index * 0.1 + featureIndex * 0.05 }}
                         className="flex items-center text-sm text-gray-600"
                       >
                         <CheckCircle className="w-3 h-3 text-green-500 mr-2 flex-shrink-0" />
                         {feature}
-                      </motion.li>
+                      </li>
                     ))}
                   </ul>
                 </div>
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Bottom Info */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 1.0 }}
-          className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-3xl p-8 text-white"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-white mx-4 sm:mx-0">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center">
             <div>
-              <h3 className="text-2xl font-bold mb-4">Seasonal Veggie Basket Contents</h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-4">Seasonal Veggie Basket Contents</h3>
               <div className="space-y-3">
-                <div className="flex items-center">
-                  <Star className="w-5 h-5 mr-3 text-yellow-300" />
-                  <span>3-4 kg mix of Seasonal Veggies & Exotics</span>
+                <div className="flex items-start sm:items-center">
+                  <Star className="w-5 h-5 mr-3 mt-0.5 sm:mt-0 text-yellow-300 flex-shrink-0" />
+                  <span className="text-sm sm:text-base">3-4 kg mix of Seasonal Veggies & Exotics</span>
                 </div>
-                <div className="flex items-center">
-                  <Star className="w-5 h-5 mr-3 text-yellow-300" />
-                  <span>0.5-1 kg mix of Seasonal Salads & Assortments</span>
+                <div className="flex items-start sm:items-center">
+                  <Star className="w-5 h-5 mr-3 mt-0.5 sm:mt-0 text-yellow-300 flex-shrink-0" />
+                  <span className="text-sm sm:text-base">0.5-1 kg mix of Seasonal Salads & Assortments</span>
                 </div>
-                <div className="flex items-center">
-                  <Star className="w-5 h-5 mr-3 text-yellow-300" />
-                  <span>3-4 kg mix of Essential Staples</span>
+                <div className="flex items-start sm:items-center">
+                  <Star className="w-5 h-5 mr-3 mt-0.5 sm:mt-0 text-yellow-300 flex-shrink-0" />
+                  <span className="text-sm sm:text-base">3-4 kg mix of Essential Staples</span>
                 </div>
               </div>
-              <p className="text-green-100 text-sm mt-4">
+              <p className="text-green-100 text-xs sm:text-sm mt-4 leading-relaxed">
                 *The actual selection varies based on seasonal availability and harvest. 
                 We recommend going with our farmers' choice for the freshest produce.
               </p>
@@ -428,14 +367,15 @@ const ProductsSection = () => {
                 onClick={handleWhatsAppOrder}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white text-green-600 font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center"
+                className="w-full sm:w-auto bg-white text-green-600 font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center text-sm sm:text-base"
+                style={{ WebkitTapHighlightColor: 'transparent' }}
               >
                 <span>Order Your Basket</span>
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
               </motion.button>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Product Detail Modal */}
         <AnimatePresence>
@@ -444,7 +384,7 @@ const ProductsSection = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+              className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-2 sm:p-4"
               onClick={closeModal}
             >
               <motion.div
@@ -452,30 +392,31 @@ const ProductsSection = () => {
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+                className="bg-white rounded-2xl sm:rounded-3xl max-w-2xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="p-8">
+                <div className="p-4 sm:p-8">
                   {/* Close Button */}
-                  <div className="flex justify-end mb-4">
+                  <div className="flex justify-end mb-2 sm:mb-4">
                     <button
                       onClick={closeModal}
-                      className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                      className="p-2 hover:bg-gray-100 rounded-full transition-colors touch-manipulation"
+                      style={{ WebkitTapHighlightColor: 'transparent' }}
                     >
-                      <X className="w-6 h-6 text-gray-500" />
+                      <X className="w-5 h-5 sm:w-6 sm:h-6 text-gray-500" />
                     </button>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
                     {/* Product Image */}
                     <div className="relative">
-                      <div className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+                      <div className="relative w-full h-48 sm:h-64 md:h-80 rounded-xl sm:rounded-2xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
                         <img
                           src={selectedProduct.image}
                           alt={selectedProduct.name}
                           className="w-full h-full object-cover"
                         />
-                        <div className="absolute top-3 left-3 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1">
+                        <div className="absolute top-2 sm:top-3 left-2 sm:left-3 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1">
                           <Leaf className="w-3 h-3" />
                           Fresh
                         </div>
@@ -483,29 +424,29 @@ const ProductsSection = () => {
                     </div>
 
                     {/* Product Details */}
-                    <div className="space-y-6">
+                    <div className="space-y-4 sm:space-y-6">
                       <div>
-                        <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
                           {selectedProduct.name}
                         </h2>
-                        <p className="text-gray-600 text-lg leading-relaxed">
+                        <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
                           {selectedProduct.description}
                         </p>
                       </div>
 
                       {/* Price */}
                       {selectedProduct.price && (
-                        <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white text-lg font-semibold px-4 py-2 rounded-full inline-block">
+                        <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white text-base sm:text-lg font-semibold px-3 sm:px-4 py-2 rounded-full inline-block">
                           {selectedProduct.price}
                         </div>
                       )}
 
                       {/* Features */}
                       <div>
-                        <h3 className="text-xl font-semibold text-gray-900 mb-3">Features</h3>
-                        <ul className="space-y-3">
+                        <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3">Features</h3>
+                        <ul className="space-y-2 sm:space-y-3">
                           {selectedProduct.features.map((feature, index) => (
-                            <li key={index} className="flex items-center text-gray-600">
+                            <li key={index} className="flex items-center text-sm sm:text-base text-gray-600">
                               <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
                               {feature}
                             </li>
@@ -515,20 +456,22 @@ const ProductsSection = () => {
 
                       {/* Quantity Selector */}
                       <div>
-                        <h3 className="text-xl font-semibold text-gray-900 mb-3">Quantity</h3>
+                        <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3">Quantity</h3>
                         <div className="flex items-center space-x-4">
                           <button
                             onClick={decreaseQuantity}
-                            className="p-2 border-2 border-gray-300 rounded-full hover:border-green-500 transition-colors"
+                            className="p-2 sm:p-3 border-2 border-gray-300 rounded-full hover:border-green-500 transition-colors touch-manipulation"
+                            style={{ WebkitTapHighlightColor: 'transparent' }}
                           >
                             <Minus className="w-4 h-4" />
                           </button>
-                          <span className="text-xl font-semibold min-w-[3rem] text-center">
+                          <span className="text-lg sm:text-xl font-semibold min-w-[3rem] text-center">
                             {quantity}
                           </span>
                           <button
                             onClick={increaseQuantity}
-                            className="p-2 border-2 border-gray-300 rounded-full hover:border-green-500 transition-colors"
+                            className="p-2 sm:p-3 border-2 border-gray-300 rounded-full hover:border-green-500 transition-colors touch-manipulation"
+                            style={{ WebkitTapHighlightColor: 'transparent' }}
                           >
                             <Plus className="w-4 h-4" />
                           </button>
@@ -540,9 +483,10 @@ const ProductsSection = () => {
                         onClick={handleOrderProduct}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold py-4 px-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2"
+                        className="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2 text-sm sm:text-base touch-manipulation"
+                        style={{ WebkitTapHighlightColor: 'transparent' }}
                       >
-                        <ShoppingBasket className="w-5 h-5" />
+                        <ShoppingBasket className="w-4 h-4 sm:w-5 sm:h-5" />
                         <span>Order via WhatsApp</span>
                       </motion.button>
                     </div>

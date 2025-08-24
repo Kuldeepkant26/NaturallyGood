@@ -3,6 +3,8 @@ import React, { createContext, useState, useEffect } from 'react'
 export const MyContext = createContext()
 
 function MyProvider({ children }) {
+
+    
     // Products data based on the website
     const [products] = useState([
         {
