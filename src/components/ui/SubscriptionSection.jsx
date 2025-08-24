@@ -1,17 +1,10 @@
-import React, { useState, useRef } from 'react';
-import { motion, useInView, useMotionValue, useSpring, useTransform, AnimatePresence } from 'motion/react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle, Star, Zap, Calendar, Gift, ArrowRight, X, ShoppingBasket, Users, Clock } from 'lucide-react';
 
 const SubscriptionSection = () => {
   const [hoveredPlan, setHoveredPlan] = useState(null);
   const [selectedPlan, setSelectedPlan] = useState(null);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
-  
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const rotateX = useSpring(useTransform(y, [-100, 100], [30, -30]));
-  const rotateY = useSpring(useTransform(x, [-100, 100], [-30, 30]));
 
   const subscriptionPlans = [
     {
@@ -170,46 +163,8 @@ const SubscriptionSection = () => {
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 50,
-      scale: 0.9,
-      rotateX: -15
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      scale: 1,
-      rotateX: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-        duration: 0.6
-      }
-    }
-  };
-
   const handleMouseMove = (event, planId) => {
-    if (hoveredPlan === planId) {
-      const rect = event.currentTarget.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-      x.set(event.clientX - centerX);
-      y.set(event.clientY - centerY);
-    }
+    // Remove complex mouse tracking for mobile compatibility
   };
 
   const handleWhatsAppOrder = (plan) => {
@@ -241,87 +196,50 @@ Please help me complete the subscription process. Thank you!`;
   };
 
   return (
-    <section ref={ref} className="py-20 bg-gradient-to-br from-gray-50 via-emerald-50 to-green-50 overflow-hidden">
+    <section className="py-16 sm:py-20 bg-gradient-to-br from-gray-50 via-emerald-50 to-green-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-16"
-        >
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={isInView ? { scale: 1 } : {}}
-            transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-            className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-emerald-500 to-green-600 rounded-full mb-6"
-          >
-            <Calendar className="w-8 h-8 text-white" />
-          </motion.div>
+        <div className="text-center mb-12 sm:mb-16">
+          <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-emerald-500 to-green-600 rounded-full mb-4 sm:mb-6">
+            <Calendar className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+          </div>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
             <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
               Subscription Plans
             </span>
           </h2>
           
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ delay: 0.4 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
-          >
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
             Choose the perfect plan for your family's fresh, organic vegetable needs. 
             The longer you subscribe, the more you save!
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         {/* Subscription Cards */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 px-4 sm:px-0">
           {subscriptionPlans.map((plan, index) => (
-            <motion.div
+            <div
               key={plan.id}
-              variants={cardVariants}
-              style={{
-                rotateX: hoveredPlan === plan.id ? rotateX : 0,
-                rotateY: hoveredPlan === plan.id ? rotateY : 0,
-              }}
               onMouseMove={(e) => handleMouseMove(e, plan.id)}
               onMouseEnter={() => setHoveredPlan(plan.id)}
               onMouseLeave={() => {
                 setHoveredPlan(null);
-                x.set(0);
-                y.set(0);
               }}
               onClick={() => handlePlanClick(plan)}
-              whileHover={{ 
-                scale: 1.05,
-                y: -10,
-                transition: { type: "spring", stiffness: 400, damping: 25 }
-              }}
-              className={`relative group cursor-pointer transform-gpu`}
+              className={`relative group cursor-pointer transform-gpu hover:scale-105 hover:-translate-y-2 transition-all duration-300`}
             >
               {/* Popular Badge */}
               {plan.popular && (
-                <motion.div
-                  initial={{ scale: 0, rotate: -45 }}
-                  animate={{ scale: 1, rotate: 0 }}
-                  transition={{ delay: 0.5 + index * 0.1, type: "spring" }}
-                  className="absolute -top-3 -right-3 z-10"
-                >
+                <div className="absolute -top-3 -right-3 z-10">
                   <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
                     POPULAR
                   </div>
-                </motion.div>
+                </div>
               )}
 
-              <div className={`relative bg-white rounded-3xl p-8 shadow-xl border border-gray-100 overflow-hidden h-full flex flex-col transition-all duration-300 group-hover:shadow-2xl`}>
+              <div className={`relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl border border-gray-100 overflow-hidden h-full flex flex-col transition-all duration-300 group-hover:shadow-2xl`}>
                 
                 {/* Background Gradient */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${plan.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
@@ -330,14 +248,14 @@ Please help me complete the subscription process. Thank you!`;
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-emerald-200/20 to-green-300/20 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700" />
                 
                 {/* Header */}
-                <div className="relative z-10 mb-6">
-                  <div className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r ${plan.color} rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                <div className="relative z-10 mb-4 sm:mb-6">
+                  <div className={`inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${plan.color} rounded-xl mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300`}>
                     <div className="text-white">
                       {plan.icon}
                     </div>
                   </div>
                   
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{plan.title}</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{plan.title}</h3>
                   <p className="text-sm text-gray-600 mb-3">{plan.subtitle}</p>
                   
                   {/* Discount Badge */}
@@ -347,29 +265,26 @@ Please help me complete the subscription process. Thank you!`;
                 </div>
 
                 {/* Pricing */}
-                <div className="relative z-10 mb-6">
+                <div className="relative z-10 mb-4 sm:mb-6">
                   <div className="flex items-center mb-2">
-                    <span className="text-2xl font-bold text-gray-900">{plan.discountedPrice}</span>
-                    <span className="text-lg text-gray-500 line-through ml-2">{plan.originalPrice}</span>
+                    <span className="text-xl sm:text-2xl font-bold text-gray-900">{plan.discountedPrice}</span>
+                    <span className="text-base sm:text-lg text-gray-500 line-through ml-2">{plan.originalPrice}</span>
                   </div>
                   <p className="text-sm text-gray-600 mb-1">{plan.pricePerBasket}</p>
                   <p className="text-xs text-gray-500">{plan.duration}</p>
                 </div>
 
                 {/* Features */}
-                <div className="relative z-10 flex-grow mb-6">
-                  <ul className="space-y-3">
+                <div className="relative z-10 flex-grow mb-4 sm:mb-6">
+                  <ul className="space-y-2 sm:space-y-3">
                     {plan.features.map((feature, featureIndex) => (
-                      <motion.li
+                      <li
                         key={featureIndex}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={isInView ? { opacity: 1, x: 0 } : {}}
-                        transition={{ delay: 0.6 + index * 0.1 + featureIndex * 0.1 }}
                         className="flex items-center text-sm text-gray-600"
                       >
                         <CheckCircle className="w-4 h-4 text-emerald-500 mr-2 flex-shrink-0" />
                         {feature}
-                      </motion.li>
+                      </li>
                     ))}
                   </ul>
                 </div>
@@ -382,23 +297,19 @@ Please help me complete the subscription process. Thank you!`;
                     e.stopPropagation();
                     handleWhatsAppOrder(plan);
                   }}
-                  className={`relative z-10 w-full bg-gradient-to-r ${plan.color} text-white font-semibold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group/button`}
+                  className={`relative z-10 w-full bg-gradient-to-r ${plan.color} text-white font-semibold py-3 px-4 sm:px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group/button text-sm sm:text-base touch-manipulation`}
+                  style={{ WebkitTapHighlightColor: 'transparent' }}
                 >
                   <span>Order Now</span>
                   <ArrowRight className="w-4 h-4 ml-2 group-hover/button:translate-x-1 transition-transform duration-200" />
                 </motion.button>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 1.2 }}
-          className="text-center mt-16"
-        >
+        <div className="text-center mt-12 sm:mt-16">
           <p className="text-gray-600 mb-6">
             Have questions? Need a custom plan?
           </p>
@@ -408,12 +319,13 @@ Please help me complete the subscription process. Thank you!`;
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition-all duration-300"
+            className="inline-flex items-center bg-green-500 hover:bg-green-600 text-white font-semibold px-6 sm:px-8 py-3 rounded-full shadow-lg transition-all duration-300 text-sm sm:text-base touch-manipulation"
+            style={{ WebkitTapHighlightColor: 'transparent' }}
           >
             <span>Contact Us on WhatsApp</span>
-            <ArrowRight className="w-5 h-5 ml-2" />
+            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
           </motion.a>
-        </motion.div>
+        </div>
 
         {/* Subscription Detail Modal */}
         <AnimatePresence>
@@ -422,7 +334,7 @@ Please help me complete the subscription process. Thank you!`;
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+              className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-2 sm:p-4"
               onClick={closeModal}
             >
               <motion.div
@@ -430,92 +342,93 @@ Please help me complete the subscription process. Thank you!`;
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+                className="bg-white rounded-2xl sm:rounded-3xl max-w-4xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="p-8">
+                <div className="p-4 sm:p-8">
                   {/* Close Button */}
-                  <div className="flex justify-end mb-4">
+                  <div className="flex justify-end mb-2 sm:mb-4">
                     <button
                       onClick={closeModal}
-                      className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                      className="p-2 hover:bg-gray-100 rounded-full transition-colors touch-manipulation"
+                      style={{ WebkitTapHighlightColor: 'transparent' }}
                     >
-                      <X className="w-6 h-6 text-gray-500" />
+                      <X className="w-5 h-5 sm:w-6 sm:h-6 text-gray-500" />
                     </button>
                   </div>
 
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
                     {/* Plan Overview */}
-                    <div className="space-y-6">
+                    <div className="space-y-4 sm:space-y-6">
                       {/* Plan Header */}
                       <div>
                         <div className="flex items-center mb-4">
-                          <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${selectedPlan.color} rounded-2xl mr-4`}>
+                          <div className={`inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r ${selectedPlan.color} rounded-xl sm:rounded-2xl mr-3 sm:mr-4`}>
                             <div className="text-white">
                               {selectedPlan.icon}
                             </div>
                           </div>
                           <div>
-                            <h2 className="text-3xl font-bold text-gray-900">
+                            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
                               {selectedPlan.title}
                             </h2>
-                            <p className="text-lg text-gray-600">{selectedPlan.subtitle}</p>
+                            <p className="text-base sm:text-lg text-gray-600">{selectedPlan.subtitle}</p>
                           </div>
                         </div>
 
                         {/* Popular Badge */}
                         {selectedPlan.popular && (
-                          <div className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white text-sm font-bold px-4 py-2 rounded-full mb-4">
+                          <div className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white text-sm font-bold px-3 sm:px-4 py-2 rounded-full mb-4">
                             🔥 MOST POPULAR CHOICE
                           </div>
                         )}
                       </div>
 
                       {/* Pricing */}
-                      <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-6">
+                      <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl sm:rounded-2xl p-4 sm:p-6">
                         <div className="flex items-center justify-between mb-4">
                           <div>
                             <div className="flex items-center mb-2">
-                              <span className="text-3xl font-bold text-gray-900">{selectedPlan.discountedPrice}</span>
-                              <span className="text-xl text-gray-500 line-through ml-3">{selectedPlan.originalPrice}</span>
+                              <span className="text-2xl sm:text-3xl font-bold text-gray-900">{selectedPlan.discountedPrice}</span>
+                              <span className="text-lg sm:text-xl text-gray-500 line-through ml-2 sm:ml-3">{selectedPlan.originalPrice}</span>
                             </div>
-                            <p className="text-lg font-semibold text-green-600">{selectedPlan.pricePerBasket}</p>
+                            <p className="text-base sm:text-lg font-semibold text-green-600">{selectedPlan.pricePerBasket}</p>
                           </div>
-                          <div className={`bg-gradient-to-r ${selectedPlan.color} text-white text-lg font-bold px-4 py-2 rounded-full`}>
+                          <div className={`bg-gradient-to-r ${selectedPlan.color} text-white text-base sm:text-lg font-bold px-3 sm:px-4 py-2 rounded-full`}>
                             {selectedPlan.discount}
                           </div>
                         </div>
-                        <p className="text-gray-600">{selectedPlan.duration}</p>
+                        <p className="text-sm sm:text-base text-gray-600">{selectedPlan.duration}</p>
                       </div>
 
                       {/* Plan Details */}
-                      <div className="grid grid-cols-2 gap-4">
-                        <div className="flex items-center p-4 bg-blue-50 rounded-xl">
-                          <Users className="w-6 h-6 text-blue-500 mr-3" />
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                        <div className="flex items-center p-3 sm:p-4 bg-blue-50 rounded-xl">
+                          <Users className="w-5 h-5 sm:w-6 sm:h-6 text-blue-500 mr-2 sm:mr-3" />
                           <div>
-                            <p className="text-sm text-gray-600">Ideal for</p>
-                            <p className="font-semibold">{selectedPlan.familySize}</p>
+                            <p className="text-xs sm:text-sm text-gray-600">Ideal for</p>
+                            <p className="text-sm sm:text-base font-semibold">{selectedPlan.familySize}</p>
                           </div>
                         </div>
-                        <div className="flex items-center p-4 bg-green-50 rounded-xl">
-                          <Clock className="w-6 h-6 text-green-500 mr-3" />
+                        <div className="flex items-center p-3 sm:p-4 bg-green-50 rounded-xl">
+                          <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 mr-2 sm:mr-3" />
                           <div>
-                            <p className="text-sm text-gray-600">Delivery</p>
-                            <p className="font-semibold">{selectedPlan.deliveryWindow}</p>
+                            <p className="text-xs sm:text-sm text-gray-600">Delivery</p>
+                            <p className="text-sm sm:text-base font-semibold">{selectedPlan.deliveryWindow}</p>
                           </div>
                         </div>
                       </div>
                     </div>
 
                     {/* Plan Features */}
-                    <div className="space-y-6">
+                    <div className="space-y-4 sm:space-y-6">
                       {/* What's Included */}
                       <div>
-                        <h3 className="text-2xl font-semibold text-gray-900 mb-4">What's Included</h3>
-                        <ul className="space-y-3">
+                        <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3 sm:mb-4">What's Included</h3>
+                        <ul className="space-y-2 sm:space-y-3">
                           {selectedPlan.detailedFeatures.map((feature, index) => (
-                            <li key={index} className="flex items-start text-gray-600">
-                              <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                            <li key={index} className="flex items-start text-sm sm:text-base text-gray-600">
+                              <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
                               {feature}
                             </li>
                           ))}
@@ -524,11 +437,11 @@ Please help me complete the subscription process. Thank you!`;
 
                       {/* Benefits */}
                       <div>
-                        <h3 className="text-2xl font-semibold text-gray-900 mb-4">Key Benefits</h3>
-                        <ul className="space-y-3">
+                        <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3 sm:mb-4">Key Benefits</h3>
+                        <ul className="space-y-2 sm:space-y-3">
                           {selectedPlan.benefits.map((benefit, index) => (
-                            <li key={index} className="flex items-start text-gray-600">
-                              <Star className="w-5 h-5 text-yellow-500 mr-3 flex-shrink-0 mt-0.5" />
+                            <li key={index} className="flex items-start text-sm sm:text-base text-gray-600">
+                              <Star className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
                               {benefit}
                             </li>
                           ))}
@@ -540,14 +453,15 @@ Please help me complete the subscription process. Thank you!`;
                         onClick={handleSubscribeNow}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className={`w-full bg-gradient-to-r ${selectedPlan.color} text-white font-bold py-4 px-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2`}
+                        className={`w-full bg-gradient-to-r ${selectedPlan.color} text-white font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2 text-sm sm:text-base touch-manipulation`}
+                        style={{ WebkitTapHighlightColor: 'transparent' }}
                       >
-                        <ShoppingBasket className="w-6 h-6" />
+                        <ShoppingBasket className="w-5 h-5 sm:w-6 sm:h-6" />
                         <span>Subscribe Now via WhatsApp</span>
                       </motion.button>
 
                       {/* Money Back Guarantee */}
-                      <div className="text-center p-4 bg-green-50 rounded-xl">
+                      <div className="text-center p-3 sm:p-4 bg-green-50 rounded-xl">
                         <p className="text-sm text-green-700 font-semibold">
                           💚 100% Satisfaction Guaranteed
                         </p>
