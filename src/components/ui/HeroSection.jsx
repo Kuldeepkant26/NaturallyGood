@@ -51,7 +51,7 @@ const HeroSection = () => {
         <div 
           className="hero-video"
           style={{
-            background: 'linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%)',
+            background: 'linear-gradient(135deg, #1f2937 0%, #374151 50%, #4b5563 100%)',
             position: 'absolute',
             top: 0,
             left: 0,
