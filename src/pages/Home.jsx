@@ -8,6 +8,7 @@ import SplashScreen from '@/components/ui/SplashScreen'
 import { WobbleCardDemo } from '@/components/ui/WobbleCardDemo'
 import SubscriptionSection from '../components/ui/SubscriptionSection'
 import ProductsSection from '../components/ui/ProductsSection'
+import FAQSection from '../components/ui/FAQSection'
 import { MyContext } from '@/context/MyProvider'
 
 
@@ -41,6 +42,7 @@ function Home() {
                     <ProductsSection />
                     <SubscriptionSection />
                     <TimelineDemo></TimelineDemo>
+                    <FAQSection />
                 </>
             )}
         </>

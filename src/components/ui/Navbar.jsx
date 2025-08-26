@@ -7,6 +7,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(false);
   const [showBlogPopup, setShowBlogPopup] = useState(false);
+  const [showContactPopup, setShowContactPopup] = useState(false);
   const navigateToProducts = useNavigateToProducts();
 
   useEffect(() => {
@@ -42,9 +43,11 @@ const Navbar = () => {
     { name: 'Blog', href: '#', isBlog: true },
   ];
 
-  const handleGetQuote = () => {
-    const message = `Hi! I'm interested in your seasonal veggie baskets and would like to get a quote. Please share the available plans and pricing details.`;
-    window.open(`https://wa.me/919643722200?text=${encodeURIComponent(message)}`, '_blank');
+  const handleContactUs = (e) => {
+    if (e) {
+      e.preventDefault();
+    }
+    setShowContactPopup(true);
   };
 
   const handleBlogClick = (e) => {
@@ -54,6 +57,10 @@ const Navbar = () => {
 
   const closeBlogPopup = () => {
     setShowBlogPopup(false);
+  };
+
+  const closeContactPopup = () => {
+    setShowContactPopup(false);
   };
 
   const handleProductsClick = (e) => {
@@ -118,22 +125,19 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Get Quote Button & Mobile Menu */}
+          {/* Contact Us Button & Mobile Menu */}
           <div className="flex items-center space-x-3">
-            {/* Get Quote Button */}
+            {/* Contact Us Button - Hidden on mobile */}
             <motion.button
-              onClick={handleGetQuote}
-              className="flex items-center px-6 py-2.5 bg-gradient-to-r from-emerald-600 to-emerald-800 hover:from-emerald-700 hover:to-emerald-900 text-white font-semibold text-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm"
+              onClick={handleContactUs}
+              className="hidden lg:flex items-center px-6 py-2.5 bg-gradient-to-r from-emerald-600 to-emerald-800 hover:from-emerald-700 hover:to-emerald-900 text-white font-semibold text-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm"
               whileHover={{ scale: 1.05, y: -1 }}
               whileTap={{ scale: 0.98 }}
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4, delay: 0.3 }}
             >
-              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              <span className="hidden sm:inline">Get Quote</span>
+              <span>Contact Us</span>
             </motion.button>
 
             {/* Mobile Menu Button */}
@@ -192,23 +196,20 @@ const Navbar = () => {
                 </motion.a>
               ))}
 
-              {/* Mobile Get Quote Button */}
+              {/* Mobile Contact Us Button */}
               <motion.button
                 onClick={() => {
-                  handleGetQuote();
+                  handleContactUs();
                   setIsMobileMenuOpen(false);
                 }}
-                className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-800 hover:from-emerald-700 hover:to-emerald-900 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center space-x-2"
+                className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-800 hover:from-emerald-700 hover:to-emerald-900 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: 0.2 }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-                <span>Get Quote</span>
+                <span>Contact Us</span>
               </motion.button>
             </div>
           </motion.div>
@@ -222,7 +223,7 @@ const Navbar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-[9999] p-4 min-h-screen"
+            className="fixed inset-0 bg-black/60 backdrop-blur-xl flex items-center justify-center z-[9999] p-4 min-h-screen"
             onClick={closeBlogPopup}
             style={{ 
               display: 'flex',
@@ -283,6 +284,80 @@ const Navbar = () => {
                 style={{ WebkitTapHighlightColor: 'transparent' }}
               >
                 Got it!
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Contact Us Development Popup */}
+      <AnimatePresence>
+        {showContactPopup && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/60 backdrop-blur-xl flex items-center justify-center z-[9999] p-4 min-h-screen"
+            onClick={closeContactPopup}
+            style={{ 
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="bg-white rounded-2xl sm:rounded-3xl max-w-md w-full p-6 sm:p-8 text-center relative mx-auto my-auto shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                maxHeight: '90vh',
+                overflow: 'auto'
+              }}
+            >
+              {/* Close Button */}
+              <div className="flex justify-end mb-4">
+                <button
+                  onClick={closeContactPopup}
+                  className="p-2 hover:bg-gray-100 rounded-full transition-colors cursor-pointer"
+                  style={{ WebkitTapHighlightColor: 'transparent' }}
+                >
+                  <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Icon */}
+              <div className="mb-6">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mb-4">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Content */}
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+                Feature Under Development!
+              </h2>
+              
+              <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6">
+                We're working on building an amazing contact system for you. 
+                In the meantime, you can reach us directly via WhatsApp or phone!
+              </p>
+
+              {/* Action Button */}
+              <motion.button
+                onClick={closeContactPopup}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-semibold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                style={{ WebkitTapHighlightColor: 'transparent' }}
+              >
+                Understood!
               </motion.button>
             </motion.div>
           </motion.div>
