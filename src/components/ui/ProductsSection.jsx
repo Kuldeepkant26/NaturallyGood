@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'motion/react';
-import { Leaf, Package, ShoppingBasket, Heart, Star, ArrowRight, CheckCircle, X, Plus, Minus } from 'lucide-react';
+import { Leaf, Package, ShoppingBasket, Heart, Star, ArrowRight, CheckCircle, X } from 'lucide-react';
 
 // Import vegetable images configuration
 import { vegetableImages } from '../../assets/vegetables/imageConfig.js';
@@ -9,7 +9,6 @@ const ProductsSection = () => {
   const [activeCategory, setActiveCategory] = useState('veggies');
   const [hoveredProduct, setHoveredProduct] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [quantity, setQuantity] = useState(1);
   const ref = useRef(null);
   
   const x = useMotionValue(0);
@@ -165,30 +164,24 @@ const ProductsSection = () => {
 
   const handleProductClick = (product) => {
     setSelectedProduct(product);
-    setQuantity(1);
+    // Prevent background scrolling
+    document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
     setSelectedProduct(null);
-    setQuantity(1);
-  };
-
-  const increaseQuantity = () => {
-    setQuantity(prev => prev + 1);
-  };
-
-  const decreaseQuantity = () => {
-    setQuantity(prev => prev > 1 ? prev - 1 : 1);
+    // Restore background scrolling
+    document.body.style.overflow = 'unset';
   };
 
   const handleOrderProduct = () => {
-    const message = `Hi! I'd like to order ${quantity} ${quantity > 1 ? 'units' : 'unit'} of ${selectedProduct.name}. ${selectedProduct.price ? `Price: ${selectedProduct.price}` : ''} Please let me know the availability and total cost.`;
+    const message = `Hi! I'd like to order ${selectedProduct.name}. ${selectedProduct.price ? `Price: ${selectedProduct.price}` : ''} Please let me know the availability and total cost.`;
     window.open(`https://wa.me/919643722200?text=${encodeURIComponent(message)}`, '_blank');
     closeModal();
   };
 
   return (
-    <section ref={ref} className="py-20 bg-gradient-to-br from-white via-green-50 to-emerald-50 overflow-hidden">
+    <section ref={ref} id="products-section" data-section="products" className="py-20 bg-gradient-to-br from-white via-green-50 to-emerald-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
@@ -384,7 +377,7 @@ const ProductsSection = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-2 sm:p-4"
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-2 sm:p-4"
               onClick={closeModal}
             >
               <motion.div
@@ -400,7 +393,7 @@ const ProductsSection = () => {
                   <div className="flex justify-end mb-2 sm:mb-4">
                     <button
                       onClick={closeModal}
-                      className="p-2 hover:bg-gray-100 rounded-full transition-colors touch-manipulation"
+                      className="p-2 hover:bg-gray-100 rounded-full transition-colors touch-manipulation cursor-pointer"
                       style={{ WebkitTapHighlightColor: 'transparent' }}
                     >
                       <X className="w-5 h-5 sm:w-6 sm:h-6 text-gray-500" />
@@ -452,30 +445,6 @@ const ProductsSection = () => {
                             </li>
                           ))}
                         </ul>
-                      </div>
-
-                      {/* Quantity Selector */}
-                      <div>
-                        <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3">Quantity</h3>
-                        <div className="flex items-center space-x-4">
-                          <button
-                            onClick={decreaseQuantity}
-                            className="p-2 sm:p-3 border-2 border-gray-300 rounded-full hover:border-green-500 transition-colors touch-manipulation"
-                            style={{ WebkitTapHighlightColor: 'transparent' }}
-                          >
-                            <Minus className="w-4 h-4" />
-                          </button>
-                          <span className="text-lg sm:text-xl font-semibold min-w-[3rem] text-center">
-                            {quantity}
-                          </span>
-                          <button
-                            onClick={increaseQuantity}
-                            className="p-2 sm:p-3 border-2 border-gray-300 rounded-full hover:border-green-500 transition-colors touch-manipulation"
-                            style={{ WebkitTapHighlightColor: 'transparent' }}
-                          >
-                            <Plus className="w-4 h-4" />
-                          </button>
-                        </div>
                       </div>
 
                       {/* Order Button */}

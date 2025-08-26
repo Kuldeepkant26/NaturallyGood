@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle, Star, Zap, Calendar, Gift, ArrowRight, X, ShoppingBasket, Users, Clock } from 'lucide-react';
 
 const SubscriptionSection = () => {
-  const [hoveredPlan, setHoveredPlan] = useState(null);
   const [selectedPlan, setSelectedPlan] = useState(null);
 
   const subscriptionPlans = [
@@ -163,10 +162,6 @@ const SubscriptionSection = () => {
     }
   ];
 
-  const handleMouseMove = (event, planId) => {
-    // Remove complex mouse tracking for mobile compatibility
-  };
-
   const handleWhatsAppOrder = (plan) => {
     const message = `Hi! I'm interested in the ${plan.title} - ${plan.duration}. Price: ${plan.discountedPrice}`;
     window.open(`https://wa.me/919643722200?text=${encodeURIComponent(message)}`, '_blank');
@@ -174,10 +169,14 @@ const SubscriptionSection = () => {
 
   const handlePlanClick = (plan) => {
     setSelectedPlan(plan);
+    // Prevent background scrolling
+    document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
     setSelectedPlan(null);
+    // Restore background scrolling
+    document.body.style.overflow = 'unset';
   };
 
   const handleSubscribeNow = () => {
@@ -222,44 +221,41 @@ Please help me complete the subscription process. Thank you!`;
           {subscriptionPlans.map((plan, index) => (
             <div
               key={plan.id}
-              onMouseMove={(e) => handleMouseMove(e, plan.id)}
-              onMouseEnter={() => setHoveredPlan(plan.id)}
-              onMouseLeave={() => {
-                setHoveredPlan(null);
-              }}
               onClick={() => handlePlanClick(plan)}
-              className={`relative group cursor-pointer transform-gpu hover:scale-105 hover:-translate-y-2 transition-all duration-300`}
+              className={`relative cursor-pointer group transition-all duration-500 ease-out transform hover:scale-[1.02] hover:-translate-y-2 hover:z-10`}
             >
               {/* Popular Badge */}
               {plan.popular && (
                 <div className="absolute -top-3 -right-3 z-10">
-                  <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                  <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg group-hover:shadow-xl transition-shadow duration-300">
                     POPULAR
                   </div>
                 </div>
               )}
 
-              <div className={`relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl border border-gray-100 overflow-hidden h-full flex flex-col transition-all duration-300 group-hover:shadow-2xl`}>
+              <div className={`relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl border border-gray-100 overflow-hidden h-full flex flex-col transition-all duration-500 ease-out group-hover:shadow-2xl group-hover:border-green-200 ${
+                plan.popular ? 'ring-2 ring-orange-200' : ''
+              }`}>
                 
                 {/* Background Gradient */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${plan.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+                <div className={`absolute inset-0 bg-gradient-to-br ${plan.color} opacity-5 group-hover:opacity-10 transition-opacity duration-500`} />
                 
-                {/* Animated Background Elements */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-emerald-200/20 to-green-300/20 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700" />
+                {/* Animated Background Circle */}
+                <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${plan.color} opacity-10 rounded-full transform translate-x-8 -translate-y-8 group-hover:scale-150 group-hover:opacity-20 transition-all duration-700 ease-out`} />
                 
                 {/* Header */}
                 <div className="relative z-10 mb-4 sm:mb-6">
-                  <div className={`inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${plan.color} rounded-xl mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <div className="text-white">
+                  <div className={`inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${plan.color} rounded-xl mb-3 sm:mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 ease-out shadow-lg group-hover:shadow-xl`}>
+                    <div className="text-white transform group-hover:scale-110 transition-transform duration-300">
                       {plan.icon}
                     </div>
                   </div>
                   
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{plan.title}</h3>
-                  <p className="text-sm text-gray-600 mb-3">{plan.subtitle}</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 group-hover:text-green-700 transition-colors duration-300">{plan.title}</h3>
+                  <p className="text-sm text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300">{plan.subtitle}</p>
                   
                   {/* Discount Badge */}
-                  <div className={`inline-block bg-gradient-to-r ${plan.color} text-white text-sm font-semibold px-3 py-1 rounded-full`}>
+                  <div className={`inline-block bg-gradient-to-r ${plan.color} text-white text-sm font-semibold px-3 py-1 rounded-full group-hover:scale-105 transition-transform duration-300 shadow-sm group-hover:shadow-md`}>
                     {plan.discount}
                   </div>
                 </div>
@@ -267,10 +263,10 @@ Please help me complete the subscription process. Thank you!`;
                 {/* Pricing */}
                 <div className="relative z-10 mb-4 sm:mb-6">
                   <div className="flex items-center mb-2">
-                    <span className="text-xl sm:text-2xl font-bold text-gray-900">{plan.discountedPrice}</span>
-                    <span className="text-base sm:text-lg text-gray-500 line-through ml-2">{plan.originalPrice}</span>
+                    <span className="text-xl sm:text-2xl font-bold text-gray-900 group-hover:text-green-700 transition-colors duration-300">{plan.discountedPrice}</span>
+                    <span className="text-base sm:text-lg text-gray-500 line-through ml-2 group-hover:text-gray-600 transition-colors duration-300">{plan.originalPrice}</span>
                   </div>
-                  <p className="text-sm text-gray-600 mb-1">{plan.pricePerBasket}</p>
+                  <p className="text-sm text-gray-600 mb-1 group-hover:text-gray-700 transition-colors duration-300">{plan.pricePerBasket}</p>
                   <p className="text-xs text-gray-500">{plan.duration}</p>
                 </div>
 
@@ -280,10 +276,12 @@ Please help me complete the subscription process. Thank you!`;
                     {plan.features.map((feature, featureIndex) => (
                       <li
                         key={featureIndex}
-                        className="flex items-center text-sm text-gray-600"
+                        className="flex items-center text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300"
                       >
-                        <CheckCircle className="w-4 h-4 text-emerald-500 mr-2 flex-shrink-0" />
-                        {feature}
+                        <CheckCircle className="w-4 h-4 text-emerald-500 mr-2 flex-shrink-0 group-hover:text-emerald-600 group-hover:scale-110 transition-all duration-300" />
+                        <span className="group-hover:translate-x-1 transition-transform duration-300">
+                          {feature}
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -297,11 +295,13 @@ Please help me complete the subscription process. Thank you!`;
                     e.stopPropagation();
                     handleWhatsAppOrder(plan);
                   }}
-                  className={`relative z-10 w-full bg-gradient-to-r ${plan.color} text-white font-semibold py-3 px-4 sm:px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group/button text-sm sm:text-base touch-manipulation`}
+                  className={`relative z-10 w-full bg-gradient-to-r ${plan.color} text-white font-semibold py-3 px-4 sm:px-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 flex items-center justify-center group/button text-sm sm:text-base touch-manipulation overflow-hidden group-hover:shadow-2xl group-hover:scale-105`}
                   style={{ WebkitTapHighlightColor: 'transparent' }}
                 >
-                  <span>Order Now</span>
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover/button:translate-x-1 transition-transform duration-200" />
+                  {/* Button shimmer effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+                  <span className="relative z-10">Order Now</span>
+                  <ArrowRight className="relative z-10 w-4 h-4 ml-2 group-hover/button:translate-x-1 transition-transform duration-200" />
                 </motion.button>
               </div>
             </div>
@@ -334,7 +334,7 @@ Please help me complete the subscription process. Thank you!`;
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-2 sm:p-4"
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-2 sm:p-4"
               onClick={closeModal}
             >
               <motion.div
@@ -350,7 +350,7 @@ Please help me complete the subscription process. Thank you!`;
                   <div className="flex justify-end mb-2 sm:mb-4">
                     <button
                       onClick={closeModal}
-                      className="p-2 hover:bg-gray-100 rounded-full transition-colors touch-manipulation"
+                      className="p-2 hover:bg-gray-100 rounded-full transition-colors touch-manipulation cursor-pointer"
                       style={{ WebkitTapHighlightColor: 'transparent' }}
                     >
                       <X className="w-5 h-5 sm:w-6 sm:h-6 text-gray-500" />
