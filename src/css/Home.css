@@ -18,6 +18,15 @@
   height: 100%;
   object-fit: cover;
   z-index: -2;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-video.active {
+  z-index: -2;
+}
+
+.hero-video.inactive {
+  z-index: -3;
 }
 
 .hero-overlay {

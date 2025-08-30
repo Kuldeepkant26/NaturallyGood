@@ -1,9 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   const [showContent, setShowContent] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  
+  const video1Ref = useRef(null);
+  const video2Ref = useRef(null);
+  
+  const videos = [
+    "https://www.pexels.com/download/video/4578568/",
+    "https://www.pexels.com/download/video/10041408/"
+  ];
 
   useEffect(() => {
     // Show navbar after 2 seconds
@@ -23,26 +33,87 @@ const HeroSection = () => {
     };
   }, []);
 
+  useEffect(() => {
+    // Preload the second video when the component mounts
+    if (video2Ref.current) {
+      video2Ref.current.load();
+    }
+  }, []);
+
   const handleVideoLoaded = () => {
     setVideoLoaded(true);
   };
 
+  const handleVideoEnded = () => {
+    if (!isTransitioning) {
+      setIsTransitioning(true);
+      
+      // Start the transition
+      const nextVideoIndex = currentVideoIndex === 0 ? 1 : 0;
+      const currentVideo = currentVideoIndex === 0 ? video1Ref.current : video2Ref.current;
+      const nextVideo = nextVideoIndex === 0 ? video1Ref.current : video2Ref.current;
+      
+      // Fade out current video and fade in next video
+      if (currentVideo) {
+        currentVideo.style.opacity = '0';
+      }
+      
+      if (nextVideo) {
+        nextVideo.style.opacity = '1';
+        nextVideo.currentTime = 0;
+        nextVideo.play();
+      }
+      
+      // Update the current video index after transition
+      setTimeout(() => {
+        setCurrentVideoIndex(nextVideoIndex);
+        setIsTransitioning(false);
+        
+        // Reset the opacity of the previous video and prepare it for next cycle
+        if (currentVideo) {
+          currentVideo.style.opacity = '1';
+          currentVideo.currentTime = 0;
+        }
+      }, 1000); // 1 second transition time
+    }
+  };
+
   return (
     <section className="hero-container">
-      {/* Background Video */}
+      {/* Background Videos */}
       <video
-        className="hero-video"
+        ref={video1Ref}
+        className={`hero-video ${currentVideoIndex === 0 ? 'active' : 'inactive'}`}
         autoPlay
         muted
-        loop
         playsInline
         onLoadedData={handleVideoLoaded}
+        onEnded={handleVideoEnded}
         preload="metadata"
+        style={{
+          opacity: currentVideoIndex === 0 ? 1 : 0,
+          transition: 'opacity 1s ease-in-out',
+          zIndex: currentVideoIndex === 0 ? -2 : -3
+        }}
       >
-        <source
-          src="https://cdn.pixabay.com/video/2020/04/30/37664-418005769_large.mp4"
-          type="video/mp4"
-        />
+        <source src={videos[0]} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      <video
+        ref={video2Ref}
+        className={`hero-video ${currentVideoIndex === 1 ? 'active' : 'inactive'}`}
+        muted
+        playsInline
+        onEnded={handleVideoEnded}
+        preload="metadata"
+        style={{
+          opacity: currentVideoIndex === 1 ? 1 : 0,
+          transition: 'opacity 1s ease-in-out',
+          zIndex: currentVideoIndex === 1 ? -2 : -3
+        }}
+      >
+        <source src={videos[1]} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -88,9 +159,9 @@ const HeroSection = () => {
             className="hero-subtitle animate-fade-in-left"
             style={{ animationDelay: '0.5s' }}
           >
-            Discover premium organic products crafted with care and passion. 
-            From farm to table, we bring you the finest natural ingredients 
-            for a healthier lifestyle.
+            Get delivered 100% organic fresh vegetables to your door step. 
+            Farm-fresh produce sourced directly from our certified organic farms 
+            for the healthiest meals every day.
           </p>
           
           <div 
