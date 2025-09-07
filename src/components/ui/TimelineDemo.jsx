@@ -8,10 +8,10 @@ export function TimelineDemo() {
             title: "Step 1",
             content: (
                 <div>
-                    <h3 className="mb-6 text-2xl md:text-3xl font-bold text-green-800 dark:text-green-300">
+                    <h3 className="mb-6 text-2xl md:text-3xl font-bold" style={{color: '#00963F'}}>
                         Fresh Harvest from Farm
                     </h3>
-                    <p className="mb-8 text-base md:text-lg font-medium text-green-700 leading-relaxed dark:text-green-200">
+                    <p className="mb-8 text-base md:text-lg font-medium leading-relaxed" style={{color: '#79B927'}}>
                         Our farmers carefully harvest organically grown, seasonal vegetables at peak freshness.
                         Each vegetable is hand-picked to ensure the highest quality and nutritional value for your family.
                     </p>
@@ -48,14 +48,14 @@ export function TimelineDemo() {
             title: "Step 2",
             content: (
                 <div>
-                    <h3 className="mb-6 text-2xl md:text-3xl font-bold text-green-800 dark:text-green-300">
+                    <h3 className="mb-6 text-2xl md:text-3xl font-bold" style={{color: '#00963F'}}>
                         Quality Selection & Packaging
                     </h3>
-                    <p className="mb-4 text-base md:text-lg font-medium text-green-700 leading-relaxed dark:text-green-200">
+                    <p className="mb-4 text-base md:text-lg font-medium leading-relaxed" style={{color: '#79B927'}}>
                         Our team carefully selects and curates your seasonal veggie basket with 3-4 kg of seasonal vegetables,
                         fresh greens, and essential staples like potatoes, onions, and tomatoes.
                     </p>
-                    <p className="mb-8 text-base md:text-lg font-medium text-green-700 leading-relaxed dark:text-green-200">
+                    <p className="mb-8 text-base md:text-lg font-medium leading-relaxed" style={{color: '#79B927'}}>
                         Each basket contains 6-8 varieties of vegetables, ensuring amazing diversity of flavors and nutrients in your diet.
                         We package everything with care to maintain freshness during delivery.
                     </p>
@@ -92,32 +92,32 @@ export function TimelineDemo() {
             title: "Step 3",
             content: (
                 <div>
-                    <h3 className="mb-6 text-2xl md:text-3xl font-bold text-green-800 dark:text-green-300">
+                    <h3 className="mb-6 text-2xl md:text-3xl font-bold" style={{color: '#00963F'}}>
                         Doorstep Delivery
                     </h3>
-                    <p className="mb-6 text-base md:text-lg font-medium text-green-700 leading-relaxed dark:text-green-200">
+                    <p className="mb-6 text-base md:text-lg font-medium leading-relaxed" style={{color: '#79B927'}}>
                         Fresh, organically grown vegetables delivered straight to your doorstep with our reliable delivery service.
                         Available across Delhi, Noida, and Gurgaon with flexible subscription options.
                     </p>
                     <div className="mb-8 space-y-3">
-                        <div className="flex items-center gap-3 text-base md:text-lg font-medium text-green-700 dark:text-green-300">
-                            <Truck className="w-5 h-5 text-green-600" />
+                        <div className="flex items-center gap-3 text-base md:text-lg font-medium" style={{color: '#79B927'}}>
+                            <Truck className="w-5 h-5" style={{color: '#00963F'}} />
                             Same-day delivery available
                         </div>
-                        <div className="flex items-center gap-3 text-base md:text-lg font-medium text-green-700 dark:text-green-300">
-                            <Smartphone className="w-5 h-5 text-green-600" />
+                        <div className="flex items-center gap-3 text-base md:text-lg font-medium" style={{color: '#79B927'}}>
+                            <Smartphone className="w-5 h-5" style={{color: '#00963F'}} />
                             WhatsApp order tracking
                         </div>
-                        <div className="flex items-center gap-3 text-base md:text-lg font-medium text-green-700 dark:text-green-300">
-                            <Home className="w-5 h-5 text-green-600" />
+                        <div className="flex items-center gap-3 text-base md:text-lg font-medium" style={{color: '#79B927'}}>
+                            <Home className="w-5 h-5" style={{color: '#00963F'}} />
                             Contactless delivery option
                         </div>
-                        <div className="flex items-center gap-3 text-base md:text-lg font-medium text-green-700 dark:text-green-300">
-                            <Recycle className="w-5 h-5 text-green-600" />
+                        <div className="flex items-center gap-3 text-base md:text-lg font-medium" style={{color: '#79B927'}}>
+                            <Recycle className="w-5 h-5" style={{color: '#00963F'}} />
                             Eco-friendly packaging
                         </div>
-                        <div className="flex items-center gap-3 text-base md:text-lg font-medium text-green-700 dark:text-green-300">
-                            <Heart className="w-5 h-5 text-green-600" />
+                        <div className="flex items-center gap-3 text-base md:text-lg font-medium" style={{color: '#79B927'}}>
+                            <Heart className="w-5 h-5" style={{color: '#00963F'}} />
                             Customer satisfaction guaranteed
                         </div>
                     </div>

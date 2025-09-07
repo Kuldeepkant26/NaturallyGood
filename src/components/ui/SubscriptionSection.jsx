@@ -5,18 +5,38 @@ import { CheckCircle, Star, Zap, Calendar, Gift, ArrowRight, X, ShoppingBasket, 
 const SubscriptionSection = () => {
   const [selectedPlan, setSelectedPlan] = useState(null);
 
+  // Helper function to get gradient styles
+  const getGradientStyle = (plan) => {
+    if (plan.id === 'monthly') {
+      return {background: `linear-gradient(to right, #79B927, #00963F)`};
+    }
+    return {}; // Keep original colors for other plans
+  };
+
   const subscriptionPlans = [
     {
       id: 'monthly',
-      title: 'Monthly Plan',
-      subtitle: 'Perfect for Beginners',
+      title: 'WELLNESS STARTER',
+      subtitle: 'Monthly',
       duration: '4 Weekly Deliveries/Month',
       originalPrice: '₹6,396',
       discountedPrice: '₹5,999',
       pricePerBasket: '₹1,500 Per Basket',
       discount: '6% off',
       popular: false,
-      color: 'from-emerald-500 to-green-600',
+      color: 'from-light-green to-dark-green',
+      colorStyle: {background: `linear-gradient(to right, #79B927, #00963F)`},
+      organicBags: '4',
+      standardizedBenefits: [
+        { name: 'Organic Vegetable Bags', value: '4', included: true },
+        { name: 'Dedicated Wellness Advisor', included: true },
+        { name: 'Recipe Support', included: true },
+        { name: 'Customization', included: true },
+        { name: 'Complimentary Farm Visit', included: false },
+        { name: 'Complimentary Special Harvest', included: false },
+        { name: 'Organic Farming Training', included: false },
+        { name: 'A2 Cow Ghee', value: null, included: false }
+      ],
       features: [
         'Fresh seasonal vegetables',
         '3-4 kg mixed veggies',
@@ -46,8 +66,8 @@ const SubscriptionSection = () => {
     },
     {
       id: 'quarterly',
-      title: 'Quarterly Plan',
-      subtitle: 'Most Popular Choice',
+      title: 'WELLNESS PLUS',
+      subtitle: 'Quarterly',
       duration: '4 Weekly Deliveries/Month for 3 Months',
       originalPrice: '₹19,188',
       discountedPrice: '₹14,999',
@@ -55,6 +75,17 @@ const SubscriptionSection = () => {
       discount: '22% off',
       popular: true,
       color: 'from-orange-500 to-red-500',
+      organicBags: '12',
+      standardizedBenefits: [
+        { name: 'Organic Vegetable Bags', value: '12', included: true },
+        { name: 'Dedicated Wellness Advisor', included: true },
+        { name: 'Recipe Support', included: true },
+        { name: 'Customization', included: true },
+        { name: 'Complimentary Farm Visit', included: true },
+        { name: 'Complimentary Special Harvest', included: true },
+        { name: 'Organic Farming Training', included: true },
+        { name: 'A2 Cow Ghee', value: null, included: false }
+      ],
       features: [
         'Best value for money',
         'Seasonal variety guaranteed',
@@ -84,8 +115,8 @@ const SubscriptionSection = () => {
     },
     {
       id: 'semi-annual',
-      title: 'Semi Annual Plan',
-      subtitle: 'Great Value',
+      title: 'WELLNESS PREMIUM',
+      subtitle: 'Semi Annual',
       duration: '4 Weekly Deliveries/Month for 6 Months',
       originalPrice: '₹38,376',
       discountedPrice: '₹26,999',
@@ -93,6 +124,17 @@ const SubscriptionSection = () => {
       discount: '30% off',
       popular: false,
       color: 'from-blue-500 to-purple-600',
+      organicBags: '24',
+      standardizedBenefits: [
+        { name: 'Organic Vegetable Bags', value: '24', included: true },
+        { name: 'Dedicated Wellness Advisor', included: true },
+        { name: 'Recipe Support', included: true },
+        { name: 'Customization', included: true },
+        { name: 'Complimentary Farm Visit', included: true },
+        { name: 'Complimentary Special Harvest', included: true },
+        { name: 'Organic Farming Training', included: true },
+        { name: 'A2 Cow Ghee', value: 'Free 500gm worth ₹1500/-', included: true }
+      ],
       features: [
         'Huge savings',
         'Consistent supply',
@@ -122,8 +164,8 @@ const SubscriptionSection = () => {
     },
     {
       id: 'annual',
-      title: 'Annual Plan',
-      subtitle: 'Maximum Savings',
+      title: 'WELLNESS 360°',
+      subtitle: 'Annual',
       duration: '4 Weekly Deliveries/Month for 12 Months',
       originalPrice: '₹76,752',
       discountedPrice: '₹44,999',
@@ -131,6 +173,17 @@ const SubscriptionSection = () => {
       discount: '41% off',
       popular: false,
       color: 'from-purple-500 to-pink-600',
+      organicBags: '48',
+      standardizedBenefits: [
+        { name: 'Organic Vegetable Bags', value: '48', included: true },
+        { name: 'Dedicated Wellness Advisor', included: true },
+        { name: 'Recipe Support', included: true },
+        { name: 'Customization', included: true },
+        { name: 'Complimentary Farm Visit', included: true },
+        { name: 'Complimentary Special Harvest', included: true },
+        { name: 'Organic Farming Training', included: true },
+        { name: 'A2 Cow Ghee', value: 'Free 500gm x 2 worth ₹3000/-', included: true }
+      ],
       features: [
         'Maximum discount',
         'Year-round fresh supply',
@@ -195,17 +248,17 @@ Please help me complete the subscription process. Thank you!`;
   };
 
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-br from-gray-50 via-emerald-50 to-green-50 overflow-hidden">
+    <section className="py-16 sm:py-20 bg-gradient-to-br from-gray-50 via-gray-50 to-gray-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-emerald-500 to-green-600 rounded-full mb-4 sm:mb-6">
+          <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full mb-4 sm:mb-6" style={{background: `linear-gradient(to right, #79B927, #00963F)`}}>
             <Calendar className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
           </div>
           
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
-            <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
+            <span style={{background: `linear-gradient(to right, #79B927, #00963F)`, WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>
               Subscription Plans
             </span>
           </h2>
@@ -233,29 +286,41 @@ Please help me complete the subscription process. Thank you!`;
                 </div>
               )}
 
-              <div className={`relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl border border-gray-100 overflow-hidden h-full flex flex-col transition-all duration-500 ease-out group-hover:shadow-2xl group-hover:border-green-200 ${
+              <div className={`relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl border border-gray-100 overflow-hidden h-full flex flex-col transition-all duration-500 ease-out group-hover:shadow-2xl ${
                 plan.popular ? 'ring-2 ring-orange-200' : ''
               }`}>
                 
                 {/* Background Gradient */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${plan.color} opacity-5 group-hover:opacity-10 transition-opacity duration-500`} />
+                <div 
+                  className={`absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500`} 
+                  style={plan.id === 'monthly' ? {...getGradientStyle(plan), opacity: 0.05} : {}} 
+                />
                 
                 {/* Animated Background Circle */}
-                <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${plan.color} opacity-10 rounded-full transform translate-x-8 -translate-y-8 group-hover:scale-150 group-hover:opacity-20 transition-all duration-700 ease-out`} />
+                <div 
+                  className={`absolute top-0 right-0 w-24 h-24 ${plan.id === 'monthly' ? '' : `bg-gradient-to-br ${plan.color}`} opacity-10 rounded-full transform translate-x-8 -translate-y-8 group-hover:scale-150 group-hover:opacity-20 transition-all duration-700 ease-out`}
+                  style={plan.id === 'monthly' ? getGradientStyle(plan) : {}}
+                />
                 
                 {/* Header */}
                 <div className="relative z-10 mb-4 sm:mb-6">
-                  <div className={`inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${plan.color} rounded-xl mb-3 sm:mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 ease-out shadow-lg group-hover:shadow-xl`}>
+                  <div 
+                    className={`inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 ${plan.id === 'monthly' ? '' : `bg-gradient-to-r ${plan.color}`} rounded-xl mb-3 sm:mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 ease-out shadow-lg group-hover:shadow-xl`}
+                    style={plan.id === 'monthly' ? getGradientStyle(plan) : {}}
+                  >
                     <div className="text-white transform group-hover:scale-110 transition-transform duration-300">
                       {plan.icon}
                     </div>
                   </div>
                   
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 group-hover:text-green-700 transition-colors duration-300">{plan.title}</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 transition-colors duration-300">{plan.title}</h3>
                   <p className="text-sm text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300">{plan.subtitle}</p>
                   
                   {/* Discount Badge */}
-                  <div className={`inline-block bg-gradient-to-r ${plan.color} text-white text-sm font-semibold px-3 py-1 rounded-full group-hover:scale-105 transition-transform duration-300 shadow-sm group-hover:shadow-md`}>
+                  <div 
+                    className={`inline-block ${plan.id === 'monthly' ? '' : `bg-gradient-to-r ${plan.color}`} text-white text-sm font-semibold px-3 py-1 rounded-full group-hover:scale-105 transition-transform duration-300 shadow-sm group-hover:shadow-md`}
+                    style={plan.id === 'monthly' ? getGradientStyle(plan) : {}}
+                  >
                     {plan.discount}
                   </div>
                 </div>
@@ -263,24 +328,38 @@ Please help me complete the subscription process. Thank you!`;
                 {/* Pricing */}
                 <div className="relative z-10 mb-4 sm:mb-6">
                   <div className="flex items-center mb-2">
-                    <span className="text-xl sm:text-2xl font-bold text-gray-900 group-hover:text-green-700 transition-colors duration-300">{plan.discountedPrice}</span>
+                    <span className="text-xl sm:text-2xl font-bold text-gray-900 transition-colors duration-300">{plan.discountedPrice}</span>
                     <span className="text-base sm:text-lg text-gray-500 line-through ml-2 group-hover:text-gray-600 transition-colors duration-300">{plan.originalPrice}</span>
                   </div>
                   <p className="text-sm text-gray-600 mb-1 group-hover:text-gray-700 transition-colors duration-300">{plan.pricePerBasket}</p>
                   <p className="text-xs text-gray-500">{plan.duration}</p>
                 </div>
 
-                {/* Features */}
+                {/* Standardized Benefits */}
                 <div className="relative z-10 flex-grow mb-4 sm:mb-6">
                   <ul className="space-y-2 sm:space-y-3">
-                    {plan.features.map((feature, featureIndex) => (
+                    {plan.standardizedBenefits.map((benefit, benefitIndex) => (
                       <li
-                        key={featureIndex}
+                        key={benefitIndex}
                         className="flex items-center text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300"
                       >
-                        <CheckCircle className="w-4 h-4 text-emerald-500 mr-2 flex-shrink-0 group-hover:text-emerald-600 group-hover:scale-110 transition-all duration-300" />
+                        {benefit.included ? (
+                          <CheckCircle 
+                            className="w-4 h-4 mr-2 flex-shrink-0 group-hover:scale-110 transition-all duration-300" 
+                            style={{color: plan.id === 'monthly' ? '#79B927' : '#10b981'}}
+                          />
+                        ) : (
+                          <X 
+                            className="w-4 h-4 mr-2 flex-shrink-0 text-red-500 group-hover:scale-110 transition-all duration-300" 
+                          />
+                        )}
                         <span className="group-hover:translate-x-1 transition-transform duration-300">
-                          {feature}
+                          {benefit.name}
+                          {benefit.value && (
+                            <span className="font-semibold ml-1">
+                              {benefit.value}
+                            </span>
+                          )}
                         </span>
                       </li>
                     ))}
@@ -295,8 +374,11 @@ Please help me complete the subscription process. Thank you!`;
                     e.stopPropagation();
                     handleWhatsAppOrder(plan);
                   }}
-                  className={`relative z-10 w-full bg-gradient-to-r ${plan.color} text-white font-semibold py-3 px-4 sm:px-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 flex items-center justify-center group/button text-sm sm:text-base touch-manipulation overflow-hidden group-hover:shadow-2xl group-hover:scale-105`}
-                  style={{ WebkitTapHighlightColor: 'transparent' }}
+                  className={`relative z-10 w-full ${plan.id === 'monthly' ? '' : `bg-gradient-to-r ${plan.color}`} text-white font-semibold py-3 px-4 sm:px-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 flex items-center justify-center group/button text-sm sm:text-base touch-manipulation overflow-hidden group-hover:shadow-2xl group-hover:scale-105`}
+                  style={{ 
+                    WebkitTapHighlightColor: 'transparent',
+                    ...(plan.id === 'monthly' ? getGradientStyle(plan) : {})
+                  }}
                 >
                   {/* Button shimmer effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
@@ -319,8 +401,10 @@ Please help me complete the subscription process. Thank you!`;
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center bg-green-500 hover:bg-green-600 text-white font-semibold px-6 sm:px-8 py-3 rounded-full shadow-lg transition-all duration-300 text-sm sm:text-base touch-manipulation"
-            style={{ WebkitTapHighlightColor: 'transparent' }}
+            className="inline-flex items-center text-white font-semibold px-6 sm:px-8 py-3 rounded-full shadow-lg transition-all duration-300 text-sm sm:text-base touch-manipulation"
+            style={{ WebkitTapHighlightColor: 'transparent', background: '#79B927' }}
+            onMouseEnter={(e) => e.target.style.background = '#00963F'}
+            onMouseLeave={(e) => e.target.style.background = '#79B927'}
           >
             <span>Contact Us on WhatsApp</span>
             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
@@ -363,7 +447,10 @@ Please help me complete the subscription process. Thank you!`;
                       {/* Plan Header */}
                       <div>
                         <div className="flex items-center mb-4">
-                          <div className={`inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r ${selectedPlan.color} rounded-xl sm:rounded-2xl mr-3 sm:mr-4`}>
+                          <div 
+                            className={`inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 ${selectedPlan.id === 'monthly' ? '' : `bg-gradient-to-r ${selectedPlan.color}`} rounded-xl sm:rounded-2xl mr-3 sm:mr-4`}
+                            style={selectedPlan.id === 'monthly' ? getGradientStyle(selectedPlan) : {}}
+                          >
                             <div className="text-white">
                               {selectedPlan.icon}
                             </div>
@@ -392,9 +479,12 @@ Please help me complete the subscription process. Thank you!`;
                               <span className="text-2xl sm:text-3xl font-bold text-gray-900">{selectedPlan.discountedPrice}</span>
                               <span className="text-lg sm:text-xl text-gray-500 line-through ml-2 sm:ml-3">{selectedPlan.originalPrice}</span>
                             </div>
-                            <p className="text-base sm:text-lg font-semibold text-green-600">{selectedPlan.pricePerBasket}</p>
+                            <p className="text-base sm:text-lg font-semibold" style={{color: '#79B927'}}>{selectedPlan.pricePerBasket}</p>
                           </div>
-                          <div className={`bg-gradient-to-r ${selectedPlan.color} text-white text-base sm:text-lg font-bold px-3 sm:px-4 py-2 rounded-full`}>
+                          <div 
+                            className={`${selectedPlan.id === 'monthly' ? '' : `bg-gradient-to-r ${selectedPlan.color}`} text-white text-base sm:text-lg font-bold px-3 sm:px-4 py-2 rounded-full`}
+                            style={selectedPlan.id === 'monthly' ? getGradientStyle(selectedPlan) : {}}
+                          >
                             {selectedPlan.discount}
                           </div>
                         </div>
@@ -410,8 +500,8 @@ Please help me complete the subscription process. Thank you!`;
                             <p className="text-sm sm:text-base font-semibold">{selectedPlan.familySize}</p>
                           </div>
                         </div>
-                        <div className="flex items-center p-3 sm:p-4 bg-green-50 rounded-xl">
-                          <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 mr-2 sm:mr-3" />
+                        <div className="flex items-center p-3 sm:p-4 rounded-xl" style={{backgroundColor: '#f0f9ff'}}>
+                          <Clock className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3" style={{color: '#79B927'}} />
                           <div>
                             <p className="text-xs sm:text-sm text-gray-600">Delivery</p>
                             <p className="text-sm sm:text-base font-semibold">{selectedPlan.deliveryWindow}</p>
@@ -422,20 +512,31 @@ Please help me complete the subscription process. Thank you!`;
 
                     {/* Plan Features */}
                     <div className="space-y-4 sm:space-y-6">
-                      {/* What's Included */}
+                      {/* Subscription Benefits Comparison */}
                       <div>
-                        <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3 sm:mb-4">What's Included</h3>
+                        <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3 sm:mb-4">Subscription Benefits</h3>
                         <ul className="space-y-2 sm:space-y-3">
-                          {selectedPlan.detailedFeatures.map((feature, index) => (
+                          {selectedPlan.standardizedBenefits.map((benefit, index) => (
                             <li key={index} className="flex items-start text-sm sm:text-base text-gray-600">
-                              <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
-                              {feature}
+                              {benefit.included ? (
+                                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" style={{color: '#79B927'}} />
+                              ) : (
+                                <X className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 flex-shrink-0 mt-0.5 text-red-500" />
+                              )}
+                              <span>
+                                {benefit.name}
+                                {benefit.value && (
+                                  <span className="font-semibold ml-1 text-green-600">
+                                    {benefit.value}
+                                  </span>
+                                )}
+                              </span>
                             </li>
                           ))}
                         </ul>
                       </div>
 
-                      {/* Benefits */}
+                      {/* Key Benefits */}
                       <div>
                         <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3 sm:mb-4">Key Benefits</h3>
                         <ul className="space-y-2 sm:space-y-3">
@@ -453,19 +554,22 @@ Please help me complete the subscription process. Thank you!`;
                         onClick={handleSubscribeNow}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className={`w-full bg-gradient-to-r ${selectedPlan.color} text-white font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2 text-sm sm:text-base touch-manipulation`}
-                        style={{ WebkitTapHighlightColor: 'transparent' }}
+                        className={`w-full ${selectedPlan.id === 'monthly' ? '' : `bg-gradient-to-r ${selectedPlan.color}`} text-white font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2 text-sm sm:text-base touch-manipulation`}
+                        style={{ 
+                          WebkitTapHighlightColor: 'transparent',
+                          ...(selectedPlan.id === 'monthly' ? getGradientStyle(selectedPlan) : {})
+                        }}
                       >
                         <ShoppingBasket className="w-5 h-5 sm:w-6 sm:h-6" />
                         <span>Subscribe Now via WhatsApp</span>
                       </motion.button>
 
                       {/* Money Back Guarantee */}
-                      <div className="text-center p-3 sm:p-4 bg-green-50 rounded-xl">
-                        <p className="text-sm text-green-700 font-semibold">
+                      <div className="text-center p-3 sm:p-4 rounded-xl" style={{backgroundColor: '#f0f9ff'}}>
+                        <p className="text-sm font-semibold" style={{color: '#00963F'}}>
                           💚 100% Satisfaction Guaranteed
                         </p>
-                        <p className="text-xs text-green-600 mt-1">
+                        <p className="text-xs mt-1" style={{color: '#79B927'}}>
                           Not happy? Get full refund within first week
                         </p>
                       </div>

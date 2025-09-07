@@ -16,22 +16,22 @@ export function MacbookScrollDemo() {
             </span>
             <div className="flex justify-center items-center gap-8 mt-6">
               <div className="text-center">
-                <div className="text-2xl font-bold text-green-600">7-8kg</div>
+                <div className="text-2xl font-bold" style={{color: '#79B927'}}>7-8kg</div>
                 <div className="text-sm text-neutral-600 dark:text-neutral-400">Fresh Produce</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-green-600">15+</div>
+                <div className="text-2xl font-bold" style={{color: '#79B927'}}>15+</div>
                 <div className="text-sm text-neutral-600 dark:text-neutral-400">Veggie Varieties</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-green-600">100%</div>
+                <div className="text-2xl font-bold" style={{color: '#79B927'}}>100%</div>
                 <div className="text-sm text-neutral-600 dark:text-neutral-400">Organic & Natural</div>
               </div>
             </div>
           </div>
         }
         badge={
-          <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+          <div className="text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg" style={{background: `linear-gradient(to right, #79B927, #00963F)`}}>
             🌱 Farm Fresh
           </div>
         }

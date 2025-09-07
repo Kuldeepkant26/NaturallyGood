@@ -56,37 +56,39 @@
 .hero-badge {
   display: inline-block;
   padding: 0.5rem 1.2rem;
-  background: rgba(16, 185, 129, 0.2);
+  background: rgba(0, 150, 63, 0.2);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  border: 1px solid rgba(0, 150, 63, 0.3);
   border-radius: 50px;
   font-size: 0.875rem;
   font-weight: 500;
-  color: #10b981;
+  color: #00963F;
   margin-bottom: 2rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 .hero-title {
-  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 800;
   margin-bottom: 1.5rem;
   color: white;
-  line-height: 1.1;
+  line-height: 1.2;
   letter-spacing: -0.02em;
+  white-space: normal;
+}
+
+.hero-title-main {
+  color: white;
 }
 
 .hero-title-highlight {
-  background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #00963F;
 }
 
 .hero-subtitle {
-  font-size: clamp(1.125rem, 2.5vw, 1.25rem);
-  margin-bottom: 3rem;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  margin-bottom: 2.5rem;
   color: rgba(255, 255, 255, 0.85);
   font-weight: 400;
   line-height: 1.6;
@@ -145,7 +147,7 @@
   background: transparent;
   color: white;
   text-decoration: none;
-  border: 2px solid rgba(255, 255, 255, 0.4);
+  border: 2px solid rgba(0, 150, 63, 0.6);
   border-radius: 50px;
   font-weight: 500;
   font-size: 1rem;
@@ -162,7 +164,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 150, 63, 0.2);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -172,9 +174,9 @@
 }
 
 .hero-container .hero-cta-secondary:hover {
-  border-color: rgba(255, 255, 255, 0.8);
+  border-color: #00963F;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 150, 63, 0.3);
 }
 
 .hero-container .hero-cta-primary svg,
@@ -294,6 +296,12 @@
     padding: 1rem 0;
   }
   
+  .hero-title {
+    white-space: normal;
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    line-height: 1.2;
+  }
+  
   .hero-container .hero-badge {
     margin-bottom: 1.5rem;
   }
@@ -305,6 +313,7 @@
   .hero-container .hero-subtitle {
     margin-bottom: 2rem;
     max-width: 100%;
+    font-size: clamp(0.9rem, 1.8vw, 1rem);
   }
   
   .hero-container .hero-cta-group {

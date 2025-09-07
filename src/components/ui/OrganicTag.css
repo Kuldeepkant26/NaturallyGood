@@ -10,7 +10,7 @@
   box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   cursor: pointer;
-  border: 2px solid #22c55e;
+  border: 2px solid #00963F;
   backdrop-filter: blur(10px);
 }
 
@@ -30,7 +30,7 @@
 }
 
 .organic-text {
-  color: #22c55e;
+  color: #79B927;
   font-weight: 800;
   font-size: 12px;
   letter-spacing: 2px;
@@ -91,7 +91,7 @@
     box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
   }
   50% {
-    box-shadow: -6px 0 25px rgba(34, 197, 94, 0.2);
+    box-shadow: -6px 0 25px rgba(0, 150, 63, 0.2);
   }
   100% {
     box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);

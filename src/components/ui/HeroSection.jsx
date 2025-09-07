@@ -150,41 +150,24 @@ const HeroSection = () => {
             className="hero-title animate-fade-in-left"
             style={{ animationDelay: '0.3s' }}
           >
-            Experience
+            <span className="hero-title-main">Freshly Harvested</span>
             <br />
-            <span className="hero-title-highlight">Naturally Good</span>
+            <span className="hero-title-highlight">Organic Goodness</span>
           </h1>
           
           <p 
             className="hero-subtitle animate-fade-in-left"
             style={{ animationDelay: '0.5s' }}
           >
-            Get delivered 100% organic fresh vegetables to your door step. 
-            Farm-fresh produce sourced directly from our certified organic farms 
-            for the healthiest meals every day.
+            Get 100% organic & fresh vegetables delivered to your doorstep. 
+            Farm fresh produce harvested from our certified organic farms 
+            for the healthiest meals every day for your family.
           </p>
           
           <div 
             className="hero-cta-group animate-fade-in-up"
             style={{ animationDelay: '0.7s' }}
           >
-            <Link to="/products" className="hero-cta-primary">
-              Shop Now
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                />
-              </svg>
-            </Link>
-            
             <Link to="/about" className="hero-cta-secondary">
               Learn More
               <svg
