@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle, Star, Zap, Calendar, Gift, ArrowRight, X, ShoppingBasket, Users, Clock } from 'lucide-react';
+import AddOnsSection from './AddOnsSection.jsx';
+import ServicesSection from './ServicesSection.jsx';
 
 const SubscriptionSection = () => {
   const [selectedPlan, setSelectedPlan] = useState(null);
@@ -19,10 +21,10 @@ const SubscriptionSection = () => {
       title: 'WELLNESS STARTER',
       subtitle: 'Monthly',
       duration: '4 Weekly Deliveries/Month',
-      originalPrice: '₹6,396',
-      discountedPrice: '₹5,999',
-      pricePerBasket: '₹1,500 Per Basket',
-      discount: '6% off',
+      originalPrice: '₹7,596',
+      discountedPrice: '₹7,499',
+      pricePerBasket: '₹1,875 per 10 kg bag',
+      discount: '1% off',
       popular: false,
       color: 'from-light-green to-dark-green',
       colorStyle: {background: `linear-gradient(to right, #79B927, #00963F)`},
@@ -69,10 +71,10 @@ const SubscriptionSection = () => {
       title: 'WELLNESS PLUS',
       subtitle: 'Quarterly',
       duration: '4 Weekly Deliveries/Month for 3 Months',
-      originalPrice: '₹19,188',
-      discountedPrice: '₹14,999',
-      pricePerBasket: '₹1,250 Per Basket',
-      discount: '22% off',
+      originalPrice: '₹22,788',
+      discountedPrice: '₹17,999',
+      pricePerBasket: '₹1,500 per 10 kg bag',
+      discount: '21% off',
       popular: true,
       color: 'from-orange-500 to-red-500',
       organicBags: '12',
@@ -84,7 +86,7 @@ const SubscriptionSection = () => {
         { name: 'Complimentary Farm Visit', included: true },
         { name: 'Complimentary Special Harvest', included: true },
         { name: 'Organic Farming Training', included: true },
-        { name: 'A2 Cow Ghee', value: null, included: false }
+        { name: '300 ml Honey', value: 'worth Rs. 649', included: true }
       ],
       features: [
         'Best value for money',
@@ -94,7 +96,7 @@ const SubscriptionSection = () => {
         'Quality assurance'
       ],
       detailedFeatures: [
-        'Best value for money with 22% savings',
+        'Best value for money with 21% savings',
         'Seasonal variety guaranteed throughout the quarter',
         'Priority customer support via dedicated helpline',
         'Flexible delivery schedule adjustments',
@@ -118,10 +120,10 @@ const SubscriptionSection = () => {
       title: 'WELLNESS PREMIUM',
       subtitle: 'Semi Annual',
       duration: '4 Weekly Deliveries/Month for 6 Months',
-      originalPrice: '₹38,376',
-      discountedPrice: '₹26,999',
-      pricePerBasket: '₹1,125 Per Basket',
-      discount: '30% off',
+      originalPrice: '₹45,576',
+      discountedPrice: '₹32,999',
+      pricePerBasket: '₹1,375 per 10 kg bag',
+      discount: '28% off',
       popular: false,
       color: 'from-blue-500 to-purple-600',
       organicBags: '24',
@@ -143,7 +145,7 @@ const SubscriptionSection = () => {
         'Health tracking support'
       ],
       detailedFeatures: [
-        'Huge savings of 30% on regular prices',
+        'Huge savings of 28% on regular prices',
         'Consistent supply for 6 months',
         'Premium customer care with dedicated manager',
         'Seasonal recipe suggestions and cooking tips',
@@ -153,7 +155,7 @@ const SubscriptionSection = () => {
         'Complimentary add-ons worth ₹1000'
       ],
       benefits: [
-        'Maximum value with 30% discount',
+        'Maximum value with 28% discount',
         'Long-term fresh supply security',
         'Premium customer experience',
         'Health and nutrition support included'
@@ -167,10 +169,10 @@ const SubscriptionSection = () => {
       title: 'WELLNESS 360°',
       subtitle: 'Annual',
       duration: '4 Weekly Deliveries/Month for 12 Months',
-      originalPrice: '₹76,752',
-      discountedPrice: '₹44,999',
-      pricePerBasket: '₹937 Per Basket',
-      discount: '41% off',
+      originalPrice: '₹91,152',
+      discountedPrice: '₹56,999',
+      pricePerBasket: '₹1,187 per 10 kg bag',
+      discount: '37% off',
       popular: false,
       color: 'from-purple-500 to-pink-600',
       organicBags: '48',
@@ -182,7 +184,7 @@ const SubscriptionSection = () => {
         { name: 'Complimentary Farm Visit', included: true },
         { name: 'Complimentary Special Harvest', included: true },
         { name: 'Organic Farming Training', included: true },
-        { name: 'A2 Cow Ghee', value: 'Free 500gm x 2 worth ₹3000/-', included: true }
+        { name: '1 month of Naturally Fit', value: 'worth Rs. 3,999', included: true }
       ],
       features: [
         'Maximum discount',
@@ -192,7 +194,7 @@ const SubscriptionSection = () => {
         'Exclusive add-on discounts'
       ],
       detailedFeatures: [
-        'Maximum discount of 41% - best value ever',
+        'Maximum discount of 37% - best value ever',
         'Year-round fresh supply guaranteed',
         'VIP customer status with priority service',
         'Free nutrition consultation sessions',
@@ -204,7 +206,7 @@ const SubscriptionSection = () => {
         'Health tracking app premium subscription'
       ],
       benefits: [
-        'Unbeatable 41% savings',
+        'Unbeatable 37% savings',
         'Complete year-long fresh produce',
         'VIP treatment and premium services',
         'Personal health and nutrition support'
@@ -390,27 +392,6 @@ Please help me complete the subscription process. Thank you!`;
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-12 sm:mt-16">
-          <p className="text-gray-600 mb-6">
-            Have questions? Need a custom plan?
-          </p>
-          <motion.a
-            href="https://wa.me/919643722200?text=Hi"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center text-white font-semibold px-6 sm:px-8 py-3 rounded-full shadow-lg transition-all duration-300 text-sm sm:text-base touch-manipulation"
-            style={{ WebkitTapHighlightColor: 'transparent', background: '#79B927' }}
-            onMouseEnter={(e) => e.target.style.background = '#00963F'}
-            onMouseLeave={(e) => e.target.style.background = '#79B927'}
-          >
-            <span>Contact Us on WhatsApp</span>
-            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
-          </motion.a>
-        </div>
-
         {/* Subscription Detail Modal */}
         <AnimatePresence>
           {selectedPlan && (
@@ -585,4 +566,14 @@ Please help me complete the subscription process. Thank you!`;
   );
 };
 
-export default SubscriptionSection;
+const SubscriptionWithAddOnsAndServices = () => {
+  return (
+    <>
+      <SubscriptionSection />
+      <AddOnsSection />
+      <ServicesSection />
+    </>
+  );
+};
+
+export default SubscriptionWithAddOnsAndServices;

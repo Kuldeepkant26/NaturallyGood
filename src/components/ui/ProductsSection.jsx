@@ -21,6 +21,7 @@ const ProductsSection = () => {
   const [activeCategory, setActiveCategory] = useState('veggies');
   const [hoveredVeggie, setHoveredVeggie] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [visibleRows, setVisibleRows] = useState(2); // Show 2 rows initially
   const ref = useRef(null);
   
   const x = useMotionValue(0);
@@ -280,6 +281,52 @@ const ProductsSection = () => {
     closeModal();
   };
 
+  // Calculate items per row based on screen size
+  const getItemsPerRow = () => {
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth >= 1280) return 3; // xl screens - 3 per row
+      if (window.innerWidth >= 1024) return 3; // lg screens - 3 per row
+      if (window.innerWidth >= 768) return 2;  // md screens - 2 per row
+      return 1; // sm screens - 1 per row
+    }
+    return 3; // default
+  };
+
+  // Calculate visible items based on rows
+  const getVisibleItems = () => {
+    const itemsPerRow = getItemsPerRow();
+    return visibleRows * itemsPerRow;
+  };
+
+  // Handle show more functionality
+  const handleShowMore = () => {
+    setVisibleRows(prev => prev + 1);
+  };
+
+  // Helper function to get animation delay for newly revealed items
+  const getAnimationDelay = (index) => {
+    const itemsPerRow = getItemsPerRow();
+    const previouslyVisible = (visibleRows - 1) * itemsPerRow;
+    if (index >= previouslyVisible) {
+      // This is a newly revealed item, add staggered delay
+      return (index - previouslyVisible) * 0.15 + 0.2;
+    }
+    return 0; // Already visible items don't need delay
+  };
+
+  // Reset visible rows when category changes
+  const handleCategoryChange = (categoryId) => {
+    setActiveCategory(categoryId);
+    setVisibleRows(2); // Reset to 2 rows
+  };
+
+  // Calculate if we can show more items
+  const canShowMore = () => {
+    const totalItems = veggieData[activeCategory]?.length || 0;
+    const visibleItems = getVisibleItems();
+    return visibleItems < totalItems;
+  };
+
   return (
     <section ref={ref} id="products-section" data-section="products" className="py-20 bg-gradient-to-br from-white via-gray-50 to-gray-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -306,7 +353,7 @@ const ProductsSection = () => {
           {categories.map((category, index) => (
             <motion.button
               key={category.id}
-              onClick={() => setActiveCategory(category.id)}
+              onClick={() => handleCategoryChange(category.id)}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               className={`relative px-4 sm:px-6 py-3 sm:py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-1 sm:gap-2 text-sm sm:text-base min-h-[44px] touch-manipulation ${
@@ -340,15 +387,19 @@ const ProductsSection = () => {
         {/* Vegetables Grid */}
         <div
           key={activeCategory}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-6 mb-16 px-4 sm:px-0"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 px-4 sm:px-0"
         >
-          {veggieData[activeCategory]?.map((veggie, index) => (
+          {veggieData[activeCategory]?.slice(0, getVisibleItems()).map((veggie, index) => (
             <motion.div
               key={index}
               ref={ref}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ 
+                delay: getAnimationDelay(index),
+                duration: 0.4,
+                ease: "easeOut"
+              }}
               style={{
                 rotateX: hoveredVeggie === index ? rotateX : 0,
                 rotateY: hoveredVeggie === index ? rotateY : 0,
@@ -368,7 +419,7 @@ const ProductsSection = () => {
               className="group cursor-pointer transform-gpu relative"
               title={veggie.name}
             >
-              <div className="relative bg-white rounded-xl p-3 shadow-lg border border-gray-100 overflow-hidden h-full transition-all duration-300 group-hover:shadow-xl">
+              <div className="relative bg-white rounded-xl p-6 shadow-lg border border-gray-100 overflow-hidden h-full transition-all duration-300 group-hover:shadow-xl">
                 
                 {/* Background Effects */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{background: `rgba(0, 150, 63, 0.05)`}} />
@@ -378,7 +429,7 @@ const ProductsSection = () => {
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 300 }}
-                    className="relative w-full h-20 sm:h-24 mb-2 rounded-lg overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200"
+                    className="relative w-full h-32 sm:h-40 mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200"
                   >
                     <img
                       src={veggie.image}
@@ -395,27 +446,55 @@ const ProductsSection = () => {
                     />
                     
                     {/* Fresh Badge */}
-                    <div className="absolute top-1 left-1 bg-green-500 text-white text-xs font-bold px-1 py-0.5 rounded-full flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <Leaf className="w-2 h-2" />
+                    <div className="absolute top-2 left-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <Leaf className="w-3 h-3" />
+                      Fresh
                     </div>
                   </motion.div>
-                  
-                  <div className="text-center">
-                    <h3 className="text-xs sm:text-sm font-semibold text-gray-900 leading-tight">{veggie.name}</h3>
-                  </div>
-                </div>
 
-                {/* Tooltip */}
-                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20">
-                  <div className="bg-black text-white text-xs px-2 py-1 rounded-lg whitespace-nowrap">
-                    {veggie.name}
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-black"></div>
+                  {/* Veggie Info */}
+                  <div className="space-y-2">
+                    <h3 className="font-bold text-gray-900 text-sm sm:text-base leading-tight group-hover:text-green-600 transition-colors">
+                      {veggie.name}
+                    </h3>
+                    
+                    <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                      Fresh, organic {veggie.name.toLowerCase()} delivered straight from our farms.
+                    </p>
+                    
+                    {/* Features */}
+                    <div className="space-y-1">
+                      <div className="flex items-center text-xs text-gray-500">
+                        <CheckCircle className="w-3 h-3 text-green-500 mr-1 flex-shrink-0" />
+                        100% Organic & Fresh
+                      </div>
+                      <div className="flex items-center text-xs text-gray-500">
+                        <CheckCircle className="w-3 h-3 text-green-500 mr-1 flex-shrink-0" />
+                        Pesticide-free
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
+
+        {/* Show More Button */}
+        {canShowMore() && (
+          <div className="text-center mb-8">
+            <motion.button
+              onClick={handleShowMore}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-700 font-semibold rounded-full border-2 border-gray-300 hover:border-gray-400 hover:text-gray-900 transition-all duration-300 shadow-md hover:shadow-lg"
+              style={{ WebkitTapHighlightColor: 'transparent' }}
+            >
+              <span>Show More</span>
+              <ArrowRight className="w-4 h-4" />
+            </motion.button>
+          </div>
+        )}
 
         {/* Special Note for Staples */}
         {activeCategory === 'staples' && (
