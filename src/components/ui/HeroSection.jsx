@@ -139,13 +139,6 @@ const HeroSection = () => {
       {/* Hero Content - only render when showContent is true */}
       {showContent && (
         <div className="hero-content">
-          <div 
-            className="hero-badge animate-fade-in-left"
-            style={{ animationDelay: '0.1s' }}
-          >
-            ✨ Premium Organic Products
-          </div>
-          
           <h1 
             className="hero-title animate-fade-in-left"
             style={{ animationDelay: '0.3s' }}

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'motion/react';
-import { Package, Heart, ShoppingBag, Star, ArrowRight, CheckCircle, X, Smartphone } from 'lucide-react';
+import { Package, Heart, ShoppingBag, Star, ArrowRight, CheckCircle, X, Smartphone, Zap, BookOpen } from 'lucide-react';
 
 // Import vegetable images configuration
 import { vegetableImages } from '../../assets/vegetables/imageConfig.js';
@@ -40,6 +40,18 @@ const AddOnsSection = () => {
       name: 'Nutrition Packs',
       icon: <Heart className="w-5 h-5" />,
       color: 'from-orange-500 to-red-500'
+    },
+    {
+      id: 'naturally-fit',
+      name: 'Naturally Fit',
+      icon: <Zap className="w-5 h-5" />,
+      color: 'from-blue-500 to-purple-500'
+    },
+    {
+      id: 'naturally-curious',
+      name: 'Naturally Curious',
+      icon: <BookOpen className="w-5 h-5" />,
+      color: 'from-teal-500 to-green-500'
     }
   ];
 
@@ -146,6 +158,41 @@ const AddOnsSection = () => {
           'Restores natural balance'
         ]
       }
+    ],
+    'naturally-fit': [
+      {
+        name: 'Naturally Fit',
+        description: 'Expert nutrition guidance tailored to your lifestyle for long-term health and fitness.',
+        image: vegetableImages['fresh-spinach'],
+        price: 'Know More',
+        features: [
+          'Personalized diet plans',
+          'Certified nutritionists',
+          'Sustainable & result-driven'
+        ],
+        services: [
+          'Personalised/Custom Perfect Plan',
+          'Weekly Followups',
+          'Daily/Regular intake tracking',
+          'Meal recipes support',
+          'Goal Tracking',
+          'Tips & Recipes (Health Related)',
+          'Monthly Webinar'
+        ]
+      }
+    ],
+    'naturally-curious': [
+      {
+        name: 'Naturally Curious',
+        description: 'Coming Soon - Educational content and resources about organic farming and healthy living.',
+        image: vegetableImages['herbs-collection'],
+        price: 'Coming Soon',
+        features: [
+          'Educational content',
+          'Organic farming insights',
+          'Healthy living tips'
+        ]
+      }
     ]
   };
 
@@ -190,7 +237,7 @@ const AddOnsSection = () => {
           
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
             <span style={{background: `linear-gradient(to right, #79B927, #00963F)`, WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>
-              Premium Add-Ons
+              Premium Offerings
             </span>
           </h2>
           
@@ -336,7 +383,7 @@ const AddOnsSection = () => {
                         className="flex-1 bg-green-600 text-white text-xs font-medium py-2 px-3 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-1"
                       >
                         <WhatsAppIcon className="w-3 h-3" />
-                        <span>Order Now</span>
+                        <span>{activeCategory === 'naturally-fit' || activeCategory === 'naturally-curious' ? 'Contact Now' : 'Order Now'}</span>
                       </button>
                     </div>
                   </div>

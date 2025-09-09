@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'motion/react';
-import { Leaf, Package, ShoppingBag, Heart, Star, ArrowRight, CheckCircle, X, Phone, Smartphone } from 'lucide-react';
+import { Leaf, Package, ShoppingBag, Heart, Star, ArrowRight, CheckCircle, X, Phone, Smartphone, Mail } from 'lucide-react';
 
 // Import vegetable images configuration
 import { vegetableImages } from '../../assets/vegetables/imageConfig.js';
@@ -21,7 +21,7 @@ const ProductsSection = () => {
   const [activeCategory, setActiveCategory] = useState('veggies');
   const [hoveredVeggie, setHoveredVeggie] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [visibleRows, setVisibleRows] = useState(2); // Show 2 rows initially
+  const [visibleRows, setVisibleRows] = useState(3); // Show 3 rows initially
   const ref = useRef(null);
   
   const x = useMotionValue(0);
@@ -317,7 +317,7 @@ const ProductsSection = () => {
   // Reset visible rows when category changes
   const handleCategoryChange = (categoryId) => {
     setActiveCategory(categoryId);
-    setVisibleRows(2); // Reset to 2 rows
+    setVisibleRows(3); // Reset to 3 rows
   };
 
   // Calculate if we can show more items
@@ -419,7 +419,7 @@ const ProductsSection = () => {
               className="group cursor-pointer transform-gpu relative"
               title={veggie.name}
             >
-              <div className="relative bg-white rounded-xl p-6 shadow-lg border border-gray-100 overflow-hidden h-full transition-all duration-300 group-hover:shadow-xl">
+              <div className="relative bg-white rounded-xl p-4 shadow-lg border border-gray-100 overflow-hidden h-full transition-all duration-300 group-hover:shadow-xl">
                 
                 {/* Background Effects */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{background: `rgba(0, 150, 63, 0.05)`}} />
@@ -429,7 +429,7 @@ const ProductsSection = () => {
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 300 }}
-                    className="relative w-full h-32 sm:h-40 mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200"
+                    className="relative w-full h-52 sm:h-64 rounded-lg overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200"
                   >
                     <img
                       src={veggie.image}
@@ -445,35 +445,13 @@ const ProductsSection = () => {
                       }}
                     />
                     
-                    {/* Fresh Badge */}
-                    <div className="absolute top-2 left-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <Leaf className="w-3 h-3" />
-                      Fresh
+                    {/* Veggie Name on Hover */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white p-3 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                      <h3 className="font-bold text-sm sm:text-base text-center">
+                        {veggie.name}
+                      </h3>
                     </div>
                   </motion.div>
-
-                  {/* Veggie Info */}
-                  <div className="space-y-2">
-                    <h3 className="font-bold text-gray-900 text-sm sm:text-base leading-tight group-hover:text-green-600 transition-colors">
-                      {veggie.name}
-                    </h3>
-                    
-                    <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
-                      Fresh, organic {veggie.name.toLowerCase()} delivered straight from our farms.
-                    </p>
-                    
-                    {/* Features */}
-                    <div className="space-y-1">
-                      <div className="flex items-center text-xs text-gray-500">
-                        <CheckCircle className="w-3 h-3 text-green-500 mr-1 flex-shrink-0" />
-                        100% Organic & Fresh
-                      </div>
-                      <div className="flex items-center text-xs text-gray-500">
-                        <CheckCircle className="w-3 h-3 text-green-500 mr-1 flex-shrink-0" />
-                        Pesticide-free
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </motion.div>
@@ -506,7 +484,7 @@ const ProductsSection = () => {
         )}
 
         {/* Bottom Info */}
-        <div className="rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-white mx-4 sm:mx-0" style={{background: '#00963F'}}>
+        <div className="rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-white mx-4 sm:mx-0 relative" style={{background: '#00963F'}}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center">
             <div>
               <h3 className="text-xl sm:text-2xl font-bold mb-4">What does your Organic Seasonal Bag contains</h3>
@@ -545,38 +523,47 @@ const ProductsSection = () => {
                 <span>Order Your Bag</span>
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
               </motion.button>
-              
-              {/* Small ordering icons */}
-              <div className="flex justify-center items-center gap-4 mt-4">
-                <motion.button
-                  onClick={handleWhatsAppOrder}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="bg-white/20 hover:bg-white/30 p-2 rounded-full transition-all duration-300"
-                  title="WhatsApp"
-                >
-                  <WhatsAppIcon className="w-5 h-5 text-white" />
-                </motion.button>
-                <motion.button
-                  onClick={() => window.open('tel:+919876543210', '_self')}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="bg-white/20 hover:bg-white/30 p-2 rounded-full transition-all duration-300"
-                  title="Call"
-                >
-                  <Phone className="w-5 h-5 text-white" />
-                </motion.button>
-                <motion.button
-                  onClick={() => alert('App coming soon!')}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="bg-white/20 hover:bg-white/30 p-2 rounded-full transition-all duration-300"
-                  title="App"
-                >
-                  <Smartphone className="w-5 h-5 text-white" />
-                </motion.button>
-              </div>
             </div>
+          </div>
+          
+          {/* Vertical ordering icons positioned on the right border */}
+          <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex flex-col gap-4">
+            <motion.button
+              onClick={() => window.open('tel:+919876543210', '_self')}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-300 shadow-lg"
+              title="Call"
+            >
+              <Phone className="w-6 h-6 text-white" />
+            </motion.button>
+            <motion.button
+              onClick={handleWhatsAppOrder}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-300 shadow-lg"
+              title="WhatsApp"
+            >
+              <WhatsAppIcon className="w-6 h-6 text-white" />
+            </motion.button>
+            <motion.button
+              onClick={() => window.open('mailto:info@naturallygood.com', '_self')}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-300 shadow-lg"
+              title="Email"
+            >
+              <Mail className="w-6 h-6 text-white" />
+            </motion.button>
+            <motion.button
+              onClick={() => alert('App coming soon!')}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-300 shadow-lg"
+              title="Mobile App"
+            >
+              <Smartphone className="w-6 h-6 text-white" />
+            </motion.button>
           </div>
         </div>
 

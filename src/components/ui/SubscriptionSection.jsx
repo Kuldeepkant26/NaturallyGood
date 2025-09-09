@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle, Star, Zap, Calendar, Gift, ArrowRight, X, ShoppingBasket, Users, Clock } from 'lucide-react';
 import AddOnsSection from './AddOnsSection.jsx';
-import ServicesSection from './ServicesSection.jsx';
 
 const SubscriptionSection = () => {
   const [selectedPlan, setSelectedPlan] = useState(null);
@@ -571,7 +570,6 @@ const SubscriptionWithAddOnsAndServices = () => {
     <>
       <SubscriptionSection />
       <AddOnsSection />
-      <ServicesSection />
     </>
   );
 };

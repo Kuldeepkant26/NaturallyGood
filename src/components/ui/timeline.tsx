@@ -39,11 +39,10 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     >
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
         <h2 className="text-3xl md:text-5xl mb-6 text-green-800 dark:text-green-200 max-w-4xl font-bold">
-          Farm to Your Doorstep
+          FARM TO YOUR HOME
         </h2>
         <p className="text-green-700 dark:text-green-300 text-lg md:text-xl max-w-2xl font-medium leading-relaxed">
-          Experience the journey of fresh, organically grown vegetables from our farms directly to your home. 
-          Follow the simple 3-step process that brings nature&apos;s best to your table.
+          Experience the journey of fresh, nutritious, aromatic and organically grown vegetables from our farms directly to your home. Follow the simple 3-step process that brings nature&apos;s best to your table.
         </p>
       </div>
 
