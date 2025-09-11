@@ -74,3 +74,19 @@ export const navigateToProductsSection = () => {
     scrollToProducts();
   }
 };
+
+/**
+ * Custom hook for navigating to the farmers page
+ */
+export const useNavigateToFarmers = () => {
+  const navigate = useNavigate();
+
+  const navigateToFarmers = useCallback((e) => {
+    if (e) {
+      e.preventDefault();
+    }
+    navigate('/farmers');
+  }, [navigate]);
+
+  return navigateToFarmers;
+};

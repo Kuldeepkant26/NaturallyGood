@@ -1,0 +1,1005 @@
+.farmers-section {
+  max-height: 100vh;
+  min-height: 80vh;
+  padding: 40px 0;
+  background: linear-gradient(135deg, #f8fdf8 0%, #e8f5e8 100%);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.farmers-section .farmers-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  height: 100%;
+}
+
+/* Left Side - Content */
+.farmers-section .farmers-content {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  padding-right: 20px;
+}
+
+.farmers-section .content-header {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.farmers-section .section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #f0f9f0, #e8f5e8);
+  border: 2px solid #e0f2e0;
+  color: #2d5016;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 14px;
+  width: fit-content;
+  box-shadow: 0 4px 15px rgba(74, 124, 89, 0.1);
+  transition: all 0.3s ease;
+}
+
+.farmers-section .section-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(74, 124, 89, 0.15);
+}
+
+.farmers-section .badge-icon {
+  font-size: 16px;
+  animation: farmers-pulse 2s infinite;
+}
+
+@keyframes farmers-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.farmers-section .farmers-title {
+  font-size: clamp(3rem, 4vw, 4.5rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, #2d5016, #4a7c59, #6b8e23);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+.farmers-section .title-underline {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #4a7c59, #6b8e23);
+  border-radius: 2px;
+  position: relative;
+}
+
+.farmers-section .title-underline::after {
+  content: '';
+  position: absolute;
+  right: -20px;
+  top: 0;
+  width: 15px;
+  height: 4px;
+  background: #FFD700;
+  border-radius: 2px;
+}
+
+.farmers-section .farmers-description {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.farmers-section .main-text {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #2d3748;
+  margin: 0;
+  font-weight: 500;
+}
+
+.farmers-section .secondary-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #4a5568;
+  margin: 0;
+  font-weight: 400;
+}
+
+.farmers-section .impact-statement {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  background: linear-gradient(135deg, #f8fdf8, #f0f9f0);
+  padding: 20px;
+  border-radius: 15px;
+  border-left: 4px solid #4a7c59;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.farmers-section .impact-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.farmers-section .impact-text {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #2d3748;
+  margin: 0;
+  font-weight: 600;
+}
+
+.farmers-section .highlight {
+  background: linear-gradient(135deg, #4a7c59, #6b8e23);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  position: relative;
+}
+
+.farmers-section .farmers-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.farmers-section .stat {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.farmers-section .stat:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.farmers-section .stat-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.farmers-section .stat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.farmers-section .stat-number {
+  font-size: 2rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #2d5016, #4a7c59);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.farmers-section .stat-label {
+  font-size: 0.85rem;
+  color: #718096;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Right Side - Image Grid */
+.farmers-section .farmers-images {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding-left: 20px;
+}
+
+.farmers-section .image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 160px);
+  gap: 18px;
+  width: 100%;
+  max-width: 520px;
+  height: 100%;
+  max-height: 520px;
+  position: relative;
+}
+
+.farmers-section .image-item {
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  background: #f8f9fa;
+}
+
+.farmers-section .image-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(74, 124, 89, 0.1), rgba(107, 142, 35, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.farmers-section .image-item:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+}
+
+.farmers-section .image-item:hover::before {
+  opacity: 1;
+}
+
+.farmers-section .image-item.large {
+  grid-column: span 2;
+  grid-row: span 2;
+  border-radius: 25px;
+}
+
+.farmers-section .image-item.medium {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.farmers-section .image-item.small {
+  grid-column: span 1;
+  grid-row: span 1;
+  border-radius: 18px;
+}
+
+.farmers-section .image-item.featured {
+  position: relative;
+  border: 3px solid #FFD700;
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+}
+
+.farmers-section .featured-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  box-shadow: 0 4px 15px rgba(255, 165, 0, 0.4);
+  z-index: 20;
+  animation: farmers-sparkle 2s infinite;
+}
+
+@keyframes farmers-sparkle {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(180deg); }
+}
+
+/* Specific positioning for 5 images */
+.farmers-section .image-item:nth-child(1) { /* Large - top left */
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+}
+
+.farmers-section .image-item:nth-child(2) { /* Small - top right */
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+}
+
+.farmers-section .image-item:nth-child(3) { /* Small - middle right */
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+
+.farmers-section .image-item:nth-child(4) { /* Medium - bottom left */
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+}
+
+.farmers-section .image-item:nth-child(5) { /* Medium - bottom right (featured) */
+  grid-column: 2 / 4;
+  grid-row: 3 / 4;
+}
+
+.farmers-section .image-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.4s ease;
+  filter: brightness(1) contrast(1.05) saturate(1.1);
+}
+
+.farmers-section .image-item:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.1) contrast(1.1) saturate(1.2);
+}
+
+.farmers-section .image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg, 
+    rgba(45, 80, 22, 0.85) 0%, 
+    rgba(74, 124, 89, 0.8) 50%,
+    rgba(107, 142, 35, 0.75) 100%
+  );
+  opacity: 0;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 15;
+  backdrop-filter: blur(2px);
+}
+
+.farmers-section .image-item:hover .image-overlay {
+  opacity: 1;
+}
+
+.farmers-section .overlay-content {
+  transform: translateY(20px);
+  transition: transform 0.4s ease 0.1s;
+}
+
+.farmers-section .overlay-content h4 {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.farmers-section .overlay-content p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.farmers-section .image-item:hover .overlay-content {
+  transform: translateY(0);
+}
+
+/* Enhanced hover effects for different sizes */
+.farmers-section .image-item.large:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+.farmers-section .image-item.small:hover {
+  transform: translateY(-6px) scale(1.05);
+}
+
+.farmers-section .image-item.medium:hover {
+  transform: translateY(-7px) scale(1.04);
+}
+
+.farmers-section .image-item.featured:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 25px 60px rgba(255, 215, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+  .farmers-section .farmers-container {
+    max-width: 1200px;
+    padding: 0 40px;
+    gap: 70px;
+  }
+  
+  .farmers-section .image-grid {
+    max-width: 480px;
+    max-height: 480px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .farmers-section .farmers-container {
+    padding: 0 30px;
+    gap: 60px;
+  }
+  
+  .farmers-section .farmers-title {
+    font-size: clamp(2.5rem, 3.5vw, 4rem);
+  }
+  
+  .farmers-section .main-text {
+    font-size: 1.1rem;
+  }
+  
+  .farmers-section .secondary-text {
+    font-size: 1rem;
+  }
+  
+  .farmers-section .impact-text {
+    font-size: 1.1rem;
+  }
+  
+  .farmers-section .farmers-stats {
+    gap: 15px;
+  }
+  
+  .farmers-section .stat {
+    padding: 18px;
+  }
+  
+  .farmers-section .stat-number {
+    font-size: 1.8rem;
+  }
+  
+  .farmers-section .image-grid {
+    max-width: 450px;
+    max-height: 450px;
+    grid-template-rows: repeat(3, 150px);
+  }
+}
+
+@media (max-width: 992px) {
+  .farmers-section {
+    max-height: none;
+    min-height: auto;
+    padding: 80px 0;
+  }
+  
+  .farmers-section .farmers-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    padding: 0 30px;
+  }
+  
+  .farmers-section .farmers-content {
+    text-align: center;
+    gap: 30px;
+    padding-right: 0;
+    order: 1;
+  }
+  
+  .farmers-section .farmers-images {
+    padding-left: 0;
+    order: 2;
+  }
+  
+  .farmers-section .farmers-title {
+    font-size: clamp(2.2rem, 3vw, 3.5rem);
+  }
+  
+  .farmers-section .farmers-stats {
+    justify-content: center;
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    gap: 20px;
+  }
+  
+  .farmers-section .image-grid {
+    max-width: 400px;
+    max-height: 400px;
+    margin: 0 auto;
+    grid-template-rows: repeat(3, 135px);
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .farmers-section {
+    padding: 60px 0;
+  }
+  
+  .farmers-section .farmers-container {
+    padding: 0 20px;
+    gap: 40px;
+  }
+  
+  .farmers-section .farmers-content {
+    gap: 25px;
+  }
+  
+  .farmers-section .farmers-title {
+    font-size: clamp(2rem, 2.8vw, 3rem);
+  }
+  
+  .farmers-section .main-text {
+    font-size: 1rem;
+  }
+  
+  .farmers-section .secondary-text {
+    font-size: 0.95rem;
+  }
+  
+  .farmers-section .impact-text {
+    font-size: 1rem;
+  }
+  
+  .farmers-section .impact-statement {
+    padding: 18px;
+    gap: 12px;
+  }
+  
+  .farmers-section .farmers-stats {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .farmers-section .stat {
+    padding: 25px 20px;
+    justify-content: center;
+    text-align: center;
+    min-height: 100px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .farmers-section .stat-icon {
+    font-size: 2rem;
+  }
+  
+  .farmers-section .stat-number {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+  }
+  
+  .farmers-section .stat-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  
+  .farmers-section .image-grid {
+    grid-template-rows: repeat(3, 120px);
+    gap: 12px;
+    max-width: 350px;
+    max-height: 380px;
+  }
+  
+  .farmers-section .overlay-content h4 {
+    font-size: 1.1rem;
+  }
+  
+  .farmers-section .overlay-content p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .farmers-section {
+    padding: 50px 0;
+  }
+  
+  .farmers-section .farmers-container {
+    padding: 0 15px;
+    gap: 35px;
+  }
+  
+  .farmers-section .farmers-title {
+    font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+  }
+  
+  .farmers-section .section-badge {
+    padding: 10px 18px;
+    font-size: 13px;
+  }
+  
+  .farmers-section .main-text {
+    font-size: 0.95rem;
+  }
+  
+  .farmers-section .secondary-text {
+    font-size: 0.9rem;
+  }
+  
+  .farmers-section .impact-text {
+    font-size: 0.95rem;
+  }
+  
+  .farmers-section .impact-statement {
+    padding: 15px;
+    gap: 10px;
+  }
+  
+  .farmers-section .farmers-stats {
+    gap: 18px;
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .farmers-section .stat {
+    padding: 22px 18px;
+    min-height: 95px;
+    max-width: 380px;
+  }
+  
+  .farmers-section .stat-icon {
+    font-size: 1.8rem;
+  }
+  
+  .farmers-section .stat-number {
+    font-size: 2.2rem;
+  }
+  
+  .farmers-section .stat-label {
+    font-size: 0.85rem;
+  }
+  
+  .farmers-section .image-grid {
+    grid-template-rows: repeat(3, 110px);
+    gap: 10px;
+    max-width: 320px;
+    max-height: 350px;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .farmers-section {
+    padding: 50px 0;
+  }
+  
+  .farmers-section .farmers-container {
+    gap: 35px;
+  }
+  
+  .farmers-section .farmers-content {
+    gap: 25px;
+  }
+  
+  .farmers-section .farmers-title {
+    font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+  }
+  
+  .farmers-section .main-text {
+    font-size: 1rem;
+  }
+  
+  .farmers-section .secondary-text {
+    font-size: 0.95rem;
+  }
+  
+  .farmers-section .impact-text {
+    font-size: 1rem;
+  }
+  
+  .farmers-section .farmers-stats {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .farmers-section .stat {
+    padding: 25px 20px;
+    gap: 15px;
+    min-height: 110px;
+    justify-content: center;
+    text-align: center;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  
+  .farmers-section .stat-icon {
+    font-size: 2.2rem;
+  }
+  
+  .farmers-section .stat-number {
+    font-size: 2.8rem;
+    margin-bottom: 8px;
+  }
+  
+  .farmers-section .stat-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  
+  .farmers-section .image-grid {
+    grid-template-rows: repeat(3, 130px);
+    gap: 12px;
+    max-width: 340px;
+    max-height: 420px;
+  }
+  
+  .farmers-section .overlay-content h4 {
+    font-size: 1.1rem;
+  }
+  
+  .farmers-section .overlay-content p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .farmers-section {
+    padding: 45px 0;
+  }
+  
+  .farmers-section .farmers-container {
+    padding: 0 15px;
+    gap: 30px;
+  }
+  
+  .farmers-section .farmers-title {
+    font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  }
+  
+  .farmers-section .section-badge {
+    padding: 10px 18px;
+    font-size: 13px;
+  }
+  
+  .farmers-section .main-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .farmers-section .secondary-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .farmers-section .impact-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  .farmers-section .impact-statement {
+    padding: 15px;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  
+  .farmers-section .impact-icon {
+    font-size: 1.4rem;
+    margin-top: 0;
+  }
+  
+  .farmers-section .farmers-stats {
+    max-width: 100%;
+    width: 100%;
+    gap: 18px;
+  }
+  
+  .farmers-section .stat {
+    padding: 22px 18px;
+    gap: 12px;
+    min-height: 100px;
+    max-width: 320px;
+  }
+  
+  .farmers-section .stat-icon {
+    font-size: 2rem;
+  }
+  
+  .farmers-section .stat-number {
+    font-size: 2.5rem;
+    margin-bottom: 6px;
+  }
+  
+  .farmers-section .stat-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  
+  /* Reorganize image grid for mobile */
+  .farmers-section .image-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 110px);
+    gap: 10px;
+    max-width: 300px;
+    max-height: 350px;
+  }
+  
+  .farmers-section .image-item:nth-child(1) {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+  }
+  
+  .farmers-section .image-item:nth-child(2) {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+  
+  .farmers-section .image-item:nth-child(3) {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+  }
+  
+  .farmers-section .image-item:nth-child(4) {
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+  }
+  
+  .farmers-section .image-item:nth-child(5) {
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
+  }
+  
+  .farmers-section .overlay-content h4 {
+    font-size: 1rem;
+  }
+  
+  .farmers-section .overlay-content p {
+    font-size: 0.85rem;
+  }
+}
+
+
+@media (max-width: 400px) {
+  .farmers-section {
+    padding: 40px 0;
+  }
+  
+  .farmers-section .farmers-container {
+    padding: 0 12px;
+    gap: 25px;
+  }
+  
+  .farmers-section .farmers-title {
+    font-size: clamp(1.4rem, 2vw, 2rem);
+    line-height: 1.2;
+  }
+  
+  .farmers-section .main-text {
+    font-size: 0.9rem;
+  }
+  
+  .farmers-section .secondary-text {
+    font-size: 0.85rem;
+  }
+  
+  .farmers-section .impact-text {
+    font-size: 0.9rem;
+  }
+  
+  .farmers-section .section-badge {
+    padding: 8px 15px;
+    font-size: 12px;
+  }
+  
+  .farmers-section .farmers-stats {
+    max-width: 100%;
+    width: 100%;
+    gap: 16px;
+  }
+  
+  .farmers-section .stat {
+    padding: 20px 15px;
+    min-height: 90px;
+    max-width: 280px;
+  }
+  
+  .farmers-section .stat-icon {
+    font-size: 1.8rem;
+  }
+  
+  .farmers-section .stat-number {
+    font-size: 2.2rem;
+    margin-bottom: 4px;
+  }
+  
+  .farmers-section .stat-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  
+  .farmers-section .image-grid {
+    grid-template-rows: repeat(4, 100px);
+    gap: 8px;
+    max-width: 280px;
+    max-height: 320px;
+  }
+}
+
+@media (max-width: 360px) {
+  .farmers-section .farmers-container {
+    padding: 0 8px;
+  }
+  
+  .farmers-section .farmers-title {
+    font-size: clamp(1.3rem, 1.8vw, 1.8rem);
+  }
+  
+  .farmers-section .main-text {
+    font-size: 0.85rem;
+  }
+  
+  .farmers-section .secondary-text {
+    font-size: 0.8rem;
+  }
+  
+  .farmers-section .impact-text {
+    font-size: 0.85rem;
+  }
+  
+  .farmers-section .farmers-stats {
+    max-width: 100%;
+    width: 100%;
+    gap: 14px;
+  }
+  
+  .farmers-section .stat {
+    padding: 18px 12px;
+    min-height: 85px;
+    max-width: 260px;
+  }
+  
+  .farmers-section .stat-icon {
+    font-size: 1.6rem;
+  }
+  
+  .farmers-section .stat-number {
+    font-size: 2rem;
+    margin-bottom: 3px;
+  }
+  
+  .farmers-section .stat-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  
+  .farmers-section .image-grid {
+    grid-template-rows: repeat(4, 90px);
+    gap: 6px;
+    max-width: 260px;
+    max-height: 290px;
+  }
+  
+  .farmers-section .overlay-content h4 {
+    font-size: 0.9rem;
+  }
+  
+  .farmers-section .overlay-content p {
+    font-size: 0.75rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .farmers-section .image-item,
+  .farmers-section .image-item img {
+    animation: none;
+    transition: none;
+  }
+  
+  .farmers-section .image-item:hover {
+    transform: none;
+  }
+}
+
+.farmers-section .image-item:focus {
+  outline: 3px solid #4a7c59;
+  outline-offset: 3px;
+}

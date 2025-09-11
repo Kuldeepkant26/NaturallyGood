@@ -1,0 +1,659 @@
+.farmers-voice-section {
+  padding: 120px 20px;
+  background: linear-gradient(135deg, #f8fdf8 0%, #e8f5e8 50%, #f0f9f0 100%);
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.farmers-voice-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(76, 175, 80, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(139, 195, 74, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(76, 175, 80, 0.06) 0%, transparent 50%);
+  animation: backgroundFloat 25s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes backgroundFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-30px) rotate(2deg); }
+}
+
+.farmers-voice-section .floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.farmers-voice-section .shape-1 {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(139, 195, 74, 0.1));
+  top: 15%;
+  left: 10%;
+}
+
+.farmers-voice-section .shape-2 {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, rgba(139, 195, 74, 0.12), rgba(76, 175, 80, 0.08));
+  top: 70%;
+  right: 15%;
+}
+
+.farmers-voice-section .shape-3 {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.08), rgba(139, 195, 74, 0.15));
+  top: 40%;
+  right: 8%;
+}
+
+.farmers-voice-section .shape-4 {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, rgba(139, 195, 74, 0.1), rgba(76, 175, 80, 0.12));
+  bottom: 20%;
+  left: 8%;
+}
+
+.farmers-voice-section .farmers-voice-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Section Header */
+.farmers-voice-section .section-header {
+  text-align: center;
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.farmers-voice-section .section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #4caf50, #8bc34a);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 8px 30px rgba(76, 175, 80, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.farmers-voice-section .section-badge:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(76, 175, 80, 0.4);
+}
+
+.farmers-voice-section .badge-icon {
+  font-size: 20px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.farmers-voice-section .section-title {
+  font-size: clamp(3rem, 4vw, 4.5rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, #2e5233, #4a7c59, #6b8e23);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+  margin: 0;
+  text-align: center;
+  letter-spacing: -1px;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.farmers-voice-section .title-underline {
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, #4caf50, #8bc34a);
+  border-radius: 2px;
+  position: relative;
+  margin: 10px auto;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}
+
+.farmers-voice-section .title-underline::after {
+  content: '';
+  position: absolute;
+  right: -25px;
+  top: 0;
+  width: 20px;
+  height: 4px;
+  background: #FFD700;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.4);
+}
+
+.farmers-voice-section .section-subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 400;
+}
+
+/* Testimonials Grid */
+.farmers-voice-section .testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 40px;
+  margin-bottom: 80px;
+}
+
+.farmers-voice-section .testimonial-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 
+    0 15px 50px rgba(0, 0, 0, 0.1),
+    0 8px 25px rgba(76, 175, 80, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(76, 175, 80, 0.1);
+}
+
+.farmers-voice-section .testimonial-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 
+    0 25px 70px rgba(0, 0, 0, 0.15),
+    0 15px 35px rgba(76, 175, 80, 0.2);
+  border-color: rgba(76, 175, 80, 0.3);
+}
+
+.farmers-voice-section .card-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.02) 0%, rgba(139, 195, 74, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.farmers-voice-section .testimonial-card:hover .card-background {
+  opacity: 1;
+}
+
+.farmers-voice-section .quote-icon {
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  font-size: 80px;
+  color: rgba(76, 175, 80, 0.15);
+  font-family: Georgia, serif;
+  font-weight: bold;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.farmers-voice-section .farmer-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 20px auto;
+  position: relative;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border: 4px solid rgba(76, 175, 80, 0.2);
+}
+
+.farmers-voice-section .farmer-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.farmers-voice-section .farmer-image:hover img {
+  transform: scale(1.1);
+}
+
+.farmers-voice-section .image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(139, 195, 74, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.farmers-voice-section .farmer-image:hover .image-overlay {
+  opacity: 1;
+}
+
+.farmers-voice-section .testimonial-content {
+  position: relative;
+  z-index: 5;
+}
+
+.farmers-voice-section .testimonial-quote {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #2d3748;
+  margin: 0 0 25px 0;
+  font-style: italic;
+  position: relative;
+  padding-left: 20px;
+  border-left: 3px solid rgba(76, 175, 80, 0.3);
+  font-weight: 500;
+}
+
+.farmers-voice-section .farmer-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.farmers-voice-section .farmer-details {
+  flex: 1;
+}
+
+.farmers-voice-section .farmer-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2e5233;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+
+.farmers-voice-section .farmer-location,
+.farmers-voice-section .farmer-experience {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.farmers-voice-section .rating {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.farmers-voice-section .star {
+  font-size: 1.2rem;
+  color: #ddd;
+  transition: all 0.3s ease;
+}
+
+.farmers-voice-section .star.filled {
+  color: #FFD700;
+  text-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
+}
+
+.farmers-voice-section .card-decoration {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 6px;
+  height: 6px;
+  background: linear-gradient(135deg, #4caf50, #8bc34a);
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+/* Call to Action Section */
+.farmers-voice-section .cta-section {
+  text-align: center;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 253, 248, 0.95));
+  padding: 60px 40px;
+  border-radius: 24px;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.1),
+    0 10px 30px rgba(76, 175, 80, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(76, 175, 80, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.farmers-voice-section .cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.05), rgba(139, 195, 74, 0.03));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.farmers-voice-section .cta-section:hover::before {
+  opacity: 1;
+}
+
+.farmers-voice-section .cta-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2e5233, #4a7c59);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+}
+
+.farmers-voice-section .cta-description {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 0 0 40px 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.farmers-voice-section .cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #4caf50, #8bc34a);
+  color: white;
+  padding: 18px 36px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 30px rgba(76, 175, 80, 0.3);
+  position: relative;
+  z-index: 5;
+  text-decoration: none;
+}
+
+.farmers-voice-section .cta-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(76, 175, 80, 0.4);
+}
+
+.farmers-voice-section .button-arrow {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.farmers-voice-section .cta-button:hover .button-arrow {
+  transform: translateX(5px);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .farmers-voice-section {
+    padding: 100px 20px;
+  }
+  
+  .farmers-voice-section .testimonials-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 35px;
+  }
+  
+  .farmers-voice-section .section-title {
+    font-size: clamp(2.5rem, 3.5vw, 4rem);
+  }
+}
+
+@media (max-width: 992px) {
+  .farmers-voice-section {
+    padding: 80px 20px;
+  }
+  
+  .farmers-voice-section .section-header {
+    margin-bottom: 60px;
+  }
+  
+  .farmers-voice-section .testimonials-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+  }
+  
+  .farmers-voice-section .testimonial-card {
+    padding: 25px;
+  }
+  
+  .farmers-voice-section .section-title {
+    font-size: clamp(2.2rem, 3vw, 3.5rem);
+  }
+  
+  .farmers-voice-section .cta-section {
+    padding: 50px 30px;
+  }
+  
+  .farmers-voice-section .cta-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .farmers-voice-section {
+    padding: 60px 15px;
+  }
+  
+  .farmers-voice-section .section-header {
+    margin-bottom: 50px;
+  }
+  
+  .farmers-voice-section .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-bottom: 50px;
+  }
+  
+  .farmers-voice-section .testimonial-card {
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .farmers-voice-section .section-title {
+    font-size: clamp(2rem, 2.8vw, 3rem);
+  }
+  
+  .farmers-voice-section .section-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .farmers-voice-section .farmer-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .farmers-voice-section .rating {
+    align-self: flex-start;
+  }
+  
+  .farmers-voice-section .cta-section {
+    padding: 40px 25px;
+  }
+  
+  .farmers-voice-section .cta-title {
+    font-size: 2rem;
+  }
+  
+  .farmers-voice-section .cta-description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .farmers-voice-section {
+    padding: 50px 10px;
+  }
+  
+  .farmers-voice-section .section-badge {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+  
+  .farmers-voice-section .section-title {
+    font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+  }
+  
+  .farmers-voice-section .section-subtitle {
+    font-size: 1rem;
+  }
+  
+  .farmers-voice-section .testimonial-card {
+    padding: 18px;
+    border-radius: 20px;
+  }
+  
+  .farmers-voice-section .farmer-image {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 15px;
+  }
+  
+  .farmers-voice-section .testimonial-quote {
+    font-size: 1rem;
+    padding-left: 15px;
+  }
+  
+  .farmers-voice-section .farmer-name {
+    font-size: 1.2rem;
+  }
+  
+  .farmers-voice-section .farmer-location,
+  .farmers-voice-section .farmer-experience {
+    font-size: 0.85rem;
+  }
+  
+  .farmers-voice-section .cta-section {
+    padding: 35px 20px;
+  }
+  
+  .farmers-voice-section .cta-title {
+    font-size: 1.8rem;
+  }
+  
+  .farmers-voice-section .cta-button {
+    padding: 16px 32px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .farmers-voice-section {
+    padding: 40px 8px;
+  }
+  
+  .farmers-voice-section .section-title {
+    font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  }
+  
+  .farmers-voice-section .testimonial-card {
+    padding: 15px;
+  }
+  
+  .farmers-voice-section .farmer-image {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .farmers-voice-section .testimonial-quote {
+    font-size: 0.95rem;
+  }
+  
+  .farmers-voice-section .cta-title {
+    font-size: 1.6rem;
+  }
+  
+  .farmers-voice-section .cta-description {
+    font-size: 0.95rem;
+  }
+  
+  .farmers-voice-section .cta-button {
+    padding: 14px 28px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .farmers-voice-section {
+    padding: 35px 5px;
+  }
+  
+  .farmers-voice-section .section-title {
+    font-size: clamp(1.4rem, 2vw, 2rem);
+  }
+  
+  .farmers-voice-section .testimonial-card {
+    padding: 12px;
+  }
+  
+  .farmers-voice-section .farmer-image {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .farmers-voice-section .testimonial-quote {
+    font-size: 0.9rem;
+  }
+  
+  .farmers-voice-section .farmer-name {
+    font-size: 1.1rem;
+  }
+  
+  .farmers-voice-section .cta-title {
+    font-size: 1.4rem;
+  }
+  
+  .farmers-voice-section .cta-button {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .farmers-voice-section *,
+  .farmers-voice-section *::before,
+  .farmers-voice-section *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.farmers-voice-section .testimonial-card:focus {
+  outline: 3px solid #4caf50;
+  outline-offset: 3px;
+}
+
+.farmers-voice-section .cta-button:focus {
+  outline: 3px solid #4caf50;
+  outline-offset: 3px;
+}

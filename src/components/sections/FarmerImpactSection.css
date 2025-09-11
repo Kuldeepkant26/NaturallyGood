@@ -1,0 +1,545 @@
+.farmer-impact-section {
+  min-height: 100vh;
+  padding: 80px 0;
+  background: linear-gradient(135deg, 
+    #f8fdf8 0%, 
+    #f0f9f0 25%,
+    #e8f5e8 50%,
+    #f0f9f0 75%,
+    #f8fdf8 100%
+  );
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* Animated Background Elements */
+.farmer-impact-section .background-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.farmer-impact-section .floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  filter: blur(1px);
+}
+
+.farmer-impact-section .shape-1 {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(45deg, #4a7c59, #6b8e23);
+  top: 10%;
+  left: 5%;
+  animation: float-1 15s ease-in-out infinite;
+}
+
+.farmer-impact-section .shape-2 {
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(45deg, #32CD32, #228B22);
+  top: 60%;
+  right: 10%;
+  animation: float-2 18s ease-in-out infinite;
+}
+
+.farmer-impact-section .shape-3 {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(45deg, #FFD700, #FFA500);
+  top: 30%;
+  right: 20%;
+  animation: float-3 12s ease-in-out infinite;
+}
+
+.farmer-impact-section .shape-4 {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(45deg, #FF69B4, #FF1493);
+  bottom: 20%;
+  left: 15%;
+  animation: float-4 20s ease-in-out infinite;
+}
+
+@keyframes float-1 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(30px, -20px) rotate(90deg); }
+  50% { transform: translate(-20px, -40px) rotate(180deg); }
+  75% { transform: translate(-40px, 10px) rotate(270deg); }
+}
+
+@keyframes float-2 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(-25px, 30px) rotate(120deg); }
+  66% { transform: translate(25px, -15px) rotate(240deg); }
+}
+
+@keyframes float-3 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(40px, 25px) rotate(180deg); }
+}
+
+@keyframes float-4 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(20px, -30px) rotate(90deg); }
+  50% { transform: translate(-30px, -20px) rotate(180deg); }
+  75% { transform: translate(-10px, 25px) rotate(270deg); }
+}
+
+/* Main Container */
+.farmer-impact-section .impact-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+/* Header Section */
+.farmer-impact-section .impact-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.farmer-impact-section .section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #ffffff, #f8fdf8);
+  border: 2px solid #e0f2e0;
+  color: #2d5016;
+  padding: 15px 25px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 16px;
+  box-shadow: 
+    0 8px 25px rgba(74, 124, 89, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+}
+
+.farmer-impact-section .section-badge:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 12px 35px rgba(74, 124, 89, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.farmer-impact-section .badge-icon {
+  font-size: 18px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.farmer-impact-section .impact-title {
+  font-size: clamp(3.5rem, 5vw, 5.5rem);
+  font-weight: 900;
+  margin: 0 0 20px 0;
+  line-height: 0.9;
+  letter-spacing: -2px;
+}
+
+.farmer-impact-section .title-gradient {
+  background: linear-gradient(135deg, 
+    #2d5016 0%,
+    #4a7c59 25%,
+    #6b8e23 50%,
+    #32CD32 75%,
+    #228B22 100%
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 4s ease-in-out infinite;
+  position: relative;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.farmer-impact-section .title-underline {
+  width: 120px;
+  height: 6px;
+  background: linear-gradient(90deg, #e0f2e0, #f0f9f0);
+  border-radius: 3px;
+  margin: 0 auto 30px auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.farmer-impact-section .underline-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4a7c59, #6b8e23, #32CD32);
+  border-radius: 3px;
+  position: relative;
+}
+
+.farmer-impact-section .underline-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #FFD700);
+  border-radius: 3px;
+}
+
+.farmer-impact-section .impact-subtitle {
+  font-size: 1.4rem;
+  color: #4a5568;
+  font-weight: 500;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Impact Cards Grid */
+.farmer-impact-section .impact-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-bottom: 80px;
+  perspective: 1000px;
+}
+
+.farmer-impact-section .impact-card {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(248, 253, 248, 0.9) 100%
+  );
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 40px 30px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transform-style: preserve-3d;
+}
+
+.farmer-impact-section .impact-card:hover {
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  transform: translateY(-8px) rotateX(5deg);
+}
+
+.farmer-impact-section .card-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  opacity: 0;
+  border-radius: 50%;
+  filter: blur(40px);
+  transition: opacity 0.5s ease;
+  z-index: 0;
+}
+
+.farmer-impact-section .impact-card:hover .card-glow {
+  opacity: 0.1;
+}
+
+.farmer-impact-section .impact-icon {
+  font-size: 3.5rem;
+  margin-bottom: 25px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  transform-style: preserve-3d;
+}
+
+.farmer-impact-section .card-content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.farmer-impact-section .impact-card-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #2d5016;
+  margin: 0 0 15px 0;
+  line-height: 1.3;
+}
+
+.farmer-impact-section .impact-card-description {
+  font-size: 1rem;
+  color: #4a5568;
+  line-height: 1.6;
+  margin: 0 0 25px 0;
+  font-weight: 500;
+}
+
+.farmer-impact-section .impact-stats {
+  background: linear-gradient(135deg, #f0f9f0, #e8f5e8);
+  padding: 12px 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(74, 124, 89, 0.1);
+}
+
+.farmer-impact-section .stats-number {
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.farmer-impact-section .card-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.farmer-impact-section .border-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.6;
+}
+
+/* Impact Statement */
+.farmer-impact-section .impact-statement {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.farmer-impact-section .statement-content {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(240, 249, 240, 0.9) 100%
+  );
+  backdrop-filter: blur(20px);
+  padding: 40px 50px;
+  border-radius: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+  border: 2px solid rgba(74, 124, 89, 0.1);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  position: relative;
+  overflow: hidden;
+}
+
+.farmer-impact-section .statement-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(74, 124, 89, 0.1), 
+    transparent
+  );
+  transition: left 0.8s ease;
+}
+
+.farmer-impact-section .statement-content:hover::before {
+  left: 100%;
+}
+
+.farmer-impact-section .statement-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.farmer-impact-section .statement-text {
+  font-size: 1.3rem;
+  line-height: 1.7;
+  color: #2d3748;
+  margin: 0;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+}
+
+.farmer-impact-section .highlight-text {
+  background: linear-gradient(135deg, #4a7c59, #6b8e23, #32CD32);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  position: relative;
+}
+
+.farmer-impact-section .highlight-text::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #4a7c59, #6b8e23);
+  opacity: 0.3;
+  border-radius: 1px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .farmer-impact-section .impact-container {
+    padding: 0 30px;
+  }
+  
+  .farmer-impact-section .impact-cards-grid {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 992px) {
+  .farmer-impact-section {
+    padding: 60px 0;
+  }
+  
+  .farmer-impact-section .impact-header {
+    margin-bottom: 60px;
+  }
+  
+  .farmer-impact-section .impact-cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+  }
+  
+  .farmer-impact-section .impact-card {
+    padding: 30px 25px;
+  }
+  
+  .farmer-impact-section .statement-content {
+    padding: 30px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .farmer-impact-section {
+    padding: 40px 0;
+  }
+  
+  .farmer-impact-section .impact-container {
+    padding: 0 20px;
+  }
+  
+  .farmer-impact-section .impact-header {
+    margin-bottom: 40px;
+  }
+  
+  .farmer-impact-section .section-badge {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+  
+  .farmer-impact-section .impact-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 60px;
+  }
+  
+  .farmer-impact-section .impact-card {
+    padding: 25px 20px;
+  }
+  
+  .farmer-impact-section .impact-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .farmer-impact-section .impact-card-title {
+    font-size: 1.3rem;
+  }
+  
+  .farmer-impact-section .impact-card-description {
+    font-size: 0.95rem;
+  }
+  
+  .farmer-impact-section .statement-content {
+    padding: 25px 30px;
+  }
+  
+  .farmer-impact-section .statement-text {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .farmer-impact-section .impact-container {
+    padding: 0 15px;
+  }
+  
+  .farmer-impact-section .section-badge {
+    padding: 10px 18px;
+    font-size: 13px;
+  }
+  
+  .farmer-impact-section .impact-card {
+    padding: 20px 15px;
+  }
+  
+  .farmer-impact-section .statement-content {
+    padding: 20px 25px;
+  }
+  
+  .farmer-impact-section .statement-text {
+    font-size: 1rem;
+  }
+  
+  .farmer-impact-section .impact-subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .farmer-impact-section .floating-shape,
+  .farmer-impact-section .badge-icon,
+  .farmer-impact-section .title-gradient {
+    animation: none;
+  }
+  
+  .farmer-impact-section .impact-card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.farmer-impact-section .impact-card:focus,
+.farmer-impact-section .statement-content:focus {
+  outline: 3px solid #4a7c59;
+  outline-offset: 3px;
+}
+
+/* Loading states and micro-interactions */
+.farmer-impact-section .impact-card {
+  will-change: transform, box-shadow;
+}
+
+.farmer-impact-section .impact-icon span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.farmer-impact-section .impact-card:hover .impact-icon span {
+  transform: scale(1.1) rotate(5deg);
+}

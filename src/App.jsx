@@ -10,6 +10,7 @@ import './App.css'
 
 import MyProvider from './context/MyProvider'
 import About from './pages/About'
+import Farmers from './pages/Farmers'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home></Home>}></Route>
           <Route path='/about' element={<About></About>}></Route>
+          <Route path='/farmers' element={<Farmers></Farmers>}></Route>
         </Routes>
       </div>
       <Footer />

@@ -12,6 +12,7 @@ const Navbar = () => {
   const [showBlogPopup, setShowBlogPopup] = useState(false);
   const [showContactPopup, setShowContactPopup] = useState(false);
   const [showAppDownload, setShowAppDownload] = useState(false);
+  const [showAboutDropdown, setShowAboutDropdown] = useState(false);
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const navigateToProducts = useNavigateToProducts();
@@ -64,7 +65,11 @@ const Navbar = () => {
   const menuItems = [
     { name: 'Home', href: '/' },
     { name: 'Products', href: '#products', isScroll: true },
-    { name: 'Farmers', href: '#farmers', isScroll: true },
+    { name: 'Community', href: '/community' },
+  ];
+
+  const aboutItems = [
+    { name: 'Farmers', href: '/farmers' },
     { name: 'Nature', href: '#nature', isScroll: true },
     { name: 'You', href: '#you', isScroll: true },
     { name: 'Us', href: '/about' },
@@ -159,6 +164,59 @@ const Navbar = () => {
                   />
                 </motion.a>
               ))}
+
+              {/* About Dropdown */}
+              <div 
+                className="relative"
+                onMouseEnter={() => setShowAboutDropdown(true)}
+                onMouseLeave={() => setShowAboutDropdown(false)}
+              >
+                <motion.div
+                  className="relative text-emerald-700 dark:text-emerald-300 font-medium text-base hover:text-emerald-600 dark:hover:text-emerald-200 transition-all duration-200 group cursor-pointer"
+                  whileHover={{ y: -1 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: menuItems.length * 0.1 }}
+                >
+                  About
+                  <motion.div
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-500 to-emerald-700 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"
+                  />
+                </motion.div>
+
+                {/* About Dropdown Menu */}
+                <AnimatePresence>
+                  {showAboutDropdown && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      transition={{ duration: 0.2, ease: "easeOut" }}
+                      className="absolute top-full left-0 mt-2 bg-white/95 backdrop-blur-xl rounded-xl shadow-xl border border-gray-200/50 py-2 min-w-[160px] z-50"
+                    >
+                      {aboutItems.map((item, index) => (
+                        <motion.a
+                          key={item.name}
+                          href={item.href}
+                          onClick={
+                            item.name === 'Products'
+                              ? handleProductsClick
+                              : item.name === 'Blog'
+                                ? handleBlogClick
+                                : undefined
+                          }
+                          className="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors duration-200 font-medium"
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.2, delay: index * 0.05 }}
+                        >
+                          {item.name}
+                        </motion.a>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             </div>
           </div>
 
@@ -339,6 +397,34 @@ const Navbar = () => {
                   {item.name}
                 </motion.a>
               ))}
+
+              {/* Mobile About Section */}
+              <div className="mt-6 pt-4 border-t border-gray-200/30">
+                <h4 className="text-emerald-700 font-semibold text-lg mb-3">About</h4>
+                <div className="space-y-2 pl-4">
+                  {aboutItems.map((item, index) => (
+                    <motion.a
+                      key={item.name}
+                      href={item.href}
+                      className="block px-3 py-2 text-emerald-600 dark:text-emerald-400 font-medium text-base hover:text-emerald-700 dark:hover:text-emerald-300 hover:bg-white/10 rounded-lg transition-all duration-200 cursor-pointer"
+                      onClick={(e) => {
+                        if (item.name === 'Products') {
+                          handleProductsClick(e);
+                        } else if (item.name === 'Blog') {
+                          handleBlogClick(e);
+                        }
+                        setIsMobileMenuOpen(false);
+                      }}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: (menuItems.length + index) * 0.1 }}
+                      whileHover={{ x: 5 }}
+                    >
+                      {item.name}
+                    </motion.a>
+                  ))}
+                </div>
+              </div>
 
               {/* Mobile Call & WhatsApp Buttons */}
               <div className="flex space-x-3 mt-4">
