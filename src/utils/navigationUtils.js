@@ -90,3 +90,19 @@ export const useNavigateToFarmers = () => {
 
   return navigateToFarmers;
 };
+
+/**
+ * Custom hook for navigating to the nature page
+ */
+export const useNavigateToNature = () => {
+  const navigate = useNavigate();
+
+  const navigateToNature = useCallback((e) => {
+    if (e) {
+      e.preventDefault();
+    }
+    navigate('/nature');
+  }, [navigate]);
+
+  return navigateToNature;
+};

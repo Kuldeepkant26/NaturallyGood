@@ -1,0 +1,20 @@
+/* ==========================================================================
+   NATURE PAGE STYLES
+   ========================================================================== */
+
+.nature-page {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Ensure smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove default margins and padding */
+.nature-page * {
+  box-sizing: border-box;
+}
+
+/* Additional sections styling will go here */

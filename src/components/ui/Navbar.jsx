@@ -70,7 +70,7 @@ const Navbar = () => {
 
   const aboutItems = [
     { name: 'Farmers', href: '/farmers' },
-    { name: 'Nature', href: '#nature', isScroll: true },
+    { name: 'Nature', href: '/nature' },
     { name: 'You', href: '#you', isScroll: true },
     { name: 'Us', href: '/about' },
   ];

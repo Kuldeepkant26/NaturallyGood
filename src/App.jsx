@@ -11,6 +11,7 @@ import './App.css'
 import MyProvider from './context/MyProvider'
 import About from './pages/About'
 import Farmers from './pages/Farmers'
+import Nature from './pages/Nature'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path='/' element={<Home></Home>}></Route>
           <Route path='/about' element={<About></About>}></Route>
           <Route path='/farmers' element={<Farmers></Farmers>}></Route>
+          <Route path='/nature' element={<Nature></Nature>}></Route>
         </Routes>
       </div>
       <Footer />
