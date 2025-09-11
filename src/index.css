@@ -1,2 +1,28 @@
 @import "tailwindcss";
 @import "./css/colors.css";
+
+/* Custom Scrollbar Styles */
+.toc-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.toc-scrollbar::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
+.toc-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+  transition: background-color 0.2s ease;
+}
+
+.toc-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #78B826;
+}
+
+/* Firefox scrollbar */
+.toc-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}

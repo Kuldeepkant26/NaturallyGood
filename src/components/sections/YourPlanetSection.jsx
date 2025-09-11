@@ -76,7 +76,7 @@ const YourPlanetSection = () => {
   }
 
   return (
-    <section className="your-planet-section">
+    <section id="your-planet-section" className="your-planet-section">
       <div className="your-planet-container">
         {/* Left Content */}
         <div className="content-side">

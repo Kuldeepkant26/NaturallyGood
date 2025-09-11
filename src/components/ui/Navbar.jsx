@@ -13,6 +13,7 @@ const Navbar = () => {
   const [showContactPopup, setShowContactPopup] = useState(false);
   const [showAppDownload, setShowAppDownload] = useState(false);
   const [showAboutDropdown, setShowAboutDropdown] = useState(false);
+  const [showProductsDropdown, setShowProductsDropdown] = useState(false);
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const navigateToProducts = useNavigateToProducts();
@@ -71,8 +72,14 @@ const Navbar = () => {
   const aboutItems = [
     { name: 'Farmers', href: '/farmers' },
     { name: 'Nature', href: '/nature' },
-    { name: 'You', href: '#you', isScroll: true },
+    { name: 'You', href: '/you' },
     { name: 'Us', href: '/about' },
+  ];
+
+  const productItems = [
+    { name: 'Your Bag', href: '#products', isScroll: true },
+    { name: 'Our Plan', href: '#subscription', isScroll: true },
+    { name: 'Premium Offerings', href: '#premium-offerings', isScroll: true },
   ];
 
   const handleContactUs = (e) => {
@@ -97,6 +104,41 @@ const Navbar = () => {
 
   const handleProductsClick = (e) => {
     navigateToProducts(e);
+  };
+
+  const handleScrollToSection = (e, href) => {
+    e.preventDefault();
+    
+    // Close mobile menu immediately
+    setIsMobileMenuOpen(false);
+    
+    // Extract section ID from href
+    const sectionId = href.replace('#', '');
+    
+    // If we're not on the home page, navigate to home first
+    if (window.location.pathname !== '/') {
+      window.location.href = '/' + href;
+      return;
+    }
+    
+    // Small delay to allow mobile menu to close
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        // Calculate offset for mobile devices to account for navbar
+        const isMobile = window.innerWidth < 1024;
+        const offset = isMobile ? 80 : 60; // More offset for mobile
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - offset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      } else {
+        console.warn(`Section with id "${sectionId}" not found`);
+      }
+    }, 200); // Wait for menu close animation
   };
 
   return (
@@ -141,16 +183,14 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center space-x-8">
             {/* Menu Items */}
             <div className="flex items-center space-x-6">
-              {menuItems.map((item, index) => (
+              {menuItems.filter(item => item.name !== 'Products').map((item, index) => (
                 <motion.a
                   key={item.name}
                   href={item.href}
                   onClick={
-                    item.name === 'Products'
-                      ? handleProductsClick
-                      : item.name === 'Blog'
-                        ? handleBlogClick
-                        : undefined
+                    item.name === 'Blog'
+                      ? handleBlogClick
+                      : undefined
                   }
                   className="relative text-emerald-700 dark:text-emerald-300 font-medium text-base hover:text-emerald-600 dark:hover:text-emerald-200 transition-all duration-200 group cursor-pointer"
                   whileHover={{ y: -1 }}
@@ -165,6 +205,53 @@ const Navbar = () => {
                 </motion.a>
               ))}
 
+              {/* Products Dropdown */}
+              <div 
+                className="relative"
+                onMouseEnter={() => setShowProductsDropdown(true)}
+                onMouseLeave={() => setShowProductsDropdown(false)}
+              >
+                <motion.div
+                  className="relative text-emerald-700 dark:text-emerald-300 font-medium text-base hover:text-emerald-600 dark:hover:text-emerald-200 transition-all duration-200 group cursor-pointer"
+                  whileHover={{ y: -1 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 1 * 0.1 }}
+                >
+                  Products
+                  <motion.div
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-500 to-emerald-700 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"
+                  />
+                </motion.div>
+
+                {/* Products Dropdown Menu */}
+                <AnimatePresence>
+                  {showProductsDropdown && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      transition={{ duration: 0.2, ease: "easeOut" }}
+                      className="absolute top-full left-0 mt-2 bg-white/95 backdrop-blur-xl rounded-xl shadow-xl border border-gray-200/50 py-2 min-w-[180px] z-50"
+                    >
+                      {productItems.map((item, index) => (
+                        <motion.a
+                          key={item.name}
+                          href={item.href}
+                          onClick={(e) => handleScrollToSection(e, item.href)}
+                          className="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors duration-200 font-medium"
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.2, delay: index * 0.05 }}
+                        >
+                          {item.name}
+                        </motion.a>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
               {/* About Dropdown */}
               <div 
                 className="relative"
@@ -176,7 +263,7 @@ const Navbar = () => {
                   whileHover={{ y: -1 }}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: menuItems.length * 0.1 }}
+                  transition={{ duration: 0.4, delay: 2 * 0.1 }}
                 >
                   About
                   <motion.div
@@ -203,7 +290,9 @@ const Navbar = () => {
                               ? handleProductsClick
                               : item.name === 'Blog'
                                 ? handleBlogClick
-                                : undefined
+                                : item.isScroll 
+                                  ? (e) => handleScrollToSection(e, item.href)
+                                  : undefined
                           }
                           className="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors duration-200 font-medium"
                           initial={{ opacity: 0, x: -10 }}
@@ -376,15 +465,13 @@ const Navbar = () => {
           >
             <div className="px-4 py-6 space-y-4">
               {/* Mobile Menu Items */}
-              {menuItems.map((item, index) => (
+              {menuItems.filter(item => item.name !== 'Products').map((item, index) => (
                 <motion.a
                   key={item.name}
                   href={item.href}
                   className="block px-4 py-3 text-emerald-700 dark:text-emerald-300 font-semibold text-lg hover:text-emerald-600 dark:hover:text-emerald-200 hover:bg-white/10 rounded-xl transition-all duration-200 cursor-pointer"
                   onClick={(e) => {
-                    if (item.name === 'Products') {
-                      handleProductsClick(e);
-                    } else if (item.name === 'Blog') {
+                    if (item.name === 'Blog') {
                       handleBlogClick(e);
                     }
                     setIsMobileMenuOpen(false);
@@ -398,6 +485,29 @@ const Navbar = () => {
                 </motion.a>
               ))}
 
+              {/* Mobile Products Section */}
+              <div className="mt-6 pt-4 border-t border-gray-200/30">
+                <h4 className="text-emerald-700 font-semibold text-lg mb-3">Products</h4>
+                <div className="space-y-2 pl-4">
+                  {productItems.map((item, index) => (
+                    <motion.a
+                      key={item.name}
+                      href={item.href}
+                      className="block px-3 py-2 text-emerald-600 dark:text-emerald-400 font-medium text-base hover:text-emerald-700 dark:hover:text-emerald-300 hover:bg-white/10 rounded-lg transition-all duration-200 cursor-pointer"
+                      onClick={(e) => {
+                        handleScrollToSection(e, item.href);
+                      }}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: (2 + index) * 0.1 }}
+                      whileHover={{ x: 5 }}
+                    >
+                      {item.name}
+                    </motion.a>
+                  ))}
+                </div>
+              </div>
+
               {/* Mobile About Section */}
               <div className="mt-6 pt-4 border-t border-gray-200/30">
                 <h4 className="text-emerald-700 font-semibold text-lg mb-3">About</h4>
@@ -408,16 +518,15 @@ const Navbar = () => {
                       href={item.href}
                       className="block px-3 py-2 text-emerald-600 dark:text-emerald-400 font-medium text-base hover:text-emerald-700 dark:hover:text-emerald-300 hover:bg-white/10 rounded-lg transition-all duration-200 cursor-pointer"
                       onClick={(e) => {
-                        if (item.name === 'Products') {
-                          handleProductsClick(e);
-                        } else if (item.name === 'Blog') {
-                          handleBlogClick(e);
+                        if (item.isScroll) {
+                          handleScrollToSection(e, item.href);
+                        } else {
+                          setIsMobileMenuOpen(false);
                         }
-                        setIsMobileMenuOpen(false);
                       }}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: (menuItems.length + index) * 0.1 }}
+                      transition={{ duration: 0.3, delay: (5 + index) * 0.1 }}
                       whileHover={{ x: 5 }}
                     >
                       {item.name}

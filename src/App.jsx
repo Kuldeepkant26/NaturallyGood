@@ -12,6 +12,8 @@ import MyProvider from './context/MyProvider'
 import About from './pages/About'
 import Farmers from './pages/Farmers'
 import Nature from './pages/Nature'
+import You from './pages/You'
+import BlogDetail from './pages/BlogDetail'
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
           <Route path='/about' element={<About></About>}></Route>
           <Route path='/farmers' element={<Farmers></Farmers>}></Route>
           <Route path='/nature' element={<Nature></Nature>}></Route>
+          <Route path='/you' element={<You></You>}></Route>
+          <Route path='/blog/:slug' element={<BlogDetail></BlogDetail>}></Route>
         </Routes>
       </div>
       <Footer />

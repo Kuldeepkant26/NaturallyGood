@@ -328,7 +328,7 @@ const ProductsSection = () => {
   };
 
   return (
-    <section ref={ref} id="products-section" data-section="products" className="py-20 bg-gradient-to-br from-white via-gray-50 to-gray-100 overflow-hidden">
+    <section ref={ref} id="products" data-section="products" className="py-20 bg-gradient-to-br from-white via-gray-50 to-gray-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

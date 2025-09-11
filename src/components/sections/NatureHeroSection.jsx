@@ -79,6 +79,16 @@ const NatureHeroSection = () => {
     setCurrentImageIndex(currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1);
   };
 
+  const scrollToNextSection = () => {
+    const nextSection = document.getElementById('your-planet-section');
+    if (nextSection) {
+      nextSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <section className="nature-hero">
       {/* Background Image Slider */}
@@ -117,11 +127,11 @@ const NatureHeroSection = () => {
               </p>
             </div>
             <div className="nature-hero__cta">
-              <button className="nature-hero__btn nature-hero__btn--primary">
-                Explore Our Story
-              </button>
-              <button className="nature-hero__btn nature-hero__btn--secondary">
-                Meet Our Farmers
+              <button 
+                className="nature-hero__btn nature-hero__btn--primary"
+                onClick={scrollToNextSection}
+              >
+              Your Planet
               </button>
             </div>
           </div>
