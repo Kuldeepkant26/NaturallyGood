@@ -285,7 +285,11 @@ const AddOnsSection = () => {
         {/* Products Grid */}
         <div
           key={activeCategory}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-16 px-4 sm:px-0"
+          className={`${
+            productData[activeCategory]?.length === 1
+              ? 'flex justify-center' // Center single card
+              : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' // Normal grid for multiple cards
+          } gap-4 sm:gap-6 mb-16 px-4 sm:px-0`}
         >
           {productData[activeCategory]?.map((product, index) => (
             <motion.div
@@ -310,7 +314,11 @@ const AddOnsSection = () => {
                 y: -10,
                 transition: { type: "spring", stiffness: 400, damping: 25 }
               }}
-              className="group cursor-pointer transform-gpu relative"
+              className={`group cursor-pointer transform-gpu relative ${
+                productData[activeCategory]?.length === 1
+                  ? 'w-full max-w-sm' // Normal card width for single card
+                  : ''
+              }`}
               title={product.name}
             >
               <div className="relative bg-white rounded-xl p-6 shadow-lg border border-gray-100 overflow-hidden h-full transition-all duration-300 group-hover:shadow-xl">
@@ -366,8 +374,9 @@ const AddOnsSection = () => {
                           </div>
                         ))}
                         {product.features.length > 2 && (
-                          <div className="text-xs text-green-600 font-medium">
-                            +{product.features.length - 2} more features
+                          <div className="flex items-center text-xs text-gray-500">
+                            <CheckCircle className="w-3 h-3 text-green-500 mr-1 flex-shrink-0" />
+                            {product.features[2]}
                           </div>
                         )}
                       </div>
