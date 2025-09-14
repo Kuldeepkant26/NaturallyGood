@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
+import { Sparkles, Heart, Leaf, Star, Baby, Salad, User, UserCircle, Building, MessageCircle, Users } from 'lucide-react'
 
 function You() {
   const navigate = useNavigate()
@@ -266,25 +267,25 @@ function You() {
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-[#78B826] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-white text-sm">👶</span>
+                    <Baby className="text-white w-4 h-4" />
                   </div>
                   <p className="text-lg text-gray-700">Feed your children with safe, nutritious, and organic food.</p>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-[#00963E] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-white text-sm">👴</span>
+                    <Users className="text-white w-4 h-4" />
                   </div>
                   <p className="text-lg text-gray-700">Support your parents with nutrient-rich vegetables for stronger immunity.</p>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-[#78B826] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-white text-sm">🥗</span>
+                    <Salad className="text-white w-4 h-4" />
                   </div>
                   <p className="text-lg text-gray-700">Bring home a variety of seasonal produce that strengthens health and creates joyful meals.</p>
                 </div>
               </div>
               <div className="mt-8 p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl">
-                <p className="text-lg text-gray-800 italic">✨ Every Naturally Good bag is a gesture of care—for your family, your farmers, and your planet.</p>
+                <p className="text-lg text-gray-800 italic"><Sparkles className="inline w-5 h-5 text-yellow-500 mr-2" /> Every Naturally Good bag is a gesture of care—for your family, your farmers, and your planet.</p>
               </div>
             </motion.div>
             <motion.div
@@ -334,7 +335,7 @@ function You() {
               className="bg-white rounded-3xl p-8 shadow-xl"
             >
               <div className="flex items-center gap-4 mb-6">
-                <div className="text-4xl">👧</div>
+                <div className="text-4xl"><Baby className="w-10 h-10 text-purple-500" /></div>
                 <h3 className="text-2xl font-bold text-gray-900">Children</h3>
               </div>
               <p className="text-lg text-gray-700 mb-6">
@@ -362,7 +363,7 @@ function You() {
                 </ul>
               </div>
               <div className="p-4 bg-green-50 rounded-xl">
-                <p className="text-sm text-gray-800 italic">💚 Give your child the gift of pure food—just the way nature intended.</p>
+                <p className="text-sm text-gray-800 italic"><Heart className="inline w-4 h-4 text-green-500 mr-2" /> Give your child the gift of pure food—just the way nature intended.</p>
               </div>
             </motion.div>
 
@@ -374,7 +375,7 @@ function You() {
               className="bg-white rounded-3xl p-8 shadow-xl"
             >
               <div className="flex items-center gap-4 mb-6">
-                <div className="text-4xl">👩</div>
+                <div className="text-4xl"><UserCircle className="w-10 h-10 text-pink-500" /></div>
                 <h3 className="text-2xl font-bold text-gray-900">Women</h3>
               </div>
               <p className="text-lg text-gray-700 mb-6">
@@ -402,7 +403,7 @@ function You() {
                 </ul>
               </div>
               <div className="p-4 bg-green-50 rounded-xl">
-                <p className="text-sm text-gray-800 italic">✨ From adolescence to motherhood and beyond, organic food supports every phase of a woman's life.</p>
+                <p className="text-sm text-gray-800 italic"><Sparkles className="inline w-4 h-4 text-yellow-500 mr-2" /> From adolescence to motherhood and beyond, organic food supports every phase of a woman's life.</p>
               </div>
             </motion.div>
 
@@ -414,7 +415,7 @@ function You() {
               className="bg-white rounded-3xl p-8 shadow-xl"
             >
               <div className="flex items-center gap-4 mb-6">
-                <div className="text-4xl">👨</div>
+                <div className="text-4xl"><User className="w-10 h-10 text-blue-500" /></div>
                 <h3 className="text-2xl font-bold text-gray-900">Men</h3>
               </div>
               <p className="text-lg text-gray-700 mb-6">
@@ -442,7 +443,7 @@ function You() {
                 </ul>
               </div>
               <div className="p-4 bg-green-50 rounded-xl">
-                <p className="text-sm text-gray-800 italic">✨ Fuel your body with clean nutrition—because performance starts with what's on your plate.</p>
+                <p className="text-sm text-gray-800 italic"><Sparkles className="inline w-4 h-4 text-yellow-500 mr-2" /> Fuel your body with clean nutrition—because performance starts with what's on your plate.</p>
               </div>
             </motion.div>
 
@@ -454,7 +455,7 @@ function You() {
               className="bg-white rounded-3xl p-8 shadow-xl"
             >
               <div className="flex items-center gap-4 mb-6">
-                <div className="text-4xl">👵</div>
+                <div className="text-4xl"><Users className="w-10 h-10 text-gray-500" /></div>
                 <h3 className="text-2xl font-bold text-gray-900">Elderly</h3>
               </div>
               <p className="text-lg text-gray-700 mb-6">
@@ -486,11 +487,10 @@ function You() {
                 </ul>
               </div>
               <div className="p-4 bg-green-50 rounded-xl">
-                <p className="text-sm text-gray-800 italic">✨ Organic food supports longevity and vitality, making everyday life healthier and lighter.</p>
+                <p className="text-sm text-gray-800 italic"><Sparkles className="inline w-4 h-4 text-yellow-500 mr-2" /> Organic food supports longevity and vitality, making everyday life healthier and lighter.</p>
               </div>
             </motion.div>
           </div>
-
           {/* Corporates */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -499,7 +499,7 @@ function You() {
             className="mt-12 bg-gradient-to-r from-[#00963E] to-[#78B826] rounded-3xl p-8 text-white"
           >
             <div className="flex items-center gap-4 mb-6">
-              <div className="text-4xl">🏢</div>
+              <div className="text-4xl"><Building className="w-10 h-10 text-white" /></div>
               <h3 className="text-2xl font-bold">Corporates & Working Professionals</h3>
             </div>
             <p className="text-lg mb-6 opacity-90">
@@ -528,7 +528,7 @@ function You() {
               </ul>
             </div>
             <div className="p-4 bg-white/20 rounded-xl">
-              <p className="text-sm italic">✨ Corporate wellness begins at the dining table—bring Naturally Good into your work life.</p>
+              <p className="text-sm italic"><Sparkles className="inline w-4 h-4 text-yellow-300 mr-2" /> Corporate wellness begins at the dining table—bring Naturally Good into your work life.</p>
             </div>
           </motion.div>
         </div>
@@ -628,7 +628,7 @@ function You() {
             className="mt-12 text-center p-8 bg-gradient-to-r from-green-50 to-emerald-50 rounded-3xl"
           >
             <p className="text-xl text-gray-800 italic">
-              🌿 Together, let's turn every home and neighborhood into a hub of health, sustainability, and joy.
+              <Leaf className="inline w-5 h-5 text-green-500 mr-2" /> Together, let's turn every home and neighborhood into a hub of health, sustainability, and joy.
             </p>
           </motion.div>
         </div>
@@ -649,7 +649,7 @@ function You() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              💬 What our <span className="text-[#78B826]">community</span> says
+              <MessageCircle className="inline w-10 h-10 text-[#78B826] mr-3" /> What our <span className="text-[#78B826]">community</span> says
             </h2>
             <p className="text-xl text-gray-700">
               Real families, real stories, real health transformations.
@@ -679,7 +679,7 @@ function You() {
               </p>
               <div className="flex text-yellow-400">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i}>⭐</span>
+                  <Star key={i} className="w-5 h-5 fill-current" />
                 ))}
               </div>
             </motion.div>
@@ -706,7 +706,7 @@ function You() {
               </p>
               <div className="flex text-yellow-400">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i}>⭐</span>
+                  <Star key={i} className="w-5 h-5 fill-current" />
                 ))}
               </div>
             </motion.div>
@@ -733,7 +733,7 @@ function You() {
               </p>
               <div className="flex text-yellow-400">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i}>⭐</span>
+                  <Star key={i} className="w-5 h-5 fill-current" />
                 ))}
               </div>
             </motion.div>
@@ -910,7 +910,7 @@ function You() {
             className="mt-12 text-center p-8 bg-gradient-to-r from-[#00963E] to-[#78B826] rounded-3xl text-white"
           >
             <p className="text-xl italic">
-              💚 Community is the heart of Naturally Good—because when we grow together, we thrive together
+              <Heart className="inline w-5 h-5 text-green-300 mr-2" /> Community is the heart of Naturally Good—because when we grow together, we thrive together
             </p>
           </motion.div>
         </div>

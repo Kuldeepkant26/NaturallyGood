@@ -1,20 +1,21 @@
 import React from 'react'
+import { Shield, Sprout, Users, Leaf } from 'lucide-react'
 import './HealthBenefitsSection.css'
 
 function HealthBenefitsSection() {
   const benefits = [
     {
-      icon: "🛡️",
+      icon: <Shield className="w-6 h-6" />,
       title: "Protect from Harmful Exposure",
       description: "Farmers safeguard themselves from dangerous pesticide exposure, ensuring better health and wellbeing."
     },
     {
-      icon: "🌱",
+      icon: <Sprout className="w-6 h-6" />,
       title: "Restore Soil Fertility",
       description: "Organic practices improve soil health and increase long-term agricultural yield naturally."
     },
     {
-      icon: "👨‍👩‍👧‍👦",
+      icon: <Users className="w-6 h-6" />,
       title: "Secure Family Safety",
       description: "Chemical-free farming ensures safer, healthier food for farmers' own families and communities."
     }
@@ -39,7 +40,7 @@ function HealthBenefitsSection() {
         <div className="health-content">
           <div className="content-header">
             <div className="section-badge">
-              <span className="badge-icon">🌿</span>
+              <span className="badge-icon"><Leaf className="w-5 h-5" /></span>
               <span>Health & Wellness</span>
             </div>
             <h2 className="section-title">Health Benefits of Organic</h2>
@@ -57,7 +58,7 @@ function HealthBenefitsSection() {
             {benefits.map((benefit, index) => (
               <div key={index} className="benefit-item">
                 <div className="benefit-icon">
-                  <span>{benefit.icon}</span>
+                  {benefit.icon}
                 </div>
                 <div className="benefit-content">
                   <h3 className="benefit-title">{benefit.title}</h3>

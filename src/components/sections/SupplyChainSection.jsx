@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
+import { Sprout, Leaf, Tractor, Wheat, ClipboardList, Package, Truck, Zap, Snowflake, Search, Recycle } from 'lucide-react'
 import './SupplyChainSection.css'
 
 const SupplyChainSection = () => {
@@ -9,49 +10,49 @@ const SupplyChainSection = () => {
   const supplyChainSteps = [
     {
       id: 1,
-      icon: "🌱",
+      icon: <Sprout className="w-8 h-8" />,
       title: "Seed",
       description: "Carefully selected organic seeds",
       image: "https://cdn.pixabay.com/photo/2019/01/20/18/11/seed-3944361_1280.jpg"
     },
     {
       id: 2,
-      icon: "🌿",
+      icon: <Leaf className="w-8 h-8" />,
       title: "Sapling",
       description: "Nurtured with organic care",
       image: "https://png.pngtree.com/thumb_back/fh260/background/20210831/pngtree-sapling-and-hand-plant-growth-background-image_771585.jpg"
     },
     {
       id: 3,
-      icon: "🚜",
+      icon: <Tractor className="w-8 h-8" />,
       title: "Cultivation",
       description: "Sustainable farming practices",
       image: "https://t4.ftcdn.net/jpg/03/57/54/77/360_F_357547735_aTZvm1ec8Uzgsd1aTukmFiOw4iXX2aKS.jpg"
     },
     {
       id: 4,
-      icon: "🌾",
+      icon: <Wheat className="w-8 h-8" />,
       title: "Harvest",
       description: "Fresh picked at peak ripeness",
       image: "https://images.pexels.com/photos/20317186/pexels-photo-20317186/free-photo-of-farmers-in-india.jpeg"
     },
     {
       id: 5,
-      icon: "📋",
+      icon: <ClipboardList className="w-8 h-8" />,
       title: "Sorting",
       description: "Quality controlled selection",
       image: "https://media.istockphoto.com/id/690781600/photo/hands-on-on-the-factory-floor.jpg?s=612x612&w=0&k=20&c=9zqgpAaK6e-gxiPdXPPNcxTsl_mBS3bjd43FpVtLn5Q="
     },
     {
       id: 6,
-      icon: "📦",
+      icon: <Package className="w-8 h-8" />,
       title: "Packaging",
       description: "Eco-friendly sustainable packaging",
       image: "https://media.istockphoto.com/id/1161394261/photo/single-use-plastic-packaging-issue-fruits-and-vegetables-in-plastic-bags.jpg?s=612x612&w=0&k=20&c=JvMKOl96RJDRENCqYJ0Q1tQvoSRMDOXyosqRcvz69Us="
     },
     {
       id: 7,
-      icon: "🚚",
+      icon: <Truck className="w-8 h-8" />,
       title: "Delivery",
       description: "Direct to your doorstep",
       image: "https://media.istockphoto.com/id/1369503196/photo/focus-on-senior-women-indian-delivery-boy-giving-groceries-to-senior-women-after-opening-door.jpg?s=612x612&w=0&k=20&c=-xLX0v_8DO2uHN-lKIU4jqKEb55BFJsJgkprmwAnrng="
@@ -60,22 +61,22 @@ const SupplyChainSection = () => {
 
   const benefits = [
     {
-      icon: "⚡",
+      icon: <Zap className="w-6 h-6" />,
       title: "Same-Day Harvest",
       description: "Veggies reach you within hours, not weeks"
     },
     {
-      icon: "❄️",
+      icon: <Snowflake className="w-6 h-6" />,
       title: "No Cold Storage",
       description: "Unlike conventional produce, ours is never artificially preserved"
     },
     {
-      icon: "🔍",
+      icon: <Search className="w-6 h-6" />,
       title: "Transparency",
       description: "Every bag is traceable to the farm it came from"
     },
     {
-      icon: "🌿",
+      icon: <Recycle className="w-6 h-6" />,
       title: "Eco-Friendly Delivery",
       description: "Powered by electric vehicles and sustainable packaging"
     }

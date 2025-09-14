@@ -106,14 +106,14 @@
   display: inline-flex;
   align-items: center;
   padding: 1rem 2.5rem;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: linear-gradient(135deg, #79B927 0%, #00963F 100%);
   color: white;
   text-decoration: none;
   border-radius: 50px;
   font-weight: 600;
   font-size: 1rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.25);
+  box-shadow: 0 4px 20px rgba(121, 185, 39, 0.25);
   border: none;
   position: relative;
   overflow: hidden;
@@ -135,9 +135,9 @@
 }
 
 .hero-container .hero-cta-primary:hover {
-  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  background: linear-gradient(135deg, #00963F 0%, #065F46 100%);
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 8px 30px rgba(121, 185, 39, 0.4);
 }
 
 .hero-container .hero-cta-secondary {

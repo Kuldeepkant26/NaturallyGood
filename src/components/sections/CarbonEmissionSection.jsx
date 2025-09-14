@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
+import { Car, Package, Globe, BarChart, Sprout, Leaf, TreePine, RotateCcw } from 'lucide-react'
 import './CarbonEmissionSection.css'
 
 const CarbonEmissionSection = () => {
@@ -7,9 +8,9 @@ const CarbonEmissionSection = () => {
   const [activeTab, setActiveTab] = useState(0)
 
   const carbonInitiatives = [
-    {
+        {
       id: 1,
-      icon: "🚗",
+      icon: <Car className="w-6 h-6" />,
       title: "Electric vehicles for last-mile delivery",
       description: "100% electric fleet reducing emissions by 85%",
       image: "https://5.imimg.com/data5/LG/ZM/FO/SELLER-42504456/62762ef1e268f43a77e63d1c6a20b067-500x500.jpg",
@@ -19,7 +20,37 @@ const CarbonEmissionSection = () => {
     },
     {
       id: 2,
-      icon: "📦",
+      icon: <Package className="w-6 h-6" />,
+      title: "Zero-waste packaging system",
+      description: "Biodegradable packaging made from agricultural waste",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFhHhCcKQQ4KPTy1FErsJKZvMlbOu8iB_hZQ&s",
+      stat: "100% Compostable",
+      color: "#81c784",
+      impact: "Circular economy model"
+    },
+    {
+      id: 3,
+      icon: <Globe className="w-6 h-6" />,
+      title: "Carbon-negative farming practices",
+      description: "Regenerative agriculture that captures more CO2 than produced",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5SQhCqVY5L8K6rJKxFJTTxqy7d8iZm8o3MA&s",
+      stat: "200% Carbon Offset",
+      color: "#a5d6a7",
+      impact: "Soil health restoration"
+    },
+    {
+      id: 4,
+      icon: <BarChart className="w-6 h-6" />,
+      title: "Real-time emission tracking",
+      description: "AI-powered monitoring of our entire supply chain footprint",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgJcMfJLbcGvCzPMVU3B8g5xLj9mFvGa5QHA&s",
+      stat: "24/7 Monitoring",
+      color: "#ffb74d",
+      impact: "Data-driven decisions"
+    },
+    {
+      id: 2,
+      icon: <Package className="w-6 h-6" />,
       title: "Minimal, biodegradable, and reusable packaging",
       description: "Sustainable packaging solutions for eco-conscious delivery",
       image: "https://irrorwxhrikrok5q.ldycdn.com/cloud/loBpnKnmRojSjikpillnj/broccoli-bag.jpg",
@@ -29,7 +60,7 @@ const CarbonEmissionSection = () => {
     },
     {
       id: 3,
-      icon: "🌍",
+      icon: <Globe className="w-6 h-6" />,
       title: "Hyperlocal farming—produce grown close to you",
       description: "Reducing transport distance and supporting local communities",
       image: "https://i.pinimg.com/736x/69/71/a2/6971a288491483af1e20942f44f9dc30.jpg",
@@ -39,7 +70,7 @@ const CarbonEmissionSection = () => {
     },
     {
       id: 4,
-      icon: "📊",
+      icon: <BarChart className="w-6 h-6" />,
       title: "Efficient crop planning to reduce waste",
       description: "Smart agriculture and precision farming techniques",
       image: "https://i.pinimg.com/1200x/11/2c/f7/112cf7c9c4ff450be0badf151b31c1c8.jpg",
@@ -89,7 +120,7 @@ const CarbonEmissionSection = () => {
         {/* Header */}
         <div className="section-header">
           <h2 className="section-title">
-            <span className="title-icon">🌱</span>
+            <span className="title-icon"><Sprout className="w-8 h-8" /></span>
             Carbon <span className="highlight">Emission</span>
           </h2>
           <p className="section-subtitle">
@@ -177,7 +208,7 @@ const CarbonEmissionSection = () => {
         {/* Closing Message */}
         <div className="closing-message">
           <div className="message-content">
-            <div className="message-icon">🌍</div>
+            <div className="message-icon"><Globe className="w-8 h-8" /></div>
             <h3 className="message-title">
               With every Naturally Good delivery, you're lowering carbon footprint and protecting the environment.
             </h3>
@@ -192,10 +223,10 @@ const CarbonEmissionSection = () => {
 
       {/* Background Elements */}
       <div className="floating-elements">
-        <div className="element leaf-1">🍃</div>
-        <div className="element leaf-2">🌿</div>
-        <div className="element earth-1">🌍</div>
-        <div className="element recycle-1">♻️</div>
+        <div className="element leaf-1"><Leaf className="w-6 h-6" /></div>
+        <div className="element leaf-2"><TreePine className="w-6 h-6" /></div>
+        <div className="element earth-1"><Globe className="w-6 h-6" /></div>
+        <div className="element recycle-1"><RotateCcw className="w-6 h-6" /></div>
       </div>
     </section>
   )

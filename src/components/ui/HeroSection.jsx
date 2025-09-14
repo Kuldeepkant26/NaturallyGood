@@ -159,7 +159,7 @@ const HeroSection = () => {
           
           <div 
             className="hero-cta-group animate-fade-in-up"
-            style={{ animationDelay: '0.7s' }}
+            style={{ animationDelay: '0.7s', display: 'flex', gap: '1rem' }}
           >
             <Link to="/about" className="hero-cta-secondary">
               Learn More
@@ -182,6 +182,20 @@ const HeroSection = () => {
                 />
               </svg>
             </Link>
+            <a
+              href="https://wa.me/919643722200"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-cta-secondary"
+              style={{
+                backgroundColor: '#79B927',
+                color: '#fff',
+                border: 'none',
+                borderColor: 'transparent'
+              }}
+            >
+              Subscribe Now
+            </a>
           </div>
         </div>
       )}

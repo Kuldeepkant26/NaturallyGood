@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
+import { Wind, Mountain, Home, TreePine } from 'lucide-react'
 import './PlantTreeSection.css'
 
 const PlantTreeSection = () => {
@@ -10,7 +11,7 @@ const PlantTreeSection = () => {
   const treeImpacts = [
     {
       id: 1,
-      icon: "🌬️",
+      icon: <Wind className="w-8 h-8" />,
       title: "Absorb carbon dioxide and purify air",
       description: "Each tree absorbs up to 48 lbs of CO2 annually",
       image: "https://lh6.googleusercontent.com/proxy/uR28NE5qJ9rl29Aak9Km1GdKp65T_dkWEwhPdc4VRavFJjnAQRMRDodnBxUp_3QC1-H2b4Jjk540lRuyODS9MCXjTqDbn1s8ba9GwBTrNAUY-u-0pyrR1HnahaPAQQWFCilO-uccNJ2RPd6cIH8",
@@ -19,7 +20,7 @@ const PlantTreeSection = () => {
     },
     {
       id: 2,
-      icon: "🏔️",
+      icon: <Mountain className="w-8 h-8" />,
       title: "Prevent soil erosion and restore biodiversity",
       description: "Tree roots stabilize soil and create habitat",
       image: "https://spunout.ie/wp-content/uploads/2023/09/Soil_erosion-1-950x630.jpg",
@@ -28,7 +29,7 @@ const PlantTreeSection = () => {
     },
     {
       id: 3,
-      icon: "🏘️",
+      icon: <Home className="w-8 h-8" />,
       title: "Provide shade, food, and habitat for rural villages",
       description: "Supporting communities with natural resources",
       image: "https://t4.ftcdn.net/jpg/05/38/43/35/360_F_538433538_pBrMZY8CCGqwhqAvCnFfaF7qEcHCs5vJ.jpg",
@@ -84,7 +85,7 @@ const PlantTreeSection = () => {
         <div className="section-header">
           <div className="header-content">
             <h2 className="section-title">
-              <span className="title-icon">🌳</span>
+              <span className="title-icon"><TreePine className="w-8 h-8" /></span>
               Plant a <span className="highlight">Tree</span>
             </h2>
             

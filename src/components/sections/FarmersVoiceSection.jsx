@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
+import { MessageSquare, MapPin, Wheat, Clock } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './FarmersVoiceSection.css';
@@ -43,36 +44,6 @@ function FarmersVoiceSection() {
       quote: "The training programs taught us sustainable farming methods. My soil is healthier, crops are better, and I earn more. Naturally Good respects farmers and treats us as partners.",
       image: "https://img.freepik.com/premium-vector/illustration-indian-farmer-face-vector_55610-7901.jpg",
       crop: "Organic Spices & Grains",
-      rating: 5
-    },
-    {
-      id: 4,
-      name: "Lakshmi Patel",
-      location: "Gujarat",
-      experience: "8 years",
-      quote: "From a small farmland to supplying premium organic produce - this journey with Naturally Good has been incredible. They provided everything from seeds to market access.",
-      image: "https://img.freepik.com/premium-vector/illustration-indian-farmer-face-vector_55610-7901.jpg",
-      crop: "Organic Cotton & Vegetables",
-      rating: 5
-    },
-    {
-      id: 5,
-      name: "Arjun Reddy",
-      location: "Andhra Pradesh",
-      experience: "10 years",
-      quote: "The organic certification process was smooth with their guidance. Now my produce sells at premium prices in urban markets. My family's future is secure.",
-      image: "https://img.freepik.com/premium-vector/illustration-indian-farmer-face-vector_55610-7901.jpg",
-      crop: "Organic Rice & Millets",
-      rating: 5
-    },
-    {
-      id: 6,
-      name: "Kavita Sharma",
-      location: "Uttar Pradesh",
-      experience: "6 years",
-      quote: "As a woman farmer, I faced many challenges. Naturally Good gave me equal opportunities and respect. Today I'm financially independent and inspiring other women in my village.",
-      image: "https://img.freepik.com/premium-vector/illustration-indian-farmer-face-vector_55610-7901.jpg",
-      crop: "Organic Herbs & Medicinal Plants",
       rating: 5
     }
   ];
@@ -235,7 +206,7 @@ function FarmersVoiceSection() {
                 ease: "easeInOut"
               }}
             >
-              🗣️
+              <MessageSquare className="w-6 h-6" />
             </motion.span>
             <span>Farmers' Voice</span>
           </motion.div>
@@ -338,7 +309,7 @@ function FarmersVoiceSection() {
                       transition={{ delay: 0.6, duration: 0.5 }}
                       viewport={{ once: true }}
                     >
-                      📍 {testimonial.location}
+                      <MapPin className="w-4 h-4 inline mr-1" />{testimonial.location}
                     </motion.p>
                     <motion.p 
                       className="farmer-experience"
@@ -347,7 +318,7 @@ function FarmersVoiceSection() {
                       transition={{ delay: 0.7, duration: 0.5 }}
                       viewport={{ once: true }}
                     >
-                      🌾 {testimonial.crop}
+                      <Wheat className="w-4 h-4 inline mr-1" />{testimonial.crop}
                     </motion.p>
                     <motion.p 
                       className="farmer-experience"
@@ -356,7 +327,7 @@ function FarmersVoiceSection() {
                       transition={{ delay: 0.8, duration: 0.5 }}
                       viewport={{ once: true }}
                     >
-                      ⏱️ {testimonial.experience} farming
+                      <Clock className="w-4 h-4 inline mr-1" />{testimonial.experience} farming
                     </motion.p>
                   </div>
 

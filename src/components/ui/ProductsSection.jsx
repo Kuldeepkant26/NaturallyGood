@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { Leaf, Package, ShoppingBag, Heart, Star, ArrowRight, CheckCircle, X, Phone, Smartphone, Mail } from 'lucide-react';
 
 // Import vegetable images configuration
@@ -23,11 +23,6 @@ const ProductsSection = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [visibleRows, setVisibleRows] = useState(3); // Show 3 rows initially
   const ref = useRef(null);
-  
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const rotateX = useSpring(useTransform(y, [-50, 50], [10, -10]));
-  const rotateY = useSpring(useTransform(x, [-50, 50], [-10, 10]));
 
   const categories = [
     {
@@ -248,16 +243,6 @@ const ProductsSection = () => {
     ]
   };
 
-  const handleMouseMove = (event, veggieIndex) => {
-    if (hoveredVeggie === veggieIndex) {
-      const rect = event.currentTarget.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-      x.set((event.clientX - centerX) * 0.5);
-      y.set((event.clientY - centerY) * 0.5);
-    }
-  };
-
   const handleWhatsAppOrder = () => {
     const message = `Hi! I'm interested in your seasonal veggie basket and would like to know more about the products.`;
     window.open(`https://wa.me/919643722200?text=${encodeURIComponent(message)}`, '_blank');
@@ -400,20 +385,13 @@ const ProductsSection = () => {
                 duration: 0.4,
                 ease: "easeOut"
               }}
-              style={{
-                rotateX: hoveredVeggie === index ? rotateX : 0,
-                rotateY: hoveredVeggie === index ? rotateY : 0,
-              }}
-              onMouseMove={(e) => handleMouseMove(e, index)}
               onMouseEnter={() => setHoveredVeggie(index)}
               onMouseLeave={() => {
                 setHoveredVeggie(null);
-                x.set(0);
-                y.set(0);
               }}
               onClick={() => handleProductClick(veggie)}
               whileHover={{ 
-                y: -10,
+                scale: 1.02,
                 transition: { type: "spring", stiffness: 400, damping: 25 }
               }}
               className="group cursor-pointer transform-gpu relative"
@@ -446,8 +424,8 @@ const ProductsSection = () => {
                     />
                     
                     {/* Veggie Name on Hover */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white p-3 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                      <h3 className="font-bold text-sm sm:text-base text-center">
+                    <div className="absolute bottom-0 left-0 right-0 text-white p-3 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                      <h3 className="font-bold text-sm sm:text-base text-center drop-shadow-lg">
                         {veggie.name}
                       </h3>
                     </div>
@@ -523,11 +501,51 @@ const ProductsSection = () => {
                 <span>Order Your Bag</span>
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
               </motion.button>
+              
+              {/* Contact icons below button on mobile, hidden on larger screens */}
+              <div className="flex md:hidden justify-center gap-4 mt-6">
+                <motion.button
+                  onClick={() => window.open('tel:+919876543210', '_self')}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-300 shadow-lg"
+                  title="Call"
+                >
+                  <Phone className="w-6 h-6 text-white" />
+                </motion.button>
+                <motion.button
+                  onClick={handleWhatsAppOrder}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-300 shadow-lg"
+                  title="WhatsApp"
+                >
+                  <WhatsAppIcon className="w-6 h-6 text-white" />
+                </motion.button>
+                <motion.button
+                  onClick={() => window.open('mailto:info@naturallygood.com', '_self')}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-300 shadow-lg"
+                  title="Email"
+                >
+                  <Mail className="w-6 h-6 text-white" />
+                </motion.button>
+                <motion.button
+                  onClick={() => alert('App coming soon!')}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-300 shadow-lg"
+                  title="Mobile App"
+                >
+                  <Smartphone className="w-6 h-6 text-white" />
+                </motion.button>
+              </div>
             </div>
           </div>
           
-          {/* Vertical ordering icons positioned on the right border */}
-          <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex flex-col gap-4">
+          {/* Vertical ordering icons positioned on the right border - Hidden on mobile, visible on larger screens */}
+          <div className="hidden md:flex absolute right-4 top-1/2 transform -translate-y-1/2 flex-col gap-4">
             <motion.button
               onClick={() => window.open('tel:+919876543210', '_self')}
               whileHover={{ scale: 1.1 }}

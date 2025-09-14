@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
+import { Sprout, Droplets, Wind, Salad } from 'lucide-react'
 import './WhyOrganicSection.css'
 
 const WhyOrganicSection = () => {
@@ -9,7 +10,7 @@ const WhyOrganicSection = () => {
   const organicBenefits = [
     {
       id: 1,
-      icon: "🌱",
+      icon: <Sprout className="w-8 h-8" />,
       title: "Healthier Soil",
       description: "Organic manure builds fertility for generations",
       image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
@@ -17,7 +18,7 @@ const WhyOrganicSection = () => {
     },
     {
       id: 2,
-      icon: "💧",
+      icon: <Droplets className="w-8 h-8" />,
       title: "Cleaner Water",
       description: "No chemical runoff contaminating rivers and lakes",
       image: "https://i.pinimg.com/736x/40/bd/fe/40bdfea182de7fe885a53bc82c350084.jpg",
@@ -25,7 +26,7 @@ const WhyOrganicSection = () => {
     },
     {
       id: 3,
-      icon: "🌬️",
+      icon: <Wind className="w-8 h-8" />,
       title: "Safer Air",
       description: "Reduced greenhouse gases and toxic emissions",
       image: "https://sustainability-news.net/wp-content/uploads/2023/06/shutterstock_1634334151.jpg",
@@ -33,7 +34,7 @@ const WhyOrganicSection = () => {
     },
     {
       id: 4,
-      icon: "🥬",
+      icon: <Salad className="w-8 h-8" />,
       title: "Pure Nutrition",
       description: "Vegetables that carry the natural taste and nutrients of the earth",
       image: "https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",

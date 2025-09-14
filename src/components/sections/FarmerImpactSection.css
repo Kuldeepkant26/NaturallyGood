@@ -261,7 +261,9 @@
 .farmer-impact-section .impact-icon {
   font-size: 3.5rem;
   margin-bottom: 25px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   z-index: 2;
   transform-style: preserve-3d;
@@ -465,6 +467,9 @@
   .farmer-impact-section .impact-icon {
     font-size: 3rem;
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .farmer-impact-section .impact-card-title {
@@ -535,11 +540,11 @@
   will-change: transform, box-shadow;
 }
 
-.farmer-impact-section .impact-icon span {
+.farmer-impact-section .impact-icon > div {
   display: inline-block;
   transition: transform 0.3s ease;
 }
 
-.farmer-impact-section .impact-card:hover .impact-icon span {
+.farmer-impact-section .impact-card:hover .impact-icon > div {
   transform: scale(1.1) rotate(5deg);
 }

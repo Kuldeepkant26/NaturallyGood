@@ -579,10 +579,16 @@
   }
   
   .farmers-section .image-grid {
-    grid-template-rows: repeat(3, 120px);
+    grid-template-rows: repeat(2, 120px);
     gap: 12px;
     max-width: 350px;
-    max-height: 380px;
+    max-height: 260px;
+  }
+  
+  /* Hide last two images on smaller screens */
+  .farmers-section .image-item:nth-child(4),
+  .farmers-section .image-item:nth-child(5) {
+    display: none;
   }
   
   .farmers-section .overlay-content h4 {
@@ -655,10 +661,10 @@
   }
   
   .farmers-section .image-grid {
-    grid-template-rows: repeat(3, 110px);
+    grid-template-rows: repeat(2, 110px);
     gap: 10px;
     max-width: 320px;
-    max-height: 350px;
+    max-height: 230px;
   }
 }
 
@@ -725,10 +731,10 @@
   }
   
   .farmers-section .image-grid {
-    grid-template-rows: repeat(3, 130px);
+    grid-template-rows: repeat(2, 130px);
     gap: 12px;
     max-width: 340px;
-    max-height: 420px;
+    max-height: 272px;
   }
   
   .farmers-section .overlay-content h4 {
@@ -816,10 +822,10 @@
   /* Reorganize image grid for mobile */
   .farmers-section .image-grid {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 110px);
+    grid-template-rows: repeat(2, 110px);
     gap: 10px;
     max-width: 300px;
-    max-height: 350px;
+    max-height: 230px;
   }
   
   .farmers-section .image-item:nth-child(1) {
@@ -916,10 +922,10 @@
   }
   
   .farmers-section .image-grid {
-    grid-template-rows: repeat(4, 100px);
+    grid-template-rows: repeat(2, 100px);
     gap: 8px;
     max-width: 280px;
-    max-height: 320px;
+    max-height: 208px;
   }
 }
 
@@ -971,10 +977,10 @@
   }
   
   .farmers-section .image-grid {
-    grid-template-rows: repeat(4, 90px);
+    grid-template-rows: repeat(2, 90px);
     gap: 6px;
     max-width: 260px;
-    max-height: 290px;
+    max-height: 186px;
   }
   
   .farmers-section .overlay-content h4 {

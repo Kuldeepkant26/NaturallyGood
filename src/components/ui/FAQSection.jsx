@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Plus, Minus, HelpCircle } from 'lucide-react';
+import { Plus, Minus, HelpCircle, Truck, Smartphone, RotateCcw } from 'lucide-react';
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(null);
   const [activeCategory, setActiveCategory] = useState('general');
 
   const categories = [
-    { id: 'general', name: 'General', icon: '❓' },
-    { id: 'delivery', name: 'Delivery', icon: '🚚' },
-    { id: 'order', name: 'How to Order', icon: '📱' },
-    { id: 'returns', name: 'Returns', icon: '↩️' }
+    { id: 'general', name: 'General', icon: <HelpCircle className="w-5 h-5" /> },
+    { id: 'delivery', name: 'Delivery', icon: <Truck className="w-5 h-5" /> },
+    { id: 'order', name: 'How to Order', icon: <Smartphone className="w-5 h-5" /> },
+    { id: 'returns', name: 'Returns', icon: <RotateCcw className="w-5 h-5" /> }
   ];
 
   const faqs = {
@@ -197,7 +197,7 @@ const FAQSection = () => {
                     : {})
               }}
             >
-              <span className="text-lg sm:text-xl">{category.icon}</span>
+              <span className="flex-shrink-0">{category.icon}</span>
               <span className="whitespace-nowrap">{category.name}</span>
               
               {activeCategory === category.id && (

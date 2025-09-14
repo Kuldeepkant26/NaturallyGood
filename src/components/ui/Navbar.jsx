@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useNavigateToProducts } from '../../utils/navigationUtils';
 import NaturallyGoodLogo from '../../assets/NaturalyGoodLogo.jpeg';
 import NGlogo from '../../assets/NGlogo.png';
@@ -12,11 +13,10 @@ const Navbar = () => {
   const [showBlogPopup, setShowBlogPopup] = useState(false);
   const [showContactPopup, setShowContactPopup] = useState(false);
   const [showAppDownload, setShowAppDownload] = useState(false);
-  const [showAboutDropdown, setShowAboutDropdown] = useState(false);
-  const [showProductsDropdown, setShowProductsDropdown] = useState(false);
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const navigateToProducts = useNavigateToProducts();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +24,12 @@ const Navbar = () => {
       
       // Basic scroll state for styling
       setIsScrolled(currentScrollY > 20);
+      
+      // Don't hide navbar on mobile when menu is open
+      const isMobile = window.innerWidth < 1024;
+      if (isMobile && isMobileMenuOpen) {
+        return;
+      }
       
       // Hide/show navbar based on scroll direction
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
@@ -61,25 +67,27 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('showNavbar', handleShowNavbar);
     };
-  }, [lastScrollY]);
+  }, [lastScrollY, isMobileMenuOpen]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
 
   const menuItems = [
-    { name: 'Home', href: '/' },
     { name: 'Products', href: '#products', isScroll: true },
-    { name: 'Community', href: '/community' },
-  ];
-
-  const aboutItems = [
     { name: 'Farmers', href: '/farmers' },
     { name: 'Nature', href: '/nature' },
     { name: 'You', href: '/you' },
     { name: 'Us', href: '/about' },
-  ];
-
-  const productItems = [
-    { name: 'Your Bag', href: '#products', isScroll: true },
-    { name: 'Our Plan', href: '#subscription', isScroll: true },
-    { name: 'Premium Offerings', href: '#premium-offerings', isScroll: true },
   ];
 
   const handleContactUs = (e) => {
@@ -115,9 +123,9 @@ const Navbar = () => {
     // Extract section ID from href
     const sectionId = href.replace('#', '');
     
-    // If we're not on the home page, navigate to home first
+    // If we're not on the home page, navigate to home first using React Router
     if (window.location.pathname !== '/') {
-      window.location.href = '/' + href;
+      navigate('/' + href);
       return;
     }
     
@@ -166,7 +174,7 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
           >
-            <a href="/" className="flex items-center space-x-0">
+            <Link to="/" className="flex items-center space-x-0">
               <img
                 src={NGlogo}
                 alt="NaturallyGood Logo"
@@ -176,143 +184,78 @@ const Navbar = () => {
                 <span className="text-[#78B826]">Naturally</span>
                 <span className="text-[#00963E]">Good</span>
               </span>
-            </a>
+            </Link>
           </motion.div>
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center space-x-8">
             {/* Menu Items */}
             <div className="flex items-center space-x-6">
-              {menuItems.filter(item => item.name !== 'Products').map((item, index) => (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  onClick={
-                    item.name === 'Blog'
-                      ? handleBlogClick
-                      : undefined
-                  }
-                  className="relative text-emerald-700 dark:text-emerald-300 font-medium text-base hover:text-emerald-600 dark:hover:text-emerald-200 transition-all duration-200 group cursor-pointer"
-                  whileHover={{ y: -1 }}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                >
-                  {item.name}
+              {menuItems.map((item, index) => (
+                item.isScroll ? (
+                  <motion.a
+                    key={item.name}
+                    href={item.href}
+                    onClick={(e) => handleScrollToSection(e, item.href)}
+                    className="relative text-emerald-700 dark:text-emerald-300 font-medium text-base hover:text-emerald-600 dark:hover:text-emerald-200 transition-all duration-200 group cursor-pointer"
+                    whileHover={{ y: -1 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                  >
+                    {item.name}
+                    <motion.div
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-500 to-emerald-700 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"
+                    />
+                  </motion.a>
+                ) : (
                   <motion.div
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-500 to-emerald-700 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"
-                  />
-                </motion.a>
+                    key={item.name}
+                    className="relative"
+                    whileHover={{ y: -1 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                  >
+                    <Link
+                      to={item.href}
+                      onClick={item.name === 'Blog' ? handleBlogClick : undefined}
+                      className="relative text-emerald-700 dark:text-emerald-300 font-medium text-base hover:text-emerald-600 dark:hover:text-emerald-200 transition-all duration-200 group cursor-pointer"
+                    >
+                      {item.name}
+                      <motion.div
+                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-500 to-emerald-700 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"
+                      />
+                    </Link>
+                  </motion.div>
+                )
               ))}
-
-              {/* Products Dropdown */}
-              <div 
-                className="relative"
-                onMouseEnter={() => setShowProductsDropdown(true)}
-                onMouseLeave={() => setShowProductsDropdown(false)}
-              >
-                <motion.div
-                  className="relative text-emerald-700 dark:text-emerald-300 font-medium text-base hover:text-emerald-600 dark:hover:text-emerald-200 transition-all duration-200 group cursor-pointer"
-                  whileHover={{ y: -1 }}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 1 * 0.1 }}
-                >
-                  Products
-                  <motion.div
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-500 to-emerald-700 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"
-                  />
-                </motion.div>
-
-                {/* Products Dropdown Menu */}
-                <AnimatePresence>
-                  {showProductsDropdown && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                      transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="absolute top-full left-0 mt-2 bg-white/95 backdrop-blur-xl rounded-xl shadow-xl border border-gray-200/50 py-2 min-w-[180px] z-50"
-                    >
-                      {productItems.map((item, index) => (
-                        <motion.a
-                          key={item.name}
-                          href={item.href}
-                          onClick={(e) => handleScrollToSection(e, item.href)}
-                          className="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors duration-200 font-medium"
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.2, delay: index * 0.05 }}
-                        >
-                          {item.name}
-                        </motion.a>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-
-              {/* About Dropdown */}
-              <div 
-                className="relative"
-                onMouseEnter={() => setShowAboutDropdown(true)}
-                onMouseLeave={() => setShowAboutDropdown(false)}
-              >
-                <motion.div
-                  className="relative text-emerald-700 dark:text-emerald-300 font-medium text-base hover:text-emerald-600 dark:hover:text-emerald-200 transition-all duration-200 group cursor-pointer"
-                  whileHover={{ y: -1 }}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 2 * 0.1 }}
-                >
-                  About
-                  <motion.div
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-500 to-emerald-700 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"
-                  />
-                </motion.div>
-
-                {/* About Dropdown Menu */}
-                <AnimatePresence>
-                  {showAboutDropdown && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                      transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="absolute top-full left-0 mt-2 bg-white/95 backdrop-blur-xl rounded-xl shadow-xl border border-gray-200/50 py-2 min-w-[160px] z-50"
-                    >
-                      {aboutItems.map((item, index) => (
-                        <motion.a
-                          key={item.name}
-                          href={item.href}
-                          onClick={
-                            item.name === 'Products'
-                              ? handleProductsClick
-                              : item.name === 'Blog'
-                                ? handleBlogClick
-                                : item.isScroll 
-                                  ? (e) => handleScrollToSection(e, item.href)
-                                  : undefined
-                          }
-                          className="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors duration-200 font-medium"
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.2, delay: index * 0.05 }}
-                        >
-                          {item.name}
-                        </motion.a>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
             </div>
           </div>
 
-          {/* Call, Email & WhatsApp Icons & Mobile Menu */}
+          {/* Home, Call, Email & WhatsApp Icons & Mobile Menu */}
           <div className="flex items-center space-x-3">
-            {/* Call, Email & WhatsApp Icons - Hidden on mobile */}
+            {/* Home, Call, Email & WhatsApp Icons - Hidden on mobile */}
             <div className="hidden lg:flex items-center space-x-4">
+              {/* Home Icon */}
+              <motion.div
+                whileHover={{ scale: 1.2, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: 0.25 }}
+              >
+                <Link
+                  to="/"
+                  className="text-emerald-700 hover:text-emerald-600 transition-colors duration-300"
+                  title="Go Home"
+                >
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                </svg>
+                </Link>
+              </motion.div>
+
               {/* Call Icon */}
               <motion.a
                 href="tel:+919643722200"
@@ -321,7 +264,7 @@ const Navbar = () => {
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: 0.3 }}
+                transition={{ duration: 0.4, delay: 0.35 }}
                 title="Call Us"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -339,7 +282,7 @@ const Navbar = () => {
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: 0.35 }}
+                transition={{ duration: 0.4, delay: 0.4 }}
                 title="WhatsApp Us"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -350,12 +293,12 @@ const Navbar = () => {
               {/* Email Icon */}
               <motion.a
                 href="mailto:EatFresh@NaturallyGood.in"
-                className="text-emerald-700 hover:text-blue-600 transition-colors duration-300"
+                className="text-emerald-700 hover:text-emerald-600 transition-colors duration-300"
                 whileHover={{ scale: 1.2, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: 0.4 }}
+                transition={{ duration: 0.4, delay: 0.45 }}
                 title="Email Us"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -370,12 +313,12 @@ const Navbar = () => {
                 onMouseLeave={() => setShowAppDownload(false)}
               >
                 <motion.div
-                  className="text-emerald-700 hover:text-purple-600 transition-colors duration-300 cursor-pointer"
+                  className="text-emerald-700 hover:text-emerald-600 transition-colors duration-300 cursor-pointer"
                   whileHover={{ scale: 1.2, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 0.45 }}
+                  transition={{ duration: 0.4, delay: 0.5 }}
                   title="Download App"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -456,122 +399,156 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="lg:hidden backdrop-blur-3xl bg-white/85 border-t border-gray-200/30"
-          >
+          <>
+            {/* Overlay to prevent background scrolling */}
+            <div className="fixed inset-0 z-40 lg:hidden" style={{overflow: 'hidden'}} />
+            
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: '100vh' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="lg:hidden bg-white border-t border-gray-200/30 fixed top-0 left-0 w-full z-50"
+            >
+              {/* Header with Logo and Close Button */}
+              <div className="flex items-center justify-between p-4 border-b border-gray-200/30">
+                <div className="flex items-center space-x-2">
+                  <img src={NGlogo} alt="Naturally Good" className="w-8 h-8" />
+                  <span className="text-emerald-700 font-bold text-lg">Naturally Good</span>
+                </div>
+                <motion.button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="p-2 rounded-full hover:bg-gray-100/50 transition-colors"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </motion.button>
+              </div>
+
             <div className="px-4 py-6 space-y-4">
               {/* Mobile Menu Items */}
-              {menuItems.filter(item => item.name !== 'Products').map((item, index) => (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  className="block px-4 py-3 text-emerald-700 dark:text-emerald-300 font-semibold text-lg hover:text-emerald-600 dark:hover:text-emerald-200 hover:bg-white/10 rounded-xl transition-all duration-200 cursor-pointer"
-                  onClick={(e) => {
-                    if (item.name === 'Blog') {
-                      handleBlogClick(e);
-                    }
-                    setIsMobileMenuOpen(false);
-                  }}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                  whileHover={{ x: 5 }}
-                >
-                  {item.name}
-                </motion.a>
+              {menuItems.map((item, index) => (
+                item.isScroll ? (
+                  <motion.a
+                    key={item.name}
+                    href={item.href}
+                    className="block px-4 py-3 text-emerald-700 dark:text-emerald-300 font-semibold text-lg hover:text-emerald-600 dark:hover:text-emerald-200 hover:bg-white/10 rounded-xl transition-all duration-200 cursor-pointer"
+                    onClick={(e) => {
+                      handleScrollToSection(e, item.href);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    whileHover={{ x: 5 }}
+                  >
+                    {item.name}
+                  </motion.a>
+                ) : (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    whileHover={{ x: 5 }}
+                  >
+                    <Link
+                      to={item.href}
+                      className="block px-4 py-3 text-emerald-700 dark:text-emerald-300 font-semibold text-lg hover:text-emerald-600 dark:hover:text-emerald-200 hover:bg-white/10 rounded-xl transition-all duration-200 cursor-pointer"
+                      onClick={(e) => {
+                        if (item.name === 'Blog') {
+                          handleBlogClick(e);
+                        }
+                        setIsMobileMenuOpen(false);
+                      }}
+                    >
+                      {item.name}
+                    </Link>
+                  </motion.div>
+                )
               ))}
 
-              {/* Mobile Products Section */}
-              <div className="mt-6 pt-4 border-t border-gray-200/30">
-                <h4 className="text-emerald-700 font-semibold text-lg mb-3">Products</h4>
-                <div className="space-y-2 pl-4">
-                  {productItems.map((item, index) => (
-                    <motion.a
-                      key={item.name}
-                      href={item.href}
-                      className="block px-3 py-2 text-emerald-600 dark:text-emerald-400 font-medium text-base hover:text-emerald-700 dark:hover:text-emerald-300 hover:bg-white/10 rounded-lg transition-all duration-200 cursor-pointer"
-                      onClick={(e) => {
-                        handleScrollToSection(e, item.href);
-                      }}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: (2 + index) * 0.1 }}
-                      whileHover={{ x: 5 }}
+              {/* Mobile Contact & Action Buttons */}
+              <div className="mt-4">
+                {/* All buttons in one row */}
+                <div className="flex space-x-2">
+                  {/* Mobile Home Button */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.2 }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="flex-1"
+                  >
+                    <Link
+                      to="/"
+                      className="w-full px-2 py-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium rounded-lg shadow-md transition-all duration-300 flex items-center justify-center"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      title="Home"
                     >
-                      {item.name}
-                    </motion.a>
-                  ))}
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                    </svg>
+                    </Link>
+                  </motion.div>
+
+                  {/* Mobile Call Button */}
+                  <motion.a
+                    href="tel:+919643722200"
+                    className="flex-1 px-2 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-medium rounded-lg shadow-md transition-all duration-300 flex items-center justify-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.25 }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    title="Call"
+                  >
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                    </svg>
+                  </motion.a>
+
+                  {/* Mobile WhatsApp Button */}
+                  <motion.a
+                    href="https://wa.me/919643722200"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 px-2 py-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-medium rounded-lg shadow-md transition-all duration-300 flex items-center justify-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.3 }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    title="WhatsApp"
+                  >
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
+                    </svg>
+                  </motion.a>
+
+                  {/* Mobile Email Button */}
+                  <motion.a
+                    href="mailto:EatFresh@NaturallyGood.in"
+                    className="flex-1 px-2 py-2 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-medium rounded-lg shadow-md transition-all duration-300 flex items-center justify-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.35 }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    title="Email"
+                  >
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                    </svg>
+                  </motion.a>
                 </div>
-              </div>
-
-              {/* Mobile About Section */}
-              <div className="mt-6 pt-4 border-t border-gray-200/30">
-                <h4 className="text-emerald-700 font-semibold text-lg mb-3">About</h4>
-                <div className="space-y-2 pl-4">
-                  {aboutItems.map((item, index) => (
-                    <motion.a
-                      key={item.name}
-                      href={item.href}
-                      className="block px-3 py-2 text-emerald-600 dark:text-emerald-400 font-medium text-base hover:text-emerald-700 dark:hover:text-emerald-300 hover:bg-white/10 rounded-lg transition-all duration-200 cursor-pointer"
-                      onClick={(e) => {
-                        if (item.isScroll) {
-                          handleScrollToSection(e, item.href);
-                        } else {
-                          setIsMobileMenuOpen(false);
-                        }
-                      }}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: (5 + index) * 0.1 }}
-                      whileHover={{ x: 5 }}
-                    >
-                      {item.name}
-                    </motion.a>
-                  ))}
-                </div>
-              </div>
-
-              {/* Mobile Call & WhatsApp Buttons */}
-              <div className="flex space-x-3 mt-4">
-                {/* Mobile Call Button */}
-                <motion.a
-                  href="tel:+919643722200"
-                  className="flex-1 px-4 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center space-x-2"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.2 }}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-                  </svg>
-                  <span>Call</span>
-                </motion.a>
-
-                {/* Mobile WhatsApp Button */}
-                <motion.a
-                  href="https://wa.me/919643722200"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 px-4 py-3 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center space-x-2"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.3 }}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
-                  </svg>
-                  <span>WhatsApp</span>
-                </motion.a>
               </div>
 
               {/* Mobile Download App Section */}
@@ -622,7 +599,8 @@ const Navbar = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
 

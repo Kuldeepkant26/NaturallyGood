@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Sprout, Droplets, Leaf, Ban } from 'lucide-react'
 import './YourPlanetSection.css'
 
 const YourPlanetSection = () => {
@@ -33,22 +34,22 @@ const YourPlanetSection = () => {
 
   const benefits = [
     {
-      icon: "🌱",
+      icon: <Sprout className="w-6 h-6" />,
       title: "Soil regeneration and enrichment",
       description: "through organic manure"
     },
     {
-      icon: "💧",
+      icon: <Droplets className="w-6 h-6" />,
       title: "Water conservation",
       description: "with mindful irrigation"
     },
     {
-      icon: "🌿",
+      icon: <Leaf className="w-6 h-6" />,
       title: "Crop diversity",
       description: "that preserves biodiversity"
     },
     {
-      icon: "🚫",
+      icon: <Ban className="w-6 h-6" />,
       title: "Zero chemical intervention",
       description: "keeping our ecosystem in balance"
     }

@@ -471,7 +471,9 @@
 .carbon-emission-section .message-icon {
   font-size: 3.5rem;
   margin-bottom: 24px;
-  animation: earthRotate 4s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .carbon-emission-section .message-title {
@@ -549,11 +551,6 @@
   25% { transform: rotate(5deg); }
   50% { transform: rotate(0deg); }
   75% { transform: rotate(-5deg); }
-}
-
-@keyframes earthRotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
 
 @keyframes tabReveal {

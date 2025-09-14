@@ -1,4 +1,5 @@
 import React from 'react'
+import { Sprout, Heart, Users, Home, Leaf } from 'lucide-react'
 import './YourFarmersSection.css'
 
 function YourFarmersSection() {
@@ -17,7 +18,7 @@ function YourFarmersSection() {
         <div className="farmers-content">
           <div className="content-header">
             <div className="section-badge">
-              <span className="badge-icon">🌱</span>
+              <span className="badge-icon"><Sprout className="w-5 h-5" /></span>
               <span>Meet Our Family</span>
             </div>
             <h2 className="farmers-title">Your Farmers</h2>
@@ -35,7 +36,7 @@ function YourFarmersSection() {
               hard work, and care to every crop they grow.
             </p>
             <div className="impact-statement">
-              <div className="impact-icon">💚</div>
+              <div className="impact-icon"><Heart className="w-6 h-6" /></div>
               <p className="impact-text">
                 By supporting them, you're not just eating healthier—you're 
                 <span className="highlight">uplifting entire farming families.</span>
@@ -45,21 +46,21 @@ function YourFarmersSection() {
 
           <div className="farmers-stats">
             <div className="stat">
-              <div className="stat-icon">👨‍🌾</div>
+              <div className="stat-icon"><Users className="w-6 h-6" /></div>
               <div className="stat-content">
                 <span className="stat-number">300+</span>
                 <span className="stat-label">Farmers</span>
               </div>
             </div>
             <div className="stat">
-              <div className="stat-icon">🏘️</div>
+              <div className="stat-icon"><Home className="w-6 h-6" /></div>
               <div className="stat-content">
                 <span className="stat-number">50+</span>
                 <span className="stat-label">Villages</span>
               </div>
             </div>
             <div className="stat">
-              <div className="stat-icon">🌿</div>
+              <div className="stat-icon"><Leaf className="w-6 h-6" /></div>
               <div className="stat-content">
                 <span className="stat-number">100%</span>
                 <span className="stat-label">Organic</span>

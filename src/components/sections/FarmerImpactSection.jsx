@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { motion, useInView, useAnimation } from 'framer-motion'
+import { DollarSign, Wheat, Users, UserCheck } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './FarmerImpactSection.css'
@@ -16,7 +17,7 @@ function FarmerImpactSection() {
 
   const impactData = [
     {
-      icon: "💰",
+      icon: <DollarSign className="w-8 h-8" />,
       title: "Fair Pricing",
       description: "Farmers earn more, without middlemen.",
       color: "#FFD700",
@@ -24,7 +25,7 @@ function FarmerImpactSection() {
       stats: "40% Higher Income"
     },
     {
-      icon: "🌾",
+      icon: <Wheat className="w-8 h-8" />,
       title: "Rural Development", 
       description: "Investments in better tools, seeds, and irrigation.",
       color: "#4a7c59",
@@ -32,7 +33,7 @@ function FarmerImpactSection() {
       stats: "300+ Farmers Equipped"
     },
     {
-      icon: "👨‍🌾",
+      icon: <Users className="w-8 h-8" />,
       title: "Generational Change",
       description: "Training the next generation of farmers in sustainable practices.",
       color: "#32CD32",
@@ -40,7 +41,7 @@ function FarmerImpactSection() {
       stats: "150+ Youth Trained"
     },
     {
-      icon: "👩‍🌾",
+      icon: <UserCheck className="w-8 h-8" />,
       title: "Women Empowerment",
       description: "Many women farmers are part of our growing community.",
       color: "#FF69B4",
@@ -268,9 +269,9 @@ function FarmerImpactSection() {
                   transition: { duration: 0.5 }
                 }}
               >
-                <span style={{ filter: `drop-shadow(0 4px 8px ${impact.color}30)` }}>
+                <div style={{ filter: `drop-shadow(0 4px 8px ${impact.color}30)` }}>
                   {impact.icon}
-                </span>
+                </div>
               </motion.div>
 
               <div className="card-content">

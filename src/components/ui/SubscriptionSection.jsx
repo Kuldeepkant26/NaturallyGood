@@ -8,8 +8,8 @@ const SubscriptionSection = () => {
 
   // Helper function to get gradient styles
   const getGradientStyle = (plan) => {
-    if (plan.id === 'monthly') {
-      return {background: `linear-gradient(to right, #79B927, #00963F)`};
+    if (plan.colorStyle) {
+      return plan.colorStyle;
     }
     return {}; // Keep original colors for other plans
   };
@@ -32,11 +32,13 @@ const SubscriptionSection = () => {
         { name: 'Organic Vegetable Bags', value: '4', included: true },
         { name: 'Dedicated Wellness Advisor', included: true },
         { name: 'Recipe Support', included: true },
-        { name: 'Customization', included: true },
+        { name: 'Bag Customisation', included: true },
         { name: 'Complimentary Farm Visit', included: false },
+        { name: 'Pure Raw Honey', included: false },
+        { name: 'A2 Pure Cow Ghee', included: false },
         { name: 'Complimentary Special Harvest', included: false },
         { name: 'Organic Farming Training', included: false },
-        { name: 'A2 Cow Ghee', value: null, included: false }
+        { name: 'Naturally Fit', included: false }
       ],
       features: [
         'Fresh seasonal vegetables',
@@ -75,17 +77,20 @@ const SubscriptionSection = () => {
       pricePerBasket: '₹1,500 per 10 kg bag',
       discount: '21% off',
       popular: true,
-      color: 'from-orange-500 to-red-500',
+      color: 'from-emerald-400 to-emerald-600',
+      colorStyle: {background: `linear-gradient(to right, #9AC5A9, #7FB069)`},
       organicBags: '12',
       standardizedBenefits: [
         { name: 'Organic Vegetable Bags', value: '12', included: true },
         { name: 'Dedicated Wellness Advisor', included: true },
         { name: 'Recipe Support', included: true },
-        { name: 'Customization', included: true },
+        { name: 'Bag Customisation', included: true },
         { name: 'Complimentary Farm Visit', included: true },
-        { name: 'Complimentary Special Harvest', included: true },
-        { name: 'Organic Farming Training', included: true },
-        { name: '300 ml Honey', value: 'worth Rs. 649', included: true }
+        { name: 'Pure Raw Honey', value: '300 Gms', included: true },
+        { name: 'A2 Pure Cow Ghee', included: false },
+        { name: 'Complimentary Special Harvest', included: false },
+        { name: 'Organic Farming Training', included: false },
+        { name: 'Naturally Fit', included: false }
       ],
       features: [
         'Best value for money',
@@ -123,18 +128,21 @@ const SubscriptionSection = () => {
       discountedPrice: '₹32,999',
       pricePerBasket: '₹1,375 per 10 kg bag',
       discount: '28% off',
-      popular: false,
-      color: 'from-blue-500 to-purple-600',
+      recommended: true,
+      color: 'from-yellow-400 to-yellow-500',
+      colorStyle: {background: `linear-gradient(to right, #FECE13, #F4C430)`},
       organicBags: '24',
       standardizedBenefits: [
         { name: 'Organic Vegetable Bags', value: '24', included: true },
         { name: 'Dedicated Wellness Advisor', included: true },
         { name: 'Recipe Support', included: true },
-        { name: 'Customization', included: true },
+        { name: 'Bag Customisation', included: true },
         { name: 'Complimentary Farm Visit', included: true },
-        { name: 'Complimentary Special Harvest', included: true },
-        { name: 'Organic Farming Training', included: true },
-        { name: 'A2 Cow Ghee', value: 'Free 500gm worth ₹1500/-', included: true }
+        { name: 'Pure Raw Honey', value: '300 Gms', included: true },
+        { name: 'A2 Pure Cow Ghee', value: '500 Gms', included: true },
+        { name: 'Complimentary Special Harvest', included: false },
+        { name: 'Organic Farming Training', included: false },
+        { name: 'Naturally Fit', included: false }
       ],
       features: [
         'Huge savings',
@@ -173,17 +181,20 @@ const SubscriptionSection = () => {
       pricePerBasket: '₹1,187 per 10 kg bag',
       discount: '37% off',
       popular: false,
-      color: 'from-purple-500 to-pink-600',
+      color: 'from-red-500 to-red-600',
+      colorStyle: {background: `linear-gradient(to right, #FF4646, #E53E3E)`},
       organicBags: '48',
       standardizedBenefits: [
         { name: 'Organic Vegetable Bags', value: '48', included: true },
         { name: 'Dedicated Wellness Advisor', included: true },
         { name: 'Recipe Support', included: true },
-        { name: 'Customization', included: true },
+        { name: 'Bag Customisation', included: true },
         { name: 'Complimentary Farm Visit', included: true },
+        { name: 'Pure Raw Honey', value: '300 Gms', included: true },
+        { name: 'A2 Pure Cow Ghee', value: '1 KG', included: true },
         { name: 'Complimentary Special Harvest', included: true },
         { name: 'Organic Farming Training', included: true },
-        { name: '1 month of Naturally Fit', value: 'worth Rs. 3,999', included: true }
+        { name: 'Naturally Fit', included: true }
       ],
       features: [
         'Maximum discount',
@@ -278,7 +289,7 @@ Please help me complete the subscription process. Thank you!`;
               onClick={() => handlePlanClick(plan)}
               className={`relative cursor-pointer group transition-all duration-500 ease-out transform hover:scale-[1.02] hover:-translate-y-2 hover:z-10`}
             >
-              {/* Popular Badge */}
+              {/* Popular/Recommended Badge */}
               {plan.popular && (
                 <div className="absolute -top-3 -right-3 z-10">
                   <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg group-hover:shadow-xl transition-shadow duration-300">
@@ -286,9 +297,16 @@ Please help me complete the subscription process. Thank you!`;
                   </div>
                 </div>
               )}
+              {plan.recommended && (
+                <div className="absolute -top-3 -right-3 z-10">
+                  <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                    RECOMMENDED
+                  </div>
+                </div>
+              )}
 
               <div className={`relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl border border-gray-100 overflow-hidden h-full flex flex-col transition-all duration-500 ease-out group-hover:shadow-2xl ${
-                plan.popular ? 'ring-2 ring-orange-200' : ''
+                plan.popular ? 'ring-2 ring-orange-200' : plan.recommended ? 'ring-2 ring-orange-200' : ''
               }`}>
                 
                 {/* Background Gradient */}
@@ -443,10 +461,15 @@ Please help me complete the subscription process. Thank you!`;
                           </div>
                         </div>
 
-                        {/* Popular Badge */}
+                        {/* Popular/Recommended Badge */}
                         {selectedPlan.popular && (
                           <div className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white text-sm font-bold px-3 sm:px-4 py-2 rounded-full mb-4">
                             🔥 MOST POPULAR CHOICE
+                          </div>
+                        )}
+                        {selectedPlan.recommended && (
+                          <div className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white text-sm font-bold px-3 sm:px-4 py-2 rounded-full mb-4">
+                            ⭐ RECOMMENDED CHOICE
                           </div>
                         )}
                       </div>
