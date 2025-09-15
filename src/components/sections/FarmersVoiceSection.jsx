@@ -190,7 +190,26 @@ function FarmersVoiceSection() {
           className="section-header"
           variants={itemVariants}
         >
-      
+          <motion.div 
+            className="section-badge"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <motion.span 
+              className="badge-icon"
+              animate={{ 
+                rotate: [0, 10, -10, 0] 
+              }}
+              transition={{ 
+                duration: 2, 
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              <MessageSquare className="w-6 h-6" />
+            </motion.span>
+            <span>Farmers' Voice</span>
+          </motion.div>
           
           <motion.h2 
             className="section-title"
