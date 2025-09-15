@@ -154,7 +154,6 @@ const Footer = () => {
             <div className="footer-bottom-links">
               <Link to="/privacy-policy.php">Privacy Policy</Link>
               <Link to="/terms-and-conditions.php">Terms of Service</Link>
-              <a href="#shipping-policy">Shipping Policy</a>
             </div>
           </div>
         </div>
