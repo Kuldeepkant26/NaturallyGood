@@ -17,10 +17,7 @@ function YourFarmersSection() {
         {/* Left Side - Content */}
         <div className="farmers-content">
           <div className="content-header">
-            <div className="section-badge">
-              <span className="badge-icon"><Sprout className="w-5 h-5" /></span>
-              <span>Meet Our Family</span>
-            </div>
+            
             <h2 className="farmers-title">Your Farmers</h2>
             <div className="title-underline"></div>
           </div>

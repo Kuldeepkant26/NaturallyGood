@@ -187,23 +187,7 @@ function FarmerImpactSection() {
             }
           }}
         >
-          <div className="section-badge">
-            <motion.span 
-              className="badge-icon"
-              animate={{ 
-                rotate: [0, 10, -10, 0],
-                scale: [1, 1.1, 1]
-              }}
-              transition={{ 
-                duration: 2, 
-                repeat: Infinity,
-                repeatType: "reverse"
-              }}
-            >
-              🌱
-            </motion.span>
-            <span>Making a Difference</span>
-          </div>
+         
           
           <h2 className="impact-title">
             <span className="title-gradient">Farmer's Impact</span>

@@ -41,7 +41,7 @@ const SplashScreen = ({ onComplete, minimumDisplayTime = 3000 }) => {
           {/* Main Content Container */}
           <div className="relative z-10 text-center">
             
-            {/* Logo with elegant animation */}
+            {/* Logo and Brand Name in same line like navbar */}
             <motion.div
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -51,13 +51,13 @@ const SplashScreen = ({ onComplete, minimumDisplayTime = 3000 }) => {
                 type: "spring",
                 stiffness: 80
               }}
-              className="flex justify-center mb-8"
+              className="flex items-center justify-center space-x-0 mb-12"
             >
               <div className="relative">
                 <motion.img
                   src={NGlogo}
                   alt="Naturally Good"
-                  className="w-20 h-20 md:w-24 md:h-24"
+                  className="w-16 h-16 md:w-20 md:h-20 mix-blend-darken"
                   animate={{ 
                     rotateY: [0, 5, -5, 0],
                   }}
@@ -82,30 +82,20 @@ const SplashScreen = ({ onComplete, minimumDisplayTime = 3000 }) => {
                   }}
                 />
               </div>
-            </motion.div>
-
-            {/* Brand Name with sophisticated typography */}
-            <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ 
-                duration: 1,
-                delay: 0.4,
-                ease: [0.25, 0.46, 0.45, 0.94]
-              }}
-              className="mb-12"
-            >
-              <h1 className="text-3xl md:text-4xl font-light text-gray-900 tracking-wide">
-                <span className="font-medium text-emerald-700">Naturally</span>
-                <span className="text-gray-700 mx-2">Good</span>
-              </h1>
               
-              <motion.div
-                initial={{ width: 0 }}
-                animate={{ width: "60px" }}
-                transition={{ duration: 1, delay: 0.8 }}
-                className="h-0.5 bg-gradient-to-r from-emerald-500 to-green-500 mx-auto mt-4"
-              />
+              <motion.span 
+                className="font-bold text-3xl md:text-4xl tracking-tight ml-2"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ 
+                  duration: 1,
+                  delay: 0.4,
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }}
+              >
+                <span className="text-[#78B826]">Naturally</span>
+                <span className="text-[#00963E]">Good</span>
+              </motion.span>
             </motion.div>
 
             {/* Minimalist loading indicator */}

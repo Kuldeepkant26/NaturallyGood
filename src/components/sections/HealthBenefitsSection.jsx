@@ -39,10 +39,7 @@ function HealthBenefitsSection() {
         {/* Right Side - Content */}
         <div className="health-content">
           <div className="content-header">
-            <div className="section-badge">
-              <span className="badge-icon"><Leaf className="w-5 h-5" /></span>
-              <span>Health & Wellness</span>
-            </div>
+           
             <h2 className="section-title">Health Benefits of Organic</h2>
             <div className="title-underline"></div>
           </div>
