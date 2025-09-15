@@ -343,7 +343,7 @@ const Navbar = () => {
                         onClick={(e) => {
                           e.preventDefault();
                           // Add Android app store link here
-                          window.open('https://play.google.com/store', '_blank');
+                          window.open('https://play.google.com/store/apps/details?id=com.naturallygood.app', '_blank');
                         }}
                         className="flex items-center px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors duration-200"
                       >
@@ -359,7 +359,7 @@ const Navbar = () => {
                         onClick={(e) => {
                           e.preventDefault();
                           // Add iOS app store link here
-                          window.open('https://apps.apple.com/', '_blank');
+                          window.open('https://apps.apple.com/in/app/naturally-good/id6749650953', '_blank');
                         }}
                         className="flex items-center px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors duration-200"
                       >
@@ -560,7 +560,7 @@ const Navbar = () => {
                     href="#"
                     onClick={(e) => {
                       e.preventDefault();
-                      window.open('https://play.google.com/store', '_blank');
+                      window.open('https://play.google.com/store/apps/details?id=com.naturallygood.app', '_blank');
                       setIsMobileMenuOpen(false);
                     }}
                     className="flex-1 px-4 py-3 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center space-x-2"
@@ -581,7 +581,7 @@ const Navbar = () => {
                     href="#"
                     onClick={(e) => {
                       e.preventDefault();
-                      window.open('https://apps.apple.com/', '_blank');
+                      window.open('https://apps.apple.com/in/app/naturally-good/id6749650953', '_blank');
                       setIsMobileMenuOpen(false);
                     }}
                     className="flex-1 px-4 py-3 bg-gradient-to-r from-gray-800 to-black hover:from-black hover:to-gray-800 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center space-x-2"

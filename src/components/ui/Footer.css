@@ -88,6 +88,32 @@
   box-shadow: 0 4px 12px rgba(45, 90, 39, 0.2);
 }
 
+/* App Links */
+.app-links {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.app-link {
+  display: inline-block;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.app-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.app-link svg {
+  display: block;
+  width: 120px;
+  height: 40px;
+}
+
 /* Footer Sections */
 .footer-section {
   display: flex;
