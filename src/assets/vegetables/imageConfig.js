@@ -8,14 +8,14 @@ export const vegetableImages = {
   // Seasonal Veggies
   'brinjal-cabbage': 'https://images.unsplash.com/photo-1518977956812-cd3dbadaaf31?w=400&h=400&fit=crop&crop=center',
   'bell-peppers': 'https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=400&h=400&fit=crop&crop=center',
-  'root-vegetables': 'https://images.unsplash.com/photo-1445282768818-728615cc910a?w=400&h=400&fit=crop&crop=center',
-  'exotic-vegetables': 'https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?w=400&h=400&fit=crop&crop=center',
+  'root-vegetables': 'https://images.cdn.shoprite.com/detail/00040121002521_1',
+  'exotic-vegetables': 'https://connect.healthkart.com/wp-content/uploads/2021/12/900x500_banner_HK-Connect_Vegetable-juices-for-weight-loss.jpg',
   
   // Greens & Herbs
-  'fresh-spinach': 'https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400&h=400&fit=crop&crop=center',
+  'fresh-spinach': 'https://stgaccinwbsdevlrs01.blob.core.windows.net/newcorporatewbsite/blogs/February2025/10%20Food%20Items%20That%20Are%20Best%20for%20Detoxification.jpg',
   'herbs-collection': 'https://images.unsplash.com/photo-1516594798947-e65505dbb29d?w=400&h=400&fit=crop&crop=center',
   'microgreens': 'https://integrishealth.org/-/media/blog/21-q3/oyh_microgreens.ashx?revision=7d364ff0-7c9a-4508-935d-6f49f4f7aa97',
-  'lettuce-varieties': 'https://www.thespruceeats.com/thmb/DXYvPvPK2_j4IINIM3QsHtkXRnM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SES-varieties-of-lettuce-4065606-hero-01-0a5ac269169940de8f67d61c6dafbc19.jpg',
+  'lettuce-varieties': 'https://i0.wp.com/www.chitrasfoodbook.com/wp-content/uploads/2014/08/vegetables-for-salad.jpg?w=1200&ssl=1',
   
   // Farm Staples
   'onion-garlic': 'https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?w=400&h=400&fit=crop&crop=center',

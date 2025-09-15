@@ -5,6 +5,74 @@ import { Leaf, Package, ShoppingBag, Heart, Star, ArrowRight, CheckCircle, X, Ph
 // Import vegetable images configuration
 import { vegetableImages } from '../../assets/vegetables/imageConfig.js';
 
+// Import specific vegetable images for individual items
+import brinjal from '../../assets/Vegies3/Brinjal.jpg';
+import cabbage from '../../assets/Vegies3/Cabbage 1.jpg';
+import capsicum from '../../assets/Vegies3/Capsicum.jpg';
+import orangeCarrot from '../../assets/Vegies3/Orange Carrot.jpg';
+import cauliflower from '../../assets/Vegies3/Cauliflower.jpg';
+import frenchBeans from '../../assets/Vegies3/Frencgh Beans 1.jpg';
+import okra from '../../assets/Vegies3/Okra.jpg';
+import peas from '../../assets/Vegies3/Peas 1.jpg';
+import radish from '../../assets/Vegies3/Radish.jpg';
+import springOnions from '../../assets/Vegies3/Spring Onions.jpg';
+import arvi from '../../assets/Vegies3/Arvi.jpg';
+import babyKarela from '../../assets/Vegies2/Baby Karela.jpg';
+import bottleGourd from '../../assets/Vegies3/Bottle Gourd 1.jpg';
+import pumpkin from '../../assets/Vegies3/Pumpkin.jpg';
+import ridgeGourd from '../../assets/Vegies3/Ridge Gourd.jpg';
+import parwal from '../../assets/Vegies3/Parwal.jpg';
+import babyCorn from '../../assets/Vegies3/Baby Corn.jpg';
+import redBellPepper from '../../assets/Vegies3/Red Bell pepper.jpg';
+import broccoli from '../../assets/Vegies3/Brocolli.jpg';
+import redCabbage from '../../assets/Vegies3/Red Cabbage 1.jpg';
+import coloredCauliflower from '../../assets/Vegies3/Coloured CauliFlower.jpeg';
+import cherryTomato from '../../assets/Vegies3/Cherry Tomatos.jpg';
+import mushroom from '../../assets/Vegies3/Mushroom.jpg';
+import redOkra from '../../assets/Vegies3/Red Okra 1.jpg';
+import rawBanana from '../../assets/Vegies3/Raw Banana.jpg';
+import whiteOnions from '../../assets/Vegies1/WHITE-ONIONS.jpg';
+import zucchiniGreen from '../../assets/Vegies1/ZUCCHINI.jpg';
+import zucchiniYellow from '../../assets/Vegies1/YELLOW-ZUCCHINI.jpg';
+import potatoes from '../../assets/Vegies3/Potatoes.jpg';
+import onion from '../../assets/Vegies3/Onion.jpg';
+import tomato from '../../assets/Vegies3/Tomato.jpg';
+import garlic from '../../assets/Vegies3/Garlic.jpg';
+import ginger from '../../assets/Vegies3/Ginger.jpg';
+import coriander from '../../assets/Vegies3/Coriander.jpg';
+import mint from '../../assets/Vegies3/Mint.jpg';
+import lemons from '../../assets/Vegies3/Lemons.jpg';
+import greenChillies from '../../assets/Vegies3/Green Chillies.jpg';
+import cucumber from '../../assets/Vegies3/Cucumber 1.jpg';
+import kakadi from '../../assets/Vegies3/Kakadi 2.jpg';
+import muskMelon from '../../assets/Vegies3/Musk Melon.jpg';
+import redRadish from '../../assets/Vegies3/Red Radish.jpg';
+import beetroot from '../../assets/Vegies3/Beetroot.jpg';
+import turnips from '../../assets/Vegies1/TURNIPS.jpg';
+import lettuce from '../../assets/Vegies3/Lettuce.jpg';
+import kale from '../../assets/Vegies3/Kale.jpg';
+import celery from '../../assets/Vegies3/Celery.jpg';
+import rocketLeaves from '../../assets/Vegies3/Rocket Leaves.jpg';
+import ajwainLeaves from '../../assets/Vegies3/Ajwain Leaves.jpg';
+import basil from '../../assets/Vegies3/Basil.jpg';
+import sweetCorn from '../../assets/Vegies3/Sweet Corn.jpg';
+import lemonGrass from '../../assets/Vegies3/Leamon Grass.jpg';
+import sweetPotato from '../../assets/Vegies3/Sweet Potato.jpg';
+import rawTurmeric from '../../assets/Vegies1/raw-turmeric.jpg';
+import redChillies from '../../assets/Vegies3/Red Chillies.jpg';
+import curryLeaves from '../../assets/Vegies3/Curry Leaves.jpg';
+import fenugreek from '../../assets/Vegies3/Fenugeek.jpg';
+import spinach from '../../assets/Vegies3/Spinach 1.jpg';
+import mustardGreens from '../../assets/Vegies3/Mustard Greens.jpg';
+import bathua from '../../assets/Vegies3/Bathua.jpg';
+import chaulai from '../../assets/Vegies3/Chaulai.jpg';
+import poiSaag from '../../assets/Vegies3/Poi Saag.jpg';
+import babySpinach from '../../assets/Vegies3/Baby Spinach.jpg';
+import chineseCucumber from '../../assets/Vegies3/Chinese Cucumber.jpg';
+import kakdi from '../../assets/Vegies3/Kakdi 1.jpg';
+import microgreens from '../../assets/Vegies1/microgreens.jpg';
+import redLettuce from '../../assets/Vegies3/Red Lettuce.jpg';
+
 // Custom WhatsApp Icon Component
 const WhatsAppIcon = ({ className }) => (
   <svg
@@ -53,89 +121,88 @@ const ProductsSection = () => {
 
   const veggieData = {
     veggies: [
-      { name: 'Brinjal', image: vegetableImages['brinjal-cabbage'] },
-      { name: 'Cabbage', image: vegetableImages['brinjal-cabbage'] },
-      { name: 'Capsicum', image: vegetableImages['bell-peppers'] },
-      { name: 'Carrots', image: vegetableImages['root-vegetables'] },
-      { name: 'Cauliflower', image: vegetableImages['exotic-vegetables'] },
-      { name: 'Beans', image: vegetableImages['exotic-vegetables'] },
-      { name: 'Okra (Bhindi)', image: vegetableImages['exotic-vegetables'] },
-      { name: 'Peas', image: vegetableImages['exotic-vegetables'] },
-      { name: 'Radish', image: vegetableImages['root-vegetables'] },
-      { name: 'Spring Onions', image: vegetableImages['onion-garlic'] },
-      { name: 'Tarot Roots (Arbi)', image: vegetableImages['root-vegetables'] },
-      { name: 'Bitter Gourd (Karela)', image: vegetableImages['exotic-vegetables'] },
-      { name: 'Bottle Gourd (Lauki)', image: vegetableImages['exotic-vegetables'] },
-      { name: 'Pumpkin', image: vegetableImages['exotic-vegetables'] },
-      { name: 'Ridge Gourd (Torai)', image: vegetableImages['exotic-vegetables'] },
-      { name: 'Pointed Gourd (Parwal)', image: vegetableImages['exotic-vegetables'] },
-      { name: 'Baby Corn', image: vegetableImages['exotic-vegetables'] },
-      { name: 'Bell Peppers', image: vegetableImages['bell-peppers'] },
-      { name: 'Broccoli', image: vegetableImages['exotic-vegetables'] },
-      { name: 'Cabbage Red', image: vegetableImages['brinjal-cabbage'] },
-      { name: 'Cauliflower Colored', image: vegetableImages['exotic-vegetables'] },
-      { name: 'Cherry Tomato', image: vegetableImages['tomato-collection'] },
-      { name: 'Kingsnut Squash', image: vegetableImages['exotic-vegetables'] },
-      { name: 'Mushrooms', image: vegetableImages['exotic-vegetables'] },
-      { name: 'Okra Red', image: vegetableImages['exotic-vegetables'] },
-      { name: 'Raw Banana', image: vegetableImages['exotic-vegetables'] },
-      { name: 'White Onions', image: vegetableImages['onion-garlic'] },
-      { name: 'Zucchini Green', image: vegetableImages['exotic-vegetables'] },
-      { name: 'Zucchini Yellow', image: vegetableImages['exotic-vegetables'] }
+      { name: 'Brinjal', image: brinjal },
+      { name: 'Cabbage', image: cabbage },
+      { name: 'Capsicum', image: capsicum },
+      { name: 'Carrots', image: orangeCarrot },
+      { name: 'Cauliflower', image: cauliflower },
+      { name: 'French Beans', image: frenchBeans },
+      { name: 'Okra (Bhindi)', image: okra },
+      { name: 'Peas', image: peas },
+      { name: 'Radish', image: radish },
+      { name: 'Spring Onions', image: springOnions },
+      { name: 'Tarot Roots (Arbi)', image: arvi },
+      { name: 'Bitter Gourd (Karela)', image: babyKarela },
+      { name: 'Bottle Gourd (Lauki)', image: bottleGourd },
+      { name: 'Pumpkin', image: pumpkin },
+      { name: 'Ridge Gourd (Torai)', image: ridgeGourd },
+      { name: 'Pointed Gourd (Parwal)', image: parwal },
+      { name: 'Baby Corn', image: babyCorn },
+      { name: 'Bell Peppers', image: redBellPepper },
+      { name: 'Broccoli', image: broccoli },
+      { name: 'Cabbage Red', image: redCabbage },
+      { name: 'Cauliflower Colored', image: coloredCauliflower },
+      { name: 'Cherry Tomato', image: cherryTomato },
+      { name: 'Mushrooms', image: mushroom },
+      { name: 'Okra Red', image: redOkra },
+      { name: 'Raw Banana', image: rawBanana },
+      { name: 'White Onions', image: whiteOnions },
+      { name: 'Zucchini Green', image: zucchiniGreen },
+      { name: 'Zucchini Yellow', image: zucchiniYellow }
     ],
     staples: [
-      { name: 'Potatoes', image: vegetableImages['potato-varieties'] },
-      { name: 'Onions', image: vegetableImages['onion-garlic'] },
-      { name: 'Tomatoes', image: vegetableImages['tomato-collection'] },
-      { name: 'Garlic', image: vegetableImages['onion-garlic'] },
-      { name: 'Ginger', image: vegetableImages['ginger-turmeric'] },
-      { name: 'Coriander', image: vegetableImages['herbs-collection'] },
-      { name: 'Mint', image: vegetableImages['herbs-collection'] },
-      { name: 'Lemons', image: vegetableImages['exotic-vegetables'] },
-      { name: 'Chillies', image: vegetableImages['herbs-collection'] }
+      { name: 'Potatoes', image: potatoes },
+      { name: 'Onions', image: onion },
+      { name: 'Tomatoes', image: tomato },
+      { name: 'Garlic', image: garlic },
+      { name: 'Ginger', image: ginger },
+      { name: 'Coriander', image: coriander },
+      { name: 'Mint', image: mint },
+      { name: 'Lemons', image: lemons },
+      { name: 'Green Chillies', image: greenChillies }
     ],
     salads: [
-      { name: 'Cucumber', image: vegetableImages['exotic-vegetables'] },
-      { name: 'Snake Gourd (Kakdi)', image: vegetableImages['exotic-vegetables'] },
-      { name: 'Melons', image: vegetableImages['exotic-vegetables'] },
-      { name: 'Carrot', image: vegetableImages['root-vegetables'] },
-      { name: 'Radish', image: vegetableImages['root-vegetables'] },
-      { name: 'Beetroot', image: vegetableImages['root-vegetables'] },
-      { name: 'Turnip', image: vegetableImages['root-vegetables'] },
-      { name: 'Lettuce', image: vegetableImages['lettuce-varieties'] },
-      { name: 'Kale', image: vegetableImages['lettuce-varieties'] },
-      { name: 'Celery', image: vegetableImages['lettuce-varieties'] },
-      { name: 'Rocket', image: vegetableImages['lettuce-varieties'] },
-      { name: 'Ajwain Caraway', image: vegetableImages['herbs-collection'] },
-      { name: 'Basil', image: vegetableImages['herbs-collection'] },
-      { name: 'Corn', image: vegetableImages['exotic-vegetables'] },
-      { name: 'Lemon Grass', image: vegetableImages['herbs-collection'] },
-      { name: 'Sweet Potato', image: vegetableImages['root-vegetables'] },
-      { name: 'Turmeric', image: vegetableImages['ginger-turmeric'] },
-      { name: 'Dried Red Chillies', image: vegetableImages['herbs-collection'] },
-      { name: 'Curry Leaves', image: vegetableImages['herbs-collection'] }
+      { name: 'Cucumber', image: cucumber },
+      { name: 'Snake Gourd (Kakdi)', image: kakadi },
+      { name: 'Melons', image: muskMelon },
+      { name: 'Carrot', image: orangeCarrot },
+      { name: 'Radish', image: redRadish },
+      { name: 'Beetroot', image: beetroot },
+      { name: 'Turnip', image: turnips },
+      { name: 'Lettuce', image: lettuce },
+      { name: 'Kale', image: kale },
+      { name: 'Celery', image: celery },
+      { name: 'Rocket', image: rocketLeaves },
+      { name: 'Ajwain Caraway', image: ajwainLeaves },
+      { name: 'Basil', image: basil },
+      { name: 'Sweet Corn', image: sweetCorn },
+      { name: 'Lemon Grass', image: lemonGrass },
+      { name: 'Sweet Potato', image: sweetPotato },
+      { name: 'Turmeric', image: rawTurmeric },
+      { name: 'Dried Red Chillies', image: redChillies },
+      { name: 'Curry Leaves', image: curryLeaves }
     ],
     greens: [
-      { name: 'Fenugreek (Methi)', image: vegetableImages['fresh-spinach'] },
-      { name: 'Spinach', image: vegetableImages['fresh-spinach'] },
-      { name: 'Mustard Greens', image: vegetableImages['fresh-spinach'] },
-      { name: 'Bathua', image: vegetableImages['fresh-spinach'] },
-      { name: 'Chaulai', image: vegetableImages['fresh-spinach'] },
-      { name: 'Poi', image: vegetableImages['fresh-spinach'] },
-      { name: 'Ajwain Caraway', image: vegetableImages['herbs-collection'] },
-      { name: 'Baby Spinach', image: vegetableImages['fresh-spinach'] },
-      { name: 'Basil', image: vegetableImages['herbs-collection'] },
-      { name: 'Coriander', image: vegetableImages['herbs-collection'] },
-      { name: 'Corn', image: vegetableImages['exotic-vegetables'] },
-      { name: 'Cucumber', image: vegetableImages['exotic-vegetables'] },
-      { name: 'Garlic', image: vegetableImages['onion-garlic'] },
-      { name: 'Green Chillies', image: vegetableImages['herbs-collection'] },
-      { name: 'Lemon Grass', image: vegetableImages['herbs-collection'] },
-      { name: 'Snake Gourd (Kakdi)', image: vegetableImages['exotic-vegetables'] },
-      { name: 'Sweet Potato', image: vegetableImages['root-vegetables'] },
-      { name: 'Turmeric', image: vegetableImages['ginger-turmeric'] },
-      { name: 'Wheat Grass', image: vegetableImages['microgreens'] },
-      { name: 'Seasonal Salad Greens', image: vegetableImages['lettuce-varieties'] }
+      { name: 'Fenugreek (Methi)', image: fenugreek },
+      { name: 'Spinach', image: spinach },
+      { name: 'Mustard Greens', image: mustardGreens },
+      { name: 'Bathua', image: bathua },
+      { name: 'Chaulai', image: chaulai },
+      { name: 'Poi', image: poiSaag },
+      { name: 'Ajwain Caraway', image: ajwainLeaves },
+      { name: 'Baby Spinach', image: babySpinach },
+      { name: 'Basil', image: basil },
+      { name: 'Coriander', image: coriander },
+      { name: 'Sweet Corn', image: sweetCorn },
+      { name: 'Cucumber', image: chineseCucumber },
+      { name: 'Garlic', image: garlic },
+      { name: 'Green Chillies', image: greenChillies },
+      { name: 'Lemon Grass', image: lemonGrass },
+      { name: 'Snake Gourd (Kakdi)', image: kakdi },
+      { name: 'Sweet Potato', image: sweetPotato },
+      { name: 'Turmeric', image: rawTurmeric },
+      { name: 'Microgreens', image: microgreens },
+      { name: 'Seasonal Salad Greens', image: redLettuce }
     ]
   };
 

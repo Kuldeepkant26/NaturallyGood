@@ -4,8 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Navbar from './components/ui/Navbar'
 import Footer from './components/ui/Footer'
-import ChatBot from './components/ui/ChatBot'
-import OrganicTag from './components/ui/OrganicTag'
+
 import ScrollToTop from './components/ScrollToTop'
 import './App.css'
 
