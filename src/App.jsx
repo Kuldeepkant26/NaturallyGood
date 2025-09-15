@@ -6,6 +6,7 @@ import Navbar from './components/ui/Navbar'
 import Footer from './components/ui/Footer'
 import ChatBot from './components/ui/ChatBot'
 import OrganicTag from './components/ui/OrganicTag'
+import ScrollToTop from './components/ScrollToTop'
 import './App.css'
 
 import MyProvider from './context/MyProvider'
@@ -14,10 +15,13 @@ import Farmers from './pages/Farmers'
 import Nature from './pages/Nature'
 import You from './pages/You'
 import BlogDetail from './pages/BlogDetail'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import TermsConditions from './pages/TermsConditions'
 
 function App() {
   return (
     <div className="app-container">
+      <ScrollToTop />
       <Navbar />
       <div className="page-content">
         <Routes>
@@ -27,6 +31,8 @@ function App() {
           <Route path='/nature' element={<Nature></Nature>}></Route>
           <Route path='/you' element={<You></You>}></Route>
           <Route path='/blog/:slug' element={<BlogDetail></BlogDetail>}></Route>
+          <Route path='/privacy-policy.php' element={<PrivacyPolicy></PrivacyPolicy>}></Route>
+          <Route path='/terms-and-conditions.php' element={<TermsConditions></TermsConditions>}></Route>
         </Routes>
       </div>
       <Footer />

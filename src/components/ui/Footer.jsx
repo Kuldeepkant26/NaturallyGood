@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import NGlogo from '../../assets/NGlogo.png';
 import './Footer.css';
 
@@ -77,14 +78,14 @@ const Footer = () => {
           <div className="footer-section">
             <h4 className="section-title">Quick Links</h4>
             <ul className="footer-links">
-              <li><a href="/">Home</a></li>
-              <li><a href="/farmers">Farmers</a></li>
-              <li><a href="/nature">Nature</a></li>
-              <li><a href="/you">You</a></li>
-              <li><a href="/about">Us</a></li>
-              <li><a href="/products">Products</a></li>
-              <li><a href="/subscriptions">Subscriptions</a></li>
-              <li><a href="/offerings">Offerings</a></li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/farmers">Farmers</Link></li>
+              <li><Link to="/nature">Nature</Link></li>
+              <li><Link to="/you">You</Link></li>
+              <li><Link to="/about">Us</Link></li>
+              <li><Link to="/products">Products</Link></li>
+              <li><a href="#subscriptions">Subscriptions</a></li>
+              <li><a href="#offerings">Offerings</a></li>
             </ul>
           </div>
 
@@ -151,9 +152,9 @@ const Footer = () => {
               © {currentYear} Naturally Good. All rights reserved.
             </p>
             <div className="footer-bottom-links">
-              <a href="/privacy-policy">Privacy Policy</a>
-              <a href="/terms-of-service">Terms of Service</a>
-              <a href="/shipping-policy">Shipping Policy</a>
+              <Link to="/privacy-policy.php">Privacy Policy</Link>
+              <Link to="/terms-and-conditions.php">Terms of Service</Link>
+              <a href="#shipping-policy">Shipping Policy</a>
             </div>
           </div>
         </div>
