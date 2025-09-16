@@ -12,7 +12,7 @@ function HealthBenefitsSection() {
     {
       icon: <Sprout className="w-6 h-6" />,
       title: "Restore Soil Fertility",
-      description: "Organic practices improve soil health and increase long-term agricultural yield naturally."
+      description: "Organic practices improve soil health and increase long-term agricultural yield naturally and sustainably."
     },
     {
       icon: <Users className="w-6 h-6" />,
@@ -75,8 +75,8 @@ function HealthBenefitsSection() {
               <span className="stat-label">Natural</span>
             </div>
             <div className="health-stat">
-              <span className="stat-number">Safe</span>
-              <span className="stat-label">For Families</span>
+              <span className="stat-number">100%</span>
+              <span className="stat-label">Safe</span>
             </div>
           </div>
         </div>

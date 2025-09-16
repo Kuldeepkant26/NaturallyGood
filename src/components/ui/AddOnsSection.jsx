@@ -31,7 +31,7 @@ const AddOnsSection = () => {
   const categories = [
     {
       id: 'premium-addons',
-      name: 'Naturally pure',
+      name: 'Naturally Pure',
       icon: <Star className="w-5 h-5" />,
       color: 'custom-green'
     },

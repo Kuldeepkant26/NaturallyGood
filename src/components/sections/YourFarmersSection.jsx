@@ -35,8 +35,8 @@ function YourFarmersSection() {
             <div className="impact-statement">
               <div className="impact-icon"><Heart className="w-6 h-6" /></div>
               <p className="impact-text">
-                By supporting them, you're not just eating healthier—you're 
-                <span className="highlight">uplifting entire farming families.</span>
+                By supporting them, you're not just eating healthier you're 
+                <span className="highlight"> uplifting entire farming families.</span>
               </p>
             </div>
           </div>

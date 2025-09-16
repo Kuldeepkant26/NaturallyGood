@@ -19,7 +19,7 @@ const SubscriptionSection = () => {
       id: 'monthly',
       title: 'WELLNESS STARTER',
       subtitle: 'Monthly',
-      duration: '4 Weekly Deliveries/Month',
+      duration: 'Weekly Delivery/Month • 1 Month',
       originalPrice: '₹7,596',
       discountedPrice: '₹7,499',
       pricePerBasket: '₹1,875 per 10 kg bag',
@@ -71,7 +71,7 @@ const SubscriptionSection = () => {
       id: 'quarterly',
       title: 'WELLNESS PLUS',
       subtitle: 'Quarterly',
-      duration: '4 Weekly Deliveries/Month for 3 Months',
+      duration: 'Weekly Delivery/Month • 3 Months',
       originalPrice: '₹22,788',
       discountedPrice: '₹17,999',
       pricePerBasket: '₹1,500 per 10 kg bag',
@@ -123,7 +123,7 @@ const SubscriptionSection = () => {
       id: 'semi-annual',
       title: 'WELLNESS PREMIUM',
       subtitle: 'Semi Annual',
-      duration: '4 Weekly Deliveries/Month for 6 Months',
+      duration: 'Weekly Delivery/Month • 6 Months',
       originalPrice: '₹45,576',
       discountedPrice: '₹32,999',
       pricePerBasket: '₹1,375 per 10 kg bag',
@@ -175,7 +175,7 @@ const SubscriptionSection = () => {
       id: 'annual',
       title: 'WELLNESS 360°',
       subtitle: 'Annual',
-      duration: '4 Weekly Deliveries/Month for 12 Months',
+      duration: 'Weekly Delivery/Month • 12 Months',
       originalPrice: '₹91,152',
       discountedPrice: '₹56,999',
       pricePerBasket: '₹1,187 per 10 kg bag',
@@ -345,7 +345,7 @@ Please help me complete the subscription process. Thank you!`;
                 </div>
 
                 {/* Pricing */}
-                <div className="relative z-10 mb-4 sm:mb-6">
+                <div className="relative z-10 mb-2 sm:mb-3">
                   <div className="flex items-center mb-2">
                     <span className="text-xl sm:text-2xl font-bold text-gray-900 transition-colors duration-300">{plan.discountedPrice}</span>
                     <span className="text-base sm:text-lg text-gray-500 line-through ml-2 group-hover:text-gray-600 transition-colors duration-300">{plan.originalPrice}</span>

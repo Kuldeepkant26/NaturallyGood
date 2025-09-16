@@ -7,10 +7,10 @@ const FAQSection = () => {
   const [activeCategory, setActiveCategory] = useState('general');
 
   const categories = [
-    { id: 'general', name: 'How to order', icon: <HelpCircle className="w-5 h-5" /> },
+    { id: 'general', name: 'Order', icon: <HelpCircle className="w-5 h-5" /> },
     { id: 'delivery', name: 'Delivery', icon: <Truck className="w-5 h-5" /> },
-    { id: 'order', name: 'Returns Policy', icon: <RotateCcw className="w-5 h-5" /> },
-    { id: 'returns', name: 'Misc.', icon: <Smartphone className="w-5 h-5" /> }
+    { id: 'order', name: 'Return', icon: <RotateCcw className="w-5 h-5" /> },
+    { id: 'returns', name: 'Others', icon: <Smartphone className="w-5 h-5" /> }
   ];
 
   const faqs = {

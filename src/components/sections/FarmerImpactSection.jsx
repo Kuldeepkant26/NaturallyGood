@@ -39,10 +39,6 @@ const FarmerImpactSection = () => {
       <div className="impact-container">
         {/* Header Section */}
         <div className="impact-header">
-          <div className="section-badge">
-            <Wheat className="badge-icon" />
-            Impact Dashboard
-          </div>
           
           <h2 className="impact-title">
             <span className="title-gradient">Farmer's Impact</span>
