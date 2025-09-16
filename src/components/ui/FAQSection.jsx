@@ -7,53 +7,43 @@ const FAQSection = () => {
   const [activeCategory, setActiveCategory] = useState('general');
 
   const categories = [
-    { id: 'general', name: 'General', icon: <HelpCircle className="w-5 h-5" /> },
+    { id: 'general', name: 'How to order', icon: <HelpCircle className="w-5 h-5" /> },
     { id: 'delivery', name: 'Delivery', icon: <Truck className="w-5 h-5" /> },
-    { id: 'order', name: 'How to Order', icon: <Smartphone className="w-5 h-5" /> },
-    { id: 'returns', name: 'Returns', icon: <RotateCcw className="w-5 h-5" /> }
+    { id: 'order', name: 'Returns Policy', icon: <RotateCcw className="w-5 h-5" /> },
+    { id: 'returns', name: 'Misc.', icon: <Smartphone className="w-5 h-5" /> }
   ];
 
   const faqs = {
     general: [
       {
         id: 1,
-        question: "I have allergies/dietary restrictions, Is Naturally Good suitable for me?",
-        answer: "Naturally good provides seasonal veggies which are naturally grown so should not have any reactions typically caused by chemicals used during cultivation.\n\nYou can always personalise your bag and create your own mix of vegetables on our app.\n\nIn case you can not consume one or two veggies, we encourage you to share them with your family members or with your friends or help the community. Everyone should enjoy and benefit from nature's bounty."
+        question: "How to order?",
+        answer: "Naturally Good is a subscription based membership model. We offer organic seasonal farm fresh veggies, exotics, staples and herbs and deliver them to your doorstep. You can choose to sign up for our wellness subscription plans. Choose a subscription type which suits your family size and goals.\n\nYou can order our wellness subscription plans through our app, or you can call or whatsapp us at +91 9643722200 / +91 9111190102\n\nTo subscribe click here"
       },
       {
         id: 2,
-        question: "I don't like or eat a particular vegetable, Is Naturally Good suitable for me?",
-        answer: "Absolutely! Naturally Good caters to individual preferences with three key benefits:\n\nVariety at your fingertips: We offer a wide range of fresh, seasonal produce, allowing you to choose vegetables you enjoy and still reap the benefits of a diverse diet.\nSeasonal is key: Seasonal vegetables are naturally suited to the current environment, minimizing allergies, and maximizing freshness.\nCustomize your bag: Simply leave out vegetables that aren't your favorites when building your bag. Enjoy fresh, seasonal produce perfectly suited to your personal preferences!"
+        question: "How do I add an extra bag?",
+        answer: "You can add as many bags as you want within your account. Choose a subscription type which suits your family size and goals and the number of bags needed or you can simply add more than 1 subscription."
       },
       {
         id: 3,
-        question: "My children don't like or eat a particular vegetable ,Is Naturally Good suitable for me?",
-        answer: "Naturally Good is perfect for families with children who have specific preferences:\n\nWe offer diverse fresh, seasonal produce, so you can find veggies your kids will enjoy. This ensures they still get a variety of essential nutrients for healthy growth.\nWith a well-balanced bag, your children may not need additional vitamin supplements. Fresh vegetables offer essential nutrients naturally.\nExclude the veggies your kids dislike when you customize your bag. This way, you can enjoy fresh, seasonal produce that caters to your family's preferences without stress!"
+        question: "How to order extra vegetables if the bag limit is exceeded?",
+        answer: "You can add extra products or add-ons through our app, while preparing your bag at a discounted price."
       },
       {
         id: 4,
-        question: "The quantity in the bag is too much for me , Is Naturally Good suitable for me?",
-        answer: "For one person, you typically need around 300-400 grams of vegetables per day, which adds up to about 2-3 kilograms for a week.\n\nThe bag you receive is designed for a week and contains 8-10 kilograms of vegetables, which is perfect for a family of 3-5 people. You can calculate the right amount for your family based on this.\n\nIf you have a larger family, you can subscribe to more than one bag to ensure everyone gets the right nutrition."
+        question: "Can I pause/ cancel my subscription?",
+        answer: "We have got you. To pause or cancel at any time, go to your account section on our app or contact our customer support team."
       },
       {
         id: 5,
-        question: "The price of the bag is too high, Is Naturally Good suitable for me?",
-        answer: "Organic vegetables are NOT expensive. They are sold at a high market price because of low availability and high demand. Below is a comparison of our typical bag consisting of 7-8 Kgs of veggies\n\nTypical cost of 8-10 Kgs of vegetables\nNATURALLY GOOD ORGANIC SUBSCRIPTION: As low as Rs 833 - Average 100-105 per KG\nOther Organic Subscriptions: Rs 1500-2500 - Average 299-349 per KG\nOrganic vegetables a-la-carte: Rs 1500-1600 - Average 213-299 per KG\nNon-organic vegetables a-la-carte: Rs 800-1000 - Average 99-133per KG"
+        question: "Can I transfer my subscription to a friend/ family member?",
+        answer: "Yes, You can transfer your subscription by paying a small transfer fee of Rs.500."
       },
       {
         id: 6,
-        question: "Will they remain fresh for a week ?",
-        answer: "Yes, the vegetables in Naturally Good bags will remain fresh for a week, and here's why:\n\nMarket vegetables often come from cold storage or have travelled long distances that are almost 5-7 days old , which affect their freshness. However, the vegetables provided by Naturally Good reach within 12 hours of harvesting ensuring complete nutrition and freshness . They still have their roots and soil attached, which allows them to retain nutrients and freshness.\n\nHere are a couple of tips to keep them fresh for even longer:\nStore them properly: Keep the vegetables in a cool, dark place or in the refrigerator to extend their freshness.\nKeep them hydrated: Just like flowers in a vase, you can place the vegetables in water to help them stay fresh. This method can keep them crisp and vibrant until you're ready to use them.\nRecipe Support: We also provide recipe support & cooking instructions based on the shelf-life of vegetables you received in your seasonal veggie bag."
-      },
-      {
-        id: 7,
-        question: "Can I customize variety and quantity?",
-        answer: "While Mother Nature dictates the exact vegetable selection based on seasonality, we offer exciting customization options! Each bag provides a generous quantity suitable for 3-4 people. For larger families, subscribe to multiple bags, ensuring everyone enjoys the bounty of fresh produce, tailored to your preferences."
-      },
-      {
-        id: 8,
-        question: "Can we visit your farms?",
-        answer: "Yes, for sure! Our farm is open for visits from November 1st to February 28th. To plan your visit please book your slots with us at least 7 days in advance over call on +91 9643722220\n\nDuring your visit, you'll enjoy delicious snacks and refreshing soft beverages made from the fresh seasonal produce of our farm. Additionally, you'll have the opportunity to select 1 to 2 kilograms of vegetables directly from the farm to take home with you. We look forward to welcoming you to our farm!"
+        question: "Can I place bulk orders?",
+        answer: "Yes, for longer subscriptions or large quantity offers, please call us at +91 9643722200 / +91 9111190102"
       }
     ],
     delivery: [
@@ -91,50 +81,60 @@ const FAQSection = () => {
     order: [
       {
         id: 16,
-        question: "How to order?",
-        answer: "Naturally Good is a subscription based membership model. We offer organic seasonal farm fresh veggies, exotics, staples and herbs and deliver them to your doorstep. You can choose to sign up for our wellness subscription plans. Choose a subscription type which suits your family size and goals.\n\nYou can order our wellness subscription plans through our app, or you can call or whatsapp us at +91 9643722200 / +91 9111190102\n\nTo subscribe click here"
+        question: "I received some poor produce. What to do ?",
+        answer: "We are very sorry to hear about some unhappy vegetables or produce that showed up in your bag! You can go to our app, go to orders> delivered> support and raise a support ticket. You can also send an email to our customer happiness team at EatFresh@NaturallyGood.in within 24 Hours of Delivery.\n\nWe will make sure the matter is looked into and you receive a replacement. If you are able to provide some photos of any unsatisfactory produce in your email we would really appreciate it, as photos can help us better identify the issue you have experienced and make sure it is addressed."
       },
       {
         id: 17,
-        question: "How do I add an extra bag?",
-        answer: "You can add as many bags as you want within your account. Choose a subscription type which suits your family size and goals and the number of bags needed or you can simply add more than 1 subscription."
+        question: "I received wrong/less items. What to do ?",
+        answer: "You can go to our app, go to orders> delivered> support and raise a support ticket and we will arrange a replacement for you. You can also send an email to our customer happiness team at EatFresh@NaturallyGood.in within 24 Hours of Delivery."
       },
       {
         id: 18,
-        question: "How to order extra vegetables if the bag limit is exceeded?",
-        answer: "You can add extra products or add-ons through our app, while preparing your bag at a discounted price."
-      },
-      {
-        id: 19,
-        question: "Can I pause/ cancel my subscription?",
-        answer: "We have got you. To pause or cancel at any time, go to your account section on our app or contact our customer support team."
-      },
-      {
-        id: 20,
-        question: "Can I transfer my subscription to a friend/ family member?",
-        answer: "Yes, You can transfer your subscription by paying a small transfer fee of Rs.500."
-      },
-      {
-        id: 21,
-        question: "Can I place bulk orders?",
-        answer: "Yes, for longer subscriptions or large quantity offers, please call us at +91 9643722200 / +91 9111190102"
+        question: "How soon will I get a refund if I cancel?",
+        answer: "It will reflect in your original payment method in 7 Working Days. You may write to us at EatFresh@NaturallyGood.in or call at +919643722200 for any assistance."
       }
     ],
     returns: [
       {
         id: 22,
-        question: "I received some poor produce. What to do ?",
-        answer: "We are very sorry to hear about some unhappy vegetables or produce that showed up in your bag! You can go to our app, go to orders> delivered> support and raise a support ticket. You can also send an email to our customer happiness team at EatFresh@NaturallyGood.in within 24 Hours of Delivery.\n\nWe will make sure the matter is looked into and you receive a replacement. If you are able to provide some photos of any unsatisfactory produce in your email we would really appreciate it, as photos can help us better identify the issue you have experienced and make sure it is addressed."
+        question: "I have allergies/dietary restrictions, Is Naturally Good suitable for me?",
+        answer: "Naturally good provides seasonal veggies which are naturally grown so should not have any reactions typically caused by chemicals used during cultivation.\n\nYou can always personalise your bag and create your own mix of vegetables on our app.\n\nIn case you can not consume one or two veggies, we encourage you to share them with your family members or with your friends or help the community. Everyone should enjoy and benefit from nature's bounty."
       },
       {
         id: 23,
-        question: "I received wrong/less items. What to do ?",
-        answer: "You can go to our app, go to orders> delivered> support and raise a support ticket and we will arrange a replacement for you. You can also send an email to our customer happiness team at EatFresh@NaturallyGood.in within 24 Hours of Delivery."
+        question: "I don't like or eat a particular vegetable, Is Naturally Good suitable for me?",
+        answer: "Absolutely! Naturally Good caters to individual preferences with three key benefits:\n\nVariety at your fingertips: We offer a wide range of fresh, seasonal produce, allowing you to choose vegetables you enjoy and still reap the benefits of a diverse diet.\n\nSeasonal is key: Seasonal vegetables are naturally suited to the current environment, minimizing allergies, and maximizing freshness.\n\nCustomize your bag: Simply leave out vegetables that aren't your favorites when building your bag. Enjoy fresh, seasonal produce perfectly suited to your personal preferences!"
       },
       {
         id: 24,
-        question: "How soon will I get a refund if I cancel?",
-        answer: "It will reflect in your original payment method in 7 Working Days. You may write to us at EatFresh@NaturallyGood.in or call at +919643722200 for any assistance."
+        question: "My children don't like or eat a particular vegetable, Is Naturally Good suitable for me?",
+        answer: "Naturally Good is perfect for families with children who have specific preferences:\n\nWe offer diverse fresh, seasonal produce, so you can find veggies your kids will enjoy. This ensures they still get a variety of essential nutrients for healthy growth.\n\nWith a well-balanced bag, your children may not need additional vitamin supplements. Fresh vegetables offer essential nutrients naturally.\n\nExclude the veggies your kids dislike when you customize your bag. This way, you can enjoy fresh, seasonal produce that caters to your family's preferences without stress!"
+      },
+      {
+        id: 25,
+        question: "The quantity in the bag is too much for me, Is Naturally Good suitable for me?",
+        answer: "For one person, you typically need around 300-400 grams of vegetables per day, which adds up to about 2-3 kilograms for a week.\n\nThe bag you receive is designed for a week and contains 8-10 kilograms of vegetables, which is perfect for a family of 3-5 people. You can calculate the right amount for your family based on this.\n\nIf you have a larger family, you can subscribe to more than one bag to ensure everyone gets the right nutrition."
+      },
+      {
+        id: 26,
+        question: "The price of the bag is too high, Is Naturally Good suitable for me?",
+        answer: "Organic vegetables are NOT expensive. They are sold at a high market price because of low availability and high demand. Below is a comparison of our typical bag consisting of 7-8 Kgs of veggies:\n\nTypical cost of 8-10 Kgs of vegetables\nNATURALLY GOOD ORGANIC SUBSCRIPTION: As low as Rs 833 (Average 100-105 per KG)\nOther Organic Subscriptions: Rs 1500-2500 (Average 299-349 per KG)\nOrganic vegetables a-la-carte: Rs 1500-1600 (Average 213-299 per KG)\nNon-organic vegetables a-la-carte: Rs 800-1000 (Average 99-133 per KG)"
+      },
+      {
+        id: 27,
+        question: "Will they remain fresh for a week?",
+        answer: "Yes, the vegetables in Naturally Good bags will remain fresh for a week, and here's why:\n\nMarket vegetables often come from cold storage or have travelled long distances that are almost 5-7 days old, which affect their freshness. However, the vegetables provided by Naturally Good reach within 12 hours of harvesting ensuring complete nutrition and freshness. They still have their roots and soil attached, which allows them to retain nutrients and freshness.\n\nHere are a couple of tips to keep them fresh for even longer:\n\nStore them properly: Keep the vegetables in a cool, dark place or in the refrigerator to extend their freshness.\n\nKeep them hydrated: Just like flowers in a vase, you can place the vegetables in water to help them stay fresh. This method can keep them crisp and vibrant until you're ready to use them.\n\nRecipe Support: We also provide recipe support & cooking instructions based on the shelf-life of vegetables you received in your seasonal veggie bag."
+      },
+      {
+        id: 28,
+        question: "Can I customize variety and quantity?",
+        answer: "While Mother Nature dictates the exact vegetable selection based on seasonality, we offer exciting customization options! Each bag provides a generous quantity suitable for 3-4 people. For larger families, subscribe to multiple bags, ensuring everyone enjoys the bounty of fresh produce, tailored to your preferences."
+      },
+      {
+        id: 29,
+        question: "Can we visit your farms?",
+        answer: "Yes, for sure! Our farm is open for visits from November 1st to February 28th. To plan your visit please book your slots with us at least 7 days in advance over call on +91 9643722220\n\nDuring your visit, you'll enjoy delicious snacks and refreshing soft beverages made from the fresh seasonal produce of our farm. Additionally, you'll have the opportunity to select 1 to 2 kilograms of vegetables directly from the farm to take home with you. We look forward to welcoming you to our farm!"
       }
     ]
   };
