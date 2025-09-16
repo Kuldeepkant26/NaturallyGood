@@ -412,6 +412,13 @@
   box-shadow: 0 25px 60px rgba(255, 215, 0, 0.3);
 }
 
+/* Large Screen Adjustments */
+@media (min-width: 1400px) {
+  .farmers-section {
+    padding: 80px 0;
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 1400px) {
   .farmers-section .farmers-container {

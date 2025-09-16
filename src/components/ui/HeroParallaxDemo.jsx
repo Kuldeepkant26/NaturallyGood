@@ -26,14 +26,6 @@ export const products = [
     price: "₹2,800 Per Kg"
   },
   {
-    title: "Artisanal Pure Jaggery",
-    link: "#",
-    slug: "pure-jaggery",
-    thumbnail: "https://file.hstatic.net/1000378166/article/c9255ea94c12864cdf03_03e94f445e2f43b6850952c832fa4b62_1024x1024.jpg",
-    description: "Traditional stone-ground jaggery, unrefined and mineral-rich",
-    price: "₹90 for 100 gms"
-  },
-  {
     title: "Wild Forest Honey", 
     link: "#",
     slug: "natural-honey",
@@ -64,6 +56,14 @@ export const products = [
     thumbnail: "https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?w=400&h=400&fit=crop&crop=center",
     description: "Rare and specialty vegetables grown using biodynamic farming principles",
     price: "Seasonal Availability"
+  },
+  {
+    title: "Organic Moringa Leaves",
+    link: "#",
+    slug: "fresh-moringa-leaves",
+    thumbnail: "/src/assets/Vegies1/Moringa.jpg",
+    description: "Nutrient-dense moringa leaves, nature's multivitamin powerhouse",
+    price: "₹150 for 100 gms"
   },
   {
     title: "Premium Leafy Greens",

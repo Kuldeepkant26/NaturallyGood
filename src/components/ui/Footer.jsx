@@ -1,10 +1,73 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import NGlogo from '../../assets/NGlogo.png';
 import './Footer.css';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const navigate = useNavigate();
+
+  // Navigation utility functions
+  const scrollToSection = (sectionId) => {
+    // If we're not on the home page, navigate to home first
+    if (window.location.pathname !== '/') {
+      navigate('/');
+      
+      // Wait for navigation to complete before scrolling
+      setTimeout(() => {
+        scrollToSectionOnHomePage(sectionId);
+      }, 100);
+    } else {
+      // If we're already on the home page, just scroll
+      scrollToSectionOnHomePage(sectionId);
+    }
+  };
+
+  const scrollToSectionOnHomePage = (sectionId) => {
+    const selectors = [
+      `[data-section="${sectionId}"]`,
+      `#${sectionId}`,
+      `[id="${sectionId}"]`
+    ];
+
+    let targetSection = null;
+    
+    for (const selector of selectors) {
+      targetSection = document.querySelector(selector);
+      if (targetSection) break;
+    }
+
+    if (targetSection) {
+      // Calculate offset for navbar
+      const isMobile = window.innerWidth < 1024;
+      const offset = isMobile ? 80 : 60;
+      const elementPosition = targetSection.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - offset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    } else {
+      console.warn(`Section with id "${sectionId}" not found`);
+    }
+  };
+
+  // Handle specific footer link clicks
+  const handleProductsClick = (e) => {
+    e.preventDefault();
+    scrollToSection('products');
+  };
+
+  const handleSubscriptionsClick = (e) => {
+    e.preventDefault();
+    scrollToSection('subscription');
+  };
+
+  const handleOfferingsClick = (e) => {
+    e.preventDefault();
+    scrollToSection('premium-offerings');
+  };
 
   return (
     <footer className="footer">
@@ -52,26 +115,6 @@ const Footer = () => {
                 </svg>
               </a>
             </div>
-            
-            {/* App Store Links */}
-            <div className="app-links">
-              <a href="https://play.google.com/store/apps/details?id=com.naturallygood.app" className="app-link" aria-label="Download on Google Play">
-                <svg width="120" height="40" viewBox="0 0 135 40" fill="none">
-                  <rect width="135" height="40" rx="6" fill="#000"/>
-                  <path d="M9.5 8.5h116c2.76 0 5 2.24 5 5v13c0 2.76-2.24 5-5 5h-116c-2.76 0-5-2.24-5-5v-13c0-2.76 2.24-5 5-5z" fill="#000"/>
-                  <text x="68" y="14" text-anchor="middle" fill="white" fontSize="8">GET IT ON</text>
-                  <text x="68" y="27" text-anchor="middle" fill="white" fontSize="12" fontWeight="bold">Google Play</text>
-                </svg>
-              </a>
-              <a href="https://apps.apple.com/in/app/naturally-good/id6749650953" className="app-link" aria-label="Download on the App Store">
-                <svg width="120" height="40" viewBox="0 0 135 40" fill="none">
-                  <rect width="135" height="40" rx="6" fill="#000"/>
-                  <path d="M9.5 8.5h116c2.76 0 5 2.24 5 5v13c0 2.76-2.24 5-5 5h-116c-2.76 0-5-2.24-5-5v-13c0-2.76 2.24-5 5-5z" fill="#000"/>
-                  <text x="68" y="14" text-anchor="middle" fill="white" fontSize="8">Download on the</text>
-                  <text x="68" y="27" text-anchor="middle" fill="white" fontSize="12" fontWeight="bold">App Store</text>
-                </svg>
-              </a>
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -83,9 +126,9 @@ const Footer = () => {
               <li><Link to="/nature">Nature</Link></li>
               <li><Link to="/you">You</Link></li>
               <li><Link to="/about">Us</Link></li>
-              <li><Link to="/products">Products</Link></li>
-              <li><a href="#subscriptions">Subscriptions</a></li>
-              <li><a href="#offerings">Offerings</a></li>
+              <li><a href="#products" onClick={handleProductsClick}>Products</a></li>
+              <li><a href="#subscription" onClick={handleSubscriptionsClick}>Subscriptions</a></li>
+              <li><a href="#premium-offerings" onClick={handleOfferingsClick}>Offerings</a></li>
             </ul>
           </div>
 
@@ -134,12 +177,6 @@ const Footer = () => {
                   <a href="tel:+919643722200">+91 9643722200</a><br/>
                   <a href="tel:+919111190102">+91 9111190102</a>
                 </div>
-              </div>
-              <div className="contact-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                </svg>
-                <a href="mailto:EatFresh@NaturallyGood.in">EatFresh@NaturallyGood.in</a>
               </div>
             </div>
           </div>

@@ -97,12 +97,6 @@ const WhyOrganicSection = () => {
                   alt={benefit.title}
                   className="card-image"
                 />
-                <div 
-                  className="card-overlay"
-                  style={{ background: benefit.bgColor }}
-                >
-                  <div className="card-icon">{benefit.icon}</div>
-                </div>
               </div>
               
               <div className="card-content">

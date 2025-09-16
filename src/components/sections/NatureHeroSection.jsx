@@ -67,18 +67,6 @@ const NatureHeroSection = () => {
     });
   }, []);
 
-  const goToSlide = (index) => {
-    setCurrentImageIndex(index);
-  };
-
-  const goToPrevious = () => {
-    setCurrentImageIndex(currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1);
-  };
-
-  const goToNext = () => {
-    setCurrentImageIndex(currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1);
-  };
-
   const scrollToNextSection = () => {
     const nextSection = document.getElementById('your-planet-section');
     if (nextSection) {
@@ -135,44 +123,6 @@ const NatureHeroSection = () => {
               </button>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Navigation Controls */}
-      <div className="nature-hero__controls">
-        {/* Previous/Next Arrows */}
-        <button 
-          className="nature-hero__arrow nature-hero__arrow--prev"
-          onClick={goToPrevious}
-          aria-label="Previous image"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-        
-        <button 
-          className="nature-hero__arrow nature-hero__arrow--next"
-          onClick={goToNext}
-          aria-label="Next image"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-
-        {/* Dot Indicators */}
-        <div className="nature-hero__indicators">
-          {images.map((_, index) => (
-            <button
-              key={index}
-              className={`nature-hero__dot ${
-                index === currentImageIndex ? 'active' : ''
-              }`}
-              onClick={() => goToSlide(index)}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
         </div>
       </div>
 

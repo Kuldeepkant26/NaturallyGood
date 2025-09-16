@@ -10,7 +10,7 @@ const OrganicVegetables1 = 'https://images.unsplash.com/photo-1590779033100-9f60
 const OrganicFarm = 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2289&auto=format&fit=crop&ixlib=rb-4.0.3'; // Organic farm field
 const FreshVegetables = 'https://images.unsplash.com/photo-1516594798947-e65505dbb29d?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3'; // Assorted vegetables
 const FarmToTable = 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3'; // Fresh vegetables preparation
-const OrganicHarvest = 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?q=80&w=2344&auto=format&fit=crop&ixlib=rb-4.0.3'; // Harvest vegetables
+const OrganicHarvest = 'https://www.blr.onlyhydroponics.in/cdn/shop/articles/Easy_Steps_to_Grow_Organic_Vegetables_in_Bangalore.jpg?v=1671692518'; // Harvest vegetables
 const GreenVegetables = 'https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?q=80&w=2325&auto=format&fit=crop&ixlib=rb-4.0.3'; // Green leafy vegetables
 const VegetableMarket = 'https://images.unsplash.com/photo-1488459716781-31db52582fe9?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3'; // Vegetable market
 const FarmingHands = 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3'; // Hands holding vegetables
@@ -247,41 +247,41 @@ const FleetGallerySection = () => {
   const vegetables = [
     {
       src: OrganicVegetables1,
-      title: "Organic Vegetables",
-      subtitle: "Fresh, seasonal organic vegetables grown with natural fertilizers and zero chemicals",
-      badge: "Zero Chemicals"
+      title: "Peak Nutrition",
+      subtitle: "Seasonal organic vegetables harvested at their nutritional peak for maximum health benefits",
+      badge: "Nutrient Dense"
     },
     {
       src: FreshVegetables,
-      title: "Farm to Table",
-      subtitle: "Direct delivery from our farms to your doorstep with no middlemen involved",
-      badge: "Fresh Delivery"
+      title: "Natural Rhythm",
+      subtitle: "Following nature's seasonal cycles for better taste, nutrition, and environmental harmony",
+      badge: "Season Perfect"
     },
     {
       src: GreenVegetables,
-      title: "Seasonal Produce",
-      subtitle: "Following nature's clock to grow colorful organic produce in their best season",
-      badge: "Naturally Grown"
+      title: "Pure & Clean",
+      subtitle: "Organic farming methods ensure no synthetic pesticides or chemicals touch your food",
+      badge: "Chemical Free"
     },
     {
       src: FarmingHands,
-      title: "Sustainable Farming",
-      subtitle: "Self-sustained ecosystem with zero wastage and environmental consciousness",
-      badge: "Eco-Friendly"
+      title: "Soil Health",
+      subtitle: "Organic practices build rich, living soil that produces more nutritious vegetables",
+      badge: "Living Soil"
     },
     {
       src: VegetableMarket,
-      title: "Community Partnership",
-      subtitle: "Supporting local farmers through fair pricing and cooperative farming practices",
-      badge: "Fair Trade"
+      title: "Climate Smart",
+      subtitle: "Seasonal eating reduces carbon footprint and supports local agricultural biodiversity",
+      badge: "Eco Conscious"
     }
   ];
 
   return (
     <section className="fleet-gallery-section" ref={galleryRef}>
       <div className="container">
-        <h2 className="section-title">Why Choose Naturally Good</h2>
-        <p className="section-subtitle" style={{ textAlign: 'center' }}>Discover what sets us apart as the premier organic vegetable provider.</p>
+        <h2 className="section-title">Why Organic And Seasonal</h2>
+        <p className="section-subtitle" style={{ textAlign: 'center' }}>Experience the benefits of nature's timing with our organic, seasonal produce.</p>
       </div>
       <motion.div
         className="horizontal-scroll-container"

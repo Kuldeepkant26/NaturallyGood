@@ -94,10 +94,10 @@ function FarmersVoiceSection() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Heading animation
-      gsap.fromTo(headingRef.current, 
-        { 
-          opacity: 0, 
-          y: 50 
+      gsap.fromTo(headingRef.current,
+        {
+          opacity: 0,
+          y: 50
         },
         {
           opacity: 1,
@@ -113,9 +113,9 @@ function FarmersVoiceSection() {
       );
 
       // Testimonials stagger animation
-      gsap.fromTo(".farmers-voice-section .testimonial-card", 
-        { 
-          opacity: 0, 
+      gsap.fromTo(".farmers-voice-section .testimonial-card",
+        {
+          opacity: 0,
           y: 60,
           scale: 0.9
         },
@@ -170,7 +170,7 @@ function FarmersVoiceSection() {
   };
 
   return (
-    <motion.section 
+    <motion.section
       ref={sectionRef}
       className="farmers-voice-section"
       initial="hidden"
@@ -185,55 +185,38 @@ function FarmersVoiceSection() {
 
       <div className="farmers-voice-container">
         {/* Section Header */}
-        <motion.div 
+        <motion.div
           ref={headingRef}
           className="section-header"
-          variants={itemVariants}
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
         >
-          <motion.div 
-            className="section-badge"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <motion.span 
-              className="badge-icon"
-              animate={{ 
-                rotate: [0, 10, -10, 0] 
-              }}
-              transition={{ 
-                duration: 2, 
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              <MessageSquare className="w-6 h-6" />
-            </motion.span>
-            <span>Farmers' Voice</span>
-          </motion.div>
-          
-          <motion.h2 
+          <motion.h2
             className="section-title"
-            variants={itemVariants}
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
           >
             Real Stories, Straight from the Fields
           </motion.h2>
-          
-          <motion.div 
+
+          <motion.div
             className="title-underline"
-            variants={itemVariants}
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
           ></motion.div>
-          
-          <motion.p 
+
+          <motion.p
             className="section-subtitle"
-            variants={itemVariants}
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
           >
-            Hear from our farmer partners about their journey with Naturally Good 
+            Hear from our farmer partners about their journey with Naturally Good
             and how organic farming has transformed their lives and communities.
           </motion.p>
         </motion.div>
 
         {/* Testimonials Grid */}
-        <motion.div 
+        <motion.div
           ref={testimonialsRef}
           className="testimonials-grid"
           variants={containerVariants}
@@ -243,7 +226,7 @@ function FarmersVoiceSection() {
               key={testimonial.id}
               className="testimonial-card"
               variants={cardVariants}
-              whileHover={{ 
+              whileHover={{
                 y: -10,
                 scale: 1.02,
                 transition: { type: "spring", stiffness: 300, damping: 25 }
@@ -251,9 +234,9 @@ function FarmersVoiceSection() {
               whileTap={{ scale: 0.98 }}
             >
               <div className="card-background"></div>
-              
+
               {/* Quote Icon */}
-              <motion.div 
+              <motion.div
                 className="quote-icon"
                 initial={{ scale: 0, rotate: -45 }}
                 whileInView={{ scale: 1, rotate: 0 }}
@@ -264,13 +247,13 @@ function FarmersVoiceSection() {
               </motion.div>
 
               {/* Farmer Image */}
-              <motion.div 
+              <motion.div
                 className="farmer-image"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <img 
-                  src={testimonial.image} 
+                <img
+                  src={testimonial.image}
                   alt={testimonial.name}
                   onError={(e) => {
                     e.target.src = "https://img.freepik.com/premium-vector/illustration-indian-farmer-face-vector_55610-7901.jpg";
@@ -281,7 +264,7 @@ function FarmersVoiceSection() {
 
               {/* Testimonial Content */}
               <div className="testimonial-content">
-                <motion.p 
+                <motion.p
                   className="testimonial-quote"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
@@ -293,7 +276,7 @@ function FarmersVoiceSection() {
 
                 <div className="farmer-info">
                   <div className="farmer-details">
-                    <motion.h4 
+                    <motion.h4
                       className="farmer-name"
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -302,7 +285,7 @@ function FarmersVoiceSection() {
                     >
                       {testimonial.name}
                     </motion.h4>
-                    <motion.p 
+                    <motion.p
                       className="farmer-location"
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -311,7 +294,7 @@ function FarmersVoiceSection() {
                     >
                       <MapPin className="w-4 h-4 inline mr-1" />{testimonial.location}
                     </motion.p>
-                    <motion.p 
+                    <motion.p
                       className="farmer-experience"
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -320,7 +303,7 @@ function FarmersVoiceSection() {
                     >
                       <Wheat className="w-4 h-4 inline mr-1" />{testimonial.crop}
                     </motion.p>
-                    <motion.p 
+                    <motion.p
                       className="farmer-experience"
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -331,7 +314,7 @@ function FarmersVoiceSection() {
                     </motion.p>
                   </div>
 
-                  <motion.div 
+                  <motion.div
                     className="rating"
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -344,59 +327,19 @@ function FarmersVoiceSection() {
               </div>
 
               {/* Decorative elements */}
-              <motion.div 
+              <motion.div
                 className="card-decoration"
-                animate={{ 
-                  rotate: [0, 360] 
+                animate={{
+                  rotate: [0, 360]
                 }}
-                transition={{ 
-                  duration: 20, 
+                transition={{
+                  duration: 20,
                   repeat: Infinity,
                   ease: "linear"
                 }}
               ></motion.div>
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* Call to Action */}
-        <motion.div 
-          className="cta-section"
-          variants={itemVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <motion.h3 
-            className="cta-title"
-            whileHover={{ scale: 1.02 }}
-          >
-            Want to Join Our Farming Family?
-          </motion.h3>
-          <motion.p className="cta-description">
-            Become part of our growing community of organic farmers and transform your farming journey with Naturally Good.
-          </motion.p>
-          <motion.button 
-            className="cta-button"
-            whileHover={{ 
-              scale: 1.05,
-              boxShadow: "0 10px 30px rgba(74, 124, 89, 0.3)"
-            }}
-            whileTap={{ scale: 0.98 }}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <span>Get Started Today</span>
-            <motion.span 
-              className="button-arrow"
-              animate={{ x: [0, 5, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            >
-              →
-            </motion.span>
-          </motion.button>
         </motion.div>
       </div>
     </motion.section>

@@ -27,13 +27,6 @@ function You() {
       description: 'Small lifestyle changes for a sustainable future.',
       image: 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&h=300&fit=crop&crop=center',
       category: 'Lifestyle'
-    },
-    {
-      slug: 'wellness-wisdom',
-      title: 'Wellness Wisdom',
-      description: 'How organic food supports every age group.',
-      image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop&crop=center',
-      category: 'Wellness'
     }
   ]
 
@@ -54,16 +47,6 @@ function You() {
             transition={{ duration: 0.8 }}
             className="space-y-8"
           >
-            {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center gap-2 bg-[#78B826]/10 border border-[#78B826]/20 rounded-full px-4 py-2"
-            >
-              <span className="text-[#00963E] text-sm font-medium">— TRANSFORM YOUR HEALTH</span>
-            </motion.div>
-
             {/* Main Heading */}
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
@@ -95,13 +78,16 @@ function You() {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="flex flex-col sm:flex-row items-start sm:items-center gap-6"
             >
-              <motion.button
+              <motion.a
+                href="https://wa.me/919643722200?text=Hi!%20I%20want%20to%20start%20my%20healthy%20journey%20with%20NaturallyGood%20organic%20vegetables"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-[#00963E] hover:bg-[#007a33] text-white font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="bg-[#00963E] hover:bg-[#007a33] text-white font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 shadow-lg hover:shadow-xl inline-block"
               >
                 Start healthy journey
-              </motion.button>
+              </motion.a>
 
               {/* Reviews */}
               <div className="flex items-center gap-4">
@@ -177,9 +163,9 @@ function You() {
                     </svg>
                   </div>
                   <div className="text-center text-gray-800">
-                    <div className="text-lg font-bold mb-1">Order</div>
+                    <div className="text-lg font-bold mb-1">Fresh</div>
                     <div className="text-sm mb-2">Delivered</div>
-                    <div className="text-xs text-gray-600">Date: Mar 20, 2024</div>
+                    <div className="text-xs text-gray-600">Same Day</div>
                   </div>
                 </div>
               </motion.div>
@@ -196,19 +182,14 @@ function You() {
                 }}
               >
                 <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-white">
-                  <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center mb-2">
-                    <span className="text-[#00963E] font-bold text-sm">NG</span>
+                  <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center mb-3 shadow-lg">
+                    <svg className="w-5 h-5 text-[#00963E]" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
                   </div>
                   <div className="text-center">
-                    <div className="text-xl font-bold mb-1">₹2,500</div>
-                    <div className="text-sm opacity-90 mb-2">Health Savings</div>
-                    <div className="w-8 h-8 rounded-full overflow-hidden border border-white/30 mx-auto">
-                      <img 
-                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face"
-                        alt="Customer"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
+                    <div className="text-xl font-bold mb-1">100%</div>
+                    <div className="text-sm opacity-90 mb-2">Organic Quality</div>
                   </div>
                 </div>
               </motion.div>
@@ -339,7 +320,7 @@ function You() {
                 <h3 className="text-2xl font-bold text-gray-900">Children</h3>
               </div>
               <p className="text-lg text-gray-700 mb-6">
-                Fresh, organic food is the foundation of a child's lifelong health.
+                Fresh, organic food is the foundation of a child's lifelong health and natural development.
               </p>
               <div className="mb-6">
                 <h4 className="font-semibold text-gray-900 mb-4">Benefits for Kids:</h4>
@@ -459,7 +440,7 @@ function You() {
                 <h3 className="text-2xl font-bold text-gray-900">Elderly</h3>
               </div>
               <p className="text-lg text-gray-700 mb-6">
-                Age gracefully with nature's wisdom—organic produce protects and heals.
+                Age gracefully with nature's wisdom—organic produce protects and heals, supporting vitality and wellness in your golden years.
               </p>
               <div className="mb-6">
                 <h4 className="font-semibold text-gray-900 mb-4">Benefits for Seniors:</h4>
@@ -467,10 +448,6 @@ function You() {
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#78B826] rounded-full mt-2"></span>
                     <span className="text-gray-700">Improved digestion & metabolism.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-2 h-2 bg-[#78B826] rounded-full mt-2"></span>
-                    <span className="text-gray-700">Better sleep & reduced fatigue.</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#78B826] rounded-full mt-2"></span>
@@ -763,7 +740,7 @@ function You() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post, index) => (
               <motion.div
                 key={post.slug}

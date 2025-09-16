@@ -23,30 +23,10 @@ const CarbonEmissionSection = () => {
       icon: <Package className="w-6 h-6" />,
       title: "Zero-waste packaging system",
       description: "Biodegradable packaging made from agricultural waste",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFhHhCcKQQ4KPTy1FErsJKZvMlbOu8iB_hZQ&s",
+      image: "https://cdn.shopify.com/s/files/1/0656/1094/0666/files/small-shops-embrace-eco-friendly-practices-with-plastic-free-packaging-photo_480x480.jpg?v=1735824048",
       stat: "100% Compostable",
       color: "#81c784",
       impact: "Circular economy model"
-    },
-    {
-      id: 3,
-      icon: <Globe className="w-6 h-6" />,
-      title: "Carbon-negative farming practices",
-      description: "Regenerative agriculture that captures more CO2 than produced",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5SQhCqVY5L8K6rJKxFJTTxqy7d8iZm8o3MA&s",
-      stat: "200% Carbon Offset",
-      color: "#a5d6a7",
-      impact: "Soil health restoration"
-    },
-    {
-      id: 4,
-      icon: <BarChart className="w-6 h-6" />,
-      title: "Real-time emission tracking",
-      description: "AI-powered monitoring of our entire supply chain footprint",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgJcMfJLbcGvCzPMVU3B8g5xLj9mFvGa5QHA&s",
-      stat: "24/7 Monitoring",
-      color: "#ffb74d",
-      impact: "Data-driven decisions"
     },
     {
       id: 2,
@@ -145,10 +125,6 @@ const CarbonEmissionSection = () => {
                   <div className="tab-content">
                     <h3 className="tab-title">{initiative.title}</h3>
                     <p className="tab-description">{initiative.description}</p>
-                    <div className="tab-stats">
-                      <span className="stat-value">{initiative.stat}</span>
-                      <span className="stat-impact">{initiative.impact}</span>
-                    </div>
                   </div>
                   <div className="tab-accent" style={{ backgroundColor: initiative.color }}></div>
                 </div>
@@ -167,8 +143,6 @@ const CarbonEmissionSection = () => {
               <div className="image-overlay">
                 <div className="overlay-content">
                   <div className="overlay-icon">{carbonInitiatives[activeTab].icon}</div>
-                  <div className="overlay-stat">{carbonInitiatives[activeTab].stat}</div>
-                  <div className="overlay-impact">{carbonInitiatives[activeTab].impact}</div>
                 </div>
               </div>
             </div>
@@ -202,20 +176,6 @@ const CarbonEmissionSection = () => {
                 <div className="stat-label">{stat.label}</div>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Closing Message */}
-        <div className="closing-message">
-          <div className="message-content">
-            <div className="message-icon"><Globe className="w-8 h-8" /></div>
-            <h3 className="message-title">
-              With every Naturally Good delivery, you're lowering carbon footprint and protecting the environment.
-            </h3>
-            <p className="message-description">
-              Join thousands of eco-conscious families who choose sustainability without compromising on quality. 
-              Your choice makes a difference—for your health, your community, and our planet.
-            </p>
           </div>
         </div>
 

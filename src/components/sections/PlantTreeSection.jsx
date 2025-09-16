@@ -14,7 +14,7 @@ const PlantTreeSection = () => {
       icon: <Wind className="w-8 h-8" />,
       title: "Absorb carbon dioxide and purify air",
       description: "Each tree absorbs up to 48 lbs of CO2 annually",
-      image: "https://lh6.googleusercontent.com/proxy/uR28NE5qJ9rl29Aak9Km1GdKp65T_dkWEwhPdc4VRavFJjnAQRMRDodnBxUp_3QC1-H2b4Jjk540lRuyODS9MCXjTqDbn1s8ba9GwBTrNAUY-u-0pyrR1HnahaPAQQWFCilO-uccNJ2RPd6cIH8",
+      image: "https://www.shutterstock.com/image-photo/o2-bubbles-middle-lush-forest-600nw-2430119903.jpg",
       stat: "48lbs CO2",
       color: "#4fc3f7"
     },
@@ -116,10 +116,6 @@ const PlantTreeSection = () => {
                     alt={impact.title}
                     className="card-image"
                   />
-                  <div className="image-overlay">
-                    <div className="overlay-icon">{impact.icon}</div>
-                    <div className="overlay-stat">{impact.stat}</div>
-                  </div>
                 </div>
               </div>
               
@@ -131,35 +127,6 @@ const PlantTreeSection = () => {
               <div className="card-accent"></div>
             </div>
           ))}
-        </div>
-
-        {/* Call to Action */}
-        <div className="cta-section">
-          <div className="cta-content">
-            <div className="cta-icon">🌱</div>
-            <h3 className="cta-title">Your veggie bag plants seeds of change—literally.</h3>
-            <p className="cta-description">
-              Every subscription not only brings fresh, organic produce to your table but also 
-              contributes to reforestation efforts that benefit entire communities and our planet.
-            </p>
-            
-            <div className="impact-stats">
-              <div className="stat-item">
-                <div className="stat-number">1</div>
-                <div className="stat-label">Subscription</div>
-              </div>
-              <div className="stat-connector">+</div>
-              <div className="stat-item">
-                <div className="stat-number">1</div>
-                <div className="stat-label">Tree Planted</div>
-              </div>
-              <div className="stat-connector">=</div>
-              <div className="stat-item">
-                <div className="stat-number">∞</div>
-                <div className="stat-label">Impact</div>
-              </div>
-            </div>
-          </div>
         </div>
 
       </div>

@@ -351,7 +351,9 @@ Please help me complete the subscription process. Thank you!`;
                     <span className="text-base sm:text-lg text-gray-500 line-through ml-2 group-hover:text-gray-600 transition-colors duration-300">{plan.originalPrice}</span>
                   </div>
                   <p className="text-sm text-gray-600 mb-1 group-hover:text-gray-700 transition-colors duration-300">{plan.pricePerBasket}</p>
-                  <p className="text-xs text-gray-500">{plan.duration}</p>
+                  <div className="h-8 flex items-start">
+                    <p className="text-xs text-gray-500 leading-tight">{plan.duration}</p>
+                  </div>
                 </div>
 
                 {/* Standardized Benefits */}

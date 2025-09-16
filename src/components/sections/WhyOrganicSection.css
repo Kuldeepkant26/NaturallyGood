@@ -151,37 +151,6 @@
   filter: brightness(1);
 }
 
-.why-organic-section .card-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(76, 175, 80, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: all 0.4s ease;
-}
-
-.why-organic-section .benefit-card:hover .card-overlay,
-.why-organic-section .benefit-card.active .card-overlay {
-  opacity: 1;
-}
-
-.why-organic-section .card-icon {
-  font-size: 3.5rem;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-  transform: scale(0.8);
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.why-organic-section .benefit-card:hover .card-icon,
-.why-organic-section .benefit-card.active .card-icon {
-  transform: scale(1.1) rotate(5deg);
-}
-
 /* ==========================================================================
    CARD CONTENT
    ========================================================================== */
