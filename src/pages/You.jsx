@@ -37,7 +37,7 @@ function You() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50">
       {/* Hero Section */}
-      <div className="relative min-h-screen flex items-center justify-center px-4 py-20">
+      <div className="relative min-h-screen flex items-center justify-center px-4 py-12">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           
           {/* Left Content */}
@@ -71,50 +71,7 @@ function You() {
               allowing you to experience improved vitality.
             </motion.p>
 
-            {/* CTA Button and Reviews */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="flex flex-col sm:flex-row items-start sm:items-center gap-6"
-            >
-              <motion.a
-                href="https://wa.me/919643722200?text=Hi!%20I%20want%20to%20start%20my%20healthy%20journey%20with%20NaturallyGood%20organic%20vegetables"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-[#00963E] hover:bg-[#007a33] text-white font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 shadow-lg hover:shadow-xl inline-block"
-              >
-                Start healthy journey
-              </motion.a>
 
-              {/* Reviews */}
-              <div className="flex items-center gap-4">
-                <div className="flex -space-x-2">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#78B826] to-[#00963E] border-2 border-white flex items-center justify-center text-white font-semibold text-sm">
-                    A
-                  </div>
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 border-2 border-white flex items-center justify-center text-white font-semibold text-sm">
-                    S
-                  </div>
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 border-2 border-white flex items-center justify-center text-white font-semibold text-sm">
-                    M
-                  </div>
-                </div>
-                <div>
-                  <div className="flex items-center gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <svg key={i} className="w-4 h-4 text-orange-400 fill-current" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                    <span className="text-gray-900 font-semibold ml-1">4.9</span>
-                  </div>
-                  <p className="text-sm text-gray-600">from 1000+ <span className="underline">customers</span></p>
-                </div>
-              </div>
-            </motion.div>
           </motion.div>
 
           {/* Right Visual Elements - Beautiful Image Grid */}
@@ -256,13 +213,13 @@ function You() {
                   <div className="w-8 h-8 bg-[#00963E] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                     <Users className="text-white w-4 h-4" />
                   </div>
-                  <p className="text-lg text-gray-700">Support your parents with nutrient-rich vegetables for stronger immunity.</p>
+                  <p className="text-lg text-gray-700">Support your parents with nutrient-rich veggies for stronger immunity.</p>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-[#78B826] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                     <Salad className="text-white w-4 h-4" />
                   </div>
-                  <p className="text-lg text-gray-700">Bring home a variety of seasonal produce that strengthens health and creates joyful meals.</p>
+                  <p className="text-lg text-gray-700">Bring home seasonal produce for healthy and joyful meals.</p>
                 </div>
               </div>
               <div className="mt-8 p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl">
@@ -344,7 +301,7 @@ function You() {
                 </ul>
               </div>
               <div className="p-4 bg-green-50 rounded-xl">
-                <p className="text-sm text-gray-800 italic"><Heart className="inline w-4 h-4 text-green-500 mr-2" /> Give your child the gift of pure food—just the way nature intended.</p>
+                <p className="text-sm text-gray-800 italic"><Heart className="inline w-4 h-4 text-green-500 mr-2" /> Give your child the gift of pure, organic food—nourishment just the way nature truly intended.</p>
               </div>
             </motion.div>
 
@@ -823,7 +780,6 @@ function You() {
                 <p className="text-gray-700 mb-4">
                   Spend a day with our farmers, experience sowing, harvesting, and authentic farm meals.
                 </p>
-                <button className="text-[#00963E] font-semibold hover:underline">Learn More →</button>
               </div>
             </motion.div>
 
@@ -849,7 +805,6 @@ function You() {
                 <p className="text-gray-700 mb-4">
                   Join tree-planting campaigns, zero-waste initiatives, and green awareness events.
                 </p>
-                <button className="text-[#00963E] font-semibold hover:underline">Learn More →</button>
               </div>
             </motion.div>
 
@@ -875,7 +830,6 @@ function You() {
                 <p className="text-gray-700 mb-4">
                   Engage in fitness, yoga, and mindful living sessions with like-minded families.
                 </p>
-                <button className="text-[#00963E] font-semibold hover:underline">Learn More →</button>
               </div>
             </motion.div>
           </div>
@@ -917,16 +871,19 @@ function You() {
           >
             Join thousands of families who have made the switch to naturally good living.
           </motion.p>
-          <motion.button 
+          <motion.a 
+            href="https://wa.me/919643722200?text=Hi!%20I%20want%20to%20start%20my%20healthy%20journey%20with%20NaturallyGood%20organic%20vegetables"
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-r from-[#00963E] to-[#78B826] text-white font-semibold py-4 px-8 rounded-full text-lg hover:shadow-xl transition-all duration-300"
+            className="bg-gradient-to-r from-[#00963E] to-[#78B826] text-white font-semibold py-4 px-8 rounded-full text-lg hover:shadow-xl transition-all duration-300 inline-block"
           >
             Start Your Healthy Journey Today
-          </motion.button>
+          </motion.a>
         </div>
       </motion.section>
     </div>

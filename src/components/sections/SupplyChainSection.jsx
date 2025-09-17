@@ -169,7 +169,7 @@ const SupplyChainSection = () => {
 
         {/* Benefits Grid */}
         <div className="benefits-section">
-          <h3 className="benefits-title">Our fully controlled supply chain ensures:</h3>
+          <h3 className="benefits-title">Our Fully Controlled Supply Chain Ensures:</h3>
           <div className="benefits-grid">
             {benefits.map((benefit, index) => (
               <div 

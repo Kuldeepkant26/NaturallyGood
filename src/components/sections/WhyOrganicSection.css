@@ -231,11 +231,11 @@
 }
 
 .why-organic-section .message-content {
-  max-width: 600px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 40px;
+  padding: 24px 40px;
   background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(129, 199, 132, 0.05));
-  border-radius: 20px;
+  border-radius: 12px;
   border: 2px solid transparent;
   background-clip: padding-box;
   position: relative;
@@ -249,7 +249,7 @@
   right: 0;
   bottom: 0;
   background: linear-gradient(135deg, #4caf50, #81c784);
-  border-radius: 20px;
+  border-radius: 12px;
   padding: 2px;
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
@@ -258,10 +258,32 @@
 
 .why-organic-section .message-content p {
   font-size: clamp(1.1rem, 2vw, 1.3rem);
-  line-height: 1.6;
+  line-height: 1.4;
   color: #2e7d32;
   margin: 0;
   font-weight: 500;
+}
+
+/* Keep single line on larger screens */
+@media (min-width: 768px) {
+  .why-organic-section .message-content p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* Allow wrapping on smaller screens */
+@media (max-width: 767px) {
+  .why-organic-section .message-content {
+    max-width: 95%;
+    padding: 20px 24px;
+  }
+  
+  .why-organic-section .message-content p {
+    white-space: normal;
+    line-height: 1.5;
+  }
 }
 
 .why-organic-section .message-content strong {

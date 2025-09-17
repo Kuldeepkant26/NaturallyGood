@@ -12,7 +12,7 @@ const PlantTreeSection = () => {
     {
       id: 1,
       icon: <Wind className="w-8 h-8" />,
-      title: "Absorb carbon dioxide and purify air",
+      title: "Absorb harmful carbon dioxide and naturally purify the air",
       description: "Each tree absorbs up to 48 lbs of CO2 annually",
       image: "https://www.shutterstock.com/image-photo/o2-bubbles-middle-lush-forest-600nw-2430119903.jpg",
       stat: "48lbs CO2",

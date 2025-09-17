@@ -102,7 +102,11 @@ const NatureHeroSection = () => {
         <div className="nature-hero__container">
           <div className="nature-hero__text">
             <h1 className="nature-hero__title">
-              {images[currentImageIndex].title}
+              {images[currentImageIndex].title === 'Connecting with Nature' ? (
+                <span style={{ color: '#00963F' }}>{images[currentImageIndex].title}</span>
+              ) : (
+                images[currentImageIndex].title
+              )}
             </h1>
             <p className="nature-hero__subtitle">
               {images[currentImageIndex].subtitle}
@@ -113,14 +117,6 @@ const NatureHeroSection = () => {
                 nurtures both health and environment. Join us in celebrating 
                 the perfect harmony between nature and nourishment.
               </p>
-            </div>
-            <div className="nature-hero__cta">
-              <button 
-                className="nature-hero__btn nature-hero__btn--primary"
-                onClick={scrollToNextSection}
-              >
-              Your Planet
-              </button>
             </div>
           </div>
         </div>

@@ -149,7 +149,7 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-emerald-50 via-white to-green-50 relative overflow-hidden">
+    <section id="faqs" data-section="faqs" className="py-20 bg-gradient-to-br from-emerald-50 via-white to-green-50 relative overflow-hidden">
       {/* Background Decorations */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-emerald-200/20 to-green-300/20 rounded-full -translate-x-32 -translate-y-32"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-emerald-200/20 to-green-300/20 rounded-full translate-x-48 translate-y-48"></div>

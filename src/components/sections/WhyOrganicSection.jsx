@@ -20,7 +20,7 @@ const WhyOrganicSection = () => {
       id: 2,
       icon: <Droplets className="w-8 h-8" />,
       title: "Cleaner Water",
-      description: "No chemical runoff contaminating rivers and lakes",
+      description: "No chemical runoff in rivers or lakes",
       image: "https://i.pinimg.com/736x/40/bd/fe/40bdfea182de7fe885a53bc82c350084.jpg",
       bgColor: "linear-gradient(135deg, #4fc3f7, #29b6f6)"
     },
@@ -32,14 +32,7 @@ const WhyOrganicSection = () => {
       image: "https://sustainability-news.net/wp-content/uploads/2023/06/shutterstock_1634334151.jpg",
       bgColor: "linear-gradient(135deg, #a5d6a7, #81c784)"
     },
-    {
-      id: 4,
-      icon: <Salad className="w-8 h-8" />,
-      title: "Pure Nutrition",
-      description: "Vegetables that carry the natural taste and nutrients of the earth",
-      image: "https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      bgColor: "linear-gradient(135deg, #aed581, #9ccc65)"
-    }
+    
   ]
 
   useEffect(() => {
@@ -113,8 +106,7 @@ const WhyOrganicSection = () => {
         <div className="closing-message">
           <div className="message-content">
             <p>
-              Choosing organic is choosing a <strong>healthier family</strong>, 
-              <strong> community</strong> and <strong>your planet</strong>.
+              Choosing organic is choosing a <strong>healthier family</strong>, <strong>community</strong> and <strong>your planet</strong>.
             </p>
           </div>
         </div>
