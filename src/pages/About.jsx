@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 import { HeroParallaxDemo } from '@/components/ui/HeroParallaxDemo'
 import { MacbookScroll } from '@/components/ui/macbook-scroll'
 import { TimelineDemo } from '@/components/ui/TimelineDemo'
+import { useNavigateToProducts } from '../utils/navigationUtils'
 import '../css/About.css'
 
 // Image URLs - Organic Vegetables and Farming
@@ -51,6 +52,7 @@ function About() {
 const DistinctionSection = () => {
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
+  const navigateToProducts = useNavigateToProducts()
 
   return (
     <section className="distinction-section" ref={sectionRef}>
@@ -100,7 +102,7 @@ const DistinctionSection = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <a href="/products" className="discover-link">
+              <a href="#" onClick={navigateToProducts} className="discover-link">
                 See All Products →
               </a>
             </motion.div>
@@ -198,17 +200,6 @@ const MarineExcellenceSection = () => {
                 <div className="marine-feature-number">Fair</div>
                 <div className="marine-feature-text">Pricing</div>
               </div>
-            </motion.div>
-
-            <motion.div
-              className="marine-excellence-link"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.8 }}
-            >
-              <a href="/why-organic" className="marine-discover-link">
-                Learn More →
-              </a>
             </motion.div>
           </motion.div>
         </div>
@@ -356,15 +347,6 @@ const ExcellenceInnovationSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <motion.div
-              className="excellence-tag"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              Sustainable Legacy
-            </motion.div>
-
             <motion.h3
               className="excellence-title"
               initial={{ opacity: 0, y: 30 }}
@@ -403,21 +385,10 @@ const ExcellenceInnovationSection = () => {
               </div>
               <div className="highlight-item">
                 <div className="highlight-content">
-                  <h4>Natural Fertilizers</h4>
+                  <h4>Organic Manure</h4>
                   <p>Homegrown natural fertilizers with zero chemicals</p>
                 </div>
               </div>
-            </motion.div>
-
-            <motion.div
-              className="excellence-cta"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 1.0 }}
-            >
-              <a href="/about" className="excellence-link">
-                Explore our story →
-              </a>
             </motion.div>
           </motion.div>
         </div>

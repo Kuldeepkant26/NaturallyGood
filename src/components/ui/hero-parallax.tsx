@@ -108,10 +108,7 @@ export const Header = () => {
         Our Legacy <br /> Cultivating Excellence
       </h1>
       <p className="max-w-2xl text-base md:text-xl mt-8 text-emerald-700 dark:text-emerald-200">
-        Since our inception, NaturallyGood has been at the forefront of sustainable agriculture, 
-        pioneering innovative farming techniques while preserving traditional wisdom. Our commitment 
-        to excellence spans generations, delivering uncompromising quality and nutritional integrity 
-        through every harvest.
+        Since our inception, Naturally Good has been at the forefront of sustainable agriculture, pioneering innovative farming techniques while preserving traditional wisdom. Our commitment to excellence spans generations, delivering uncompromising quality and nutritional integrity through every harvest. By nurturing health and wellness for you, your family, your community, and the planet, we create a future rooted in care and sustainability.
       </p>
     </div>
   );
@@ -136,8 +133,8 @@ export const ProductCard = ({
     if (product.slug) {
       // Internal navigation without page reload
       window.history.pushState({}, '', `/products/${product.slug}`);
-      window.dispatchEvent(new CustomEvent('navigate', { 
-        detail: { path: `/products/${product.slug}`, product } 
+      window.dispatchEvent(new CustomEvent('navigate', {
+        detail: { path: `/products/${product.slug}`, product }
       }));
     }
   };
