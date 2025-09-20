@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import NGlogo from '../../assets/NGlogo.png';
 import './Footer.css';
+import { handleFooterTabClick } from '../../utils/tabNavigation';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -146,14 +147,14 @@ const Footer = () => {
           <div className="footer-section">
             <h4 className="section-title">Products</h4>
             <ul className="footer-links">
-              <li><a href="/veggies-exotics">Veggies & Exotics</a></li>
-              <li><a href="/staples-condiments">Staples & Condiments</a></li>
-              <li><a href="/salads-assortments">Salads & Assortments</a></li>
-              <li><a href="/greens-herbs">Greens & Herbs</a></li>
-              <li><a href="/naturally-pure">Naturally Pure</a></li>
-              <li><a href="/nutrition-packs">Nutrition Packs</a></li>
-              <li><a href="/naturally-fit">Naturally Fit</a></li>
-              <li><a href="/naturally-curious">Naturally Curious</a></li>
+              <li><a href="#products" onClick={(e) => handleFooterTabClick(e, 'veggies-exotics')}>Veggies & Exotics</a></li>
+              <li><a href="#products" onClick={(e) => handleFooterTabClick(e, 'staples-condiments')}>Staples & Condiments</a></li>
+              <li><a href="#products" onClick={(e) => handleFooterTabClick(e, 'salads-assortments')}>Salads & Assortments</a></li>
+              <li><a href="#products" onClick={(e) => handleFooterTabClick(e, 'greens-herbs')}>Greens & Herbs</a></li>
+              <li><a href="#premium-offerings" onClick={(e) => handleFooterTabClick(e, 'naturally-pure')}>Naturally Pure</a></li>
+              <li><a href="#premium-offerings" onClick={(e) => handleFooterTabClick(e, 'nutrition-packs')}>Nutrition Packs</a></li>
+              <li><a href="#premium-offerings" onClick={(e) => handleFooterTabClick(e, 'naturally-fit')}>Naturally Fit</a></li>
+              <li><a href="#premium-offerings" onClick={(e) => handleFooterTabClick(e, 'naturally-curious')}>Naturally Curious</a></li>
             </ul>
           </div>
 

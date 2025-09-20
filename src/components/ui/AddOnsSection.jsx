@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'motion/react';
 import { Package, Heart, ShoppingBag, Star, ArrowRight, CheckCircle, X, Smartphone, Zap, BookOpen } from 'lucide-react';
 
@@ -22,6 +22,19 @@ const AddOnsSection = () => {
   const [hoveredProduct, setHoveredProduct] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const ref = useRef(null);
+
+  // Listen for tab activation events from footer navigation
+  useEffect(() => {
+    const handleActivateTab = (event) => {
+      const { sectionType, tabValue, sectionId } = event.detail;
+      if (sectionType === 'premium' && sectionId === 'premium-offerings') {
+        setActiveCategory(tabValue);
+      }
+    };
+
+    window.addEventListener('activateTab', handleActivateTab);
+    return () => window.removeEventListener('activateTab', handleActivateTab);
+  }, []);
   
   const x = useMotionValue(0);
   const y = useMotionValue(0);

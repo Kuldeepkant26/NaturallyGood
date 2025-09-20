@@ -21,7 +21,7 @@ function FarmersVoiceSection() {
       name: "Rajesh Kumar",
       location: "Haryana",
       experience: "15 years",
-      quote: "Working with Naturally Good has transformed my farming. No more worrying about finding buyers - they provide guaranteed purchase and fair prices for our organic produce.",
+      quote: "पहले अपनी फसल के सही दाम की चिंता रहती थी। अब Naturally Good से जुड़कर हमें न केवल अच्छा दाम मिलता है बल्कि यह सुकून भी है कि हमारी ऑर्गेनिक उपज सीधे परिवारों तक पहुँच रही है। लोग हमारी मेहनत की कद्र करते हैं, यही सबसे बड़ी खुशी है।",
       image: "https://img.freepik.com/premium-vector/illustration-indian-farmer-face-vector_55610-7901.jpg",
       crop: "Organic Wheat & Vegetables",
       rating: 5
@@ -31,7 +31,7 @@ function FarmersVoiceSection() {
       name: "Sunita Devi",
       location: "Punjab",
       experience: "12 years",
-      quote: "Before joining Naturally Good, I struggled to sell my organic vegetables. Now I have a steady income and my children can go to better schools. This partnership changed our lives.",
+      quote: "Naturally Good ने हमें रसायन-मुक्त खेती करने का आत्मविश्वास दिया। वे हमें नई तकनीक सिखाते हैं और हमारी पारंपरिक तरीकों का भी सम्मान करते हैं। आज मेरी ज़मीन स्वस्थ है, फसल बेहतर है और मुझे गर्व है कि हमारी सब्ज़ियाँ लोगों को शुद्ध और ताज़ा भोजन दे रही हैं।",
       image: "https://img.freepik.com/premium-vector/illustration-indian-farmer-face-vector_55610-7901.jpg",
       crop: "Organic Tomatoes & Leafy Greens",
       rating: 5
@@ -41,7 +41,7 @@ function FarmersVoiceSection() {
       name: "Mohan Singh",
       location: "Rajasthan",
       experience: "20 years",
-      quote: "The training programs taught us sustainable farming methods. My soil is healthier, crops are better, and I earn more. Naturally Good respects farmers and treats us as partners.",
+      quote: "एक महिला किसान होने के नाते शुरू में आसान नहीं था। लेकिन Naturally Good ने प्रशिक्षण और उचित भुगतान देकर हमें मज़बूती दी। आज हमारा आर्थिक हाल बेहतर है और मुझे गर्व है कि हमारी उपज लोगों की सेहत सुधार रही है।",
       image: "https://img.freepik.com/premium-vector/illustration-indian-farmer-face-vector_55610-7901.jpg",
       crop: "Organic Spices & Grains",
       rating: 5

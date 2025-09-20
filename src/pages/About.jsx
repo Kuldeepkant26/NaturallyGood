@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import { HeroParallaxDemo } from '@/components/ui/HeroParallaxDemo'
 import { MacbookScroll } from '@/components/ui/macbook-scroll'
 import { TimelineDemo } from '@/components/ui/TimelineDemo'
@@ -22,6 +23,7 @@ const FarmingHands = 'https://images.unsplash.com/photo-1416879595882-3373a0480b
 
 function About() {
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
+    const navigate = useNavigate()
 
     return (
         <div className="about-page">
@@ -43,6 +45,7 @@ function About() {
             {/* Dashboard Showcase Section */}
             <DashboardShowcaseSection 
                 setIsLoginModalOpen={setIsLoginModalOpen}
+                navigate={navigate}
             />
         </div>
     )
@@ -73,7 +76,7 @@ const DistinctionSection = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              With our highest agriculture standards and zero adulterated produce, we pledge to be organic and traceable with the use of homegrown natural fertilisers and no artificial preservatives. Reducing environmental burden by utilizing nature's best suited season to grow colorful organic produce and reducing lengthy supply chains. Following the slow food model, we give our seasonal produce the desired time to grow to reap the maximum benefits.
+              With our highest agriculture standards and zero adulterated produce, we pledge to be organic and traceable with the use of homegrown Organic manure and no artificial preservatives. Reducing environmental burden by utilizing nature's best suited season to grow colorful organic produce and reducing lengthy supply chains. Following the slow food model, we give our seasonal produce the desired time to grow to reap the maximum benefits.
             </motion.p>
 
             <motion.div
@@ -83,16 +86,16 @@ const DistinctionSection = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <div className="feature-item">
-                <div className="feature-number">Zero</div>
-                <div className="feature-text">Chemicals</div>
+                <div className="feature-number">100%</div>
+                <div className="feature-text">Organic</div>
               </div>
               <div className="feature-item">
-                <div className="feature-number">Seasonal</div>
-                <div className="feature-text">& Fresh</div>
+                <div className="feature-number">Sustainable</div>
+                <div className="feature-text">Ecosystem</div>
               </div>
               <div className="feature-item">
-                <div className="feature-number">Farm</div>
-                <div className="feature-text">To Table</div>
+                <div className="feature-number">Healthy</div>
+                <div className="feature-text">Community</div>
               </div>
             </motion.div>
 
@@ -398,11 +401,11 @@ const ExcellenceInnovationSection = () => {
 };
 
 // Dashboard Showcase Component
-const DashboardShowcaseSection = ({ setIsLoginModalOpen }) => {
+const DashboardShowcaseSection = ({ setIsLoginModalOpen, navigate }) => {
   const dashboardVideoRef = useRef(null);
 
   const handleLearnMoreClick = () => {
-    window.location.href = '/about';
+    navigate('/');
   };
 
   // Ensure organic farm video plays
@@ -448,26 +451,25 @@ const DashboardShowcaseSection = ({ setIsLoginModalOpen }) => {
             <div className="dashboard-text-content">
               <h2 className="dashboard-main-title">Order Fresh Organic Vegetables</h2>
               <p className="dashboard-main-description">
-                Experience the future of healthy eating with our organic vegetable delivery platform. 
-                Order fresh, seasonal produce grown with natural methods and delivered to your doorstep.
+                Experience the future of healthy living with Naturally Good's organic vegetable delivery service. We bring you fresh, seasonal produce grown with love, care, and natural farming methods—delivered straight from our farms to your doorstep.
               </p>
               
               <div className="dashboard-features-list">
                 <div className="feature-point">
                   <span className="feature-bullet">•</span>
-                  <span>Zero chemicals and pesticides</span>
+                  <span>Zero Chemicals & Pesticides</span>
                 </div>
                 <div className="feature-point">
                   <span className="feature-bullet">•</span>
-                  <span>Seasonal and fresh produce</span>
+                  <span>Seasonal & Nutrient-Rich Harvests</span>
                 </div>
                 <div className="feature-point">
                   <span className="feature-bullet">•</span>
-                  <span>Direct farm to table delivery</span>
+                  <span>Farm-to-Table Promise</span>
                 </div>
                 <div className="feature-point">
                   <span className="feature-bullet">•</span>
-                  <span>Supporting local farmers</span>
+                  <span>Empowering Local Farmers</span>
                 </div>
               </div>
 

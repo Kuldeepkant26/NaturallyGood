@@ -4,6 +4,7 @@ import HeroSection from '../components/ui/HeroSection'
 import SplashScreen from '../components/ui/SplashScreen'
 import '../css/Home.css'
 import SubscriptionSection from '../components/ui/SubscriptionSection'
+import AddOnsSection from '../components/ui/AddOnsSection'
 import ProductsSection from '../components/ui/ProductsSection'
 import FAQSection from '../components/ui/FAQSection'
 
@@ -57,6 +58,7 @@ function Home() {
             <HeroSection />
             <ProductsSection />
             <SubscriptionSection />
+            <AddOnsSection />
             <TimelineDemo />
             <FAQSection />
             

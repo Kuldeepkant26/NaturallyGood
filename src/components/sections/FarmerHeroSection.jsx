@@ -1,9 +1,28 @@
 import React, { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Play, Pause } from 'lucide-react';
 
 const FarmerHeroSection = () => {
   const [isPlaying, setIsPlaying] = useState(true);
   const videoRef = useRef(null);
+  const navigate = useNavigate();
+
+  const handleExploreVegetables = () => {
+    // Navigate to home page and scroll to products section
+    navigate('/', { replace: false });
+    
+    // Scroll to products section after navigation
+    setTimeout(() => {
+      const productsSection = document.getElementById('products');
+      if (productsSection) {
+        productsSection.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start',
+          inline: 'nearest'
+        });
+      }
+    }, 100); // Small delay to ensure navigation completes
+  };
 
   const togglePlayPause = () => {
     if (videoRef.current) {
@@ -49,7 +68,10 @@ const FarmerHeroSection = () => {
           Naturally.
         </h1>
         
-        <button className="bg-transparent border border-white/70 text-white px-8 py-4 text-sm font-normal cursor-pointer transition-all duration-300 hover:bg-white/10 hover:border-white hover:-translate-y-0.5 backdrop-blur-sm relative overflow-hidden group">
+        <button 
+          className="bg-transparent border border-white/70 text-white px-8 py-4 text-sm font-normal cursor-pointer transition-all duration-300 hover:bg-white/10 hover:border-white hover:-translate-y-0.5 backdrop-blur-sm relative overflow-hidden group"
+          onClick={handleExploreVegetables}
+        >
           <span className="absolute top-0 left-0 w-full h-full bg-white/10 -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
           <span className="relative z-10">Explore Fresh Vegetables</span>
         </button>

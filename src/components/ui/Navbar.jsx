@@ -486,7 +486,8 @@ const Navbar = () => {
                   >
                     <Link
                       to="/"
-                      className="w-full px-2 py-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium rounded-lg shadow-md transition-all duration-300 flex items-center justify-center"
+                      className="w-full px-2 py-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-medium rounded-lg shadow-md transition-all duration-300 flex items-center justify-center"
+                      style={{background: 'linear-gradient(to right, #79B927, #00963F)'}}
                       onClick={() => setIsMobileMenuOpen(false)}
                       title="Home"
                     >
@@ -499,7 +500,8 @@ const Navbar = () => {
                   {/* Mobile Call Button */}
                   <motion.a
                     href="tel:+919643722200"
-                    className="flex-1 px-2 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-medium rounded-lg shadow-md transition-all duration-300 flex items-center justify-center"
+                    className="flex-1 px-2 py-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-medium rounded-lg shadow-md transition-all duration-300 flex items-center justify-center"
+                    style={{background: 'linear-gradient(to right, #79B927, #00963F)'}}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: 0.25 }}
@@ -519,6 +521,7 @@ const Navbar = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 px-2 py-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-medium rounded-lg shadow-md transition-all duration-300 flex items-center justify-center"
+                    style={{background: 'linear-gradient(to right, #79B927, #00963F)'}}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: 0.3 }}
@@ -535,7 +538,8 @@ const Navbar = () => {
                   {/* Mobile Email Button */}
                   <motion.a
                     href="mailto:EatFresh@NaturallyGood.in"
-                    className="flex-1 px-2 py-2 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-medium rounded-lg shadow-md transition-all duration-300 flex items-center justify-center"
+                    className="flex-1 px-2 py-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-medium rounded-lg shadow-md transition-all duration-300 flex items-center justify-center"
+                    style={{background: 'linear-gradient(to right, #79B927, #00963F)'}}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: 0.35 }}

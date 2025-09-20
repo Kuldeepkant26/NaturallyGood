@@ -37,7 +37,7 @@ function You() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50">
       {/* Hero Section */}
-      <div className="relative min-h-screen flex items-center justify-center px-4 py-12">
+      <div className="relative min-h-screen flex items-center justify-center px-4 py-12 pt-24 sm:pt-12">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           
           {/* Left Content */}
@@ -52,7 +52,7 @@ function You() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-5xl lg:text-7xl font-bold leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-tight"
             >
               <span className="text-gray-900">Your</span><br />
               <span className="text-[#78B826]">Wellness with</span><br />
@@ -598,11 +598,9 @@ function You() {
               className="bg-white rounded-3xl p-8 shadow-xl"
             >
               <div className="flex items-center gap-4 mb-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=60&h=60&fit=crop&crop=face"
-                  alt="Priya Sharma"
-                  className="w-16 h-16 rounded-full object-cover"
-                />
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#78B826] to-[#00963E] flex items-center justify-center">
+                  <User className="w-8 h-8 text-white" />
+                </div>
                 <div>
                   <h4 className="font-semibold text-gray-900">Priya Sharma</h4>
                   <p className="text-sm text-gray-600">Mother of 2</p>
@@ -625,11 +623,9 @@ function You() {
               className="bg-white rounded-3xl p-8 shadow-xl"
             >
               <div className="flex items-center gap-4 mb-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face"
-                  alt="Rajesh Kumar"
-                  className="w-16 h-16 rounded-full object-cover"
-                />
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#78B826] to-[#00963E] flex items-center justify-center">
+                  <User className="w-8 h-8 text-white" />
+                </div>
                 <div>
                   <h4 className="font-semibold text-gray-900">Rajesh Kumar</h4>
                   <p className="text-sm text-gray-600">Working Professional</p>
@@ -652,11 +648,9 @@ function You() {
               className="bg-white rounded-3xl p-8 shadow-xl"
             >
               <div className="flex items-center gap-4 mb-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face"
-                  alt="Anita Verma"
-                  className="w-16 h-16 rounded-full object-cover"
-                />
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#78B826] to-[#00963E] flex items-center justify-center">
+                  <User className="w-8 h-8 text-white" />
+                </div>
                 <div>
                   <h4 className="font-semibold text-gray-900">Anita Verma</h4>
                   <p className="text-sm text-gray-600">Senior Citizen</p>

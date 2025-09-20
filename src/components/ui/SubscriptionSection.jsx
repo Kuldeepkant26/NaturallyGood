@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle, Star, Zap, Calendar, Gift, ArrowRight, X, ShoppingBasket, Users, Clock } from 'lucide-react';
-import AddOnsSection from './AddOnsSection.jsx';
 
 const SubscriptionSection = () => {
   const [selectedPlan, setSelectedPlan] = useState(null);
@@ -14,12 +13,13 @@ const SubscriptionSection = () => {
     return {}; // Keep original colors for other plans
   };
 
+  
   const subscriptionPlans = [
     {
       id: 'monthly',
       title: 'WELLNESS STARTER',
       subtitle: 'Monthly',
-      duration: 'Weekly Delivery/Month • 1 Month',
+      duration: '4 Weekly Delivery/Month • 1 Month',
       originalPrice: '₹7,596',
       discountedPrice: '₹7,499',
       pricePerBasket: '₹1,875 per 10 kg bag',
@@ -71,7 +71,7 @@ const SubscriptionSection = () => {
       id: 'quarterly',
       title: 'WELLNESS PLUS',
       subtitle: 'Quarterly',
-      duration: 'Weekly Delivery/Month • 3 Months',
+      duration: '4 Weekly Delivery/Month • 3 Months',
       originalPrice: '₹22,788',
       discountedPrice: '₹17,999',
       pricePerBasket: '₹1,500 per 10 kg bag',
@@ -123,7 +123,7 @@ const SubscriptionSection = () => {
       id: 'semi-annual',
       title: 'WELLNESS PREMIUM',
       subtitle: 'Semi Annual',
-      duration: 'Weekly Delivery/Month • 6 Months',
+      duration: '4 Weekly Delivery/Month • 6 Months',
       originalPrice: '₹45,576',
       discountedPrice: '₹32,999',
       pricePerBasket: '₹1,375 per 10 kg bag',
@@ -175,7 +175,7 @@ const SubscriptionSection = () => {
       id: 'annual',
       title: 'WELLNESS 360°',
       subtitle: 'Annual',
-      duration: 'Weekly Delivery/Month • 12 Months',
+      duration: '4 Weekly Delivery/Month • 12 Months',
       originalPrice: '₹91,152',
       discountedPrice: '₹56,999',
       pricePerBasket: '₹1,187 per 10 kg bag',
@@ -375,11 +375,19 @@ Please help me complete the subscription process. Thank you!`;
                           />
                         )}
                         <span className="group-hover:translate-x-1 transition-transform duration-300">
-                          {benefit.name}
-                          {benefit.value && (
-                            <span className="font-semibold ml-1">
-                              {benefit.value}
-                            </span>
+                          {benefit.name === 'Organic Vegetable Bags' && benefit.value ? (
+                            <>
+                              <span className="font-semibold">{benefit.value}</span> {benefit.name}
+                            </>
+                          ) : (
+                            <>
+                              {benefit.name}
+                              {benefit.value && (
+                                <span className="font-semibold ml-1">
+                                  {benefit.value}
+                                </span>
+                              )}
+                            </>
                           )}
                         </span>
                       </li>
@@ -529,11 +537,19 @@ Please help me complete the subscription process. Thank you!`;
                                 <X className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 flex-shrink-0 mt-0.5 text-red-500" />
                               )}
                               <span>
-                                {benefit.name}
-                                {benefit.value && (
-                                  <span className="font-semibold ml-1 text-green-600">
-                                    {benefit.value}
-                                  </span>
+                                {benefit.name === 'Organic Vegetable Bags' && benefit.value ? (
+                                  <>
+                                    <span className="font-semibold text-green-600">{benefit.value}</span> {benefit.name}
+                                  </>
+                                ) : (
+                                  <>
+                                    {benefit.name}
+                                    {benefit.value && (
+                                      <span className="font-semibold ml-1 text-green-600">
+                                        {benefit.value}
+                                      </span>
+                                    )}
+                                  </>
                                 )}
                               </span>
                             </li>
@@ -590,13 +606,4 @@ Please help me complete the subscription process. Thank you!`;
   );
 };
 
-const SubscriptionWithAddOnsAndServices = () => {
-  return (
-    <>
-      <SubscriptionSection />
-      <AddOnsSection />
-    </>
-  );
-};
-
-export default SubscriptionWithAddOnsAndServices;
+export default SubscriptionSection;

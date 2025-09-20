@@ -1,11 +1,11 @@
 import React from 'react'
-import { DollarSign, Wheat, Users, UserCheck, Heart } from 'lucide-react'
+import { IndianRupee, Wheat, Users, UserCheck, Heart } from 'lucide-react'
 import './FarmerImpactSection.css'
 
 const FarmerImpactSection = () => {
   const impactData = [
     {
-      icon: DollarSign,
+      icon: IndianRupee,
       title: "Fair Pricing",
       description: "Farmers earn more, without middlemen.",
       stats: "40% HIGHER INCOME",

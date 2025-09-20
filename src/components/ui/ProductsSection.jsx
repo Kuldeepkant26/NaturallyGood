@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Leaf, Package, ShoppingBag, Heart, Star, ArrowRight, CheckCircle, X, Phone, Smartphone, Mail } from 'lucide-react';
 
@@ -92,6 +92,19 @@ const ProductsSection = () => {
   const [visibleRows, setVisibleRows] = useState(3); // Show 3 rows initially
   const ref = useRef(null);
 
+  // Listen for tab activation events from footer navigation
+  useEffect(() => {
+    const handleActivateTab = (event) => {
+      const { sectionType, tabValue, sectionId } = event.detail;
+      if (sectionType === 'products' && sectionId === 'products') {
+        setActiveCategory(tabValue);
+      }
+    };
+
+    window.addEventListener('activateTab', handleActivateTab);
+    return () => window.removeEventListener('activateTab', handleActivateTab);
+  }, []);
+
   const categories = [
     {
       id: 'veggies',
@@ -121,13 +134,13 @@ const ProductsSection = () => {
 
   const veggieData = {
     veggies: [
-      { name: 'Brinjal', image: brinjal },
       { name: 'Cabbage', image: cabbage },
       { name: 'Capsicum', image: capsicum },
       { name: 'Carrots', image: orangeCarrot },
       { name: 'Cauliflower', image: cauliflower },
       { name: 'French Beans', image: frenchBeans },
       { name: 'Okra (Bhindi)', image: okra },
+      { name: 'Brinjal', image: brinjal },
       { name: 'Peas', image: peas },
       { name: 'Radish', image: radish },
       { name: 'Spring Onions', image: springOnions },
