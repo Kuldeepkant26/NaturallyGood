@@ -1,6 +1,6 @@
 import React from 'react'
 import { HeroParallaxDemo } from './components/ui/HeroParallaxDemo'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useNavigate } from 'react-router-dom'
 import Home from './pages/Home'
 import Navbar from './components/ui/Navbar'
 import Footer from './components/ui/Footer'
@@ -16,8 +16,18 @@ import You from './pages/You'
 import BlogDetail from './pages/BlogDetail'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsConditions from './pages/TermsConditions'
+import { setNavigateFunction } from './utils/navigation'
+import { setTabNavigateFunction } from './utils/tabNavigation'
+import { useEffect } from 'react'
 
 function App() {
+  const navigate = useNavigate();
+
+  // Set up navigation functions for utilities
+  useEffect(() => {
+    setNavigateFunction(navigate);
+    setTabNavigateFunction(navigate);
+  }, [navigate]);
   return (
     <div className="app-container">
       <ScrollToTop />

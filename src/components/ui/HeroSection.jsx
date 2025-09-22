@@ -11,7 +11,7 @@ const HeroSection = () => {
   const video2Ref = useRef(null);
   
   const videos = [
-    "https://www.pexels.com/download/video/4578568/",
+    "https://res.cloudinary.com/dz9eemmz4/video/upload/v1758352339/19494098-hd_1920_1080_24fps_papxzo.mp4",
     "https://www.pexels.com/download/video/10041408/"
   ];
 

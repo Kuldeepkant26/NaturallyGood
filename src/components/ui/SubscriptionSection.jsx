@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { CheckCircle, Star, Zap, Calendar, Gift, ArrowRight, X, ShoppingBasket, Users, Clock } from 'lucide-react';
+import { CheckCircle, Star, Zap, Calendar, Gift, ArrowRight, X, ShoppingBasket, Users, Clock, Crown } from 'lucide-react';
 
 const SubscriptionSection = () => {
   const [selectedPlan, setSelectedPlan] = useState(null);
@@ -223,7 +223,7 @@ const SubscriptionSection = () => {
       ],
       familySize: '5+ members or joint families',
       deliveryWindow: 'Weekly (Premium scheduling)',
-      icon: <Zap className="w-6 h-6" />
+      icon: <Crown className="w-6 h-6" />
     }
   ];
 

@@ -92,6 +92,25 @@ const ProductsSection = () => {
   const [visibleRows, setVisibleRows] = useState(3); // Show 3 rows initially
   const ref = useRef(null);
 
+  // Function to detect device and redirect to appropriate app store
+  const handleAppDownload = () => {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    
+    // Check if iOS device
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      window.open('https://apps.apple.com/in/app/naturally-good/id6749650953', '_blank');
+    }
+    // Check if Android device
+    else if (/android/i.test(userAgent)) {
+      window.open('https://play.google.com/store/apps/details?id=com.naturallygood.app', '_blank');
+    }
+    // Default fallback (could be desktop or other devices) - show both options
+    else {
+      // For desktop or other devices, redirect to Play Store as default
+      window.open('https://play.google.com/store/apps/details?id=com.naturallygood.app', '_blank');
+    }
+  };
+
   // Listen for tab activation events from footer navigation
   useEffect(() => {
     const handleActivateTab = (event) => {
@@ -612,7 +631,7 @@ const ProductsSection = () => {
                   <Mail className="w-6 h-6 text-white" />
                 </motion.button>
                 <motion.button
-                  onClick={() => alert('App coming soon!')}
+                  onClick={handleAppDownload}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-300 shadow-lg"
@@ -654,7 +673,7 @@ const ProductsSection = () => {
               <Mail className="w-6 h-6 text-white" />
             </motion.button>
             <motion.button
-              onClick={() => alert('App coming soon!')}
+              onClick={handleAppDownload}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-300 shadow-lg"
