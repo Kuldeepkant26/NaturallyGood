@@ -5,7 +5,7 @@
 .why-organic-section {
   min-height: 100vh;
   background: linear-gradient(180deg, #f8fffe 0%, #ffffff 50%, #f1f8f1 100%);
-  padding: 120px 0;
+  padding: 100px 0;
   position: relative;
   overflow: hidden;
 }
@@ -372,6 +372,10 @@
 }
 
 @media (max-width: 480px) {
+  .why-organic-section {
+    padding: 40px 0;
+  }
+  
   .why-organic-section .why-organic-container {
     padding: 0 16px;
   }

@@ -86,16 +86,16 @@ const DistinctionSection = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <div className="feature-item">
-                <div className="feature-number">100%</div>
-                <div className="feature-text">Organic</div>
+                <div className="feature-number">Farm</div>
+                <div className="feature-text">Aggregation</div>
               </div>
               <div className="feature-item">
-                <div className="feature-number">Sustainable</div>
-                <div className="feature-text">Ecosystem</div>
+                <div className="feature-number">Zero</div>
+                <div className="feature-text">Wastage</div>
               </div>
               <div className="feature-item">
-                <div className="feature-number">Healthy</div>
-                <div className="feature-text">Community</div>
+                <div className="feature-number">Fair</div>
+                <div className="feature-text">Pricing</div>
               </div>
             </motion.div>
 
@@ -192,16 +192,16 @@ const MarineExcellenceSection = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <div className="marine-feature-item">
-                <div className="marine-feature-number">Farm</div>
-                <div className="marine-feature-text">Aggregation</div>
+                <div className="marine-feature-number">100%</div>
+                <div className="marine-feature-text">Organic</div>
               </div>
               <div className="marine-feature-item">
-                <div className="marine-feature-number">Zero</div>
-                <div className="marine-feature-text">Wastage</div>
+                <div className="marine-feature-number">Sustainable</div>
+                <div className="marine-feature-text">Ecosystem</div>
               </div>
               <div className="marine-feature-item">
-                <div className="marine-feature-number">Fair</div>
-                <div className="marine-feature-text">Pricing</div>
+                <div className="marine-feature-number">Healthy</div>
+                <div className="marine-feature-text">Community</div>
               </div>
             </motion.div>
           </motion.div>
@@ -493,7 +493,7 @@ const DashboardShowcaseSection = ({ setIsLoginModalOpen, navigate }) => {
                   className="cta-btn primary" 
                   onClick={() => window.open('https://wa.me/919643722200?text=hi', '_blank')}
                 >
-                  Order Now
+                  Subscribe Now
                 </button>
                 <button 
                   className="cta-btn secondary"

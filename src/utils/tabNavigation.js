@@ -16,6 +16,12 @@ export const PREMIUM_TAB_MAP = {
   'naturally-curious': 'naturally-curious'
 };
 
+// Tab mapping for FAQSection
+export const FAQ_TAB_MAP = {
+  'delivery-faqs': 'delivery',
+  'return-faqs': 'order'
+};
+
 // Store the navigate function from React Router
 let navigateFunction = null;
 
@@ -35,6 +41,12 @@ export const navigateToTab = (tabKey) => {
   // Check if it's a premium offerings tab
   if (PREMIUM_TAB_MAP[tabKey]) {
     navigateToHomeAndActivateTab('premium-offerings', PREMIUM_TAB_MAP[tabKey], 'premium');
+    return;
+  }
+  
+  // Check if it's an FAQ tab
+  if (FAQ_TAB_MAP[tabKey]) {
+    navigateToHomeAndActivateTab('faqs', FAQ_TAB_MAP[tabKey], 'faqs');
     return;
   }
   

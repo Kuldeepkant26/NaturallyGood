@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Sprout, Droplets, Leaf, Ban } from 'lucide-react'
 import './YourPlanetSection.css'
 
@@ -8,7 +8,7 @@ const YourPlanetSection = () => {
   const slides = [
     {
       id: 1,
-      image: 'https://media.istockphoto.com/id/1360520451/photo/top-view-of-soil-in-hands-for-check-the-quality-of-the-soil-for-control-soil-quality-before.jpg?s=612x612&w=0&k=20&c=WPFd_l7Zz92G2glH8RHujjQnh0GLxKxJ5qlV8cKy5aM=',
+      image: 'https://images.unsplash.com/photo-1715766911065-83723bc00d2f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       alt: 'Soil in hands - quality control',
       title: 'Soil Regeneration'
     },
@@ -20,7 +20,7 @@ const YourPlanetSection = () => {
     },
     {
       id: 3,
-      image: 'https://www.morningagclips.com/wp-content/uploads/2022/11/colsa-research-complex-crop-rotations-involve-many-different-crops-1-720x400.jpg',
+      image: 'https://images.unsplash.com/photo-1682080124679-b65a314aa26a?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       alt: 'Diverse crop rotation',
       title: 'Crop Diversity'
     },
@@ -55,15 +55,6 @@ const YourPlanetSection = () => {
     }
   ]
 
-  // Auto-slide functionality
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 4000)
-
-    return () => clearInterval(interval)
-  }, [slides.length])
-
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length)
   }
@@ -73,6 +64,11 @@ const YourPlanetSection = () => {
   }
 
   const goToSlide = (index) => {
+    setCurrentSlide(index)
+  }
+
+  // Handler for benefit card clicks
+  const handleBenefitClick = (index) => {
     setCurrentSlide(index)
   }
 
@@ -97,6 +93,8 @@ const YourPlanetSection = () => {
                 <div 
                   key={index} 
                   className={`benefit-item ${index === currentSlide ? 'active' : ''}`}
+                  onClick={() => handleBenefitClick(index)}
+                  style={{ cursor: 'pointer' }}
                 >
                   <div className="benefit-icon">{benefit.icon}</div>
                   <div className="benefit-content">

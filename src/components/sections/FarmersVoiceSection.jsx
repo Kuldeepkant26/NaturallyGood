@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
-import { MessageSquare, MapPin, Wheat, Clock } from 'lucide-react';
+import { MessageSquare, MapPin, Clock } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './FarmersVoiceSection.css';
@@ -23,27 +23,24 @@ function FarmersVoiceSection() {
       experience: "15 years",
       quote: "पहले अपनी फसल के सही दाम की चिंता रहती थी। अब Naturally Good से जुड़कर हमें न केवल अच्छा दाम मिलता है बल्कि यह सुकून भी है कि हमारी ऑर्गेनिक उपज सीधे परिवारों तक पहुँच रही है। लोग हमारी मेहनत की कद्र करते हैं, यही सबसे बड़ी खुशी है।",
       image: "https://img.freepik.com/premium-vector/illustration-indian-farmer-face-vector_55610-7901.jpg",
-      crop: "Organic Wheat & Vegetables",
       rating: 5
     },
     {
       id: 2,
-      name: "Sunita Devi",
+      name: "Mohan Singh",
       location: "Punjab",
       experience: "12 years",
       quote: "Naturally Good ने हमें रसायन-मुक्त खेती करने का आत्मविश्वास दिया। वे हमें नई तकनीक सिखाते हैं और हमारी पारंपरिक तरीकों का भी सम्मान करते हैं। आज मेरी ज़मीन स्वस्थ है, फसल बेहतर है और मुझे गर्व है कि हमारी सब्ज़ियाँ लोगों को शुद्ध और ताज़ा भोजन दे रही हैं।",
       image: "https://img.freepik.com/premium-vector/illustration-indian-farmer-face-vector_55610-7901.jpg",
-      crop: "Organic Tomatoes & Leafy Greens",
       rating: 5
     },
     {
       id: 3,
-      name: "Mohan Singh",
+      name: "Sunita Devi",
       location: "Rajasthan",
       experience: "20 years",
       quote: "एक महिला किसान होने के नाते शुरू में आसान नहीं था। लेकिन Naturally Good ने प्रशिक्षण और उचित भुगतान देकर हमें मज़बूती दी। आज हमारा आर्थिक हाल बेहतर है और मुझे गर्व है कि हमारी उपज लोगों की सेहत सुधार रही है।",
       image: "https://img.freepik.com/premium-vector/illustration-indian-farmer-face-vector_55610-7901.jpg",
-      crop: "Organic Spices & Grains",
       rating: 5
     }
   ];
@@ -299,15 +296,6 @@ function FarmersVoiceSection() {
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.7, duration: 0.5 }}
-                      viewport={{ once: true }}
-                    >
-                      <Wheat className="w-4 h-4 inline mr-1" />{testimonial.crop}
-                    </motion.p>
-                    <motion.p
-                      className="farmer-experience"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.8, duration: 0.5 }}
                       viewport={{ once: true }}
                     >
                       <Clock className="w-4 h-4 inline mr-1" />{testimonial.experience} farming

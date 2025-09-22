@@ -5,7 +5,7 @@
 .supply-chain-section {
   min-height: 100vh;
   background: linear-gradient(180deg, #ffffff 0%, #f8fffe 50%, #e8f5f0 100%);
-  padding: 120px 0;
+  padding: 100px 0;
   position: relative;
   overflow: hidden;
 }
@@ -295,22 +295,29 @@
 
 .supply-chain-section .image-overlay {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-  padding: 40px 30px 30px;
-  transform: translateY(100%);
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
   transition: all 0.4s ease;
 }
 
 .supply-chain-section .step-image-wrapper:hover .image-overlay {
-  transform: translateY(0);
+  opacity: 1;
 }
 
 .supply-chain-section .overlay-content {
   text-align: center;
   color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .supply-chain-section .overlay-icon {
@@ -503,6 +510,10 @@
 }
 
 @media (max-width: 480px) {
+  .supply-chain-section {
+    padding: 40px 0;
+  }
+  
   .supply-chain-section .supply-chain-container {
     padding: 0 16px;
   }

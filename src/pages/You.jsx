@@ -863,7 +863,7 @@ function You() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl text-gray-700 mb-8"
           >
-            Join thousands of families who have made the switch to naturally good living.
+            Join thousands of families who have made the switch to Naturally Good living.
           </motion.p>
           <motion.a 
             href="https://wa.me/919643722200?text=Hi!%20I%20want%20to%20start%20my%20healthy%20journey%20with%20NaturallyGood%20organic%20vegetables"

@@ -99,15 +99,6 @@ const SupplyChainSection = () => {
     return () => observer.disconnect()
   }, [])
 
-  useEffect(() => {
-    if (isVisible) {
-      const interval = setInterval(() => {
-        setActiveStep((prev) => (prev + 1) % supplyChainSteps.length)
-      }, 2000)
-      return () => clearInterval(interval)
-    }
-  }, [isVisible, supplyChainSteps.length])
-
   return (
     <section ref={sectionRef} className={`supply-chain-section ${isVisible ? 'visible' : ''}`}>
       <div className="supply-chain-container">
@@ -131,6 +122,7 @@ const SupplyChainSection = () => {
                 <div 
                   className={`timeline-step ${index === activeStep ? 'active' : ''} ${index < activeStep ? 'completed' : ''}`}
                   onClick={() => setActiveStep(index)}
+                  style={{ cursor: 'pointer' }}
                 >
                   <div className="step-icon">{step.icon}</div>
                   <div className="step-content">

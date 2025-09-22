@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { Car, Package, Globe, BarChart, Sprout, Leaf, TreePine, RotateCcw } from 'lucide-react'
+import { Car, Package, Globe, BarChart, Sprout, Leaf, TreePine, RotateCcw, MapPin } from 'lucide-react'
 import './CarbonEmissionSection.css'
 
 const CarbonEmissionSection = () => {
@@ -13,9 +13,9 @@ const CarbonEmissionSection = () => {
       icon: <Car className="w-6 h-6" />,
       title: "Electric vehicles for last-mile delivery",
       description: "100% electric fleet reducing emissions by 85%",
-      image: "https://5.imimg.com/data5/LG/ZM/FO/SELLER-42504456/62762ef1e268f43a77e63d1c6a20b067-500x500.jpg",
+      image: "https://static.vecteezy.com/system/resources/previews/002/716/711/non_2x/ecology-and-environmental-cityscape-concept-car-symbol-with-green-leaves-around-cities-help-the-world-with-eco-friendly-ideas-free-vector.jpg",
       stat: "85% Less CO2",
-      color: "#4fc3f7",
+      color: "#81c784",
       impact: "Zero tailpipe emissions"
     },
     {
@@ -30,20 +30,20 @@ const CarbonEmissionSection = () => {
     },
     {
       id: 2,
-      icon: <Package className="w-6 h-6" />,
+      icon: <RotateCcw className="w-6 h-6" />,
       title: "Minimal, biodegradable, and reusable packaging",
       description: "Sustainable packaging solutions for eco-conscious delivery",
-      image: "https://irrorwxhrikrok5q.ldycdn.com/cloud/loBpnKnmRojSjikpillnj/broccoli-bag.jpg",
+      image: "https://thumbs.dreamstime.com/b/fresh-organic-green-vegetables-displayed-reusable-glass-bottles-eco-friendly-shopping-bag-promoting-sustainable-391614460.jpg",
       stat: "90% Biodegradable",
       color: "#81c784",
       impact: "Plastic-free future"
     },
     {
       id: 3,
-      icon: <Globe className="w-6 h-6" />,
+      icon: <MapPin className="w-6 h-6" />,
       title: "Hyperlocal farming—produce grown close to you",
       description: "Reducing transport distance and supporting local communities",
-      image: "https://i.pinimg.com/736x/69/71/a2/6971a288491483af1e20942f44f9dc30.jpg",
+      image: "https://images.unsplash.com/photo-1713658564577-d918e2834d80?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       stat: "50km Average",
       color: "#66bb6a",
       impact: "Local community support"
@@ -84,15 +84,6 @@ const CarbonEmissionSection = () => {
     return () => observer.disconnect()
   }, [])
 
-  useEffect(() => {
-    if (isVisible) {
-      const interval = setInterval(() => {
-        setActiveTab((prev) => (prev + 1) % carbonInitiatives.length)
-      }, 4000)
-      return () => clearInterval(interval)
-    }
-  }, [isVisible, carbonInitiatives.length])
-
   return (
     <section ref={sectionRef} className={`carbon-emission-section ${isVisible ? 'visible' : ''}`}>
       <div className="carbon-emission-container">
@@ -119,7 +110,7 @@ const CarbonEmissionSection = () => {
                   key={initiative.id}
                   className={`tab-item ${index === activeTab ? 'active' : ''}`}
                   onClick={() => setActiveTab(index)}
-                  style={{ '--delay': `${index * 0.1}s` }}
+                  style={{ '--delay': `${index * 0.1}s`, cursor: 'pointer' }}
                 >
                   <div className="tab-icon">{initiative.icon}</div>
                   <div className="tab-content">

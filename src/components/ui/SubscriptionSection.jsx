@@ -36,7 +36,7 @@ const SubscriptionSection = () => {
         { name: 'Complimentary Farm Visit', included: false },
         { name: 'Pure Raw Honey', included: false },
         { name: 'A2 Pure Cow Ghee', included: false },
-        { name: 'Complimentary Special Harvest', included: false },
+        { name: 'Exclusive Harvest', included: false },
         { name: 'Organic Farming Training', included: false },
         { name: 'Naturally Fit', included: false }
       ],
@@ -88,7 +88,7 @@ const SubscriptionSection = () => {
         { name: 'Complimentary Farm Visit', included: true },
         { name: 'Pure Raw Honey', value: '300 Gms', included: true },
         { name: 'A2 Pure Cow Ghee', included: false },
-        { name: 'Complimentary Special Harvest', included: false },
+        { name: 'Exclusive Harvest', included: false },
         { name: 'Organic Farming Training', included: false },
         { name: 'Naturally Fit', included: false }
       ],
@@ -140,7 +140,7 @@ const SubscriptionSection = () => {
         { name: 'Complimentary Farm Visit', included: true },
         { name: 'Pure Raw Honey', value: '300 Gms', included: true },
         { name: 'A2 Pure Cow Ghee', value: '500 Gms', included: true },
-        { name: 'Complimentary Special Harvest', included: false },
+        { name: 'Exclusive Harvest', included: false },
         { name: 'Organic Farming Training', included: false },
         { name: 'Naturally Fit', included: false }
       ],
@@ -192,7 +192,7 @@ const SubscriptionSection = () => {
         { name: 'Complimentary Farm Visit', included: true },
         { name: 'Pure Raw Honey', value: '300 Gms', included: true },
         { name: 'A2 Pure Cow Ghee', value: '1 KG', included: true },
-        { name: 'Complimentary Special Harvest', included: true },
+        { name: 'Exclusive Harvest', included: true },
         { name: 'Organic Farming Training', included: true },
         { name: 'Naturally Fit', included: true }
       ],

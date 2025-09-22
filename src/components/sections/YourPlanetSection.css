@@ -5,7 +5,7 @@
 .your-planet-section {
   min-height: 100vh;
   background: linear-gradient(135deg, #f8fffe 0%, #e8f5f0 100%);
-  padding: 120px 0;
+  padding: 100px 0;
   position: relative;
   overflow: hidden;
 }
@@ -249,18 +249,20 @@
 
 .your-planet-section .slide-overlay {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-  padding: 40px 30px 30px;
-  transform: translateY(20px);
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+  display: flex;
+  align-items: center;
+  justify-content: center;
   opacity: 0;
   transition: all 0.4s ease;
 }
 
-.your-planet-section .slide.active .slide-overlay {
-  transform: translateY(0);
+.your-planet-section .slide.active .slide-overlay,
+.your-planet-section .slide:hover .slide-overlay {
   opacity: 1;
 }
 
@@ -269,6 +271,7 @@
   font-size: 1.3rem;
   font-weight: 600;
   margin: 0;
+  text-align: center;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -455,6 +458,10 @@
 }
 
 @media (max-width: 480px) {
+  .your-planet-section {
+    padding: 40px 0;
+  }
+  
   .your-planet-section .your-planet-container {
     padding: 0 16px;
   }

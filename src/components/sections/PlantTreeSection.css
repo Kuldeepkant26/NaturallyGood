@@ -5,7 +5,7 @@
 .plant-tree-section {
   min-height: 100vh;
   background: linear-gradient(180deg, #e8f5f0 0%, #f1f8f1 50%, #f8fffe 100%);
-  padding: 120px 0 60px 0;
+  padding: 0;
   position: relative;
   overflow: hidden;
 }
@@ -458,7 +458,7 @@
 
 @media (max-width: 768px) {
   .plant-tree-section {
-    padding: 60px 0;
+    padding: 0;
   }
   
   .plant-tree-section .plant-tree-container {
@@ -488,6 +488,10 @@
 }
 
 @media (max-width: 480px) {
+  .plant-tree-section {
+    padding: 0;
+  }
+  
   .plant-tree-section .plant-tree-container {
     padding: 0 16px;
   }

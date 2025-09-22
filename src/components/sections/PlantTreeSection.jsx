@@ -16,14 +16,14 @@ const PlantTreeSection = () => {
       description: "Each tree absorbs up to 48 lbs of CO2 annually",
       image: "https://www.shutterstock.com/image-photo/o2-bubbles-middle-lush-forest-600nw-2430119903.jpg",
       stat: "48lbs CO2",
-      color: "#4fc3f7"
+      color: "#81c784"
     },
     {
       id: 2,
       icon: <Mountain className="w-8 h-8" />,
       title: "Prevent soil erosion and restore biodiversity",
       description: "Tree roots stabilize soil and create habitat",
-      image: "https://spunout.ie/wp-content/uploads/2023/09/Soil_erosion-1-950x630.jpg",
+      image: "https://static.vecteezy.com/system/resources/previews/003/096/094/non_2x/hand-holding-black-soil-for-cultivating-crops-world-soil-day-concept-photo.jpg",
       stat: "Restore",
       color: "#81c784"
     },

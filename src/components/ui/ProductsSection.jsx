@@ -604,7 +604,7 @@ const ProductsSection = () => {
               {/* Contact icons below button on mobile, hidden on larger screens */}
               <div className="flex md:hidden justify-center gap-4 mt-6">
                 <motion.button
-                  onClick={() => window.open('tel:+919876543210', '_self')}
+                  onClick={() => window.open('tel:+919643722200', '_self')}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-300 shadow-lg"
@@ -622,7 +622,7 @@ const ProductsSection = () => {
                   <WhatsAppIcon className="w-6 h-6 text-white" />
                 </motion.button>
                 <motion.button
-                  onClick={() => window.open('mailto:info@naturallygood.com', '_self')}
+                  onClick={() => window.open('mailto:eatfresh@naturallygood.in', '_self')}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-300 shadow-lg"
@@ -646,7 +646,7 @@ const ProductsSection = () => {
           {/* Vertical ordering icons positioned on the right border - Hidden on mobile, visible on larger screens */}
           <div className="hidden md:flex absolute right-4 top-1/2 transform -translate-y-1/2 flex-col gap-4">
             <motion.button
-              onClick={() => window.open('tel:+919876543210', '_self')}
+              onClick={() => window.open('tel:+919643722200', '_self')}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-300 shadow-lg"
@@ -664,7 +664,7 @@ const ProductsSection = () => {
               <WhatsAppIcon className="w-6 h-6 text-white" />
             </motion.button>
             <motion.button
-              onClick={() => window.open('mailto:info@naturallygood.com', '_self')}
+              onClick={() => window.open('mailto:eatfresh@naturallygood.in', '_self')}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-300 shadow-lg"

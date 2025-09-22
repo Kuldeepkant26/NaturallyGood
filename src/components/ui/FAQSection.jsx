@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Plus, Minus, HelpCircle, Truck, Smartphone, RotateCcw } from 'lucide-react';
 
@@ -147,6 +147,19 @@ const FAQSection = () => {
     setActiveCategory(categoryId);
     setOpenIndex(null); // Close any open FAQ when switching categories
   };
+
+  // Listen for tab activation events from footer navigation
+  useEffect(() => {
+    const handleActivateTab = (event) => {
+      const { sectionType, tabValue, sectionId } = event.detail;
+      if (sectionType === 'faqs' && sectionId === 'faqs') {
+        setActiveCategory(tabValue);
+      }
+    };
+
+    window.addEventListener('activateTab', handleActivateTab);
+    return () => window.removeEventListener('activateTab', handleActivateTab);
+  }, []);
 
   return (
     <section id="faqs" data-section="faqs" className="py-20 bg-gradient-to-br from-emerald-50 via-white to-green-50 relative overflow-hidden">
