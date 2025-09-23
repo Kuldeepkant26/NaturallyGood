@@ -376,7 +376,8 @@ const Navbar = () => {
 
             {/* Mobile Menu Button */}
             <motion.button
-              className="lg:hidden p-2.5 text-emerald-700 dark:text-emerald-300 hover:text-emerald-600 dark:hover:text-emerald-200 hover:bg-white/10 rounded-xl transition-all duration-200 backdrop-blur-sm"
+              className="lg:hidden p-2.5 hover:bg-white/10 rounded-xl transition-all duration-200 backdrop-blur-sm"
+              style={{ color: '#00963E' }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -412,9 +413,12 @@ const Navbar = () => {
             >
               {/* Header with Logo and Close Button */}
               <div className="flex items-center justify-between p-4 border-b border-gray-200/30">
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-1">
                   <img src={NGlogo} alt="Naturally Good" className="w-8 h-8" />
-                  <span className="text-emerald-700 font-bold text-lg">Naturally Good</span>
+                  <span className="font-bold text-xl tracking-tight">
+                    <span className="text-[#78B826]">Naturally</span>
+                    <span className="text-[#00963E]">Good</span>
+                  </span>
                 </div>
                 <motion.button
                   onClick={() => setIsMobileMenuOpen(false)}
@@ -435,7 +439,8 @@ const Navbar = () => {
                   <motion.a
                     key={item.name}
                     href={item.href}
-                    className="block px-4 py-3 text-emerald-700 dark:text-emerald-300 font-semibold text-lg hover:text-emerald-600 dark:hover:text-emerald-200 hover:bg-white/10 rounded-xl transition-all duration-200 cursor-pointer"
+                    className="block px-4 py-3 font-semibold text-lg hover:bg-white/10 rounded-xl transition-all duration-200 cursor-pointer"
+                    style={{ color: '#00963E' }}
                     onClick={(e) => {
                       handleScrollToSection(e, item.href);
                       setIsMobileMenuOpen(false);
@@ -457,7 +462,8 @@ const Navbar = () => {
                   >
                     <Link
                       to={item.href}
-                      className="block px-4 py-3 text-emerald-700 dark:text-emerald-300 font-semibold text-lg hover:text-emerald-600 dark:hover:text-emerald-200 hover:bg-white/10 rounded-xl transition-all duration-200 cursor-pointer"
+                      className="block px-4 py-3 font-semibold text-lg hover:bg-white/10 rounded-xl transition-all duration-200 cursor-pointer"
+                      style={{ color: '#00963E' }}
                       onClick={(e) => {
                         if (item.name === 'Blog') {
                           handleBlogClick(e);
@@ -557,7 +563,7 @@ const Navbar = () => {
 
               {/* Mobile Download App Section */}
               <div className="mt-6 pt-4 border-t border-gray-200/30">
-                <h4 className="text-emerald-700 font-semibold text-lg mb-3 text-center">Download Our App</h4>
+                <h4 className="font-semibold text-lg mb-3 text-center" style={{ color: '#00963E' }}>Download Our App</h4>
                 <div className="flex space-x-3">
                   {/* Mobile Android Button */}
                   <motion.a
