@@ -23,6 +23,7 @@ const SubscriptionSection = () => {
       originalPrice: '₹7,596',
       discountedPrice: '₹7,499',
       pricePerBasket: '₹1,875 per 10 kg bag',
+      pricePerDay: '₹250 per day',
       discount: '1% off',
       popular: false,
       color: 'from-light-green to-dark-green',
@@ -63,7 +64,7 @@ const SubscriptionSection = () => {
         'Seasonal variety guaranteed',
         'No long-term binding'
       ],
-      familySize: '4-5 members',
+      familySize: '3-5 members',
       deliveryWindow: 'Weekly (Same day each week)',
       icon: <Calendar className="w-6 h-6" />
     },
@@ -75,6 +76,7 @@ const SubscriptionSection = () => {
       originalPrice: '₹22,788',
       discountedPrice: '₹17,999',
       pricePerBasket: '₹1,500 per 10 kg bag',
+      pricePerDay: '₹195 per day',
       discount: '21% off',
       popular: true,
       color: 'from-emerald-400 to-emerald-600',
@@ -115,7 +117,7 @@ const SubscriptionSection = () => {
         'Priority customer service',
         'Seasonal recipe suggestions included'
       ],
-      familySize: '4-5 members',
+      familySize: '3-5 members',
       deliveryWindow: 'Weekly (Preferred day selection)',
       icon: <Star className="w-6 h-6" />
     },
@@ -127,6 +129,7 @@ const SubscriptionSection = () => {
       originalPrice: '₹45,576',
       discountedPrice: '₹32,999',
       pricePerBasket: '₹1,375 per 10 kg bag',
+      pricePerDay: '₹180 per day',
       discount: '28% off',
       recommended: true,
       color: 'from-yellow-400 to-yellow-500',
@@ -167,7 +170,7 @@ const SubscriptionSection = () => {
         'Premium customer experience',
         'Health and nutrition support included'
       ],
-      familySize: '4-5 members',
+      familySize: '3-5 members',
       deliveryWindow: 'Weekly (Priority scheduling)',
       icon: <Gift className="w-6 h-6" />
     },
@@ -179,6 +182,7 @@ const SubscriptionSection = () => {
       originalPrice: '₹91,152',
       discountedPrice: '₹56,999',
       pricePerBasket: '₹1,187 per 10 kg bag',
+      pricePerDay: '₹155 per day',
       discount: '37% off',
       popular: false,
       color: 'from-red-500 to-red-600',
@@ -221,7 +225,7 @@ const SubscriptionSection = () => {
         'VIP treatment and premium services',
         'Personal health and nutrition support'
       ],
-      familySize: '4-5 members',
+      familySize: '3-5 members',
       deliveryWindow: 'Weekly (Premium scheduling)',
       icon: <Crown className="w-6 h-6" />
     }
@@ -351,6 +355,7 @@ Please help me complete the subscription process. Thank you!`;
                     <span className="text-base sm:text-lg text-gray-500 line-through ml-2 group-hover:text-gray-600 transition-colors duration-300">{plan.originalPrice}</span>
                   </div>
                   <p className="text-sm text-gray-600 mb-1 group-hover:text-gray-700 transition-colors duration-300">{plan.pricePerBasket}</p>
+                  <p className="text-xs text-gray-500 mb-1 group-hover:text-gray-600 transition-colors duration-300">{plan.pricePerDay}</p>
                   <div className="h-8 flex items-start">
                     <p className="text-xs text-gray-500 leading-tight">{plan.duration}</p>
                   </div>
@@ -474,12 +479,12 @@ Please help me complete the subscription process. Thank you!`;
                         {/* Popular/Recommended Badge */}
                         {selectedPlan.popular && (
                           <div className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white text-sm font-bold px-3 sm:px-4 py-2 rounded-full mb-4">
-                            🔥 MOST POPULAR CHOICE
+                            MOST POPULAR CHOICE
                           </div>
                         )}
                         {selectedPlan.recommended && (
                           <div className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white text-sm font-bold px-3 sm:px-4 py-2 rounded-full mb-4">
-                            ⭐ RECOMMENDED CHOICE
+                            RECOMMENDED CHOICE
                           </div>
                         )}
                       </div>
@@ -493,6 +498,7 @@ Please help me complete the subscription process. Thank you!`;
                               <span className="text-lg sm:text-xl text-gray-500 line-through ml-2 sm:ml-3">{selectedPlan.originalPrice}</span>
                             </div>
                             <p className="text-base sm:text-lg font-semibold" style={{color: '#79B927'}}>{selectedPlan.pricePerBasket}</p>
+                            <p className="text-sm sm:text-base font-medium text-gray-600 mt-1">{selectedPlan.pricePerDay}</p>
                           </div>
                           <div 
                             className={`${selectedPlan.id === 'monthly' ? '' : `bg-gradient-to-r ${selectedPlan.color}`} text-white text-base sm:text-lg font-bold px-3 sm:px-4 py-2 rounded-full`}
@@ -557,19 +563,6 @@ Please help me complete the subscription process. Thank you!`;
                         </ul>
                       </div>
 
-                      {/* Key Benefits */}
-                      <div>
-                        <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3 sm:mb-4">Key Benefits</h3>
-                        <ul className="space-y-2 sm:space-y-3">
-                          {selectedPlan.benefits.map((benefit, index) => (
-                            <li key={index} className="flex items-start text-sm sm:text-base text-gray-600">
-                              <Star className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
-                              {benefit}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
                       {/* Subscribe Button */}
                       <motion.button
                         onClick={handleSubscribeNow}
@@ -591,7 +584,7 @@ Please help me complete the subscription process. Thank you!`;
                           💚 100% Satisfaction Guaranteed
                         </p>
                         <p className="text-xs mt-1" style={{color: '#79B927'}}>
-                          Not happy? Get full refund within first week
+                          Not happy? Get free replacement
                         </p>
                       </div>
                     </div>

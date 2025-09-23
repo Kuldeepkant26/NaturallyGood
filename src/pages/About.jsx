@@ -274,7 +274,7 @@ const FleetGallerySection = () => {
   return (
     <section className="fleet-gallery-section" ref={galleryRef}>
       <div className="container">
-        <h2 className="section-title">Why Organic And Seasonal</h2>
+        <h2 className="section-title">Why Organic And Seasonal ?</h2>
         <p className="section-subtitle" style={{ textAlign: 'center' }}>Experience the benefits of nature's timing with our organic, seasonal produce.</p>
       </div>
       <motion.div
@@ -389,7 +389,7 @@ const ExcellenceInnovationSection = () => {
               <div className="highlight-item">
                 <div className="highlight-content">
                   <h4>Organic Manure</h4>
-                  <p>Homegrown natural fertilizers with zero chemicals</p>
+                  <p>Homegrown Organic Manure with zero chemicals</p>
                 </div>
               </div>
             </motion.div>
