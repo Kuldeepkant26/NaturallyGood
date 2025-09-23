@@ -63,7 +63,7 @@ const SubscriptionSection = () => {
         'Seasonal variety guaranteed',
         'No long-term binding'
       ],
-      familySize: '2-3 members',
+      familySize: '4-5 members',
       deliveryWindow: 'Weekly (Same day each week)',
       icon: <Calendar className="w-6 h-6" />
     },
@@ -115,7 +115,7 @@ const SubscriptionSection = () => {
         'Priority customer service',
         'Seasonal recipe suggestions included'
       ],
-      familySize: '3-4 members',
+      familySize: '4-5 members',
       deliveryWindow: 'Weekly (Preferred day selection)',
       icon: <Star className="w-6 h-6" />
     },
@@ -221,7 +221,7 @@ const SubscriptionSection = () => {
         'VIP treatment and premium services',
         'Personal health and nutrition support'
       ],
-      familySize: '5+ members or joint families',
+      familySize: '4-5 members',
       deliveryWindow: 'Weekly (Premium scheduling)',
       icon: <Crown className="w-6 h-6" />
     }
