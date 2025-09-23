@@ -7,12 +7,12 @@ const HeroSection = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   
-  const video1Ref = useRef(null);
-  const video2Ref = useRef(null);
+  const videoRefs = useRef([]);
   
   const videos = [
-    "https://res.cloudinary.com/dz9eemmz4/video/upload/v1758352339/19494098-hd_1920_1080_24fps_papxzo.mp4",
-    "https://www.pexels.com/download/video/10041408/"
+    "https://cdn.pixabay.com/video/2024/07/30/223870_large.mp4",
+    "https://cdn.pixabay.com/video/2022/11/16/139232-771796534_large.mp4",
+    "https://cdn.pixabay.com/video/2023/08/12/175711-854057963_large.mp4"
   ];
 
   useEffect(() => {
@@ -34,88 +34,79 @@ const HeroSection = () => {
   }, []);
 
   useEffect(() => {
-    // Preload the second video when the component mounts
-    if (video2Ref.current) {
-      video2Ref.current.load();
-    }
+    // Preload all videos when the component mounts
+    videoRefs.current.forEach((video) => {
+      if (video) {
+        video.load();
+      }
+    });
   }, []);
+
+  // 5-second timer for video transitions
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (!isTransitioning) {
+        setIsTransitioning(true);
+        
+        const nextVideoIndex = (currentVideoIndex + 1) % videos.length;
+        const currentVideo = videoRefs.current[currentVideoIndex];
+        const nextVideo = videoRefs.current[nextVideoIndex];
+        
+        // Fade out current video and fade in next video
+        if (currentVideo) {
+          currentVideo.style.opacity = '0';
+        }
+        
+        if (nextVideo) {
+          nextVideo.style.opacity = '1';
+          nextVideo.currentTime = 0;
+          nextVideo.play();
+        }
+        
+        // Update the current video index after transition
+        setTimeout(() => {
+          setCurrentVideoIndex(nextVideoIndex);
+          setIsTransitioning(false);
+          
+          // Reset the opacity of the previous video and prepare it for next cycle
+          if (currentVideo) {
+            currentVideo.style.opacity = '1';
+            currentVideo.currentTime = 0;
+          }
+        }, 1000); // 1 second transition time
+      }
+    }, 5000); // 5 seconds per video
+
+    return () => clearInterval(timer);
+  }, [currentVideoIndex, isTransitioning, videos.length]);
 
   const handleVideoLoaded = () => {
     setVideoLoaded(true);
   };
 
-  const handleVideoEnded = () => {
-    if (!isTransitioning) {
-      setIsTransitioning(true);
-      
-      // Start the transition
-      const nextVideoIndex = currentVideoIndex === 0 ? 1 : 0;
-      const currentVideo = currentVideoIndex === 0 ? video1Ref.current : video2Ref.current;
-      const nextVideo = nextVideoIndex === 0 ? video1Ref.current : video2Ref.current;
-      
-      // Fade out current video and fade in next video
-      if (currentVideo) {
-        currentVideo.style.opacity = '0';
-      }
-      
-      if (nextVideo) {
-        nextVideo.style.opacity = '1';
-        nextVideo.currentTime = 0;
-        nextVideo.play();
-      }
-      
-      // Update the current video index after transition
-      setTimeout(() => {
-        setCurrentVideoIndex(nextVideoIndex);
-        setIsTransitioning(false);
-        
-        // Reset the opacity of the previous video and prepare it for next cycle
-        if (currentVideo) {
-          currentVideo.style.opacity = '1';
-          currentVideo.currentTime = 0;
-        }
-      }, 1000); // 1 second transition time
-    }
-  };
-
   return (
     <section className="hero-container">
       {/* Background Videos */}
-      <video
-        ref={video1Ref}
-        className={`hero-video ${currentVideoIndex === 0 ? 'active' : 'inactive'}`}
-        autoPlay
-        muted
-        playsInline
-        onLoadedData={handleVideoLoaded}
-        onEnded={handleVideoEnded}
-        preload="metadata"
-        style={{
-          opacity: currentVideoIndex === 0 ? 1 : 0,
-          transition: 'opacity 1s ease-in-out',
-          zIndex: currentVideoIndex === 0 ? -2 : -3
-        }}
-      >
-        <source src={videos[0]} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-
-      <video
-        ref={video2Ref}
-        className={`hero-video ${currentVideoIndex === 1 ? 'active' : 'inactive'}`}
-        muted
-        playsInline
-        onEnded={handleVideoEnded}
-        preload="metadata"
-        style={{
-          opacity: currentVideoIndex === 1 ? 1 : 0,
-          transition: 'opacity 1s ease-in-out',
-          zIndex: currentVideoIndex === 1 ? -2 : -3
-        }}
-      >
-        <source src={videos[1]} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      {videos.map((video, index) => (
+        <video
+          key={index}
+          ref={(el) => (videoRefs.current[index] = el)}
+          className={`hero-video ${currentVideoIndex === index ? 'active' : 'inactive'}`}
+          autoPlay={index === 0}
+          muted
+          playsInline
+          onLoadedData={index === 0 ? handleVideoLoaded : undefined}
+          preload="metadata"
+          style={{
+            opacity: currentVideoIndex === index ? 1 : 0,
+            transition: 'opacity 1s ease-in-out',
+            zIndex: currentVideoIndex === index ? -2 : -3
+          }}
+        >
+          <source src={video} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      ))}
 
       {/* Fallback background if video doesn't load */}
       {!videoLoaded && (

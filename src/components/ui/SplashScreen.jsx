@@ -109,7 +109,8 @@ const SplashScreen = ({ onComplete, minimumDisplayTime = 3000 }) => {
                 {[0, 1, 2].map((index) => (
                   <motion.div
                     key={index}
-                    className="w-1.5 h-1.5 bg-emerald-400 rounded-full"
+                    className="w-1.5 h-1.5 rounded-full"
+                    style={{ backgroundColor: '#78B826' }}
                     animate={{ 
                       scale: [1, 1.5, 1],
                       opacity: [0.4, 1, 0.4]

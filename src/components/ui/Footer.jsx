@@ -219,8 +219,8 @@ const Footer = () => {
             <div className="footer-bottom-links">
               <Link to="/privacy-policy.php">Privacy Policy</Link>
               <Link to="/terms-and-conditions.php">Terms of Service</Link>
-              <a href="#faqs" onClick={handleDeliveryFAQsClick}>Delivery FAQs</a>
-              <a href="#faqs" onClick={handleReturnFAQsClick}>Return FAQs</a>
+              <a href="#faqs" onClick={handleDeliveryFAQsClick}>Delivery</a>
+              <a href="#faqs" onClick={handleReturnFAQsClick}>Return</a>
             </div>
           </div>
         </div>
