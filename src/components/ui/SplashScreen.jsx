@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import NGlogo from '../../assets/NGlogo.png';
+import NGlogoText from '../../assets/NGlogoText.png';
 
 const SplashScreen = ({ onComplete, minimumDisplayTime = 3000 }) => {
   const [isVisible, setIsVisible] = useState(true);
@@ -51,7 +52,7 @@ const SplashScreen = ({ onComplete, minimumDisplayTime = 3000 }) => {
                 type: "spring",
                 stiffness: 80
               }}
-              className="flex items-center justify-center space-x-0 mb-12"
+              className="flex items-center justify-center mb-12"
             >
               <div className="relative">
                 <motion.img
@@ -83,8 +84,10 @@ const SplashScreen = ({ onComplete, minimumDisplayTime = 3000 }) => {
                 />
               </div>
               
-              <motion.span 
-                className="font-bold text-3xl md:text-4xl tracking-tight ml-2"
+              <motion.img
+                src={NGlogoText}
+                alt="Naturally Good"
+                className="h-8 md:h-10 pt-2"
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ 
@@ -92,10 +95,7 @@ const SplashScreen = ({ onComplete, minimumDisplayTime = 3000 }) => {
                   delay: 0.4,
                   ease: [0.25, 0.46, 0.45, 0.94]
                 }}
-              >
-                <span className="text-[#78B826]">Naturally</span>
-                <span className="text-[#00963E]">Good</span>
-              </motion.span>
+              />
             </motion.div>
 
             {/* Minimalist loading indicator */}

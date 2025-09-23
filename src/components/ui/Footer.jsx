@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import NGlogo from '../../assets/NGlogo.png';
+import NGlogoText from '../../assets/NGlogoText.png';
 import './Footer.css';
 import { handleFooterTabClick, navigateToTab } from '../../utils/tabNavigation';
 
@@ -93,16 +94,17 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="footer-section brand-section">
             <div className="footer-logo">
-              <div className="flex items-center space-x-0 mb-3">
+              <div className="flex items-center mb-3">
                 <img
                   src={NGlogo}
                   alt="NaturallyGood Logo"
                   className="w-10 h-10 mix-blend-darken"
                 />
-                <span className="font-bold text-xl tracking-tight">
-                  <span className="text-[#78B826]">Naturally</span>
-                  <span className="text-[#00963E]">Good</span>
-                </span>
+                <img
+                  src={NGlogoText}
+                  alt="Naturally Good"
+                  className="h-7 pt-1.5"
+                />
               </div>
               <p className="brand-tagline">Freshly Harvested Organic Goodness</p>
             </div>

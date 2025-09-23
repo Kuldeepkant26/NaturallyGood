@@ -174,16 +174,17 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
           >
-            <Link to="/" className="flex items-center space-x-0">
+            <Link to="/" className="flex items-center">
               <img
                 src={NGlogo}
                 alt="NaturallyGood Logo"
                 className="w-12 h-12 mix-blend-darken"
               />
-              <span className="font-bold text-xl tracking-tight">
-                <span className="text-[#78B826]">Naturally</span>
-                <span className="text-[#00963E]">Good</span>
-              </span>
+              <img
+                src={NGlogoText}
+                alt="Naturally Good"
+                className="h-8 pt-2"
+              />
             </Link>
           </motion.div>
 
@@ -413,12 +414,13 @@ const Navbar = () => {
             >
               {/* Header with Logo and Close Button */}
               <div className="flex items-center justify-between p-4 border-b border-gray-200/30">
-                <div className="flex items-center space-x-1">
+                <div className="flex items-center">
                   <img src={NGlogo} alt="Naturally Good" className="w-8 h-8" />
-                  <span className="font-bold text-xl tracking-tight">
-                    <span className="text-[#78B826]">Naturally</span>
-                    <span className="text-[#00963E]">Good</span>
-                  </span>
+                  <img
+                    src={NGlogoText}
+                    alt="Naturally Good"
+                    className="h-6 pt-1.5"
+                  />
                 </div>
                 <motion.button
                   onClick={() => setIsMobileMenuOpen(false)}
