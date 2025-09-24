@@ -551,15 +551,6 @@ const ProductsSection = () => {
           </div>
         )}
 
-        {/* Special Note for Staples */}
-        {activeCategory === 'staples' && (
-          <div className="text-center mb-8">
-            <p className="text-sm text-gray-600 bg-orange-50 p-4 rounded-lg max-w-2xl mx-auto">
-              <strong>Note:</strong> The bag will contain 3-4 KGs of below veggies as per availability and harvest
-            </p>
-          </div>
-        )}
-
         {/* Bottom Info */}
         <div className="rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-white mx-4 sm:mx-0 relative" style={{background: '#00963F'}}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center">

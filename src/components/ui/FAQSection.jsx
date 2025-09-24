@@ -18,7 +18,7 @@ const FAQSection = () => {
       {
         id: 1,
         question: "How to order?",
-        answer: "Naturally Good is a subscription based membership model. We offer organic seasonal farm fresh veggies, exotics, staples and herbs and deliver them to your doorstep. You can choose to sign up for our wellness subscription plans. Choose a subscription type which suits your family size and goals.\n\nYou can order our wellness subscription plans through our app, or you can call or whatsapp us at +91 9643722200 / +91 9111190102\n\nTo subscribe click here"
+        answer: "Naturally Good is a subscription based membership model. We offer organic seasonal farm fresh veggies, exotics, staples and herbs and deliver them to your doorstep. You can choose to sign up for our wellness subscription plans. Choose a subscription type which suits your family size and goals.\n\nYou can order our wellness subscription plans through our app, or you can call or whatsapp us at +91 9643722200 / +91 9111190102"
       },
       {
         id: 2,
@@ -49,7 +49,7 @@ const FAQSection = () => {
     delivery: [
       {
         id: 11,
-        question: "Do you offer free Delivery?",
+        question: "Do you offer free delivery?",
         answer: "Certainly! We provide complimentary delivery for all subscriptions within our service areas and dedicated routes in Delhi & NCR. However, delivery fees are applicable for orders outside these areas or off routes or specific delivery time slots."
       },
       {

@@ -37,8 +37,9 @@ function You() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50">
       {/* Hero Section */}
-      <div className="relative min-h-screen flex items-center justify-center px-4 py-12 pt-24 sm:pt-12">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative min-h-screen flex items-center py-12 pt-24 sm:pt-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
           
           {/* Left Content */}
           <motion.div 
@@ -179,6 +180,7 @@ function You() {
 
             </div>
           </motion.div>
+          </div>
         </div>
       </div>
 

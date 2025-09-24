@@ -104,10 +104,10 @@ export const HeroParallax = ({
 export const Header = () => {
   return (
     <div className="max-w-7xl relative mx-auto py-10 md:py-20 px-4 w-full  left-0 top-0">
-      <h1 className="text-2xl md:text-7xl font-bold text-emerald-800 dark:text-emerald-300">
+      <h1 className="text-2xl md:text-7xl font-bold" style={{ color: '#00963E' }}>
         Our Legacy <br /> Cultivating Excellence
       </h1>
-      <p className="max-w-2xl text-base md:text-xl mt-8 text-emerald-700 dark:text-emerald-200">
+      <p className="max-w-2xl text-base md:text-xl mt-8" style={{ color: '#78B826' }}>
         Since our inception, Naturally Good has been at the forefront of sustainable agriculture, pioneering innovative farming techniques while preserving traditional wisdom. Our commitment to excellence spans generations, delivering uncompromising quality and nutritional integrity through every harvest. By nurturing health and wellness for you, your family, your community, and the planet, we create a future rooted in care and sustainability.
       </p>
     </div>
@@ -163,18 +163,18 @@ export const ProductCard = ({
           alt={product.title}
         />
       </a>
-      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-emerald-900 pointer-events-none"></div>
-      <div className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-emerald-100">
+      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 pointer-events-none" style={{ backgroundColor: '#00963E' }}></div>
+      <div className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
         <h2 className="font-semibold text-lg mb-1">
           {product.title}
         </h2>
         {product.description && (
-          <p className="text-emerald-200 text-sm mb-2 line-clamp-2">
+          <p className="text-gray-100 text-sm mb-2 line-clamp-2">
             {product.description}
           </p>
         )}
         {product.price && (
-          <p className="text-emerald-300 font-bold text-base">
+          <p className="font-bold text-base" style={{ color: '#78B826' }}>
             {product.price}
           </p>
         )}
