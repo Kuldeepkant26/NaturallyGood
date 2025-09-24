@@ -10,9 +10,9 @@ const HeroSection = () => {
   const videoRefs = useRef([]);
   
   const videos = [
-    "https://cdn.pixabay.com/video/2024/07/30/223870_large.mp4",
-    "https://cdn.pixabay.com/video/2022/11/16/139232-771796534_large.mp4",
-    "https://cdn.pixabay.com/video/2023/08/12/175711-854057963_large.mp4"
+    "https://res.cloudinary.com/dz9eemmz4/video/upload/v1758708621/herovid1_ixj04k.mp4",
+    "https://res.cloudinary.com/dz9eemmz4/video/upload/v1758708630/herovid2_annbcb.mp4",
+    "https://res.cloudinary.com/dz9eemmz4/video/upload/v1758708637/herovid3_iu0vlh.mp4"
   ];
 
   useEffect(() => {
