@@ -179,16 +179,20 @@ const Footer = () => {
           <div className="footer-section">
             <h4 className="section-title">Get In Touch</h4>
             <div className="contact-info">
+              <div className="company-name">
+                <strong>Kanpan Organic Farms Private Limited</strong>
+              </div>
+              
               <div className="contact-item">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                 </svg>
                 <div>
-                  <strong>Kanpan Organic Farms Private Limited</strong><br/>
                   <strong>Flagship Farm</strong><br/>
                   Farm No. 2, Village Khor, Dhaula, Harchandpur, Near Gurugram, Haryana
                 </div>
               </div>
+              
               <div className="contact-item">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>

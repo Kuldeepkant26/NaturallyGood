@@ -22,7 +22,7 @@ function FarmersVoiceSection() {
       location: "Haryana",
       experience: "15 years",
       quote: "पहले अपनी फसल के सही दाम की चिंता रहती थी। अब Naturally Good से जुड़कर हमें न केवल अच्छा दाम मिलता है बल्कि यह सुकून भी है कि हमारी ऑर्गेनिक उपज सीधे परिवारों तक पहुँच रही है। लोग हमारी मेहनत की कद्र करते हैं, यही सबसे बड़ी खुशी है।",
-      image: "https://img.freepik.com/premium-vector/illustration-indian-farmer-face-vector_55610-7901.jpg",
+      image: "https://res.cloudinary.com/dz9eemmz4/image/upload/v1758705994/amol-sonar-a_Y4LJsU0eU-unsplash_hegb06.jpg",
       rating: 5
     },
     {
@@ -31,7 +31,7 @@ function FarmersVoiceSection() {
       location: "Punjab",
       experience: "12 years",
       quote: "Naturally Good ने हमें रसायन-मुक्त खेती करने का आत्मविश्वास दिया। वे हमें नई तकनीक सिखाते हैं और हमारी पारंपरिक तरीकों का भी सम्मान करते हैं। आज मेरी ज़मीन स्वस्थ है, फसल बेहतर है और मुझे गर्व है कि हमारी सब्ज़ियाँ लोगों को शुद्ध और ताज़ा भोजन दे रही हैं।",
-      image: "https://img.freepik.com/premium-vector/illustration-indian-farmer-face-vector_55610-7901.jpg",
+      image: "https://res.cloudinary.com/dz9eemmz4/image/upload/v1758706283/darpan-sharma-DluwGgHPprs-unsplash_rqjvto.jpg",
       rating: 5
     },
     {
@@ -40,7 +40,7 @@ function FarmersVoiceSection() {
       location: "Rajasthan",
       experience: "20 years",
       quote: "एक महिला किसान होने के नाते शुरू में आसान नहीं था। लेकिन Naturally Good ने प्रशिक्षण और उचित भुगतान देकर हमें मज़बूती दी। आज हमारा आर्थिक हाल बेहतर है और मुझे गर्व है कि हमारी उपज लोगों की सेहत सुधार रही है।",
-      image: "https://img.freepik.com/premium-vector/illustration-indian-farmer-face-vector_55610-7901.jpg",
+      image: "https://res.cloudinary.com/dz9eemmz4/image/upload/v1758706737/gyan-shahane-3C7zhY3gcQc-unsplash_mfsgrj.jpg",
       rating: 5
     }
   ];

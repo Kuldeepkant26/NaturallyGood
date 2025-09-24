@@ -4,11 +4,11 @@ import './YourFarmersSection.css'
 
 function YourFarmersSection() {
   const farmersImages = [
-    "https://i.pinimg.com/1200x/25/4f/f1/254ff1db7128864fe8f4da0993bd23c2.jpg",
-    "https://i.pinimg.com/736x/28/5a/ff/285affa8c77437c9532d1e72ce11ca43.jpg",
-    "https://i.pinimg.com/736x/aa/c4/a7/aac4a761c910bc0c8d0876e305e91600.jpg",
-    "https://i.pinimg.com/736x/ed/24/d0/ed24d09bbb21d3768709b8f61d4e8c11.jpg",
-    "https://i.pinimg.com/736x/b3/ee/78/b3ee783c5e9ae15328a5cbc7011d9d2e.jpg"
+    "https://res.cloudinary.com/dz9eemmz4/image/upload/v1758705994/amol-sonar-a_Y4LJsU0eU-unsplash_hegb06.jpg",
+    "https://res.cloudinary.com/dz9eemmz4/image/upload/v1758706292/shakib-uzzaman-HFXurfNzDeE-unsplash_li55d7.jpg",
+    "https://res.cloudinary.com/dz9eemmz4/image/upload/v1758706304/rafid-tahmid-QnXKIINyYQw-unsplash_gamb0z.jpg",
+    "https://res.cloudinary.com/dz9eemmz4/image/upload/v1758706283/darpan-sharma-DluwGgHPprs-unsplash_rqjvto.jpg",
+    "https://res.cloudinary.com/dz9eemmz4/image/upload/v1758706478/md-mehedi-hasan-k7EDYStENI0-unsplash_t6g578.jpg"
   ];
 
   return (
