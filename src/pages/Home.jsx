@@ -7,6 +7,8 @@ import SubscriptionSection from '../components/ui/SubscriptionSection'
 import AddOnsSection from '../components/ui/AddOnsSection'
 import ProductsSection from '../components/ui/ProductsSection'
 import FAQSection from '../components/ui/FAQSection'
+import SEOHead from '../components/SEO/SEOHead'
+import StructuredData from '../components/SEO/StructuredData'
 
 function Home() {
     const [showSplash, setShowSplash] = useState(() => {
@@ -54,6 +56,14 @@ function Home() {
 
     return (
         <div className="relative">
+            <SEOHead 
+                title="NaturallyGood - Premium Organic Vegetables Delivered Fresh | Farm to Table"
+                description="Experience the finest organic vegetables grown with sustainable farming practices. Fresh, chemical-free produce delivered directly from our certified organic farms to your doorstep. Order premium organic vegetables online with NaturallyGood."
+                keywords="organic vegetables online, fresh organic produce delivery, chemical-free vegetables, sustainable farming, farm to table delivery, premium organic food, naturally grown vegetables, organic grocery delivery, fresh vegetables online India"
+                url="https://www.naturallygood.in"
+                image="https://images.unsplash.com/photo-1590779033100-9f60a05a013d?q=80&w=2187&auto=format&fit=crop&ixlib=rb-4.0.3"
+            />
+            <StructuredData type="localbusiness" />
             {/* Main Content - Always rendered */}
             <HeroSection />
             <ProductsSection />

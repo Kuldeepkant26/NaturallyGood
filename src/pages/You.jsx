@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { Sparkles, Heart, Leaf, Star, Baby, Salad, User, UserCircle, Building, MessageCircle, Users } from 'lucide-react'
+import SEOHead from '../components/SEO/SEOHead'
 
 function You() {
   const navigate = useNavigate()
@@ -36,6 +37,13 @@ function You() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50">
+      <SEOHead 
+        title="Your Wellness Journey | Organic Living for Every Age Group - NaturallyGood"
+        description="Discover how NaturallyGood organic vegetables support wellness for every family member - from children to seniors. Learn about the health benefits of organic living and how our fresh produce enhances your family's nutrition and vitality."
+        keywords="organic wellness, healthy family nutrition, organic vegetables for children, senior nutrition, organic living benefits, family health, wellness nutrition, organic food benefits, healthy lifestyle"
+        url="https://www.naturallygood.in/you"
+        image="https://thumbs.dreamstime.com/b/happy-indian-couple-bag-full-food-checking-bill-young-men-women-paper-bags-fresh-organic-fruits-vegetable-standing-311453649.jpg"
+      />
       {/* Hero Section */}
       <div className="relative min-h-screen flex items-center py-12 pt-24 sm:pt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">

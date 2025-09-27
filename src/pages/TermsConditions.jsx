@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import SEOHead from '../components/SEO/SEOHead';
 import { 
   FileText, 
   User, 
@@ -23,6 +24,12 @@ import './TermsConditions.css';
 const TermsConditions = () => {
   return (
     <div className="terms-conditions-container">
+      <SEOHead 
+        title="Terms & Conditions - NaturallyGood | Service Agreement & Usage Policy"
+        description="Read NaturallyGood's terms and conditions for using our organic vegetable delivery services. Understand our service agreement, user responsibilities, and business policies."
+        keywords="terms and conditions, service agreement, usage policy, legal terms, NaturallyGood terms, Kanpan Organic Farms terms"
+        url="https://www.naturallygood.in/terms-and-conditions.php"
+      />
       {/* Hero Section */}
       <motion.section 
         className="terms-hero"

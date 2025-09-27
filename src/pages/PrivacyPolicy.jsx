@@ -2,10 +2,17 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Users, Bell, HeadphonesIcon, BarChart3, Lock, Mail, AlertTriangle } from 'lucide-react';
 import './PrivacyPolicy.css';
+import SEOHead from '../components/SEO/SEOHead';
 
 const PrivacyPolicy = () => {
   return (
     <div className="privacy-policy-container">
+      <SEOHead 
+        title="Privacy Policy - NaturallyGood | Data Protection & User Privacy"
+        description="Read NaturallyGood's comprehensive privacy policy. Learn how we collect, use, and protect your personal information when you use our organic vegetable delivery services."
+        keywords="privacy policy, data protection, user privacy, information security, Kanpan Organic Farms privacy"
+        url="https://www.naturallygood.in/privacy-policy.php"
+      />
       {/* Hero Section */}
       <motion.section 
         className="privacy-hero"

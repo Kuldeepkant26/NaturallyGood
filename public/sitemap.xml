@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" 
+        xmlns:xhtml="http://www.w3.org/1999/xhtml" 
+        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" 
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" 
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.naturallygood.in/</loc>
+    <lastmod>2025-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- About Page -->
+  <url>
+    <loc>https://www.naturallygood.in/about</loc>
+    <lastmod>2025-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Farmers Page -->
+  <url>
+    <loc>https://www.naturallygood.in/farmers</loc>
+    <lastmod>2025-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Nature Page -->
+  <url>
+    <loc>https://www.naturallygood.in/nature</loc>
+    <lastmod>2025-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- You/Wellness Page -->
+  <url>
+    <loc>https://www.naturallygood.in/you</loc>
+    <lastmod>2025-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://www.naturallygood.in/blog/seasonal-eating</loc>
+    <lastmod>2025-03-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.naturallygood.in/blog/healthy-recipes</loc>
+    <lastmod>2025-03-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.naturallygood.in/blog/organic-living</loc>
+    <lastmod>2025-03-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.naturallygood.in/blog/wellness-wisdom</loc>
+    <lastmod>2025-03-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Legal Pages -->
+  <url>
+    <loc>https://www.naturallygood.in/privacy-policy.php</loc>
+    <lastmod>2025-09-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://www.naturallygood.in/terms-and-conditions.php</loc>
+    <lastmod>2025-09-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- 404 Error Page (for completeness) -->
+  <url>
+    <loc>https://www.naturallygood.in/404</loc>
+    <lastmod>2025-09-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+
+</urlset>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { useParams } from 'react-router-dom'
+import SEOHead from '../components/SEO/SEOHead'
 
 const blogData = {
   'seasonal-eating': {
@@ -1003,6 +1004,14 @@ function BlogDetail() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEOHead 
+        title={`${blog.title} - NaturallyGood Blog | ${blog.category}`}
+        description={blog.subtitle}
+        keywords={blog.tags ? blog.tags.join(', ') : 'organic vegetables, healthy eating, nutrition, wellness'}
+        url={`https://www.naturallygood.in/blog/${slug}`}
+        image={blog.heroImage}
+        type="article"
+      />
       {/* Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#78B826] to-[#00963E] origin-left z-50"

@@ -1,0 +1,49 @@
+{
+  "name": "NaturallyGood - Premium Organic Vegetables",
+  "short_name": "NaturallyGood",
+  "description": "Premium organic vegetables grown with love and care. Farm-fresh, chemical-free produce delivered directly from our sustainable farms to your home.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#00963F",
+  "orientation": "portrait-primary",
+  "categories": ["food", "health", "lifestyle", "shopping"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.png", 
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "https://images.unsplash.com/photo-1590779033100-9f60a05a013d?q=80&w=1200&auto=format&fit=crop",
+      "sizes": "1200x800",
+      "type": "image/jpeg",
+      "label": "Fresh Organic Vegetables"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Order Vegetables",
+      "short_name": "Order",
+      "description": "Order fresh organic vegetables",
+      "url": "/?utm_source=homescreen",
+      "icons": [
+        {
+          "src": "/favicon.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}

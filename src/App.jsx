@@ -16,6 +16,7 @@ import You from './pages/You'
 import BlogDetail from './pages/BlogDetail'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsConditions from './pages/TermsConditions'
+import NotFound from './pages/NotFound'
 import { setNavigateFunction } from './utils/navigation'
 import { setTabNavigateFunction } from './utils/tabNavigation'
 import { useEffect } from 'react'
@@ -42,6 +43,7 @@ function App() {
           <Route path='/blog/:slug' element={<BlogDetail></BlogDetail>}></Route>
           <Route path='/privacy-policy.php' element={<PrivacyPolicy></PrivacyPolicy>}></Route>
           <Route path='/terms-and-conditions.php' element={<TermsConditions></TermsConditions>}></Route>
+          <Route path='*' element={<NotFound></NotFound>}></Route>
         </Routes>
       </div>
       <Footer />

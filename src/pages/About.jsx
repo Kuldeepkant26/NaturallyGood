@@ -6,6 +6,7 @@ import { MacbookScroll } from '@/components/ui/macbook-scroll'
 import { TimelineDemo } from '@/components/ui/TimelineDemo'
 import { useNavigateToProducts } from '../utils/navigationUtils'
 import '../css/About.css'
+import SEOHead from '../components/SEO/SEOHead'
 
 // Image URLs - Organic Vegetables and Farming
 const OrganicVegetables1 = 'https://images.unsplash.com/photo-1590779033100-9f60a05a013d?q=80&w=2187&auto=format&fit=crop&ixlib=rb-4.0.3'; // Fresh vegetables
@@ -27,6 +28,13 @@ function About() {
 
     return (
         <div className="about-page">
+            <SEOHead 
+                title="About NaturallyGood - Your Trusted Organic Farming Partner | Sustainable Agriculture"
+                description="Discover NaturallyGood's journey from farm to table. Learn about our sustainable organic farming practices, commitment to chemical-free produce, and how we're revolutionizing healthy food delivery across India."
+                keywords="about NaturallyGood, organic farming company, sustainable agriculture, chemical-free farming, farm to table story, organic food company India, Kanpan Organic Farms"
+                url="https://www.naturallygood.in/about"
+                image="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2289&auto=format&fit=crop&ixlib=rb-4.0.3"
+            />
             <HeroParallaxDemo></HeroParallaxDemo>
 
 
