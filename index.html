@@ -2,39 +2,34 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.png" />
-    <link rel="apple-touch-icon" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Primary Meta Tags (will be overridden by React Helmet) -->
+  
+    <!-- Icons -->
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+  
+    <!-- SEO (React Helmet may override) -->
     <title>NaturallyGood - Premium Organic Vegetables Delivered Fresh | Farm to Table</title>
     <meta name="title" content="NaturallyGood - Premium Organic Vegetables Delivered Fresh | Farm to Table" />
     <meta name="description" content="Experience the finest organic vegetables grown with sustainable farming practices. Fresh, chemical-free produce delivered directly from our certified organic farms to your doorstep." />
-    
-    <!-- Preconnect to external domains for performance -->
+  
+    <!-- Performance -->
     <link rel="preconnect" href="https://images.unsplash.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="/favicon.png" as="image" />
-    
-    <!-- PWA Manifest -->
+    <!-- Optional: keep only if measured benefit -->
+    <!-- <link rel="preload" href="/favicon.png" as="image" /> -->
+  
+    <!-- PWA -->
     <link rel="manifest" href="/manifest.json" />
-    
-    <!-- Theme and PWA -->
     <meta name="theme-color" content="#00963F" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="NaturallyGood" />
-    
-    <!-- Security -->
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta http-equiv="X-Frame-Options" content="DENY" />
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
-    
-    <!-- Performance -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data: blob:;" />
+  
+    <!-- Remove http-equiv security headers; set these in Nginx instead:
+         X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, CSP -->
   </head>
+  
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
