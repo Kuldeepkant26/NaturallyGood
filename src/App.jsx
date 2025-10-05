@@ -37,8 +37,11 @@ function App() {
         <Routes>
           <Route path='/' element={<Home></Home>}></Route>
           <Route path='/about' element={<About></About>}></Route>
+          
           <Route path='/farmers' element={<Farmers></Farmers>}></Route>
+
           <Route path='/nature' element={<Nature></Nature>}></Route>
+
           <Route path='/you' element={<You></You>}></Route>
           <Route path='/blog/:slug' element={<BlogDetail></BlogDetail>}></Route>
           <Route path='/privacy-policy.php' element={<PrivacyPolicy></PrivacyPolicy>}></Route>
