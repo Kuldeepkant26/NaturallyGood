@@ -12,6 +12,11 @@ export default defineConfig({
     },
   },
   server: {
-    allowedHosts: ['www.naturallygood.in', 'naturallygood.in']
+    host: '0.0.0.0',
+    allowedHosts: [
+      'www.naturallygood.in', 
+      'naturallygood.in',
+      '13.235.113.220'  // Add your EC2 IP
+    ]
   }
 })
