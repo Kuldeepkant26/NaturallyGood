@@ -66,7 +66,7 @@ const DistinctionSection = () => {
   const navigateToProducts = useNavigateToProducts()
 
   return (
-    <section className="distinction-section" ref={sectionRef}>
+    <section id="why-choose-us" className="distinction-section" ref={sectionRef}>
       <div className="container">
         <div className="distinction-layout">
           {/* Content Side */}
@@ -151,7 +151,7 @@ const MarineExcellenceSection = () => {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
 
   return (
-    <section className="marine-excellence-section" ref={sectionRef}>
+    <section id="who-we-are" className="marine-excellence-section" ref={sectionRef}>
       <div className="container">
         <div className="marine-excellence-layout">
           {/* Image Side - Left */}
@@ -317,7 +317,7 @@ const ExcellenceInnovationSection = () => {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
-    <section className="excellence-innovation-section" ref={sectionRef}>
+    <section id="excellence-section" className="excellence-innovation-section" ref={sectionRef}>
       <div className="container">
         <motion.div
           className="section-header"

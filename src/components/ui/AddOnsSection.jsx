@@ -108,7 +108,7 @@ const AddOnsSection = () => {
       {
         name: 'Soup Pack',
         description: 'Certified organic ingredients packed for your family\'s favorite soups-healthy, tasty, and natural.',
-        image: vegetableImages['root-vegetables'],
+        image: 'https://1stchoicefruitveg.com.au/cdn/shop/products/IMG_2309.jpg?v=1505654840',
         price: 'Rs. 799 per Pack',
         features: [
           'Handpicked seasonal vegetables',
@@ -152,7 +152,7 @@ const AddOnsSection = () => {
       {
         name: 'Immunity Pack',
         description: 'A power-packed combo to naturally strengthen your immunity every day.',
-        image: vegetableImages['ginger-turmeric'],
+        image: 'https://pankajakasthuri.in/cdn/shop/articles/iStock-1355849088_1024x1024.webp?v=1729080979',
         price: 'Rs. 999 per Pack',
         features: [
           'Rich in antioxidants',

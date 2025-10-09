@@ -1,0 +1,1888 @@
+/* Our App Page - Premium Design with Descendant Selectors */
+.our-app-page {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.our-app-page .app-hero-section {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fffe 0%, #f0fbf4 25%, #f8fffe 50%, #f0fbf4 75%, #f8fffe 100%);
+  padding: 100px 80px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.our-app-page .app-hero-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Left Content */
+.our-app-page .app-hero-content {
+  padding: 40px 0;
+  max-width: 550px;
+}
+
+.our-app-page .app-hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #2c3e2d;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  letter-spacing: -1px;
+}
+
+.our-app-page .app-hero-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #5a6c57;
+  margin-bottom: 36px;
+  font-weight: 400;
+}
+
+/* App Store Buttons */
+.our-app-page .app-store-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.our-app-page .store-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: #000;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.our-app-page .store-icon {
+  font-size: 1.6rem;
+}
+
+.our-app-page .store-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.our-app-page .store-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.8;
+}
+
+.our-app-page .store-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.our-app-page .store-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Right Side - Visual Area */
+.our-app-page .app-hero-visual {
+  position: relative;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Floating Cards */
+.our-app-page .floating-card {
+  position: absolute;
+  background: white;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+  animation: floatCard 6s ease-in-out infinite;
+}
+
+.our-app-page .card-header-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #79B927 0%, #00963F 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* Statistics Card - Top (Behind Phone) */
+.our-app-page .statistics-card {
+  top: 80px;
+  left: -20px;
+  width: 220px;
+  animation-delay: 0s;
+  z-index: 1;
+}
+
+.our-app-page .statistics-card h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #2c3e2d;
+  margin-bottom: 12px;
+}
+
+.our-app-page .stat-legend {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  font-size: 0.7rem;
+  color: #5a6c57;
+}
+
+.our-app-page .legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.our-app-page .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.our-app-page .dot.purple {
+  background: #79B927;
+}
+
+.our-app-page .dot.green {
+  background: #00963F;
+}
+
+.our-app-page .chart-area {
+  width: 100%;
+  height: 70px;
+}
+
+.our-app-page .line-chart {
+  width: 100%;
+  height: 100%;
+}
+
+/* Progress Card - Bottom */
+.our-app-page .progress-card {
+  bottom: 40px;
+  right: 30px;
+  width: 260px;
+  background: linear-gradient(135deg, #79B927 0%, #00963F 100%);
+  color: white;
+  animation-delay: 1.5s;
+  z-index: 10;
+}
+
+.our-app-page .progress-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.our-app-page .progress-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.our-app-page .progress-amount {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.our-app-page .progress-amount span {
+  font-size: 0.75rem;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+.our-app-page .progress-date {
+  font-size: 0.7rem;
+  opacity: 0.85;
+}
+
+.our-app-page .circular-progress {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.our-app-page .circular-progress svg {
+  width: 100%;
+  height: 100%;
+}
+
+.our-app-page .progress-number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.our-app-page .progress-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.our-app-page .btn-support,
+.our-app-page .btn-share {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.our-app-page .btn-support {
+  background: #00963F;
+  color: white;
+}
+
+.our-app-page .btn-share {
+  background: white;
+  color: #2c3e2d;
+}
+
+.our-app-page .btn-support:hover {
+  background: #065F46;
+  transform: translateY(-2px);
+}
+
+.our-app-page .btn-share:hover {
+  background: #f5f5f5;
+  transform: translateY(-2px);
+}
+
+/* Phone with Hand */
+.our-app-page .phone-with-hand {
+  position: relative;
+  z-index: 5;
+}
+
+.our-app-page .phone-mockup-realistic {
+  width: 280px;
+  height: 570px;
+  background: linear-gradient(145deg, #1a1a1a 0%, #2a2a2a 100%);
+  border-radius: 40px;
+  padding: 14px;
+  box-shadow: 
+    0 0 0 2px #2a2a2a,
+    0 0 0 5px #1a1a1a,
+    0 30px 70px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+.our-app-page .phone-mockup-realistic::before {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 130px;
+  height: 28px;
+  background: #1a1a1a;
+  border-radius: 0 0 18px 18px;
+  z-index: 10;
+}
+
+.our-app-page .phone-screen-content {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #fafafa 0%, #f5f5f5 100%);
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.our-app-page .screen-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.our-app-page .screen-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 42px 18px 12px;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  flex-shrink: 0;
+}
+
+.our-app-page .back-btn {
+  font-size: 1.1rem;
+  color: #00963F;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.our-app-page .back-btn:hover {
+  transform: translateX(-2px);
+}
+
+.our-app-page .screen-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #2c3e2d;
+  flex: 1;
+}
+
+.our-app-page .header-spacer {
+  width: 18px;
+}
+
+.our-app-page .header-icon {
+  font-size: 1.05rem;
+  color: #00963F;
+}
+
+/* Scrollable Content */
+.our-app-page .scrollable-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.our-app-page .scrollable-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.our-app-page .scrollable-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.our-app-page .scrollable-content::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 10px;
+}
+
+/* Order Details Screen */
+.our-app-page .order-card {
+  background: linear-gradient(135deg, #79B927 0%, #00963F 100%);
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 6px 20px rgba(0, 150, 63, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.our-app-page .order-image {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.our-app-page .veg-icon {
+  font-size: 1.8rem;
+  color: white;
+}
+
+.our-app-page .order-info h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 3px;
+}
+
+.our-app-page .order-info p {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 6px;
+}
+
+.our-app-page .order-price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+}
+
+/* Delivery Status */
+.our-app-page .delivery-status {
+  background: white;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.our-app-page .status-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #2c3e2d;
+}
+
+.our-app-page .status-icon {
+  color: #00963F;
+}
+
+.our-app-page .status-progress {
+  position: relative;
+  padding-left: 32px;
+}
+
+.our-app-page .progress-line {
+  position: absolute;
+  left: 8px;
+  top: 12px;
+  width: 3px;
+  height: calc(100% - 24px);
+  background: linear-gradient(to bottom, #00963F 0%, #00963F 66%, #e0e0e0 66%, #e0e0e0 100%);
+}
+
+.our-app-page .status-step {
+  position: relative;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.75rem;
+  color: #5a6c57;
+}
+
+.our-app-page .status-step.completed {
+  color: #2c3e2d;
+}
+
+.our-app-page .status-step.active {
+  color: #00963F;
+  font-weight: 600;
+}
+
+.our-app-page .step-dot {
+  position: absolute;
+  left: -22px;
+  width: 12px;
+  height: 12px;
+  background: #e0e0e0;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.our-app-page .status-step.completed .step-dot {
+  background: #00963F;
+}
+
+.our-app-page .status-step.active .step-dot {
+  background: #00963F;
+  animation: pulse 2s infinite;
+}
+
+/* Order Items */
+.our-app-page .order-items {
+  background: white;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.our-app-page .order-items h4 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #2c3e2d;
+  margin-bottom: 12px;
+}
+
+.our-app-page .item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.our-app-page .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #f9fafb;
+  border-radius: 8px;
+  font-size: 0.75rem;
+}
+
+.our-app-page .item span:first-child {
+  color: #2c3e2d;
+  font-weight: 500;
+}
+
+.our-app-page .item span:last-child {
+  color: #5a6c57;
+  font-weight: 600;
+}
+
+/* Home/Browse Screen */
+.our-app-page .category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.our-app-page .category-card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.our-app-page .category-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.12);
+}
+
+.our-app-page .category-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.our-app-page .category-icon.green {
+  background: linear-gradient(135deg, #79B927 0%, #00963F 100%);
+}
+
+.our-app-page .category-icon.red {
+  background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+}
+
+.our-app-page .category-icon.orange {
+  background: linear-gradient(135deg, #79B927 0%, #8fc639 100%);
+}
+
+.our-app-page .category-icon.yellow {
+  background: linear-gradient(135deg, #79B927 0%, #00963F 100%);
+}
+
+.our-app-page .category-card span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #2c3e2d;
+  text-align: center;
+}
+
+/* Featured Section */
+.our-app-page .featured-section h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #2c3e2d;
+  margin-bottom: 12px;
+}
+
+.our-app-page .product-card {
+  background: white;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
+.our-app-page .product-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #00963F;
+  color: white;
+  padding: 3px 10px;
+  border-radius: 16px;
+  font-size: 0.65rem;
+  font-weight: 600;
+}
+
+.our-app-page .product-img {
+  width: 100%;
+  height: 110px;
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.our-app-page .product-card h5 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #2c3e2d;
+  margin-bottom: 3px;
+}
+
+.our-app-page .product-card p {
+  font-size: 0.7rem;
+  color: #5a6c57;
+  margin-bottom: 10px;
+}
+
+.our-app-page .product-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.our-app-page .price {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #00963F;
+}
+
+.our-app-page .add-btn {
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, #79B927 0%, #00963F 100%);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.our-app-page .add-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Profile Screen */
+.our-app-page .profile-header {
+  text-align: center;
+  padding: 18px;
+  background: white;
+  border-radius: 14px;
+  margin-bottom: 16px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.our-app-page .profile-avatar {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #79B927 0%, #00963F 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.our-app-page .profile-header h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2c3e2d;
+  margin-bottom: 3px;
+}
+
+.our-app-page .profile-header p {
+  font-size: 0.75rem;
+  color: #5a6c57;
+}
+
+/* Profile Stats */
+.our-app-page .profile-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.our-app-page .stat-box {
+  background: white;
+  border-radius: 12px;
+  padding: 16px 10px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.our-app-page .stat-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #00963F;
+  margin-bottom: 4px;
+}
+
+.our-app-page .stat-label {
+  font-size: 0.65rem;
+  color: #5a6c57;
+}
+
+/* Profile Menu */
+.our-app-page .profile-menu {
+  background: white;
+  border-radius: 14px;
+  padding: 6px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.our-app-page .menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.8rem;
+  color: #2c3e2d;
+  font-weight: 500;
+}
+
+.our-app-page .menu-item:hover {
+  background: #f5f1e8;
+}
+
+.our-app-page .menu-icon {
+  font-size: 1rem;
+  color: #00963F;
+}
+
+/* Bottom Navigation */
+.our-app-page .bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 12px;
+  background: white;
+  border-top: 1px solid #e5e7eb;
+  flex-shrink: 0;
+}
+
+.our-app-page .nav-icon {
+  font-size: 1.1rem;
+  color: #8fa285;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 6px;
+}
+
+.our-app-page .nav-icon:hover {
+  color: #00963F;
+  transform: scale(1.1);
+}
+
+.our-app-page .nav-icon.active {
+  color: #00963F;
+}
+
+.our-app-page .nav-icon-center {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, #79B927 0%, #00963F 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 3px 12px rgba(0, 150, 63, 0.4);
+  transition: all 0.3s ease;
+}
+
+.our-app-page .nav-icon-center:hover {
+  transform: scale(1.1);
+}
+
+.our-app-page .nav-icon-center.active {
+  background: linear-gradient(135deg, #00963F 0%, #065F46 100%);
+}
+
+/* Animations */
+@keyframes floatCard {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 2px 16px rgba(0, 150, 63, 0.5);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+  .our-app-page .statistics-card {
+    left: 10px;
+  }
+  
+  .our-app-page .progress-card {
+    right: 10px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .our-app-page .app-hero-container {
+    gap: 60px;
+  }
+  
+  .our-app-page .app-hero-title {
+    font-size: 3.5rem;
+  }
+  
+  .our-app-page .statistics-card {
+    width: 240px;
+  }
+  
+  .our-app-page .progress-card {
+    width: 300px;
+  }
+}
+
+@media (max-width: 968px) {
+  .our-app-page .app-hero-section {
+    padding: 80px 40px 60px;
+  }
+
+  .our-app-page .app-hero-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    /* Change order so phone appears first (above text) */
+    grid-template-areas: 
+      "visual"
+      "content";
+  }
+  
+  .our-app-page .app-hero-content {
+    text-align: center;
+    max-width: 100%;
+    padding: 30px 0;
+    grid-area: content;
+  }
+  
+  .our-app-page .app-hero-visual {
+    height: 550px;
+    margin: 0 auto;
+    grid-area: visual;
+  }
+  
+  .our-app-page .app-hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .our-app-page .app-store-buttons {
+    justify-content: center;
+  }
+  
+  .our-app-page .statistics-card {
+    left: 10px;
+    top: 60px;
+  }
+  
+  .our-app-page .progress-card {
+    right: 10px;
+    bottom: 30px;
+  }
+  
+  .our-app-page .phone-mockup-realistic {
+    width: 260px;
+    height: 530px;
+  }
+}
+
+@media (max-width: 640px) {
+  .our-app-page .app-hero-section {
+    padding: 60px 20px 50px;
+  }
+  
+  .our-app-page .app-hero-title {
+    font-size: 2rem;
+  }
+  
+  .our-app-page .app-hero-description {
+    font-size: 0.9rem;
+  }
+  
+  .our-app-page .app-hero-visual {
+    height: 500px;
+  }
+  
+  .our-app-page .phone-mockup-realistic {
+    width: 240px;
+    height: 490px;
+  }
+  
+  .our-app-page .statistics-card {
+    width: 180px;
+    padding: 14px;
+  }
+  
+  .our-app-page .progress-card {
+    width: 220px;
+    padding: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .our-app-page .app-hero-title {
+    font-size: 1.75rem;
+  }
+  
+  .our-app-page .statistics-card,
+  .our-app-page .progress-card {
+    display: none;
+  }
+  
+  .our-app-page .phone-mockup-realistic {
+    width: 230px;
+    height: 470px;
+  }
+}
+
+/* Control Your Health Section */
+.our-app-page .control-health-section {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fffe 0%, #f0fbf4 25%, #f8fffe 50%, #f0fbf4 75%, #f8fffe 100%);
+  padding: 120px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.our-app-page .control-health-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+
+.our-app-page .control-health-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #2c3e2d;
+  line-height: 1.2;
+  margin-bottom: 80px;
+  letter-spacing: -1.5px;
+}
+
+.our-app-page .control-health-visual {
+  position: relative;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Feature Cards */
+.our-app-page .feature-card {
+  position: absolute;
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 220px;
+  transition: all 0.3s ease;
+  animation: floatFeature 8s ease-in-out infinite;
+}
+
+.our-app-page .feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.our-app-page .feature-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.our-app-page .feature-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.our-app-page .feature-content h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2c3e2d;
+  margin-bottom: 4px;
+}
+
+.our-app-page .feature-content h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2c3e2d;
+  margin: 0;
+}
+
+/* Individual Feature Card Positions and Colors */
+.our-app-page .brainstorm-card {
+  top: 50px;
+  left: 80px;
+  animation-delay: 0s;
+}
+
+.our-app-page .brainstorm-card .feature-icon {
+  background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+}
+
+.our-app-page .track-card {
+  top: 80px;
+  right: 100px;
+  animation-delay: 2s;
+}
+
+.our-app-page .track-card .feature-icon {
+  background: linear-gradient(135deg, #79B927 0%, #00963F 100%);
+}
+
+.our-app-page .search-card {
+  bottom: 120px;
+  left: 60px;
+  animation-delay: 4s;
+}
+
+.our-app-page .search-card .feature-icon {
+  background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+}
+
+.our-app-page .communicate-card {
+  bottom: 80px;
+  right: 80px;
+  animation-delay: 6s;
+}
+
+.our-app-page .communicate-card .feature-icon {
+  background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+}
+
+/* Central Phone */
+.our-app-page .central-phone {
+  position: relative;
+  z-index: 10;
+}
+
+.our-app-page .phone-mockup-control {
+  width: 320px;
+  height: 650px;
+  background: linear-gradient(145deg, #1a1a1a 0%, #2a2a2a 100%);
+  border-radius: 45px;
+  padding: 16px;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.2),
+    0 40px 80px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.our-app-page .phone-mockup-control::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 30px;
+  background: #1a1a1a;
+  border-radius: 0 0 20px 20px;
+  z-index: 10;
+}
+
+.our-app-page .phone-screen-control {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #fafafa 0%, #f5f5f5 100%);
+  border-radius: 35px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.our-app-page .screen-header-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 0 30px;
+  flex-shrink: 0;
+}
+
+.our-app-page .back-arrow {
+  width: 32px;
+  height: 32px;
+  color: #00963F;
+}
+
+.our-app-page .back-arrow svg {
+  width: 100%;
+  height: 100%;
+}
+
+.our-app-page .screen-title-control {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2c3e2d;
+  flex: 1;
+}
+
+.our-app-page .goal-image {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border-radius: 16px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.our-app-page .vegetable-basket {
+  width: 80px;
+  height: 80px;
+  color: #00963F;
+}
+
+.our-app-page .vegetable-basket svg {
+  width: 100%;
+  height: 100%;
+}
+
+.our-app-page .goal-info h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2c3e2d;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.our-app-page .farmer-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.our-app-page .farmer-avatar {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #79B927 0%, #00963F 100%);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.our-app-page .farmer-info span {
+  font-size: 0.9rem;
+  color: #5a6c57;
+  font-weight: 500;
+}
+
+.our-app-page .progress-section-control {
+  background: linear-gradient(135deg, #79B927 0%, #00963F 100%);
+  border-radius: 16px;
+  padding: 20px;
+  color: white;
+}
+
+.our-app-page .progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.our-app-page .progress-header span {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.our-app-page .progress-amount {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.our-app-page .progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.our-app-page .progress-fill {
+  width: 70%;
+  height: 100%;
+  background: white;
+  border-radius: 4px;
+  animation: progressFill 3s ease-in-out infinite alternate;
+}
+
+.our-app-page .progress-stats span {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+/* Animations */
+@keyframes floatFeature {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes progressFill {
+  0% {
+    width: 60%;
+  }
+  100% {
+    width: 80%;
+  }
+}
+
+/* Responsive Design for Control Health Section */
+@media (max-width: 1400px) {
+  .our-app-page .control-health-section {
+    padding: 100px 60px;
+  }
+  
+  .our-app-page .feature-card {
+    min-width: 200px;
+  }
+  
+  .our-app-page .brainstorm-card {
+    left: 40px;
+  }
+  
+  .our-app-page .track-card {
+    right: 60px;
+  }
+  
+  .our-app-page .search-card {
+    left: 20px;
+  }
+  
+  .our-app-page .communicate-card {
+    right: 40px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .our-app-page .control-health-section {
+    padding: 80px 40px;
+  }
+  
+  .our-app-page .control-health-title {
+    font-size: 3rem;
+  }
+  
+  .our-app-page .phone-mockup-control {
+    width: 300px;
+    height: 600px;
+  }
+}
+
+@media (max-width: 968px) {
+  .our-app-page .control-health-section {
+    padding: 60px 30px;
+  }
+  
+  .our-app-page .control-health-title {
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+  }
+  
+  .our-app-page .control-health-visual {
+    height: 500px;
+  }
+  
+  .our-app-page .phone-mockup-control {
+    width: 280px;
+    height: 560px;
+  }
+  
+  .our-app-page .feature-card {
+    min-width: 180px;
+    padding: 20px;
+  }
+  
+  .our-app-page .brainstorm-card {
+    top: 30px;
+    left: 20px;
+  }
+  
+  .our-app-page .track-card {
+    top: 60px;
+    right: 30px;
+  }
+  
+  .our-app-page .search-card {
+    bottom: 100px;
+    left: 10px;
+  }
+  
+  .our-app-page .communicate-card {
+    bottom: 60px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .our-app-page .control-health-section {
+    padding: 50px 20px;
+  }
+  
+  .our-app-page .control-health-title {
+    font-size: 2rem;
+    margin-bottom: 50px;
+  }
+  
+  .our-app-page .control-health-visual {
+    height: 450px;
+  }
+  
+  .our-app-page .phone-mockup-control {
+    width: 260px;
+    height: 520px;
+  }
+  
+  .our-app-page .feature-card {
+    min-width: 160px;
+    padding: 16px;
+    gap: 12px;
+  }
+  
+  .our-app-page .feature-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .our-app-page .feature-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .our-app-page .feature-content h3 {
+    font-size: 0.9rem;
+  }
+  
+  .our-app-page .feature-content h4 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .our-app-page .control-health-title {
+    font-size: 1.75rem;
+  }
+  
+  .our-app-page .feature-card {
+    display: none;
+  }
+  
+  .our-app-page .phone-mockup-control {
+    width: 240px;
+    height: 480px;
+  }
+}
+
+/* Features Grid Section */
+.our-app-page .features-grid-section {
+  padding: 120px 80px;
+  background: linear-gradient(135deg, #f8fffe 0%, #f0fbf4 25%, #f8fffe 50%, #f0fbf4 75%, #f8fffe 100%);
+}
+
+.our-app-page .features-grid-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.our-app-page .section-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.our-app-page .section-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #2c3e2d;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  letter-spacing: -1px;
+}
+
+.our-app-page .section-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #5a6c57;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.our-app-page .features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+}
+
+.our-app-page .feature-item {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.our-app-page .feature-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+.our-app-page .feature-item-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #79B927 0%, #00963F 100%);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  color: white;
+}
+
+.our-app-page .feature-item-icon svg {
+  width: 40px;
+  height: 40px;
+}
+
+.our-app-page .feature-item h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c3e2d;
+  margin-bottom: 16px;
+}
+
+.our-app-page .feature-item p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #5a6c57;
+}
+
+/* Statistics Section */
+.our-app-page .statistics-section {
+  padding: 120px 80px;
+  background: linear-gradient(135deg, #f8fffe 0%, #f0fbf4 25%, #f8fffe 50%, #f0fbf4 75%, #f8fffe 100%);
+}
+
+.our-app-page .statistics-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.our-app-page .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 60px;
+}
+
+.our-app-page .stat-item {
+  text-align: center;
+}
+
+.our-app-page .stat-number {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #00963F;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.our-app-page .stat-label {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2c3e2d;
+  margin-bottom: 8px;
+}
+
+.our-app-page .stat-description {
+  font-size: 1rem;
+  color: #5a6c57;
+  line-height: 1.5;
+}
+
+/* Final CTA Section */
+.our-app-page .final-cta-section {
+  padding: 120px 80px;
+  background: linear-gradient(135deg, #f8fffe 0%, #f0fbf4 25%, #f8fffe 50%, #f0fbf4 75%, #f8fffe 100%);
+}
+
+.our-app-page .final-cta-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.our-app-page .cta-content {
+  max-width: 500px;
+}
+
+.our-app-page .cta-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #2c3e2d;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  letter-spacing: -1px;
+}
+
+.our-app-page .cta-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #5a6c57;
+  margin-bottom: 40px;
+}
+
+.our-app-page .cta-buttons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.our-app-page .cta-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  background: #000;
+  border-radius: 12px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.our-app-page .cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.our-app-page .cta-icon {
+  font-size: 2rem;
+}
+
+.our-app-page .cta-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.our-app-page .cta-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.8;
+}
+
+.our-app-page .cta-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.our-app-page .cta-features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.our-app-page .cta-feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #5a6c57;
+}
+
+.our-app-page .cta-feature svg {
+  width: 20px;
+  height: 20px;
+  color: #00963F;
+}
+
+.our-app-page .cta-feature span {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.our-app-page .cta-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.our-app-page .floating-phone {
+  animation: floatPhone 6s ease-in-out infinite;
+}
+
+.our-app-page .phone-mockup-cta {
+  width: 280px;
+  height: 560px;
+  background: linear-gradient(145deg, #1a1a1a 0%, #2a2a2a 100%);
+  border-radius: 40px;
+  padding: 14px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+}
+
+.our-app-page .phone-screen-cta {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #fafafa 0%, #f5f5f5 100%);
+  border-radius: 30px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.our-app-page .success-animation {
+  text-align: center;
+}
+
+.our-app-page .success-circle {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #79B927 0%, #00963F 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  animation: successPulse 2s ease-in-out infinite;
+}
+
+.our-app-page .success-circle svg {
+  width: 50px;
+  height: 50px;
+  color: white;
+}
+
+.our-app-page .success-animation h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2c3e2d;
+  margin-bottom: 8px;
+}
+
+.our-app-page .success-animation p {
+  font-size: 1rem;
+  color: #5a6c57;
+  line-height: 1.5;
+}
+
+/* Additional Animations */
+@keyframes floatPhone {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes successPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Responsive Design for New Sections */
+@media (max-width: 1400px) {
+  .our-app-page .features-grid-section,
+  .our-app-page .statistics-section,
+  .our-app-page .screenshots-section,
+  .our-app-page .final-cta-section {
+    padding: 100px 60px;
+  }
+  
+  .our-app-page .final-cta-container {
+    gap: 60px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .our-app-page .features-grid-section,
+  .our-app-page .statistics-section,
+  .our-app-page .screenshots-section,
+  .our-app-page .final-cta-section {
+    padding: 80px 40px;
+  }
+  
+  .our-app-page .section-title,
+  .our-app-page .cta-title {
+    font-size: 2.5rem;
+  }
+  
+  .our-app-page .features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+}
+
+@media (max-width: 968px) {
+  .our-app-page .features-grid-section,
+  .our-app-page .statistics-section,
+  .our-app-page .screenshots-section,
+  .our-app-page .final-cta-section {
+    padding: 60px 30px;
+  }
+  
+  .our-app-page .section-title,
+  .our-app-page .cta-title {
+    font-size: 2rem;
+  }
+  
+  .our-app-page .final-cta-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    text-align: center;
+  }
+  
+  .our-app-page .cta-content {
+    max-width: 100%;
+  }
+  
+  .our-app-page .features-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .our-app-page .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+  
+  .our-app-page .screenshots-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .our-app-page .features-grid-section,
+  .our-app-page .statistics-section,
+  .our-app-page .screenshots-section,
+  .our-app-page .final-cta-section {
+    padding: 50px 20px;
+  }
+  
+  .our-app-page .section-title,
+  .our-app-page .cta-title {
+    font-size: 1.75rem;
+  }
+  
+  .our-app-page .section-description,
+  .our-app-page .cta-description {
+    font-size: 1rem;
+  }
+  
+  .our-app-page .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .our-app-page .stat-number {
+    font-size: 2.5rem;
+  }
+  
+  .our-app-page .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .our-app-page .cta-button {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+  
+  .our-app-page .phone-mockup-cta {
+    width: 240px;
+    height: 480px;
+  }
+}
+
+@media (max-width: 480px) {
+  .our-app-page .section-title,
+  .our-app-page .cta-title {
+    font-size: 1.5rem;
+  }
+  
+  .our-app-page .feature-item {
+    padding: 30px 20px;
+  }
+  
+  .our-app-page .screenshot-phone {
+    width: 180px;
+    height: 360px;
+  }
+}

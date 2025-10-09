@@ -12,7 +12,7 @@ const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(false);
   const [showBlogPopup, setShowBlogPopup] = useState(false);
   const [showContactPopup, setShowContactPopup] = useState(false);
-  const [showAppDownload, setShowAppDownload] = useState(false);
+
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const navigateToProducts = useNavigateToProducts();
@@ -307,72 +307,22 @@ const Navbar = () => {
                 </svg>
               </motion.a>
 
-              {/* Download App Icon with Dropdown */}
-              <div 
-                className="relative"
-                onMouseEnter={() => setShowAppDownload(true)}
-                onMouseLeave={() => setShowAppDownload(false)}
+              {/* Download App Icon - Navigate to App Page */}
+              <motion.div
+                className="text-emerald-700 hover:text-emerald-600 transition-colors duration-300 cursor-pointer"
+                whileHover={{ scale: 1.2, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: 0.5 }}
+                title="Download App"
+                onClick={() => navigate('/our-app')}
               >
-                <motion.div
-                  className="text-emerald-700 hover:text-emerald-600 transition-colors duration-300 cursor-pointer"
-                  whileHover={{ scale: 1.2, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 0.5 }}
-                  title="Download App"
-                >
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17 2H7c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H7V6h10v10z"/>
-                    <circle cx="12" cy="17" r="1"/>
-                  </svg>
-                </motion.div>
-
-                {/* Dropdown for Android and iOS */}
-                <AnimatePresence>
-                  {showAppDownload && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                      transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="absolute top-full right-0 mt-2 bg-white/95 backdrop-blur-xl rounded-xl shadow-xl border border-gray-200/50 py-2 min-w-[160px] z-50"
-                    >
-                      {/* Android Option */}
-                      <motion.a
-                        href="#"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          // Add Android app store link here
-                          window.open('https://play.google.com/store/apps/details?id=com.naturallygood.app', '_blank');
-                        }}
-                        className="flex items-center px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors duration-200"
-                      >
-                        <svg className="w-5 h-5 mr-3 text-green-500" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zM20.5 8c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zM15.53 2.16l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48C13.85 1.23 12.95 1 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/>
-                        </svg>
-                        <span className="font-medium">Android</span>
-                      </motion.a>
-
-                      {/* iOS Option */}
-                      <motion.a
-                        href="#"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          // Add iOS app store link here
-                          window.open('https://apps.apple.com/in/app/naturally-good/id6749650953', '_blank');
-                        }}
-                        className="flex items-center px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors duration-200"
-                      >
-                        <svg className="w-5 h-5 mr-3 text-gray-800" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2.01.76-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                        </svg>
-                        <span className="font-medium">iOS</span>
-                      </motion.a>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17 2H7c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H7V6h10v10z"/>
+                  <circle cx="12" cy="17" r="1"/>
+                </svg>
+              </motion.div>
             </div>
 
             {/* Mobile Menu Button */}
@@ -565,50 +515,24 @@ const Navbar = () => {
 
               {/* Mobile Download App Section */}
               <div className="mt-6 pt-4 border-t border-gray-200/30">
-                <h4 className="font-semibold text-lg mb-3 text-center" style={{ color: '#00963E' }}>Download Our App</h4>
-                <div className="flex space-x-3">
-                  {/* Mobile Android Button */}
-                  <motion.a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      window.open('https://play.google.com/store/apps/details?id=com.naturallygood.app', '_blank');
-                      setIsMobileMenuOpen(false);
-                    }}
-                    className="flex-1 px-4 py-3 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center space-x-2"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.4 }}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zM20.5 8c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zM15.53 2.16l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48C13.85 1.23 12.95 1 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/>
-                    </svg>
-                    <span>Android</span>
-                  </motion.a>
-
-                  {/* Mobile iOS Button */}
-                  <motion.a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      window.open('https://apps.apple.com/in/app/naturally-good/id6749650953', '_blank');
-                      setIsMobileMenuOpen(false);
-                    }}
-                    className="flex-1 px-4 py-3 bg-gradient-to-r from-gray-800 to-black hover:from-black hover:to-gray-800 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center space-x-2"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.5 }}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2.01.76-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                    </svg>
-                    <span>iOS</span>
-                  </motion.a>
-                </div>
+                <motion.div
+                  onClick={() => {
+                    navigate('/our-app');
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="px-4 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 cursor-pointer"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.4 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17 2H7c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H7V6h10v10z"/>
+                    <circle cx="12" cy="17" r="1"/>
+                  </svg>
+                  <span>Download Our App</span>
+                </motion.div>
               </div>
             </div>
             </motion.div>
