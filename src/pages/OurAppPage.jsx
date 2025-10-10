@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../css/OurAppPage.css'
 import { FaHome, FaShoppingCart, FaUser, FaBell, FaHeart, FaArrowLeft, FaLeaf, FaApple, FaGooglePlay } from 'react-icons/fa'
 import { HiTrendingUp } from 'react-icons/hi'
@@ -6,6 +6,23 @@ import { IoStatsChart } from 'react-icons/io5'
 
 function OurAppPage() {
   const [activeScreen, setActiveScreen] = useState('order')
+  const [deviceType, setDeviceType] = useState('android') // default to android
+
+  useEffect(() => {
+    // Detect device type
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    
+    // iOS detection (iPhone, iPad, iPod, Mac)
+    const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+    const isMac = /Macintosh|MacIntel|MacPPC|Mac68K/.test(userAgent);
+    
+    if (isIOS || isMac) {
+      setDeviceType('ios');
+    } else {
+      setDeviceType('android');
+    }
+  }, []);
+
   return (
     <div className="our-app-page">
       <section className="app-hero-section">
@@ -23,32 +40,35 @@ function OurAppPage() {
               in every order. Track your deliveries, browse seasonal produce, and support local agriculture—all from your phone.
             </p>
             <div className="app-store-buttons">
-              <a 
-                href="https://apps.apple.com/in/app/naturally-good/id6749650953" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="store-button app-store" 
-                aria-label="Download on the App Store"
-              >
-                <FaApple className="store-icon" />
-                <div className="store-text">
-                  <span className="store-label">Download on the</span>
-                  <span className="store-name">App Store</span>
-                </div>
-              </a>
-              <a 
-                href="https://play.google.com/store/apps/details?id=com.naturallygood.app" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="store-button google-play" 
-                aria-label="Get it on Google Play"
-              >
-                <FaGooglePlay className="store-icon" />
-                <div className="store-text">
-                  <span className="store-label">GET IT ON</span>
-                  <span className="store-name">Google Play</span>
-                </div>
-              </a>
+              {deviceType === 'ios' ? (
+                <a 
+                  href="https://apps.apple.com/in/app/naturally-good/id6749650953" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="store-button app-store" 
+                  aria-label="Download on the App Store"
+                >
+                  <FaApple className="store-icon" />
+                  <div className="store-text">
+                    <span className="store-label">Download on the</span>
+                    <span className="store-name">App Store</span>
+                  </div>
+                </a>
+              ) : (
+                <a 
+                  href="https://play.google.com/store/apps/details?id=com.naturallygood.app" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="store-button google-play" 
+                  aria-label="Get it on Google Play"
+                >
+                  <FaGooglePlay className="store-icon" />
+                  <div className="store-text">
+                    <span className="store-label">GET IT ON</span>
+                    <span className="store-name">Google Play</span>
+                  </div>
+                </a>
+              )}
             </div>
           </div>
 
@@ -274,6 +294,39 @@ function OurAppPage() {
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Mobile App Store Buttons - Shown only on mobile after phone */}
+            <div className="app-store-buttons-mobile">
+              {deviceType === 'ios' ? (
+                <a 
+                  href="https://apps.apple.com/in/app/naturally-good/id6749650953" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="store-button app-store" 
+                  aria-label="Download on the App Store"
+                >
+                  <FaApple className="store-icon" />
+                  <div className="store-text">
+                    <span className="store-label">Download on the</span>
+                    <span className="store-name">App Store</span>
+                  </div>
+                </a>
+              ) : (
+                <a 
+                  href="https://play.google.com/store/apps/details?id=com.naturallygood.app" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="store-button google-play" 
+                  aria-label="Get it on Google Play"
+                >
+                  <FaGooglePlay className="store-icon" />
+                  <div className="store-text">
+                    <span className="store-label">GET IT ON</span>
+                    <span className="store-name">Google Play</span>
+                  </div>
+                </a>
+              )}
             </div>
 
             {/* Floating Progress Card - Bottom */}
@@ -530,30 +583,33 @@ function OurAppPage() {
             </p>
             
             <div className="cta-buttons">
-              <a 
-                href="https://apps.apple.com/in/app/naturally-good/id6749650953" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cta-button cta-app-store"
-              >
-                <FaApple className="cta-icon" />
-                <div className="cta-text">
-                  <span className="cta-label">Download on the</span>
-                  <span className="cta-name">App Store</span>
-                </div>
-              </a>
-              <a 
-                href="https://play.google.com/store/apps/details?id=com.naturallygood.app" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cta-button cta-google-play"
-              >
-                <FaGooglePlay className="cta-icon" />
-                <div className="cta-text">
-                  <span className="cta-label">GET IT ON</span>
-                  <span className="cta-name">Google Play</span>
-                </div>
-              </a>
+              {deviceType === 'ios' ? (
+                <a 
+                  href="https://apps.apple.com/in/app/naturally-good/id6749650953" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cta-button cta-app-store"
+                >
+                  <FaApple className="cta-icon" />
+                  <div className="cta-text">
+                    <span className="cta-label">Download on the</span>
+                    <span className="cta-name">App Store</span>
+                  </div>
+                </a>
+              ) : (
+                <a 
+                  href="https://play.google.com/store/apps/details?id=com.naturallygood.app" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cta-button cta-google-play"
+                >
+                  <FaGooglePlay className="cta-icon" />
+                  <div className="cta-text">
+                    <span className="cta-label">GET IT ON</span>
+                    <span className="cta-name">Google Play</span>
+                  </div>
+                </a>
+              )}
             </div>
             
             <div className="cta-features">

@@ -8,7 +8,7 @@
 .our-app-page .app-hero-section {
   min-height: 100vh;
   background: linear-gradient(135deg, #f8fffe 0%, #f0fbf4 25%, #f8fffe 50%, #f0fbf4 75%, #f8fffe 100%);
-  padding: 100px 80px 80px;
+  padding: 120px 80px 80px;
   position: relative;
   overflow: hidden;
 }
@@ -52,6 +52,12 @@
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+/* Mobile-specific buttons container (hidden by default) */
+.our-app-page .app-store-buttons-mobile {
+  display: none;
 }
 
 .our-app-page .store-button {
@@ -884,12 +890,12 @@
 
 @media (max-width: 968px) {
   .our-app-page .app-hero-section {
-    padding: 80px 40px 60px;
+    padding: 100px 40px 60px;
   }
 
   .our-app-page .app-hero-container {
     grid-template-columns: 1fr;
-    gap: 50px;
+    gap: 30px;
     /* Change order so phone appears first (above text) */
     grid-template-areas: 
       "visual"
@@ -903,18 +909,39 @@
     grid-area: content;
   }
   
+  /* Hide original buttons on mobile */
+  .our-app-page .app-hero-content .app-store-buttons {
+    display: none;
+  }
+  
   .our-app-page .app-hero-visual {
-    height: 550px;
+    height: auto;
     margin: 0 auto;
     grid-area: visual;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  /* Show mobile buttons after phone */
+  .our-app-page .app-store-buttons-mobile {
+    display: flex;
+    gap: 14px;
+    width: 100%;
+    max-width: 400px;
+    justify-content: center;
+  }
+  
+  /* Single button on mobile - centered and with max-width */
+  .our-app-page .app-store-buttons-mobile .store-button {
+    min-width: 200px;
+    max-width: 280px;
+    justify-content: center;
   }
   
   .our-app-page .app-hero-title {
     font-size: 2.5rem;
-  }
-  
-  .our-app-page .app-store-buttons {
-    justify-content: center;
   }
   
   .our-app-page .statistics-card {
@@ -935,7 +962,7 @@
 
 @media (max-width: 640px) {
   .our-app-page .app-hero-section {
-    padding: 60px 20px 50px;
+    padding: 100px 20px 50px;
   }
   
   .our-app-page .app-hero-title {
@@ -947,7 +974,7 @@
   }
   
   .our-app-page .app-hero-visual {
-    height: 500px;
+    gap: 24px;
   }
   
   .our-app-page .phone-mockup-realistic {
@@ -964,6 +991,28 @@
     width: 220px;
     padding: 14px;
   }
+  
+  /* Adjust mobile buttons for smaller screens */
+  .our-app-page .app-store-buttons-mobile {
+    max-width: 100%;
+    gap: 12px;
+  }
+  
+  .our-app-page .app-store-buttons-mobile .store-button {
+    padding: 10px 16px;
+  }
+  
+  .our-app-page .app-store-buttons-mobile .store-icon {
+    font-size: 1.4rem;
+  }
+  
+  .our-app-page .app-store-buttons-mobile .store-label {
+    font-size: 0.6rem;
+  }
+  
+  .our-app-page .app-store-buttons-mobile .store-name {
+    font-size: 0.85rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -979,6 +1028,21 @@
   .our-app-page .phone-mockup-realistic {
     width: 230px;
     height: 470px;
+  }
+  
+  /* Ensure buttons remain equal width on very small screens */
+  .our-app-page .app-store-buttons-mobile {
+    gap: 10px;
+    padding: 0 10px;
+  }
+  
+  .our-app-page .app-store-buttons-mobile .store-button {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+  
+  .our-app-page .app-store-buttons-mobile .store-icon {
+    font-size: 1.3rem;
   }
 }
 
@@ -1604,11 +1668,14 @@
   gap: 16px;
   margin-bottom: 40px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .our-app-page .cta-button {
   display: flex;
   align-items: center;
+  min-width: 200px;
+  max-width: 240px;
   gap: 12px;
   padding: 16px 24px;
   background: #000;
