@@ -52,7 +52,7 @@ function App() {
           <Route path='/farmers' element={<Farmers></Farmers>}></Route>
           <Route path='/nature' element={<Nature></Nature>}></Route>
           <Route path='/you' element={<You></You>}></Route>
-          <Route path='/our-app' element={<OurAppPage></OurAppPage>}></Route>
+          <Route path='/download' element={<OurAppPage></OurAppPage>}></Route>
           <Route path='/blog/:slug' element={<BlogDetail></BlogDetail>}></Route>
           <Route path='/privacy-policy.php' element={<PrivacyPolicy></PrivacyPolicy>}></Route>
           <Route path='/terms-and-conditions.php' element={<TermsConditions></TermsConditions>}></Route>

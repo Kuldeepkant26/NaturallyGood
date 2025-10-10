@@ -149,6 +149,33 @@ const Navbar = () => {
     }, 200); // Wait for menu close animation
   };
 
+  const handleAppDownload = () => {
+    // Detect device type
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    
+    // iOS detection (iPhone, iPad, iPod, Mac)
+    const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+    const isMac = /Macintosh|MacIntel|MacPPC|Mac68K/.test(userAgent);
+    
+    // Android/Windows detection
+    const isAndroid = /android/i.test(userAgent);
+    const isWindows = /Windows/.test(userAgent);
+    
+    // App Store URLs from OurAppPage
+    const appStoreUrl = "https://apps.apple.com/in/app/naturally-good/id6749650953";
+    const playStoreUrl = "https://play.google.com/store/apps/details?id=com.naturallygood.app";
+    
+    // Redirect based on device
+    if (isIOS || isMac) {
+      window.open(appStoreUrl, '_blank', 'noopener,noreferrer');
+    } else if (isAndroid || isWindows) {
+      window.open(playStoreUrl, '_blank', 'noopener,noreferrer');
+    } else {
+      // Default to Play Store for other devices
+      window.open(playStoreUrl, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   return (
     <motion.nav
       initial={{ opacity: 0, y: -80 }}
@@ -316,7 +343,7 @@ const Navbar = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.4, delay: 0.5 }}
                 title="Download App"
-                onClick={() => navigate('/our-app')}
+                onClick={handleAppDownload}
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M17 2H7c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H7V6h10v10z"/>
@@ -517,7 +544,7 @@ const Navbar = () => {
               <div className="mt-6 pt-4 border-t border-gray-200/30">
                 <motion.div
                   onClick={() => {
-                    navigate('/our-app');
+                    handleAppDownload();
                     setIsMobileMenuOpen(false);
                   }}
                   className="px-4 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 cursor-pointer"
