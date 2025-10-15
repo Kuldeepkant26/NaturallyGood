@@ -38,25 +38,25 @@ export function TimelineDemo() {
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                         <img
-                            src="/src/assets/App-photos/family-img.jpg"
+                            src="https://res.cloudinary.com/dz9eemmz4/image/upload/v1760545499/family-img_iizpid.jpg"
                             alt="Woman using food delivery app"
                             width={500}
                             height={300}
                             className="h-20 w-full rounded-lg object-cover shadow-lg md:h-44 lg:h-60" />
                         <img
-                            src="/src/assets/App-photos/family-img-2.jpg"
+                            src="https://res.cloudinary.com/dz9eemmz4/image/upload/v1760545494/family-img-4_lvly4d.jpg"
                             alt="Fresh vegetables on mobile screen"
                             width={500}
                             height={300}
                             className="h-20 w-full rounded-lg object-cover shadow-lg md:h-44 lg:h-60" />
                         <img
-                            src="/src/assets/App-photos/family-img-3.jpg"
+                            src="https://res.cloudinary.com/dz9eemmz4/image/upload/v1760545488/family-img-3_wiar32.jpg"
                             alt="Couple using smartphones at home"
                             width={500}
                             height={300}
                             className="h-20 w-full rounded-lg object-cover shadow-lg md:h-44 lg:h-60" />
                         <img
-                            src="/src/assets/App-photos/family-img-4.jpg"
+                            src="https://res.cloudinary.com/dz9eemmz4/image/upload/v1760545484/family-img-2_cyj1gy.jpg"
                             alt="Smartphone displaying vegetable shopping cart"
                             width={500}
                             height={300}
