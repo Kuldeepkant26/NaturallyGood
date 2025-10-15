@@ -51,13 +51,14 @@ export const HeroParallax = ({
     springConfig
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-700, 600]),
+    useTransform(scrollYProgress, [0, 0.2], [-700, 300]),
     springConfig
   );
   return (
     <div
       ref={ref}
-      className="h-[320vh] pt-24 lg:pt-28 pb-32 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[320vh] min-h-screen pt-24 lg:pt-28 pb-32 antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      style={{ overflow: 'visible' }}
     >
       <Header />
       <motion.div
@@ -67,7 +68,7 @@ export const HeroParallax = ({
           translateY,
           opacity,
         }}
-        className=""
+        className="pb-20"
       >
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
           {firstRow.map((product) => (
@@ -87,7 +88,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
           {thirdRow.map((product) => (
             <ProductCard
               product={product}
@@ -171,11 +172,6 @@ export const ProductCard = ({
         {product.description && (
           <p className="text-gray-100 text-sm mb-2 line-clamp-2">
             {product.description}
-          </p>
-        )}
-        {product.price && (
-          <p className="font-bold text-base" style={{ color: '#78B826' }}>
-            {product.price}
           </p>
         )}
       </div>

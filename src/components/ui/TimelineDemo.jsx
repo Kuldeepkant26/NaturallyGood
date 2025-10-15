@@ -38,25 +38,25 @@ export function TimelineDemo() {
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                         <img
-                            src="https://media.istockphoto.com/id/1306672291/photo/high-angle-view-asian-chinese-womans-hand-on-mobile-app-for-online-food-delivery-in-front-of.jpg?s=612x612&w=0&k=20&c=cN_OR1O4Inf-K9c5N-mGgxSJKmPisIVl6Xn4_QdXsXo="
+                            src="/src/assets/App-photos/family-img.jpg"
                             alt="Woman using food delivery app"
                             width={500}
                             height={300}
                             className="h-20 w-full rounded-lg object-cover shadow-lg md:h-44 lg:h-60" />
                         <img
-                            src="https://img.freepik.com/fotos-premium/legumes-frescos-na-tela-do-celular_693425-3550.jpg"
+                            src="/src/assets/App-photos/family-img-2.jpg"
                             alt="Fresh vegetables on mobile screen"
                             width={500}
                             height={300}
                             className="h-20 w-full rounded-lg object-cover shadow-lg md:h-44 lg:h-60" />
                         <img
-                            src="https://thumbs.dreamstime.com/b/smiling-indian-woman-talking-boyfriend-swiping-smartphone-sitting-sofa-home-family-couple-multiethnic-young-using-371982073.jpg"
+                            src="/src/assets/App-photos/family-img-3.jpg"
                             alt="Couple using smartphones at home"
                             width={500}
                             height={300}
                             className="h-20 w-full rounded-lg object-cover shadow-lg md:h-44 lg:h-60" />
                         <img
-                            src="https://thumbs.dreamstime.com/b/smartphone-mobile-phone-image-display-shopping-cart-vegetables-pink-background-fresh-tomatoes-online-order-303014978.jpg"
+                            src="/src/assets/App-photos/family-img-4.jpg"
                             alt="Smartphone displaying vegetable shopping cart"
                             width={500}
                             height={300}

@@ -13,7 +13,7 @@ const CarbonEmissionSection = () => {
       icon: <Car className="w-6 h-6" />,
       title: "Electric vehicles for last-mile delivery",
       description: "100% electric fleet reducing emissions by 85%",
-      image: "https://static.vecteezy.com/system/resources/previews/002/716/711/non_2x/ecology-and-environmental-cityscape-concept-car-symbol-with-green-leaves-around-cities-help-the-world-with-eco-friendly-ideas-free-vector.jpg",
+      image: "https://www.ross-brooke.co.uk/wp-content/uploads/2021/10/green-electric-company-car-vehicle.png",
       stat: "85% Less CO2",
       color: "#81c784",
       impact: "Zero tailpipe emissions"
@@ -53,7 +53,7 @@ const CarbonEmissionSection = () => {
       icon: <BarChart className="w-6 h-6" />,
       title: "Efficient crop planning to reduce waste",
       description: "Smart agriculture and precision farming techniques",
-      image: "https://i.pinimg.com/1200x/11/2c/f7/112cf7c9c4ff450be0badf151b31c1c8.jpg",
+      image: "https://images.pexels.com/photos/1656663/pexels-photo-1656663.jpeg?cs=srgb&dl=pexels-wendywei-1656663.jpg&fm=jpg",
       stat: "95% Efficiency",
       color: "#aed581",
       impact: "Zero waste farming"

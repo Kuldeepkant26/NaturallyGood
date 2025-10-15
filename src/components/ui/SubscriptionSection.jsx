@@ -39,7 +39,7 @@ const SubscriptionSection = () => {
         { name: 'A2 Pure Cow Ghee', included: false },
         { name: 'Exclusive Harvest', included: false },
         { name: 'Organic Farming Training', included: false },
-        { name: 'Naturally Fit', included: false }
+        { name: 'Naturally Fit (Nutrition Guidance)', included: false }
       ],
       features: [
         'Fresh seasonal vegetables',
@@ -92,7 +92,7 @@ const SubscriptionSection = () => {
         { name: 'A2 Pure Cow Ghee', included: false },
         { name: 'Exclusive Harvest', included: false },
         { name: 'Organic Farming Training', included: false },
-        { name: 'Naturally Fit', included: false }
+        { name: 'Naturally Fit (Nutrition Guidance)', included: false }
       ],
       features: [
         'Best value for money',
@@ -145,7 +145,7 @@ const SubscriptionSection = () => {
         { name: 'A2 Pure Cow Ghee', value: '500 Gms', included: true },
         { name: 'Exclusive Harvest', included: false },
         { name: 'Organic Farming Training', included: false },
-        { name: 'Naturally Fit', included: false }
+        { name: 'Naturally Fit (Nutrition Guidance)', included: false }
       ],
       features: [
         'Huge savings',
@@ -198,7 +198,7 @@ const SubscriptionSection = () => {
         { name: 'A2 Pure Cow Ghee', value: '1 KG', included: true },
         { name: 'Exclusive Harvest', included: true },
         { name: 'Organic Farming Training', included: true },
-        { name: 'Naturally Fit', included: true }
+        { name: 'Naturally Fit (Nutrition Guidance)', included: true }
       ],
       features: [
         'Maximum discount',

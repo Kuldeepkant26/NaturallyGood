@@ -23,7 +23,7 @@ export const products = [
     slug: "a2-gir-pure-cow-ghee", 
     thumbnail: "https://agrinests.com/cdn/shop/files/A2vedicGhee_2024-05-17T17_17_44.400Z.png?v=1715966268",
     description: "Artisanally crafted A2 Gir cow ghee, sourced from heritage breed cattle",
-    price: "₹2,800 Per Kg"
+    price: "₹2,800 for 1 kg"
   },
   {
     title: "Wild Forest Honey", 
@@ -31,7 +31,7 @@ export const products = [
     slug: "natural-honey",
     thumbnail: "https://cdn-prod.medicalnewstoday.com/content/images/articles/324/324966/raw-honey-vs-regular-honey-on-table.jpg",
     description: "Raw, unprocessed honey harvested from pristine forest apiaries",
-    price: "₹600 Per 500gm"
+    price: "₹649 for 300 gms"
   },
   {
     title: "Heritage Root Vegetables",
