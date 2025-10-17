@@ -9,18 +9,18 @@ const HeroSection = () => {
   
   const videoRefs = useRef([]);
   
-  // Pixabay CDN video URLs
+  // Local hero videos
   const videos = [
     {
-      url: "https://cdn.pixabay.com/video/2023/08/12/175711-854057963_large.mp4",
+      url: "/videos/herovid1_ixj04k.mp4",
       duration: 8000 // 8 seconds
     },
     {
-      url: "https://cdn.pixabay.com/video/2025/04/03/269480_large.mp4",
+      url: "/videos/herovid2_annbcb.mp4",
       duration: 5000 // 5 seconds
     },
     {
-      url: "https://cdn.pixabay.com/video/2020/07/09/44253-443056971_large.mp4",
+      url: "/videos/herovid3_iu0vlh.mp4",
       duration: 8000 // 8 seconds
     }
   ];
