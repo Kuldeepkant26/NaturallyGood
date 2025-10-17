@@ -4,16 +4,8 @@ import { Link } from 'react-router-dom';
 const HeroSection = () => {
   const [showContent, setShowContent] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
   
-  const videoRefs = useRef([]);
-  
-  const videos = [
-    "/videos/herovid1.mp4",
-    "/videos/herovid2.mp4",
-    "/videos/herovid3.mp4"
-  ];
+  const videoRef = useRef(null);
 
   useEffect(() => {
     // Show navbar after 2 seconds
@@ -33,80 +25,26 @@ const HeroSection = () => {
     };
   }, []);
 
-  useEffect(() => {
-    // Preload all videos when the component mounts
-    videoRefs.current.forEach((video) => {
-      if (video) {
-        video.load();
-      }
-    });
-  }, []);
-
-  // 5-second timer for video transitions
-  useEffect(() => {
-    const timer = setInterval(() => {
-      if (!isTransitioning) {
-        setIsTransitioning(true);
-        
-        const nextVideoIndex = (currentVideoIndex + 1) % videos.length;
-        const currentVideo = videoRefs.current[currentVideoIndex];
-        const nextVideo = videoRefs.current[nextVideoIndex];
-        
-        // Fade out current video and fade in next video
-        if (currentVideo) {
-          currentVideo.style.opacity = '0';
-        }
-        
-        if (nextVideo) {
-          nextVideo.style.opacity = '1';
-          nextVideo.currentTime = 0;
-          nextVideo.play();
-        }
-        
-        // Update the current video index after transition
-        setTimeout(() => {
-          setCurrentVideoIndex(nextVideoIndex);
-          setIsTransitioning(false);
-          
-          // Reset the opacity of the previous video and prepare it for next cycle
-          if (currentVideo) {
-            currentVideo.style.opacity = '1';
-            currentVideo.currentTime = 0;
-          }
-        }, 1000); // 1 second transition time
-      }
-    }, 5000); // 5 seconds per video
-
-    return () => clearInterval(timer);
-  }, [currentVideoIndex, isTransitioning, videos.length]);
-
   const handleVideoLoaded = () => {
     setVideoLoaded(true);
   };
 
   return (
     <section className="hero-container">
-      {/* Background Videos */}
-      {videos.map((video, index) => (
-        <video
-          key={index}
-          ref={(el) => (videoRefs.current[index] = el)}
-          className={`hero-video ${currentVideoIndex === index ? 'active' : 'inactive'}`}
-          autoPlay={index === 0}
-          muted
-          playsInline
-          onLoadedData={index === 0 ? handleVideoLoaded : undefined}
-          preload="metadata"
-          style={{
-            opacity: currentVideoIndex === index ? 1 : 0,
-            transition: 'opacity 1s ease-in-out',
-            zIndex: currentVideoIndex === index ? -2 : -3
-          }}
-        >
-          <source src={video} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      ))}
+      {/* Background Video */}
+      <video
+        ref={videoRef}
+        className="hero-video active"
+        autoPlay
+        muted
+        loop
+        playsInline
+        onLoadedData={handleVideoLoaded}
+        preload="auto"
+      >
+        <source src="/videos/newHomeHeroVideo.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
 
       {/* Fallback background if video doesn't load */}
       {!videoLoaded && (
