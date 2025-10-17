@@ -9,18 +9,18 @@ const HeroSection = () => {
   
   const videoRefs = useRef([]);
   
-  // Cloudinary video URLs
+  // Pixabay CDN video URLs
   const videos = [
     {
-      url: "https://res.cloudinary.com/dz9eemmz4/video/upload/v1758708621/herovid1_ixj04k.mp4",
+      url: "https://cdn.pixabay.com/video/2023/08/12/175711-854057963_large.mp4",
       duration: 8000 // 8 seconds
     },
     {
-      url: "https://res.cloudinary.com/dz9eemmz4/video/upload/v1758708630/herovid2_annbcb.mp4",
-      duration: 5000 // 5 seconds (as requested)
+      url: "https://cdn.pixabay.com/video/2025/04/03/269480_large.mp4",
+      duration: 5000 // 5 seconds
     },
     {
-      url: "https://res.cloudinary.com/dz9eemmz4/video/upload/v1758708637/herovid3_iu0vlh.mp4",
+      url: "https://cdn.pixabay.com/video/2020/07/09/44253-443056971_large.mp4",
       duration: 8000 // 8 seconds
     }
   ];
