@@ -4,8 +4,26 @@ import { Link } from 'react-router-dom';
 const HeroSection = () => {
   const [showContent, setShowContent] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   
-  const videoRef = useRef(null);
+  const videoRefs = useRef([]);
+  
+  // Cloudinary video URLs
+  const videos = [
+    {
+      url: "https://res.cloudinary.com/dz9eemmz4/video/upload/v1758708621/herovid1_ixj04k.mp4",
+      duration: 8000 // 8 seconds
+    },
+    {
+      url: "https://res.cloudinary.com/dz9eemmz4/video/upload/v1758708630/herovid2_annbcb.mp4",
+      duration: 5000 // 5 seconds (as requested)
+    },
+    {
+      url: "https://res.cloudinary.com/dz9eemmz4/video/upload/v1758708637/herovid3_iu0vlh.mp4",
+      duration: 8000 // 8 seconds
+    }
+  ];
 
   useEffect(() => {
     // Show navbar after 2 seconds
@@ -25,26 +43,95 @@ const HeroSection = () => {
     };
   }, []);
 
+  // Preload videos for smooth transitions
+  useEffect(() => {
+    videoRefs.current.forEach((video, index) => {
+      if (video) {
+        video.load();
+        // Start playing the first video
+        if (index === 0) {
+          video.play().catch(error => console.log("Autoplay prevented:", error));
+        }
+      }
+    });
+  }, []);
+
+  // Professional video transition system with custom durations
+  useEffect(() => {
+    const currentDuration = videos[currentVideoIndex].duration;
+    
+    const timer = setTimeout(() => {
+      if (!isTransitioning) {
+        setIsTransitioning(true);
+        
+        const nextVideoIndex = (currentVideoIndex + 1) % videos.length;
+        const currentVideo = videoRefs.current[currentVideoIndex];
+        const nextVideo = videoRefs.current[nextVideoIndex];
+        
+        // Smooth crossfade transition
+        if (currentVideo) {
+          currentVideo.style.opacity = '0';
+          currentVideo.style.transform = 'scale(1.05)';
+        }
+        
+        if (nextVideo) {
+          nextVideo.style.opacity = '1';
+          nextVideo.style.transform = 'scale(1)';
+          nextVideo.currentTime = 0;
+          nextVideo.play().catch(error => console.log("Play error:", error));
+        }
+        
+        // Complete transition
+        setTimeout(() => {
+          setCurrentVideoIndex(nextVideoIndex);
+          setIsTransitioning(false);
+          
+          // Reset previous video
+          if (currentVideo) {
+            currentVideo.style.transform = 'scale(1)';
+            currentVideo.currentTime = 0;
+          }
+        }, 1000); // 1 second smooth transition
+      }
+    }, currentDuration);
+
+    return () => clearTimeout(timer);
+  }, [currentVideoIndex, isTransitioning]);
+
   const handleVideoLoaded = () => {
     setVideoLoaded(true);
   };
 
   return (
     <section className="hero-container">
-      {/* Background Video */}
-      <video
-        ref={videoRef}
-        className="hero-video active"
-        autoPlay
-        muted
-        loop
-        playsInline
-        onLoadedData={handleVideoLoaded}
-        preload="auto"
-      >
-        <source src="/videos/newHomeHeroVideo.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      {/* Multiple Background Videos with Smooth Transitions */}
+      {videos.map((video, index) => (
+        <video
+          key={index}
+          ref={(el) => (videoRefs.current[index] = el)}
+          className={`hero-video ${currentVideoIndex === index ? 'active' : 'inactive'}`}
+          autoPlay={index === 0}
+          muted
+          playsInline
+          onLoadedData={index === 0 ? handleVideoLoaded : undefined}
+          preload="auto"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            opacity: currentVideoIndex === index ? 1 : 0,
+            transform: currentVideoIndex === index ? 'scale(1)' : 'scale(1.05)',
+            transition: 'opacity 1s ease-in-out, transform 1s ease-in-out',
+            zIndex: currentVideoIndex === index ? -2 : -3
+          }}
+        >
+          <source src={video.url} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      ))}
 
       {/* Fallback background if video doesn't load */}
       {!videoLoaded && (
