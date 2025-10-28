@@ -5,6 +5,9 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './FarmersVoiceSection.css';
 
+// Import local farmer image for first testimonial only
+import farmer6 from '../../assets/FarmersImages/farmer6.jpeg'
+
 gsap.registerPlugin(ScrollTrigger);
 
 function FarmersVoiceSection() {
@@ -22,7 +25,7 @@ function FarmersVoiceSection() {
       location: "Haryana",
       experience: "15 years",
       quote: "पहले अपनी फसल के सही दाम की चिंता रहती थी। अब Naturally Good से जुड़कर हमें न केवल अच्छा दाम मिलता है बल्कि यह सुकून भी है कि हमारी ऑर्गेनिक उपज सीधे परिवारों तक पहुँच रही है। लोग हमारी मेहनत की कद्र करते हैं, यही सबसे बड़ी खुशी है।",
-      image: "https://res.cloudinary.com/dz9eemmz4/image/upload/v1758705994/amol-sonar-a_Y4LJsU0eU-unsplash_hegb06.jpg",
+      image: farmer6,
       rating: 5
     },
     {

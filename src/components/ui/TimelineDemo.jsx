@@ -2,6 +2,14 @@ import React from "react";
 import { Timeline } from "@/components/ui/timeline";
 import { Truck, Smartphone, Home, Recycle, Heart, CheckCircle } from "lucide-react";
 
+// Import farmer images for Step 2 and Step 3
+import farmer10 from '../../assets/FarmersImages/farmer10.jpeg';
+import farmer7 from '../../assets/FarmersImages/farmer7.jpeg';
+
+// Import mobile app images for Step 1
+import mobileApp1 from '../../assets/MobileAPP.jpg';
+import mobileApp2 from '../../assets/MobileApp2.jpg';
+
 export function TimelineDemo() {
     const data = [
         {
@@ -44,13 +52,13 @@ export function TimelineDemo() {
                             height={300}
                             className="h-20 w-full rounded-lg object-cover shadow-lg md:h-44 lg:h-60" />
                         <img
-                            src="https://res.cloudinary.com/dz9eemmz4/image/upload/v1760545494/family-img-4_lvly4d.jpg"
+                            src={mobileApp2}
                             alt="Fresh vegetables on mobile screen"
                             width={500}
                             height={300}
                             className="h-20 w-full rounded-lg object-cover shadow-lg md:h-44 lg:h-60" />
                         <img
-                            src="https://res.cloudinary.com/dz9eemmz4/image/upload/v1760545488/family-img-3_wiar32.jpg"
+                            src={mobileApp1}
                             alt="Couple using smartphones at home"
                             width={500}
                             height={300}
@@ -98,8 +106,8 @@ export function TimelineDemo() {
                             height={300}
                             className="h-20 w-full rounded-lg object-cover shadow-lg shadow-green-200/50 md:h-44 lg:h-60" />
                         <img
-                            src="https://plus.unsplash.com/premium_photo-1663011147549-26b4632813ad?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzN8fE9yZ2FuaWMlMjBmYXJtaW5nJTIwaW5zcGVjdGlvbnxlbnwwfHwwfHx8MA%3D%3D"
-                            alt="Quality vegetables"
+                            src={farmer10}
+                            alt="Farmer working in organic farm"
                             width={500}
                             height={300}
                             className="h-20 w-full rounded-lg object-cover shadow-lg shadow-green-200/50 md:h-44 lg:h-60" />
@@ -137,8 +145,8 @@ export function TimelineDemo() {
                             height={300}
                             className="h-20 w-full rounded-lg object-cover shadow-lg shadow-green-200/50 md:h-44 lg:h-60" />
                         <img
-                            src="https://media.istockphoto.com/id/1091697242/photo/bio-food-garden-produce-and-harvested-vegetable-fresh-farm-vegetables-in-wooden-box.jpg?s=612x612&w=0&k=20&c=wInfs_swOglu1mW_xec0UThyvC0q7NTc3WBB1KhHeEw="
-                            alt="Fresh farm vegetables in wooden box"
+                            src={farmer7}
+                            alt="Farmer harvesting fresh vegetables"
                             width={500}
                             height={300}
                             className="h-20 w-full rounded-lg object-cover shadow-lg shadow-green-200/50 md:h-44 lg:h-60" />

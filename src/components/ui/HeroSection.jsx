@@ -17,10 +17,14 @@ const HeroSection = () => {
     },
     {
       url: "/videos/herovid2_annbcb.mp4",
-      duration: 5000 // 5 seconds
+      duration: 2500 // 2.5 seconds
     },
     {
       url: "/videos/herovid3_iu0vlh.mp4",
+      duration: 8000 // 8 seconds
+    },
+    {
+      url: "/videos/herovid4.mp4",
       duration: 8000 // 8 seconds
     }
   ];

@@ -2,6 +2,9 @@ import React from 'react'
 import { Shield, Sprout, Users, Leaf } from 'lucide-react'
 import './HealthBenefitsSection.css'
 
+// Import local farmer image
+import farmer9 from '../../assets/FarmersImages/farmer9.jpeg'
+
 function HealthBenefitsSection() {
   const benefits = [
     {
@@ -28,7 +31,7 @@ function HealthBenefitsSection() {
         <div className="health-image-container">
           <div className="circular-image-wrapper">
             <img 
-              src="https://i.pinimg.com/736x/31/16/66/3116663ba402d95af6c7c3e2e33f0d7c.jpg" 
+              src={farmer9} 
               alt="Organic farming health benefits" 
               className="circular-image"
             />

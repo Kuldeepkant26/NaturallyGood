@@ -8,17 +8,17 @@ import { vegetableImages } from '../../assets/vegetables/imageConfig.js';
 // Import specific vegetable images for individual items
 import brinjal from '../../assets/Vegies3/Brinjal.jpg';
 import cabbage from '../../assets/Vegies3/Cabbage 1.jpg';
-import capsicum from '../../assets/Vegies3/Capsicum.jpg';
+import capsicum from '../../assets/Vegies1/capsicum.jpg';
 import orangeCarrot from '../../assets/Vegies3/Orange Carrot.jpg';
 import cauliflower from '../../assets/Vegies3/Cauliflower.jpg';
 import frenchBeans from '../../assets/Vegies3/Frencgh Beans 1.jpg';
-import okra from '../../assets/Vegies3/Okra.jpg';
-import peas from '../../assets/Vegies3/Peas 1.jpg';
+import okra from '../../assets/Vegies2/Okra.jpg';
+import peas from '../../assets/Vegies3/Peas 2.jpg';
 import radish from '../../assets/Vegies3/Radish.jpg';
 import springOnions from '../../assets/Vegies3/Spring Onions.jpg';
-import arvi from '../../assets/Vegies3/Arvi.jpg';
+import arvi from '../../assets/Vegies2/Arvi.jpg';
 import babyKarela from '../../assets/Vegies2/Baby Karela.jpg';
-import bottleGourd from '../../assets/Vegies3/Bottle Gourd 1.jpg';
+import bottleGourd from '../../assets/Vegies3/Bottle Gourd 2.jpg';
 import pumpkin from '../../assets/Vegies3/Pumpkin.jpg';
 import ridgeGourd from '../../assets/Vegies3/Ridge Gourd.jpg';
 import parwal from '../../assets/Vegies3/Parwal.jpg';
@@ -45,7 +45,7 @@ import lemons from '../../assets/Vegies3/Lemons.jpg';
 import greenChillies from '../../assets/Vegies3/Green Chillies.jpg';
 import cucumber from '../../assets/Vegies3/Cucumber 1.jpg';
 import kakadi from '../../assets/Vegies3/Kakadi 2.jpg';
-import muskMelon from '../../assets/Vegies3/Musk Melon.jpg';
+import muskMelon from '../../assets/Vegies1/MUSK-MELONS.jpg';
 import redRadish from '../../assets/Vegies3/Red Radish.jpg';
 import beetroot from '../../assets/Vegies3/Beetroot.jpg';
 import turnips from '../../assets/Vegies1/TURNIPS.jpg';
@@ -56,7 +56,7 @@ import rocketLeaves from '../../assets/Vegies3/Rocket Leaves.jpg';
 import ajwainLeaves from '../../assets/Vegies3/Ajwain Leaves.jpg';
 import basil from '../../assets/Vegies3/Basil.jpg';
 import sweetCorn from '../../assets/Vegies3/Sweet Corn.jpg';
-import lemonGrass from '../../assets/Vegies3/Leamon Grass.jpg';
+import lemonGrass from '../../assets/Vegies2/lemon-grass.jpg';
 import sweetPotato from '../../assets/Vegies3/Sweet Potato.jpg';
 import rawTurmeric from '../../assets/Vegies1/raw-turmeric.jpg';
 import redChillies from '../../assets/Vegies3/Red Chillies.jpg';
@@ -225,14 +225,8 @@ const ProductsSection = () => {
       { name: 'Baby Spinach', image: babySpinach },
       { name: 'Basil', image: basil },
       { name: 'Coriander', image: coriander },
-      { name: 'Sweet Corn', image: sweetCorn },
-      { name: 'Cucumber', image: chineseCucumber },
-      { name: 'Garlic', image: garlic },
-      { name: 'Green Chillies', image: greenChillies },
-      { name: 'Lemon Grass', image: lemonGrass },
-      { name: 'Snake Gourd (Kakdi)', image: kakdi },
-      { name: 'Sweet Potato', image: sweetPotato },
-      { name: 'Turmeric', image: rawTurmeric },
+      { name: 'Mint', image: mint },
+      { name: 'Curry Leaves', image: curryLeaves },
       { name: 'Microgreens', image: microgreens },
       { name: 'Seasonal Salad Greens', image: redLettuce }
     ]

@@ -48,7 +48,7 @@ const SupplyChainSection = () => {
       icon: <Package className="w-8 h-8" />,
       title: "Packaging",
       description: "Eco-friendly sustainable packaging",
-      image: "https://media.istockphoto.com/id/1161394261/photo/single-use-plastic-packaging-issue-fruits-and-vegetables-in-plastic-bags.jpg?s=612x612&w=0&k=20&c=JvMKOl96RJDRENCqYJ0Q1tQvoSRMDOXyosqRcvz69Us="
+      image: "https://bhagyavidhatagreens.com/wp-content/uploads/2024/12/freepik__candid-image-photography-natural-textures-highly-r__21124.jpeg"
     },
     {
       id: 7,

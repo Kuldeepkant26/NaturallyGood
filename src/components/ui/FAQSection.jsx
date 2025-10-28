@@ -93,6 +93,11 @@ const FAQSection = () => {
         id: 18,
         question: "How soon will I get a refund if I cancel?",
         answer: "It will reflect in your original payment method in 7 Working Days. You may write to us at EatFresh@NaturallyGood.in or call at +919643722200 for any assistance."
+      },
+      {
+        id: 19,
+        question: "What is your refund policy for early cancellation of subscription?",
+        answer: "If you decide to end your subscription early, no worries! We'll refund the remaining amount on a pro-rata basis, depending on how many bags you've already received. The refund will be worked out using the current price of a single bag multiplied by the number of bags delivered. This amount will then be deducted from what you've already paid for your subscription."
       }
     ],
     returns: [

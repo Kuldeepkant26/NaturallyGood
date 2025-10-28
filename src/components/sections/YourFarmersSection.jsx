@@ -2,13 +2,20 @@ import React from 'react'
 import { Sprout, Heart, Users, Home, Leaf } from 'lucide-react'
 import './YourFarmersSection.css'
 
+// Import local farmer images
+import farmer1 from '../../assets/FarmersImages/farmer1.jpeg'
+import farmer2 from '../../assets/FarmersImages/farmer2.jpeg'
+import farmer3 from '../../assets/FarmersImages/farmer3.jpeg'
+import farmer4 from '../../assets/FarmersImages/farmer4.jpeg'
+import farmer5 from '../../assets/FarmersImages/farmer5.jpeg'
+
 function YourFarmersSection() {
   const farmersImages = [
-    "https://res.cloudinary.com/dz9eemmz4/image/upload/v1758705994/amol-sonar-a_Y4LJsU0eU-unsplash_hegb06.jpg",
-    "https://res.cloudinary.com/dz9eemmz4/image/upload/v1758706292/shakib-uzzaman-HFXurfNzDeE-unsplash_li55d7.jpg",
-    "https://res.cloudinary.com/dz9eemmz4/image/upload/v1758706304/rafid-tahmid-QnXKIINyYQw-unsplash_gamb0z.jpg",
-    "https://res.cloudinary.com/dz9eemmz4/image/upload/v1758706283/darpan-sharma-DluwGgHPprs-unsplash_rqjvto.jpg",
-    "https://res.cloudinary.com/dz9eemmz4/image/upload/v1758706478/md-mehedi-hasan-k7EDYStENI0-unsplash_t6g578.jpg"
+    farmer1,
+    farmer2,
+    farmer3,
+    farmer4,
+    farmer5
   ];
 
   return (
