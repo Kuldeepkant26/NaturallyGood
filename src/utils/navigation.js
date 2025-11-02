@@ -64,3 +64,47 @@ export const scrollToElementById = (elementId) => {
     });
   }
 };
+
+// Navigate to a specific page section with hash support
+export const navigateToSection = (path, sectionId) => {
+  const currentPath = window.location.pathname;
+  
+  if (currentPath === path) {
+    // Already on the target page, just scroll to section
+    scrollToSectionWithRetry(sectionId);
+  } else {
+    // Navigate to the page first, then scroll to section
+    if (navigateFunction) {
+      navigateFunction(`${path}#${sectionId}`);
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        scrollToSectionWithRetry(sectionId);
+      }, 100);
+    }
+  }
+};
+
+// Scroll to section with retry mechanism
+export const scrollToSectionWithRetry = (sectionId) => {
+  let attempts = 0;
+  const maxAttempts = 10;
+  
+  const tryScroll = () => {
+    const element = document.getElementById(sectionId);
+    
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest'
+      });
+      return true;
+    } else if (attempts < maxAttempts) {
+      attempts++;
+      setTimeout(tryScroll, 200);
+    }
+    return false;
+  };
+  
+  tryScroll();
+};

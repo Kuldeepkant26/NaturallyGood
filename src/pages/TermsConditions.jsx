@@ -42,9 +42,6 @@ const TermsConditions = () => {
           <p className="terms-subtitle">
             Please read these terms carefully before using our services. By accessing our platform, you agree to be bound by these terms.
           </p>
-          <div className="last-updated">
-            Last updated: September 15, 2025
-          </div>
         </div>
       </motion.section>
 
@@ -325,6 +322,13 @@ const TermsConditions = () => {
                   <p>
                     Refund of monies paid, if any, will be at the sole discretion of Naturally Good. Any refund queries will 
                     be ascertained on a case to case basis.
+                  </p>
+                  <p>
+                    <strong>What is your refund policy for early cancellation of subscription?</strong><br/>
+                    If you decide to end your subscription early, no worries! We'll refund the remaining amount on a pro-rata basis, 
+                    depending on how many bags you've already received. The refund will be worked out using the current price of a 
+                    single bag multiplied by the number of bags delivered. This amount will then be deducted from what you've already 
+                    paid for your subscription.
                   </p>
                 </div>
               </div>
