@@ -47,7 +47,7 @@ const FarmerHeroSection = () => {
           muted
           playsInline
         >
-          <source src="/videos/farmers-hero.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/dz9eemmz4/video/upload/v1757450311/18883013-uhd_3840_2160_24fps_1_ufmfsu.mp4" type="video/mp4" />
         </video>
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black/50 via-black/30 to-black/40 z-[2]" />
       </div>
