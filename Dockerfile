@@ -14,9 +14,6 @@ FROM nginx:alpine
 # Copy built app
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Copy videos
-COPY --from=build /app/videos /usr/share/nginx/html/videos
-
 # Copy custom nginx config for SPA routing
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 

@@ -9,22 +9,22 @@ const HeroSection = () => {
   
   const videoRefs = useRef([]);
   
-  // Local hero videos
+  // Cloudinary hero videos
   const videos = [
     {
-      url: "/videos/herovid1_ixj04k.mp4",
+      url: "https://res.cloudinary.com/dz9eemmz4/video/upload/v1758708621/herovid1_ixj04k.mp4",
       duration: 8000 // 8 seconds
     },
     {
-      url: "/videos/herovid2_annbcb.mp4",
+      url: "https://res.cloudinary.com/dz9eemmz4/video/upload/v1758708630/herovid2_annbcb.mp4",
       duration: 2500 // 2.5 seconds
     },
     {
-      url: "/videos/herovid3_iu0vlh.mp4",
+      url: "https://res.cloudinary.com/dz9eemmz4/video/upload/v1758708637/herovid3_iu0vlh.mp4",
       duration: 8000 // 8 seconds
     },
     {
-      url: "/videos/herovid4.mp4",
+      url: "https://res.cloudinary.com/dz9eemmz4/video/upload/v1762683788/herovid4_xgll3y.mp4",
       duration: 8000 // 8 seconds
     }
   ];
