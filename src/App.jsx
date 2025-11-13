@@ -4,6 +4,7 @@ import { Route, Routes, useNavigate } from 'react-router-dom'
 import Home from './pages/Home'
 import Navbar from './components/ui/Navbar'
 import Footer from './components/ui/Footer'
+import ContactButton from './components/ui/ContactButton'
 
 import ScrollToTop from './components/ScrollToTop'
 import './App.css'
@@ -70,6 +71,7 @@ function App() {
         </Routes>
       </div>
       <Footer />
+      <ContactButton />
      
     
     </div>

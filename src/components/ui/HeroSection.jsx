@@ -24,7 +24,11 @@ const HeroSection = () => {
       duration: 8000 // 8 seconds
     },
     {
-      url: "https://res.cloudinary.com/dz9eemmz4/video/upload/v1762683788/herovid4_xgll3y.mp4",
+      url: "https://res.cloudinary.com/dz9eemmz4/video/upload/v1763040296/C0605_CC_Smooth_m0yzqb.mp4",
+      duration: 8000 // 8 seconds
+    },
+    {
+      url: "https://res.cloudinary.com/dz9eemmz4/video/upload/v1763040255/C0598_CC_Smooth_hgemm9.mp4",
       duration: 8000 // 8 seconds
     }
   ];
