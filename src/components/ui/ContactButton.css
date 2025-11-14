@@ -97,26 +97,26 @@
 .contact-popup-header {
   background: linear-gradient(135deg, var(--brand-light-green), var(--brand-dark-green));
   color: white;
-  padding: 2rem;
+  padding: 1.5rem 2rem;
   border-radius: 20px 20px 0 0;
   position: relative;
 }
 
 .contact-popup-header h2 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.75rem;
+  margin: 0 0 0.25rem 0;
+  font-size: 1.5rem;
   font-weight: 700;
 }
 
 .contact-popup-header p {
   margin: 0;
   opacity: 0.95;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
 }
 
 .contact-close-btn {
   position: absolute;
-  top: 1.5rem;
+  top: 1rem;
   right: 1.5rem;
   background: rgba(255, 255, 255, 0.2);
   border: none;
@@ -211,6 +211,37 @@
   font-size: 0.75rem;
   margin-top: 0.25rem;
   display: block;
+}
+
+/* Consent Checkbox */
+.consent-group {
+  margin-bottom: 1.5rem;
+}
+
+.consent-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+.consent-checkbox {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  margin-top: 2px;
+  cursor: pointer;
+  accent-color: var(--brand-light-green);
+  border-radius: 4px;
+}
+
+.consent-text {
+  color: var(--medium-text);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  user-select: none;
 }
 
 /* Submit Button */
@@ -363,15 +394,34 @@
 
   .contact-popup {
     width: 95%;
-    max-height: 85vh;
+    max-width: 95%;
+    max-height: 90vh;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .contact-popup-header {
-    padding: 1.5rem;
+    padding: 1.25rem 1.5rem;
   }
 
   .contact-popup-header h2 {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
+  }
+
+  .contact-popup-header p {
+    font-size: 0.8rem;
+  }
+
+  .contact-close-btn {
+    top: 0.875rem;
+    right: 1rem;
+    width: 28px;
+    height: 28px;
+  }
+
+  .contact-close-btn svg {
+    width: 18px;
+    height: 18px;
   }
 
   .contact-form {
@@ -381,6 +431,10 @@
   .form-row {
     grid-template-columns: 1fr;
     gap: 0;
+  }
+
+  .consent-text {
+    font-size: 0.8rem;
   }
 
   .success-content {
@@ -410,12 +464,69 @@
     right: 1rem;
   }
 
+  .contact-popup {
+    width: 96%;
+    max-width: 96%;
+    border-radius: 16px;
+    max-height: 92vh;
+  }
+
+  .contact-popup-header {
+    padding: 1rem 1.25rem;
+    border-radius: 16px 16px 0 0;
+  }
+
   .contact-popup-header h2 {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
 
   .contact-popup-header p {
+    font-size: 0.75rem;
+  }
+
+  .contact-close-btn {
+    top: 0.75rem;
+    right: 0.875rem;
+    width: 26px;
+    height: 26px;
+  }
+
+  .contact-close-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .contact-form {
+    padding: 1.25rem;
+  }
+
+  .form-group {
+    margin-bottom: 0.875rem;
+  }
+
+  .form-group label {
+    font-size: 0.8rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.75rem 0.875rem;
     font-size: 0.875rem;
+  }
+
+  .consent-text {
+    font-size: 0.75rem;
+  }
+
+  .consent-checkbox {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+  }
+
+  .contact-submit-btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
   }
 
   .success-content h2 {
@@ -429,11 +540,11 @@
 
 /* Scrollbar Styling for Popup */
 .contact-popup::-webkit-scrollbar {
-  width: 8px;
+  width: 0px;
 }
 
 .contact-popup::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: transparent;
   border-radius: 10px;
 }
 
@@ -444,4 +555,17 @@
 
 .contact-popup::-webkit-scrollbar-thumb:hover {
   background: var(--brand-dark-green);
+}
+
+/* Hide scrollbar on mobile devices */
+@media (max-width: 768px) {
+  .contact-popup::-webkit-scrollbar {
+    width: 0px;
+    display: none;
+  }
+  
+  .contact-popup {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
 }

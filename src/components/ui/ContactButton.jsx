@@ -10,7 +10,8 @@ const ContactButton = () => {
     lastName: '',
     email: '',
     mobile: '',
-    requirements: ''
+    requirements: '',
+    consent: false
   });
   const [errors, setErrors] = useState({});
 
@@ -36,10 +37,10 @@ const ContactButton = () => {
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: type === 'checkbox' ? checked : value
     }));
     // Clear error when user starts typing
     if (errors[name]) {
@@ -90,6 +91,11 @@ const ContactButton = () => {
       newErrors.requirements = 'Please provide more details (at least 10 characters)';
     }
 
+    // Consent validation
+    if (!formData.consent) {
+      newErrors.consent = 'Please give your consent to proceed';
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -116,7 +122,8 @@ const ContactButton = () => {
       lastName: '',
       email: '',
       mobile: '',
-      requirements: ''
+      requirements: '',
+      consent: false
     });
   };
 
@@ -256,6 +263,27 @@ const ContactButton = () => {
               ></textarea>
               {errors.requirements && (
                 <span className="error-message">{errors.requirements}</span>
+              )}
+            </div>
+
+            <div className="form-group consent-group">
+              <label className="consent-label">
+                <input
+                  type="checkbox"
+                  id="consent"
+                  name="consent"
+                  checked={formData.consent}
+                  onChange={handleChange}
+                  className="consent-checkbox"
+                />
+                <span className="consent-text">
+                  Stay Informed, We'd love to keep you updated with the latest news, 
+                  exclusive offers, and valuable insights. Please give your consent to 
+                  receive messages and emails from us.
+                </span>
+              </label>
+              {errors.consent && (
+                <span className="error-message">{errors.consent}</span>
               )}
             </div>
 
