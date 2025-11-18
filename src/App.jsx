@@ -1,10 +1,11 @@
 import React from 'react'
 import { HeroParallaxDemo } from './components/ui/HeroParallaxDemo'
-import { Route, Routes, useNavigate } from 'react-router-dom'
+import { Route, Routes, useNavigate, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import Navbar from './components/ui/Navbar'
 import Footer from './components/ui/Footer'
 import ContactButton from './components/ui/ContactButton'
+import Analytics from './components/SEO/Analytics'
 
 import ScrollToTop from './components/ScrollToTop'
 import './App.css'
@@ -26,6 +27,7 @@ import RedirectHandler, { redirectRoutes } from './components/RedirectHandler'
 
 function App() {
   const navigate = useNavigate();
+  const location = useLocation();
 
   // Set up navigation functions for utilities
   useEffect(() => {
@@ -34,6 +36,7 @@ function App() {
   }, [navigate]);
   return (
     <div className="app-container">
+      <Analytics />
       <ScrollToTop />
       <Navbar />
       <div className="page-content">
@@ -71,7 +74,8 @@ function App() {
         </Routes>
       </div>
       <Footer />
-      <ContactButton />
+      {/* Show ContactButton only on About Us page */}
+      {location.pathname === '/about' && <ContactButton />}
      
     
     </div>
