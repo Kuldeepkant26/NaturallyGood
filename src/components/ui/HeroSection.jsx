@@ -24,11 +24,15 @@ const HeroSection = () => {
       duration: 8000 // 8 seconds
     },
     {
-      url: "https://res.cloudinary.com/dz9eemmz4/video/upload/v1763040296/C0605_CC_Smooth_m0yzqb.mp4",
+      url: "https://res.cloudinary.com/dz9eemmz4/video/upload/v1763651156/3650326-uhd_3840_2160_30fps_a5yhyn.mp4",
+      duration: 5000 // 5 seconds
+    },
+    {
+      url: "https://res.cloudinary.com/dz9eemmz4/video/upload/v1763651681/VegitableVideo1_qw4koi.mov",
       duration: 8000 // 8 seconds
     },
     {
-      url: "https://res.cloudinary.com/dz9eemmz4/video/upload/v1763040255/C0598_CC_Smooth_hgemm9.mp4",
+      url: "https://cdn.pixabay.com/video/2024/10/12/236017_large.mp4",
       duration: 8000 // 8 seconds
     }
   ];
