@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 const HeroSection = () => {
   const [showContent, setShowContent] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   
@@ -12,27 +13,15 @@ const HeroSection = () => {
   // Cloudinary hero videos
   const videos = [
     {
-      url: "https://res.cloudinary.com/dz9eemmz4/video/upload/v1758708621/herovid1_ixj04k.mp4",
+      url: "https://res.cloudinary.com/djqodilpf/video/upload/v1764518157/herovid2_annbcb_cmu1tt.mp4",
+      duration: 6000 // 6 seconds
+    },
+    {
+      url: "https://res.cloudinary.com/djqodilpf/video/upload/v1764518139/herovid3_iu0vlh_d6at2b.mp4",
       duration: 8000 // 8 seconds
     },
     {
-      url: "https://res.cloudinary.com/dz9eemmz4/video/upload/v1758708630/herovid2_annbcb.mp4",
-      duration: 2500 // 2.5 seconds
-    },
-    {
-      url: "https://res.cloudinary.com/dz9eemmz4/video/upload/v1758708637/herovid3_iu0vlh.mp4",
-      duration: 8000 // 8 seconds
-    },
-    {
-      url: "https://res.cloudinary.com/dz9eemmz4/video/upload/v1763651156/3650326-uhd_3840_2160_30fps_a5yhyn.mp4",
-      duration: 5000 // 5 seconds
-    },
-    {
-      url: "https://res.cloudinary.com/dz9eemmz4/video/upload/v1763651681/VegitableVideo1_qw4koi.mov",
-      duration: 8000 // 8 seconds
-    },
-    {
-      url: "https://cdn.pixabay.com/video/2024/10/12/236017_large.mp4",
+      url: "https://res.cloudinary.com/djqodilpf/video/upload/v1764518311/VegitableVideo1_wwhaae.mov",
       duration: 8000 // 8 seconds
     }
   ];
@@ -114,10 +103,14 @@ const HeroSection = () => {
     setVideoLoaded(true);
   };
 
+  const handleVideoError = () => {
+    setVideoError(true);
+  };
+
   return (
     <section className="hero-container">
       {/* Multiple Background Videos with Smooth Transitions */}
-      {videos.map((video, index) => (
+      {!videoError && videos.map((video, index) => (
         <video
           key={index}
           ref={(el) => (videoRefs.current[index] = el)}
@@ -126,6 +119,7 @@ const HeroSection = () => {
           muted
           playsInline
           onLoadedData={index === 0 ? handleVideoLoaded : undefined}
+          onError={index === 0 ? handleVideoError : undefined}
           preload="auto"
           style={{
             position: 'absolute',
@@ -146,11 +140,13 @@ const HeroSection = () => {
       ))}
 
       {/* Fallback background if video doesn't load */}
-      {!videoLoaded && (
+      {(!videoLoaded || videoError) && (
         <div 
           className="hero-video"
           style={{
-            background: 'linear-gradient(135deg, #1f2937 0%, #374151 50%, #4b5563 100%)',
+            backgroundImage: 'url(https://watermark.lovepik.com/photo/20211208/large/lovepik-fruits-and-vegetables-poster-picture_501615020.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
             position: 'absolute',
             top: 0,
             left: 0,

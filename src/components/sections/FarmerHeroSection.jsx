@@ -4,6 +4,7 @@ import { Play, Pause } from 'lucide-react';
 
 const FarmerHeroSection = () => {
   const [isPlaying, setIsPlaying] = useState(true);
+  const [videoError, setVideoError] = useState(false);
   const videoRef = useRef(null);
   const navigate = useNavigate();
 
@@ -35,20 +36,34 @@ const FarmerHeroSection = () => {
     }
   };
 
+  const handleVideoError = () => {
+    setVideoError(true);
+  };
+
   return (
     <section className="relative h-screen w-full overflow-hidden flex items-center justify-start bg-black">
       {/* Video Background */}
       <div className="absolute top-0 left-0 w-full h-full z-[1]">
-        <video
-          ref={videoRef}
-          className="w-full h-full object-cover object-center"
-          autoPlay
-          loop
-          muted
-          playsInline
-        >
-          <source src="https://res.cloudinary.com/dz9eemmz4/video/upload/v1757450311/18883013-uhd_3840_2160_24fps_1_ufmfsu.mp4" type="video/mp4" />
-        </video>
+        {!videoError ? (
+          <video
+            ref={videoRef}
+            className="w-full h-full object-cover object-center"
+            autoPlay
+            loop
+            muted
+            playsInline
+            onError={handleVideoError}
+          >
+            <source src="https://res.cloudinary.com/djqodilpf/video/upload/v1764517429/18883013-uhd_3840_2160_24fps_1_cq370q.mp4" type="video/mp4" />
+          </video>
+        ) : (
+          <div 
+            className="w-full h-full bg-cover bg-center"
+            style={{
+              backgroundImage: 'url(https://watermark.lovepik.com/photo/20211208/large/lovepik-fruits-and-vegetables-poster-picture_501615020.jpg)'
+            }}
+          />
+        )}
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black/50 via-black/30 to-black/40 z-[2]" />
       </div>
 
