@@ -9,6 +9,7 @@ import farmer7 from '../../assets/FarmersImages/farmer7.jpeg';
 // Import mobile app images for Step 1
 import mobileApp1 from '../../assets/MobileAPP.jpg';
 import mobileApp2 from '../../assets/MobileApp2.jpg';
+import appDownload1 from '../../assets/appdownload1.png';
 
 export function TimelineDemo() {
     const data = [
@@ -46,7 +47,7 @@ export function TimelineDemo() {
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                         <img
-                            src="https://res.cloudinary.com/dz9eemmz4/image/upload/v1760545499/family-img_iizpid.jpg"
+                            src={appDownload1}
                             alt="Woman using food delivery app"
                             width={500}
                             height={300}

@@ -5,8 +5,10 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './FarmersVoiceSection.css';
 
-// Import local farmer image for first testimonial only
+// Import local farmer images
 import farmer6 from '../../assets/FarmersImages/farmer6.jpeg'
+import farmer3 from '../../assets/FarmersImages/farmer3.jpeg'
+import farmer7 from '../../assets/FarmersImages/farmer7.jpeg'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,7 +36,7 @@ function FarmersVoiceSection() {
       location: "Punjab",
       experience: "12 years",
       quote: "Naturally Good ने हमें रसायन-मुक्त खेती करने का आत्मविश्वास दिया। वे हमें नई तकनीक सिखाते हैं और हमारी पारंपरिक तरीकों का भी सम्मान करते हैं। आज मेरी ज़मीन स्वस्थ है, फसल बेहतर है और मुझे गर्व है कि हमारी सब्ज़ियाँ लोगों को शुद्ध और ताज़ा भोजन दे रही हैं।",
-      image: "https://res.cloudinary.com/dz9eemmz4/image/upload/v1758706283/darpan-sharma-DluwGgHPprs-unsplash_rqjvto.jpg",
+      image: farmer3,
       rating: 5
     },
     {
@@ -43,7 +45,7 @@ function FarmersVoiceSection() {
       location: "Rajasthan",
       experience: "20 years",
       quote: "एक महिला किसान होने के नाते शुरू में आसान नहीं था। लेकिन Naturally Good ने प्रशिक्षण और उचित भुगतान देकर हमें मज़बूती दी। आज हमारा आर्थिक हाल बेहतर है और मुझे गर्व है कि हमारी उपज लोगों की सेहत सुधार रही है।",
-      image: "https://res.cloudinary.com/dz9eemmz4/image/upload/v1758706737/gyan-shahane-3C7zhY3gcQc-unsplash_mfsgrj.jpg",
+      image: "https://static.vecteezy.com/system/resources/thumbnails/038/450/942/small/ai-generated-indian-female-farmer-working-in-her-field-bokeh-style-background-with-generative-ai-free-photo.jpeg",
       rating: 5
     }
   ];
