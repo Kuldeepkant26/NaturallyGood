@@ -16,9 +16,7 @@
     <!-- Performance -->
     <link rel="preconnect" href="https://images.unsplash.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <!-- Optional: keep only if measured benefit -->
-    <!-- <link rel="preload" href="/favicon.png" as="image" /> -->
-  
+  <link rel="preconnect" href="https://connect.facebook.net" />
     <!-- PWA -->
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#00963F" />
@@ -31,6 +29,13 @@
   </head>
   
   <body>
+    <!-- Meta Pixel noscript fallback -->
+    <noscript>
+      <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=167463209732226&ev=PageView&noscript=1"
+        alt="Meta Pixel" />
+    </noscript>
+    
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
