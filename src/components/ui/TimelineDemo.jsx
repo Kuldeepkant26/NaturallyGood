@@ -7,9 +7,10 @@ import farmer10 from '../../assets/FarmersImages/farmer10.jpeg';
 import farmer7 from '../../assets/FarmersImages/farmer7.jpeg';
 
 // Import mobile app images for Step 1
-import mobileApp1 from '../../assets/MobileAPP.jpg';
-import mobileApp2 from '../../assets/MobileApp2.jpg';
-import appDownload1 from '../../assets/appdownload1.png';
+import newapp1 from '../../assets/newapp1.jpeg';
+import newapp2 from '../../assets/newapp2.jpeg';
+import newapp3 from '../../assets/newapp3.jpeg';
+import newapp4 from '../../assets/newapp4.jpeg';
 
 export function TimelineDemo() {
     const data = [
@@ -47,25 +48,25 @@ export function TimelineDemo() {
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                         <img
-                            src={appDownload1}
+                            src={newapp1}
                             alt="Woman using food delivery app"
                             width={500}
                             height={300}
                             className="h-20 w-full rounded-lg object-cover shadow-lg md:h-44 lg:h-60" />
                         <img
-                            src={mobileApp2}
+                            src={newapp2}
                             alt="Fresh vegetables on mobile screen"
                             width={500}
                             height={300}
                             className="h-20 w-full rounded-lg object-cover shadow-lg md:h-44 lg:h-60" />
                         <img
-                            src={mobileApp1}
+                            src={newapp3}
                             alt="Couple using smartphones at home"
                             width={500}
                             height={300}
                             className="h-20 w-full rounded-lg object-cover shadow-lg md:h-44 lg:h-60" />
                         <img
-                            src="https://res.cloudinary.com/dz9eemmz4/image/upload/v1760545484/family-img-2_cyj1gy.jpg"
+                            src={newapp4}
                             alt="Smartphone displaying vegetable shopping cart"
                             width={500}
                             height={300}
