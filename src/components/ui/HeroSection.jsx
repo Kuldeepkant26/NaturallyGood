@@ -1,14 +1,43 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
+// Import fallback images
+import homehero3 from '../../assets/homehero3.png';
+import homehero4 from '../../assets/homehero4.png';
+import homehero5 from '../../assets/homehero5.png';
+
 const HeroSection = () => {
   const [showContent, setShowContent] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const [slideDirection, setSlideDirection] = useState('next');
   
   const videoRefs = useRef([]);
+  
+  // Fallback image slider data with synced content
+  const fallbackSlides = [
+    {
+      image: homehero3,
+      title: "Certified Organic",
+      highlight: "Premium Quality",
+      description: "Every vegetable we deliver is certified organic and quality-checked. Taste the difference that real organic farming makes."
+    },
+    {
+      image: homehero4,
+      title: "Fresh Daily",
+      highlight: "Delivered With Care",
+      description: "Morning harvest, same-day delivery. Get the freshest organic vegetables at your doorstep, packed with love and care."
+    },
+    {
+      image: homehero5,
+      title: "Freshly Harvested",
+      highlight: "Organic Goodness",
+      description: "Get 100% organic & fresh vegetables delivered to your doorstep. Farm fresh produce harvested from our certified organic farms for the healthiest meals every day for your family."
+    }
+  ];
   
   // Cloudinary hero videos
   const videos = [
@@ -43,6 +72,18 @@ const HeroSection = () => {
       clearTimeout(contentTimer);
     };
   }, []);
+
+  // Image slider auto-advance (only when video fails)
+  useEffect(() => {
+    if (!videoError) return;
+    
+    const slideInterval = setInterval(() => {
+      setSlideDirection('next');
+      setCurrentSlideIndex((prev) => (prev + 1) % fallbackSlides.length);
+    }, 5000); // Change slide every 5 seconds
+    
+    return () => clearInterval(slideInterval);
+  }, [videoError, fallbackSlides.length]);
 
   // Preload videos for smooth transitions
   useEffect(() => {
@@ -139,12 +180,56 @@ const HeroSection = () => {
         </video>
       ))}
 
-      {/* Fallback background if video doesn't load */}
-      {(!videoLoaded || videoError) && (
+      {/* Fallback Image Slider when video doesn't load */}
+      {videoError && (
+        <div className="hero-image-slider">
+          {fallbackSlides.map((slide, index) => (
+            <div
+              key={index}
+              className={`hero-slide ${currentSlideIndex === index ? 'active' : ''} ${
+                currentSlideIndex === (index + 1) % fallbackSlides.length ? 'prev' : ''
+              }`}
+              style={{
+                backgroundImage: `url(${slide.image})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                opacity: currentSlideIndex === index ? 1 : 0,
+                transform: 'scale(1)',
+                transition: 'opacity 1.2s ease-in-out',
+                zIndex: currentSlideIndex === index ? 1 : 0
+              }}
+            />
+          ))}
+          
+          {/* Slide indicators */}
+          <div className="slide-indicators">
+            {fallbackSlides.map((_, index) => (
+              <button
+                key={index}
+                className={`slide-indicator ${currentSlideIndex === index ? 'active' : ''}`}
+                onClick={() => {
+                  setSlideDirection(index > currentSlideIndex ? 'next' : 'prev');
+                  setCurrentSlideIndex(index);
+                }}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Loading fallback (before video loads and no error yet) */}
+      {!videoLoaded && !videoError && (
         <div 
           className="hero-video"
           style={{
-            backgroundImage: 'url(https://watermark.lovepik.com/photo/20211208/large/lovepik-fruits-and-vegetables-poster-picture_501615020.jpg)',
+            backgroundImage: `url(${homehero3})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             position: 'absolute',
@@ -163,23 +248,58 @@ const HeroSection = () => {
       {/* Hero Content - only render when showContent is true */}
       {showContent && (
         <div className="hero-content">
-          <h1 
-            className="hero-title animate-fade-in-left"
-            style={{ animationDelay: '0.3s' }}
-          >
-            <span className="hero-title-main">Freshly Harvested</span>
-            <br />
-            <span className="hero-title-highlight">Organic Goodness</span>
-          </h1>
-          
-          <p 
-            className="hero-subtitle animate-fade-in-left"
-            style={{ animationDelay: '0.5s' }}
-          >
-            Get 100% organic & fresh vegetables delivered to your doorstep. 
-            Farm fresh produce harvested from our certified organic farms 
-            for the healthiest meals every day for your family.
-          </p>
+          {/* Dynamic content when video fails - synced with image slider */}
+          {videoError ? (
+            <>
+              <h1 
+                className="hero-title"
+                style={{ animationDelay: '0.3s' }}
+              >
+                <span 
+                  className="hero-title-main hero-text-animate"
+                  key={`title-${currentSlideIndex}`}
+                >
+                  {fallbackSlides[currentSlideIndex].title}
+                </span>
+                <br />
+                <span 
+                  className="hero-title-highlight hero-text-animate"
+                  key={`highlight-${currentSlideIndex}`}
+                  style={{ animationDelay: '0.1s' }}
+                >
+                  {fallbackSlides[currentSlideIndex].highlight}
+                </span>
+              </h1>
+              
+              <p 
+                className="hero-subtitle hero-text-animate"
+                key={`desc-${currentSlideIndex}`}
+                style={{ animationDelay: '0.2s' }}
+              >
+                {fallbackSlides[currentSlideIndex].description}
+              </p>
+            </>
+          ) : (
+            <>
+              <h1 
+                className="hero-title animate-fade-in-left"
+                style={{ animationDelay: '0.3s' }}
+              >
+                <span className="hero-title-main">Freshly Harvested</span>
+                <br />
+                <span className="hero-title-highlight">Organic Goodness</span>
+              </h1>
+              
+              <p 
+                className="hero-subtitle animate-fade-in-left"
+                style={{ animationDelay: '0.5s' }}
+              >
+                Get 100% organic & fresh vegetables delivered to your doorstep. 
+                Farm fresh produce harvested from our certified organic farms 
+                for the healthiest meals every day for your family.
+              </p>
+            </>
+          )}
           
           <div 
             className="hero-cta-group animate-fade-in-up"
