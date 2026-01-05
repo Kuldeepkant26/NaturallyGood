@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 // Import fallback images
 import homehero3 from '../../assets/homehero3.png';
 import homehero4 from '../../assets/homehero4.png';
-import homehero5 from '../../assets/homehero5.png';
+import homehero6 from '../../assets/homehero6.png';
 
 const HeroSection = () => {
   const [showContent, setShowContent] = useState(false);
@@ -32,7 +32,7 @@ const HeroSection = () => {
       description: "Morning harvest, same-day delivery. Get the freshest organic vegetables at your doorstep, packed with love and care."
     },
     {
-      image: homehero5,
+      image: homehero6,
       title: "Freshly Harvested",
       highlight: "Organic Goodness",
       description: "Get 100% organic & fresh vegetables delivered to your doorstep. Farm fresh produce harvested from our certified organic farms for the healthiest meals every day for your family."

@@ -53,6 +53,29 @@
   scroll-behavior: smooth;
 }
 
+/* Farmer Hero Image Slider Styles */
+.farmer-hero-image-slider {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Farmer Hero text animation for slider */
+.farmer-hero-text-animate {
+  animation: farmerHeroTextFadeIn 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes farmerHeroTextFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .farmers-page h1 {

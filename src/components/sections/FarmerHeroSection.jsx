@@ -1,12 +1,44 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Play, Pause } from 'lucide-react';
+
+// Import fallback images
+import farmerhero1 from '../../assets/farmerhero1.png';
+import farmerhero2 from '../../assets/farmerhero2.png';
 
 const FarmerHeroSection = () => {
   const [isPlaying, setIsPlaying] = useState(true);
   const [videoError, setVideoError] = useState(false);
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const videoRef = useRef(null);
   const navigate = useNavigate();
+
+  // Fallback image slider data with synced content
+  const fallbackSlides = [
+    {
+      image: farmerhero1,
+      title: "Fresh from",
+      highlight: "Farm to Table",
+      subtitle: "Naturally."
+    },
+    {
+      image: farmerhero2,
+      title: "Grown with",
+      highlight: "Love & Care",
+      subtitle: "By Our Farmers."
+    }
+  ];
+
+  // Image slider auto-advance (only when video fails and more than 1 slide)
+  useEffect(() => {
+    if (!videoError || fallbackSlides.length <= 1) return;
+    
+    const slideInterval = setInterval(() => {
+      setCurrentSlideIndex((prev) => (prev + 1) % fallbackSlides.length);
+    }, 5000); // Change slide every 5 seconds
+    
+    return () => clearInterval(slideInterval);
+  }, [videoError, fallbackSlides.length]);
 
   const handleExploreVegetables = () => {
     // Navigate to home page and scroll to products section
@@ -41,9 +73,9 @@ const FarmerHeroSection = () => {
   };
 
   return (
-    <section className="relative h-screen w-full overflow-hidden flex items-center justify-start bg-black">
+    <section className="relative h-screen w-full overflow-hidden flex items-center justify-start bg-black pt-[80px]">
       {/* Video Background */}
-      <div className="absolute top-0 left-0 w-full h-full z-[1]">
+      <div className="absolute top-[80px] left-0 w-full h-[calc(100%-80px)] z-[1]">
         {!videoError ? (
           <video
             ref={videoRef}
@@ -57,31 +89,84 @@ const FarmerHeroSection = () => {
             <source src="https://res.cloudinary.com/djqodilpf/video/upload/v1764517429/18883013-uhd_3840_2160_24fps_1_cq370q.mp4" type="video/mp4" />
           </video>
         ) : (
-          <div 
-            className="w-full h-full bg-cover bg-center"
-            style={{
-              backgroundImage: 'url(https://watermark.lovepik.com/photo/20211208/large/lovepik-fruits-and-vegetables-poster-picture_501615020.jpg)'
-            }}
-          />
+          <div className="farmer-hero-image-slider w-full h-full">
+            {fallbackSlides.map((slide, index) => (
+              <div
+                key={index}
+                className="w-full h-full bg-cover bg-center absolute top-0 left-0"
+                style={{
+                  backgroundImage: `url(${slide.image})`,
+                  opacity: currentSlideIndex === index ? 1 : 0,
+                  transition: 'opacity 1.2s ease-in-out',
+                  zIndex: currentSlideIndex === index ? 1 : 0
+                }}
+              />
+            ))}
+            
+            {/* Slide indicators - only show if more than 1 slide */}
+            {fallbackSlides.length > 1 && (
+              <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 flex gap-3 z-10">
+                {fallbackSlides.map((_, index) => (
+                  <button
+                    key={index}
+                    className={`w-3 h-3 rounded-full border-2 border-white/70 transition-all duration-400 ${
+                      currentSlideIndex === index 
+                        ? 'bg-green-500 border-green-500 scale-125 shadow-lg shadow-green-500/60' 
+                        : 'bg-transparent hover:bg-white/50'
+                    }`}
+                    onClick={() => setCurrentSlideIndex(index)}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
         )}
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black/50 via-black/30 to-black/40 z-[2]" />
       </div>
 
       {/* Gradient Overlays */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/60 via-black/40 to-transparent z-[5] pointer-events-none" />
+      <div className="absolute top-[80px] left-0 right-0 h-32 bg-gradient-to-b from-black/60 via-black/40 to-transparent z-[5] pointer-events-none" />
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/60 via-black/40 to-transparent z-[5] pointer-events-none" />
 
       {/* Hero Content */}
       <div className="relative z-[6] pl-16 max-w-2xl">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-white leading-none mb-12 tracking-tight">
-          Fresh from
-          <br />
-          <span className="bg-gradient-to-r from-green-400 via-emerald-400 to-green-300 bg-clip-text text-transparent">
-            Farm to Table
-          </span>
-          <br />
-          Naturally.
-        </h1>
+        {videoError ? (
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-white leading-none mb-12 tracking-tight">
+            <span 
+              className="farmer-hero-text-animate inline-block"
+              key={`title-${currentSlideIndex}`}
+            >
+              {fallbackSlides[currentSlideIndex].title}
+            </span>
+            <br />
+            <span 
+              className="bg-gradient-to-r from-green-400 via-emerald-400 to-green-300 bg-clip-text text-transparent farmer-hero-text-animate inline-block"
+              key={`highlight-${currentSlideIndex}`}
+              style={{ animationDelay: '0.1s' }}
+            >
+              {fallbackSlides[currentSlideIndex].highlight}
+            </span>
+            <br />
+            <span 
+              className="farmer-hero-text-animate inline-block"
+              key={`subtitle-${currentSlideIndex}`}
+              style={{ animationDelay: '0.2s' }}
+            >
+              {fallbackSlides[currentSlideIndex].subtitle}
+            </span>
+          </h1>
+        ) : (
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-white leading-none mb-12 tracking-tight">
+            Fresh from
+            <br />
+            <span className="bg-gradient-to-r from-green-400 via-emerald-400 to-green-300 bg-clip-text text-transparent">
+              Farm to Table
+            </span>
+            <br />
+            Naturally.
+          </h1>
+        )}
         
         <button 
           className="bg-transparent border border-white/70 text-white px-8 py-4 text-sm font-normal cursor-pointer transition-all duration-300 hover:bg-white/10 hover:border-white hover:-translate-y-0.5 backdrop-blur-sm relative overflow-hidden group"
