@@ -39,20 +39,11 @@ const HeroSection = () => {
     }
   ];
   
-  // Cloudinary hero videos
+  // Local hero videos from public folder
   const videos = [
-    {
-      url: "https://res.cloudinary.com/djqodilpf/video/upload/v1764518157/herovid2_annbcb_cmu1tt.mp4",
-      duration: 6000 // 6 seconds
-    },
-    {
-      url: "https://res.cloudinary.com/djqodilpf/video/upload/v1764518139/herovid3_iu0vlh_d6at2b.mp4",
-      duration: 8000 // 8 seconds
-    },
-    {
-      url: "https://res.cloudinary.com/djqodilpf/video/upload/v1764518311/VegitableVideo1_wwhaae.mov",
-      duration: 8000 // 8 seconds
-    }
+    "/heroA.mp4",
+    "/heroB.mp4",
+    "/heroC.mp4"
   ];
 
   useEffect(() => {
@@ -98,47 +89,43 @@ const HeroSection = () => {
     });
   }, []);
 
-  // Professional video transition system with custom durations
-  useEffect(() => {
-    const currentDuration = videos[currentVideoIndex].duration;
-    
-    const timer = setTimeout(() => {
-      if (!isTransitioning) {
-        setIsTransitioning(true);
-        
-        const nextVideoIndex = (currentVideoIndex + 1) % videos.length;
-        const currentVideo = videoRefs.current[currentVideoIndex];
-        const nextVideo = videoRefs.current[nextVideoIndex];
-        
-        // Smooth crossfade transition
-        if (currentVideo) {
-          currentVideo.style.opacity = '0';
-          currentVideo.style.transform = 'scale(1.05)';
-        }
-        
-        if (nextVideo) {
-          nextVideo.style.opacity = '1';
-          nextVideo.style.transform = 'scale(1)';
-          nextVideo.currentTime = 0;
-          nextVideo.play().catch(error => console.log("Play error:", error));
-        }
-        
-        // Complete transition
-        setTimeout(() => {
-          setCurrentVideoIndex(nextVideoIndex);
-          setIsTransitioning(false);
-          
-          // Reset previous video
-          if (currentVideo) {
-            currentVideo.style.transform = 'scale(1)';
-            currentVideo.currentTime = 0;
-          }
-        }, 1000); // 1 second smooth transition
+  // Handle video end event for smooth transitions
+  const handleVideoEnd = (index) => {
+    if (index === currentVideoIndex && !isTransitioning) {
+      setIsTransitioning(true);
+      
+      const nextVideoIndex = (currentVideoIndex + 1) % videos.length;
+      const currentVideo = videoRefs.current[currentVideoIndex];
+      const nextVideo = videoRefs.current[nextVideoIndex];
+      
+      // Smooth crossfade transition
+      if (currentVideo) {
+        currentVideo.style.opacity = '0';
+        currentVideo.style.transform = 'scale(1.05)';
       }
-    }, currentDuration);
+      
+      if (nextVideo) {
+        nextVideo.style.opacity = '1';
+        nextVideo.style.transform = 'scale(1)';
+        nextVideo.currentTime = 0;
+        nextVideo.play().catch(error => console.log("Play error:", error));
+      }
+      
+      // Complete transition
+      setTimeout(() => {
+        setCurrentVideoIndex(nextVideoIndex);
+        setIsTransitioning(false);
+        
+        // Reset previous video
+        if (currentVideo) {
+          currentVideo.style.transform = 'scale(1)';
+          currentVideo.currentTime = 0;
+        }
+      }, 1000); // 1 second smooth transition
+    }
+  };
 
-    return () => clearTimeout(timer);
-  }, [currentVideoIndex, isTransitioning]);
+
 
   const handleVideoLoaded = () => {
     setVideoLoaded(true);
@@ -161,6 +148,7 @@ const HeroSection = () => {
           playsInline
           onLoadedData={index === 0 ? handleVideoLoaded : undefined}
           onError={index === 0 ? handleVideoError : undefined}
+          onEnded={() => handleVideoEnd(index)}
           preload="auto"
           style={{
             position: 'absolute',
@@ -175,7 +163,7 @@ const HeroSection = () => {
             zIndex: currentVideoIndex === index ? -2 : -3
           }}
         >
-          <source src={video.url} type="video/mp4" />
+          <source src={video} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       ))}

@@ -86,7 +86,7 @@ const FarmerHeroSection = () => {
             playsInline
             onError={handleVideoError}
           >
-            <source src="https://res.cloudinary.com/djqodilpf/video/upload/v1764517429/18883013-uhd_3840_2160_24fps_1_cq370q.mp4" type="video/mp4" />
+            <source src="/farmerA.mp4" type="video/mp4" />
           </video>
         ) : (
           <div className="farmer-hero-image-slider w-full h-full">
