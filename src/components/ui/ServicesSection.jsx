@@ -41,23 +41,23 @@ const ServicesSection = () => {
       color: 'from-purple-500 to-pink-600'
     },
     {
-      name: 'Naturally Curious',
-      description: 'Educational program designed to deepen your understanding of organic farming and sustainable living.',
+      name: 'Naturally Yours',
+      description: 'Naturally Good gives you access to a dedicated farm patch where vegetables are grown exclusively for you using certified organic, chemical-free practices. From soil preparation and sowing to harvesting and doorstep delivery, everything is handled by experienced farmers and agronomists.',
       image: vegetableImages['exotic-vegetables'],
-      price: 'Coming Soon',
+      price: 'Contact Us',
       icon: <BookOpen className="w-8 h-8" />,
-      category: 'Education Program',
+      category: 'Managed Farm',
       features: [
-        'Farm education tours',
-        'Organic farming workshops',
-        'Sustainability practices'
+        'Dedicated farm patch',
+        'Certified organic practices',
+        'Weekly fresh delivery'
       ],
       services: [
-        'Guided farm visits',
-        'Hands-on farming workshops',
-        'Sustainable living seminars',
-        'Organic certification guidance',
-        'Community farming projects',
+        'Dedicated farm patch for your family',
+        'Complete farm management by experts',
+        'Weekly fresh vegetable delivery',
+        'Regular farm updates & transparency',
+        'Farm visit access anytime',
         'Environmental impact education'
       ],
       hasKnowMore: true,

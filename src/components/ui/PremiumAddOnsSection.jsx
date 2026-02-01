@@ -49,7 +49,7 @@ const PremiumAddOnsSection = () => {
     },
     {
       id: 'naturally-curious',
-      name: 'Naturally Curious',
+      name: 'Naturally Yours',
       icon: <Award className="w-5 h-5" />,
       color: 'from-emerald-500 to-teal-600'
     },
@@ -190,14 +190,16 @@ const PremiumAddOnsSection = () => {
     ],
     'naturally-curious': [
       {
-        name: 'Naturally Curious Program',
-        description: 'Educational program designed to deepen your understanding of organic farming and sustainable living.',
+        name: 'Your Fully Managed Organic Vegetable Farm',
+        description: 'Naturally Good gives you access to a dedicated farm patch where vegetables are grown exclusively for you using certified organic, chemical-free practices. From soil preparation and sowing to harvesting and doorstep delivery, everything is handled by experienced farmers and agronomists. You receive regular farm updates, complete transparency, and the assurance of knowing exactly where your food comes from. Enjoy fresh, seasonal organic vegetables every week for your family, visit the farm anytime, and experience the connection to real farming — while we take care of everything.',
         image: vegetableImages['exotic-vegetables'],
-        price: 'Coming Soon',
+        price: 'Contact Us',
         features: [
-          'Farm education tours',
-          'Organic farming workshops',
-          'Sustainability practices'
+          'Dedicated farm patch',
+          'Certified organic practices',
+          'Weekly fresh vegetable delivery',
+          'Regular farm updates',
+          'Farm visit access anytime'
         ]
       }
     ],

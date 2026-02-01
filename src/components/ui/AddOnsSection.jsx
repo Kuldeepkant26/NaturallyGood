@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'motion/react';
-import { Package, Heart, ShoppingBag, Star, ArrowRight, CheckCircle, X, Smartphone, Zap, BookOpen } from 'lucide-react';
+import { Package, Heart, ShoppingBag, Star, ArrowRight, CheckCircle, X, Smartphone, Zap, BookOpen, Leaf, MapPin, Truck, Eye, Calendar } from 'lucide-react';
 
 // Import vegetable images configuration
 import { vegetableImages } from '../../assets/vegetables/imageConfig.js';
@@ -62,7 +62,7 @@ const AddOnsSection = () => {
     },
     {
       id: 'naturally-curious',
-      name: 'Naturally Curious',
+      name: 'Naturally Yours',
       icon: <BookOpen className="w-5 h-5" />,
       color: 'from-teal-500 to-green-500'
     }
@@ -196,15 +196,21 @@ const AddOnsSection = () => {
     ],
     'naturally-curious': [
       {
-        name: 'Naturally Curious',
-        description: 'Coming Soon - Educational content and resources about organic farming and healthy living.',
+        name: 'Your Fully Managed Organic Vegetable Farm',
+        tagline: 'Experience Real Farming, Delivered Fresh',
+        description: 'Naturally Good gives you access to a dedicated farm patch where vegetables are grown exclusively for you using certified organic, chemical-free practices.',
+        longDescription: 'From soil preparation and sowing to harvesting and doorstep delivery, everything is handled by experienced farmers and agronomists. You receive regular farm updates, complete transparency, and the assurance of knowing exactly where your food comes from.',
+        conclusion: 'Enjoy fresh, seasonal organic vegetables every week for your family, visit the farm anytime, and experience the connection to real farming — while we take care of everything.',
         image: vegetableImages['herbs-collection'],
-        price: 'Coming Soon',
+        price: 'Contact Us',
         features: [
-          'Educational content',
-          'Organic farming insights',
-          'Healthy living tips'
-        ]
+          { icon: 'leaf', text: 'Dedicated farm patch exclusively for your family' },
+          { icon: 'check', text: 'Certified organic, chemical-free practices' },
+          { icon: 'truck', text: 'Weekly fresh vegetable delivery to doorstep' },
+          { icon: 'eye', text: 'Regular farm updates & complete transparency' },
+          { icon: 'calendar', text: 'Visit the farm anytime you want' }
+        ],
+        isSpecialLayout: true
       }
     ]
   };
@@ -295,33 +301,146 @@ const AddOnsSection = () => {
           ))}
         </div>
 
-        {/* Products Grid */}
-        <div
-          key={activeCategory}
-          className={`${
-            productData[activeCategory]?.length === 1
-              ? 'flex justify-center' // Center single card
-              : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' // Normal grid for multiple cards
-          } gap-4 sm:gap-6 mb-16 px-4 sm:px-0`}
-        >
-          {productData[activeCategory]?.map((product, index) => (
-            <motion.div
-              key={index}
-              ref={ref}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              style={{
-                rotateX: hoveredProduct === index ? rotateX : 0,
-                rotateY: hoveredProduct === index ? rotateY : 0,
-              }}
-              onMouseMove={(e) => handleMouseMove(e, index)}
-              onMouseEnter={() => setHoveredProduct(index)}
-              onMouseLeave={() => {
-                setHoveredProduct(null);
-                x.set(0);
-                y.set(0);
-              }}
+        {/* Special Naturally Yours Section */}
+        {activeCategory === 'naturally-curious' && productData['naturally-curious']?.[0]?.isSpecialLayout && (
+          <motion.div
+            key="naturally-yours-special"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-16 px-4 sm:px-0"
+          >
+            <div className="relative bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 rounded-3xl overflow-hidden border border-green-100 shadow-xl">
+              {/* Background Pattern */}
+              <div className="absolute inset-0 opacity-5">
+                <div className="absolute top-0 right-0 w-96 h-96 bg-green-500 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
+                <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-500 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2" />
+              </div>
+              
+              <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                {/* Image Section */}
+                <div className="relative h-64 sm:h-80 lg:h-full min-h-[400px]">
+                  <img
+                    src={productData['naturally-curious'][0].image}
+                    alt={productData['naturally-curious'][0].name}
+                    className="absolute inset-0 w-full h-full object-cover lg:rounded-l-3xl"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/40 to-transparent" />
+                  
+                  {/* Floating Badge */}
+                  <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
+                    <Leaf className="w-5 h-5 text-green-600" />
+                    <span className="text-sm font-semibold text-gray-800">100% Organic</span>
+                  </div>
+                </div>
+                
+                {/* Content Section */}
+                <div className="p-6 sm:p-8 lg:p-12 flex flex-col justify-center">
+                  {/* Tag */}
+                  <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium mb-4 w-fit">
+                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                    Naturally Yours
+                  </div>
+                  
+                  {/* Title */}
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 leading-tight">
+                    {productData['naturally-curious'][0].name}
+                  </h3>
+                  
+                  {/* Tagline */}
+                  <p className="text-lg text-green-600 font-medium mb-6">
+                    {productData['naturally-curious'][0].tagline}
+                  </p>
+                  
+                  {/* Description */}
+                  <div className="space-y-4 mb-8">
+                    <p className="text-gray-700 leading-relaxed text-base sm:text-lg">
+                      {productData['naturally-curious'][0].description}
+                    </p>
+                    <p className="text-gray-600 leading-relaxed">
+                      {productData['naturally-curious'][0].longDescription}
+                    </p>
+                    <p className="text-gray-700 font-medium leading-relaxed italic">
+                      {productData['naturally-curious'][0].conclusion}
+                    </p>
+                  </div>
+                  
+                  {/* Features Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+                    {productData['naturally-curious'][0].features.map((feature, idx) => {
+                      const IconComponent = feature.icon === 'leaf' ? Leaf :
+                                           feature.icon === 'check' ? CheckCircle :
+                                           feature.icon === 'truck' ? Truck :
+                                           feature.icon === 'eye' ? Eye :
+                                           feature.icon === 'calendar' ? Calendar : CheckCircle;
+                      return (
+                        <div key={idx} className="flex items-start gap-3 bg-white/70 backdrop-blur-sm p-3 rounded-xl">
+                          <div className="flex-shrink-0 w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                            <IconComponent className="w-4 h-4 text-green-600" />
+                          </div>
+                          <span className="text-gray-700 text-sm font-medium leading-snug">{feature.text}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  
+                  {/* CTA Buttons */}
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <button
+                      onClick={() => {
+                        const message = `Hi! I'm interested in the Naturally Yours - Managed Organic Farm program. Can you provide more details?`;
+                        window.open(`https://wa.me/919643722200?text=${encodeURIComponent(message)}`, '_blank');
+                      }}
+                      className="flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl hover:-translate-y-1"
+                    >
+                      <WhatsAppIcon className="w-5 h-5" />
+                      <span>Get Started Today</span>
+                    </button>
+                    <button
+                      onClick={() => {
+                        const message = `Hi! I'd like to schedule a farm visit to learn more about the Naturally Yours program.`;
+                        window.open(`https://wa.me/919643722200?text=${encodeURIComponent(message)}`, '_blank');
+                      }}
+                      className="flex-1 bg-white hover:bg-gray-50 text-gray-800 font-semibold py-4 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-3 border-2 border-gray-200 hover:border-green-300"
+                    >
+                      <MapPin className="w-5 h-5 text-green-600" />
+                      <span>Schedule Farm Visit</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Products Grid - Regular cards for other categories */}
+        {!(activeCategory === 'naturally-curious' && productData['naturally-curious']?.[0]?.isSpecialLayout) && (
+          <div
+            key={activeCategory}
+            className={`${
+              productData[activeCategory]?.length === 1
+                ? 'flex justify-center' // Center single card
+                : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' // Normal grid for multiple cards
+            } gap-4 sm:gap-6 mb-16 px-4 sm:px-0`}
+          >
+            {productData[activeCategory]?.map((product, index) => (
+              <motion.div
+                key={index}
+                ref={ref}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                style={{
+                  rotateX: hoveredProduct === index ? rotateX : 0,
+                  rotateY: hoveredProduct === index ? rotateY : 0,
+                }}
+                onMouseMove={(e) => handleMouseMove(e, index)}
+                onMouseEnter={() => setHoveredProduct(index)}
+                onMouseLeave={() => {
+                  setHoveredProduct(null);
+                  x.set(0);
+                  y.set(0);
+                }}
               onClick={() => handleProductClick(product)}
               whileHover={{ 
                 y: -10,
@@ -413,7 +532,8 @@ const AddOnsSection = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+          </div>
+        )}
 
         {/* Product Detail Modal */}
         <AnimatePresence>

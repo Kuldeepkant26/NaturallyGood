@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { handleFooterTabClick } from '../../utils/tabNavigation';
 
 // Import fallback images
 import homehero3 from '../../assets/homehero3.png';
@@ -42,8 +43,9 @@ const HeroSection = () => {
   // Local hero videos from public folder
   const videos = [
     "/heroA.mp4",
-    "/heroB.mp4",
-    "/heroC.mp4"
+    "/heroC.mp4",
+    "/heroD.mp4",
+    "/heroB.mp4"
   ];
 
   useEffect(() => {
@@ -336,6 +338,30 @@ const HeroSection = () => {
               </svg>
             </a>
           </div>
+          
+          <a
+            href="#premium-offerings"
+            onClick={(e) => handleFooterTabClick(e, 'naturally-curious')}
+            className="hero-farm-link animate-fade-in-up"
+            style={{ animationDelay: '0.9s' }}
+          >
+            <span>Your Fully Managed Organic Vegetable Farm</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              width="16"
+              height="16"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+              />
+            </svg>
+          </a>
         </div>
       )}
     </section>

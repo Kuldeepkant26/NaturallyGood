@@ -171,7 +171,7 @@ const Footer = () => {
               <li><a href="#premium-offerings" onClick={(e) => handleFooterTabClick(e, 'naturally-pure')}>Naturally Pure</a></li>
               <li><a href="#premium-offerings" onClick={(e) => handleFooterTabClick(e, 'nutrition-packs')}>Nutrition Packs</a></li>
               <li><a href="#premium-offerings" onClick={(e) => handleFooterTabClick(e, 'naturally-fit')}>Naturally Fit</a></li>
-              <li><a href="#premium-offerings" onClick={(e) => handleFooterTabClick(e, 'naturally-curious')}>Naturally Curious</a></li>
+              <li><a href="#premium-offerings" onClick={(e) => handleFooterTabClick(e, 'naturally-curious')}>Naturally Yours</a></li>
             </ul>
           </div>
 
