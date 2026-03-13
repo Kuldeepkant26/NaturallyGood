@@ -20,11 +20,10 @@ const SubscriptionSection = () => {
       title: 'WELLNESS STARTER',
       subtitle: 'Monthly',
       duration: '4 Weekly Delivery/Month • 1 Month',
-      originalPrice: '₹7,596',
-      discountedPrice: '₹7,499',
-      pricePerBasket: '₹1,875 per 10 kg bag',
-      pricePerDay: '₹250 per day',
-      discount: '1% off',
+      originalPrice: '₹8,000',
+      discountedPrice: '₹8,000',
+      monthlyRate: '₹8000 per month',
+      discount: '0% off',
       popular: false,
       color: 'from-light-green to-dark-green',
       colorStyle: {background: `linear-gradient(to right, #79B927, #00963F)`},
@@ -73,11 +72,10 @@ const SubscriptionSection = () => {
       title: 'WELLNESS PLUS',
       subtitle: 'Quarterly',
       duration: '4 Weekly Delivery/Month • 3 Months',
-      originalPrice: '₹22,788',
-      discountedPrice: '₹17,999',
-      pricePerBasket: '₹1,500 per 10 kg bag',
-      pricePerDay: '₹195 per day',
-      discount: '21% off',
+      originalPrice: '₹24,000',
+      discountedPrice: '₹21,000',
+      monthlyRate: '₹7000 per month',
+      discount: '13% off',
       popular: true,
       color: 'from-emerald-400 to-emerald-600',
       colorStyle: {background: `linear-gradient(to right, #9AC5A9, #7FB069)`},
@@ -102,7 +100,7 @@ const SubscriptionSection = () => {
         'Quality assurance'
       ],
       detailedFeatures: [
-        'Best value for money with 21% savings',
+        'Best value for money with 13% savings',
         'Seasonal variety guaranteed throughout the quarter',
         'Priority customer support via dedicated helpline',
         'Flexible delivery schedule adjustments',
@@ -126,11 +124,10 @@ const SubscriptionSection = () => {
       title: 'WELLNESS PREMIUM',
       subtitle: 'Semi Annual',
       duration: '4 Weekly Delivery/Month • 6 Months',
-      originalPrice: '₹45,576',
-      discountedPrice: '₹32,999',
-      pricePerBasket: '₹1,375 per 10 kg bag',
-      pricePerDay: '₹180 per day',
-      discount: '28% off',
+      originalPrice: '₹48,000',
+      discountedPrice: '₹36,000',
+      monthlyRate: '₹6000 per month',
+      discount: '25% off',
       recommended: true,
       color: 'from-yellow-400 to-yellow-500',
       colorStyle: {background: `linear-gradient(to right, #FECE13, #F4C430)`},
@@ -155,7 +152,7 @@ const SubscriptionSection = () => {
         'Health tracking support'
       ],
       detailedFeatures: [
-        'Huge savings of 28% on regular prices',
+        'Huge savings of 25% on regular prices',
         'Consistent supply for 6 months',
         'Premium customer care with dedicated manager',
         'Seasonal recipe suggestions and cooking tips',
@@ -165,7 +162,7 @@ const SubscriptionSection = () => {
         'Complimentary add-ons worth ₹1000'
       ],
       benefits: [
-        'Maximum value with 28% discount',
+        'Maximum value with 25% discount',
         'Long-term fresh supply security',
         'Premium customer experience',
         'Health and nutrition support included'
@@ -179,11 +176,10 @@ const SubscriptionSection = () => {
       title: 'WELLNESS 360°',
       subtitle: 'Annual',
       duration: '4 Weekly Delivery/Month • 12 Months',
-      originalPrice: '₹91,152',
-      discountedPrice: '₹56,999',
-      pricePerBasket: '₹1,187 per 10 kg bag',
-      pricePerDay: '₹155 per day',
-      discount: '37% off',
+      originalPrice: '₹96,000',
+      discountedPrice: '₹60,000',
+      monthlyRate: '₹5000 per month',
+      discount: '38% off',
       popular: false,
       color: 'from-red-500 to-red-600',
       colorStyle: {background: `linear-gradient(to right, #FF4646, #E53E3E)`},
@@ -208,7 +204,7 @@ const SubscriptionSection = () => {
         'Exclusive add-on discounts'
       ],
       detailedFeatures: [
-        'Maximum discount of 37% - best value ever',
+        'Maximum discount of 38% - best value ever',
         'Year-round fresh supply guaranteed',
         'VIP customer status with priority service',
         'Free nutrition consultation sessions',
@@ -220,7 +216,7 @@ const SubscriptionSection = () => {
         'Health tracking app premium subscription'
       ],
       benefits: [
-        'Unbeatable 37% savings',
+        'Unbeatable 38% savings',
         'Complete year-long fresh produce',
         'VIP treatment and premium services',
         'Personal health and nutrition support'
@@ -254,7 +250,7 @@ const SubscriptionSection = () => {
 📋 Plan Details:
 • Duration: ${selectedPlan.duration}
 • Price: ${selectedPlan.discountedPrice} (${selectedPlan.discount})
-• Per Basket: ${selectedPlan.pricePerBasket}
+• Monthly Rate: ${selectedPlan.monthlyRate || 'Details on request'}
 • Ideal for: ${selectedPlan.familySize}
 
 Please help me complete the subscription process. Thank you!`;
@@ -354,8 +350,9 @@ Please help me complete the subscription process. Thank you!`;
                     <span className="text-xl sm:text-2xl font-bold text-gray-900 transition-colors duration-300">{plan.discountedPrice}</span>
                     <span className="text-base sm:text-lg text-gray-500 line-through ml-2 group-hover:text-gray-600 transition-colors duration-300">{plan.originalPrice}</span>
                   </div>
-                  <p className="text-sm text-gray-600 mb-1 group-hover:text-gray-700 transition-colors duration-300">{plan.pricePerBasket}</p>
-                  <p className="text-xs text-gray-500 mb-1 group-hover:text-gray-600 transition-colors duration-300">{plan.pricePerDay}</p>
+                  {plan.monthlyRate && (
+                    <p className="text-sm font-semibold text-gray-700 mb-1 group-hover:text-gray-800 transition-colors duration-300">{plan.monthlyRate}</p>
+                  )}
                   <div className="h-8 flex items-start">
                     <p className="text-xs text-gray-500 leading-tight">{plan.duration}</p>
                   </div>
@@ -497,8 +494,9 @@ Please help me complete the subscription process. Thank you!`;
                               <span className="text-2xl sm:text-3xl font-bold text-gray-900">{selectedPlan.discountedPrice}</span>
                               <span className="text-lg sm:text-xl text-gray-500 line-through ml-2 sm:ml-3">{selectedPlan.originalPrice}</span>
                             </div>
-                            <p className="text-base sm:text-lg font-semibold" style={{color: '#79B927'}}>{selectedPlan.pricePerBasket}</p>
-                            <p className="text-sm sm:text-base font-medium text-gray-600 mt-1">{selectedPlan.pricePerDay}</p>
+                            {selectedPlan.monthlyRate && (
+                              <p className="text-base sm:text-lg font-semibold" style={{color: '#79B927'}}>{selectedPlan.monthlyRate}</p>
+                            )}
                           </div>
                           <div 
                             className={`${selectedPlan.id === 'monthly' ? '' : `bg-gradient-to-r ${selectedPlan.color}`} text-white text-base sm:text-lg font-bold px-3 sm:px-4 py-2 rounded-full`}
