@@ -23,6 +23,7 @@ const SubscriptionSection = () => {
       originalPrice: '₹8,000',
       discountedPrice: '₹8,000',
       monthlyRate: '₹8000 per month',
+      bagRate: '₹2000 per 10 kg bag',
       discount: '0% off',
       popular: false,
       color: 'from-light-green to-dark-green',
@@ -75,6 +76,7 @@ const SubscriptionSection = () => {
       originalPrice: '₹24,000',
       discountedPrice: '₹21,000',
       monthlyRate: '₹7000 per month',
+      bagRate: '₹1750 per 10 kg bag',
       discount: '13% off',
       popular: true,
       color: 'from-emerald-400 to-emerald-600',
@@ -127,6 +129,7 @@ const SubscriptionSection = () => {
       originalPrice: '₹48,000',
       discountedPrice: '₹36,000',
       monthlyRate: '₹6000 per month',
+      bagRate: '₹1500 per 10 kg bag',
       discount: '25% off',
       recommended: true,
       color: 'from-yellow-400 to-yellow-500',
@@ -179,6 +182,7 @@ const SubscriptionSection = () => {
       originalPrice: '₹96,000',
       discountedPrice: '₹60,000',
       monthlyRate: '₹5000 per month',
+      bagRate: '₹1250 per 10 kg bag',
       discount: '38% off',
       popular: false,
       color: 'from-red-500 to-red-600',
@@ -353,6 +357,9 @@ Please help me complete the subscription process. Thank you!`;
                   {plan.monthlyRate && (
                     <p className="text-sm font-semibold text-gray-700 mb-1 group-hover:text-gray-800 transition-colors duration-300">{plan.monthlyRate}</p>
                   )}
+                  {plan.bagRate && (
+                    <p className="text-sm font-semibold text-green-700 mb-1 group-hover:text-green-800 transition-colors duration-300">{plan.bagRate}</p>
+                  )}
                   <div className="h-8 flex items-start">
                     <p className="text-xs text-gray-500 leading-tight">{plan.duration}</p>
                   </div>
@@ -496,6 +503,9 @@ Please help me complete the subscription process. Thank you!`;
                             </div>
                             {selectedPlan.monthlyRate && (
                               <p className="text-base sm:text-lg font-semibold" style={{color: '#79B927'}}>{selectedPlan.monthlyRate}</p>
+                            )}
+                            {selectedPlan.bagRate && (
+                              <p className="text-sm sm:text-base font-semibold text-green-700">{selectedPlan.bagRate}</p>
                             )}
                           </div>
                           <div 
