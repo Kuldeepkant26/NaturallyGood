@@ -18,7 +18,7 @@ const FAQSection = () => {
       {
         id: 1,
         question: "How to order?",
-        answer: "Naturally Good is a subscription based membership model. We offer organic seasonal farm fresh veggies, exotics, staples and herbs and deliver them to your doorstep. You can choose to sign up for our wellness subscription plans. Choose a subscription type which suits your family size and goals.\n\nYou can order our wellness subscription plans through our app, or you can call or whatsapp us at +91 9643722200 / +91 9111190102"
+        answer: "Naturally Good is a subscription based membership model. We offer organic seasonal farm fresh veggies, exotics, staples and herbs and deliver them to your doorstep. You can choose to sign up for our wellness subscription plans. Choose a subscription type which suits your family size and goals.\n\nYou can order our wellness subscription plans through our app, or you can call or whatsapp us at +91 9211585002"
       },
       {
         id: 2,
@@ -43,7 +43,7 @@ const FAQSection = () => {
       {
         id: 6,
         question: "Can I place bulk orders?",
-        answer: "Yes, for longer subscriptions or large quantity offers, please call us at +91 9643722200 / +91 9111190102"
+        answer: "Yes, for longer subscriptions or large quantity offers, please call us at +91 9211585002"
       }
     ],
     delivery: [
@@ -92,7 +92,7 @@ const FAQSection = () => {
       {
         id: 18,
         question: "How soon will I get a refund if I cancel?",
-        answer: "It will reflect in your original payment method in 7 Working Days. You may write to us at EatFresh@NaturallyGood.in or call at +919643722200 for any assistance."
+        answer: "It will reflect in your original payment method in 7 Working Days. You may write to us at EatFresh@NaturallyGood.in or call at +91 9211585002 for any assistance."
       },
       {
         id: 19,
@@ -139,7 +139,7 @@ const FAQSection = () => {
       {
         id: 29,
         question: "Can we visit your farms?",
-        answer: "Yes, for sure! Our farm is open for visits from November 1st to February 28th. To plan your visit please book your slots with us at least 7 days in advance over call on +91 9643722220\n\nDuring your visit, you'll enjoy delicious snacks and refreshing soft beverages made from the fresh seasonal produce of our farm. Additionally, you'll have the opportunity to select 1 to 2 kilograms of vegetables directly from the farm to take home with you. We look forward to welcoming you to our farm!"
+        answer: "Yes, for sure! Our farm is open for visits from November 1st to February 28th. To plan your visit please book your slots with us at least 7 days in advance over call on +91 9211585002\n\nDuring your visit, you'll enjoy delicious snacks and refreshing soft beverages made from the fresh seasonal produce of our farm. Additionally, you'll have the opportunity to select 1 to 2 kilograms of vegetables directly from the farm to take home with you. We look forward to welcoming you to our farm!"
       }
     ]
   };
@@ -304,7 +304,7 @@ const FAQSection = () => {
             <motion.button
               onClick={() => {
                 const message = `Hi! I have some questions about your seasonal veggie baskets. Could you please help me with more information?`;
-                window.open(`https://wa.me/919643722200?text=${encodeURIComponent(message)}`, '_blank');
+                window.open(`https://wa.me/919211585002?text=${encodeURIComponent(message)}`, '_blank');
               }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
