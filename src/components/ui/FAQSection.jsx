@@ -2,6 +2,203 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Plus, Minus, HelpCircle, Truck, Smartphone, RotateCcw } from 'lucide-react';
 
+const ShelfLifeTable = () => {
+  const [activeSeason, setActiveSeason] = useState('all');
+
+  const seasons = [
+    { id: 'all', label: 'All Seasons', emoji: '🌿' },
+    { id: 'summer', label: 'Summers Only', emoji: '☀️' },
+    { id: 'winter', label: 'Winters Only', emoji: '❄️' },
+  ];
+
+  const shelfData = {
+    all: {
+      eatFirst: [
+        'Coriander (Dhaniya), Mint (Pudeena)',
+        'Bhindi (Green & Red)',
+        'Brinjal (Purple, Green, White – All types)',
+        'Exotic Chillies',
+        'Water Spinach, Chaulai Saag',
+        'Basil, Oregano, Lemongrass',
+        'Curry Patta, Ajwain Leaves',
+        'Neem Leaves, Micro Herbs',
+        'Sprouts (if fresh)',
+        'Banana Stem',
+        'Chaulai Fali',
+        'Giloy',
+      ],
+      useInWeek: [
+        'Tomato (Desi & Hybrid)',
+        'Onion (Regular, White, Baby)',
+        'Garlic (Lehsun)',
+        'Capsicum, Bell Peppers (Red/Yellow)',
+        'Cabbage (Bandgobhi)',
+        'Sweet Corn',
+        'Cucumber (Kheera)',
+        'Raw Papaya',
+        'Summer Carrot',
+        'Jackfruit (Kathal)',
+        'Raw Turmeric',
+        'Neem Daatun',
+      ],
+      storeLonger: [
+        'Potato (Aloo, Baby, Red)',
+        'Baby Corn',
+        'Ginger (Adrak)',
+        'Pumpkin (Dried)',
+        'Raw Banana',
+        'Lemon / Lime',
+        'Dry Red Chilli',
+        'Aloe Vera',
+      ],
+      hasAllSeasonsNote: false,
+    },
+    summer: {
+      eatFirst: [
+        'Poi Saag',
+        'Zucchini (Green/Yellow)',
+        'Karela (Regular & Baby)',
+        'Tinda (Apple Gourd)',
+        'Parwal (Pointed Gourd)',
+        'Snake Gourd',
+        'Arvi',
+        'Corn (Bhutta)',
+        'Kamal Kakdi (Lotus Stem)',
+        'Rat Tail Beans',
+        'Konigsnut Squash',
+      ],
+      useInWeek: [
+        'Lauki (Long & Round)',
+        'Tori (Ridge Gourd)',
+        'Kachri',
+        'Kundru',
+        'Bael',
+        'Red Potato',
+      ],
+      storeLonger: [
+        'Pumpkin (Cut & Whole)',
+        'White Pumpkin (Cut & Whole)',
+        'Raw Mango',
+      ],
+      hasAllSeasonsNote: true,
+    },
+    winter: {
+      eatFirst: [
+        'Palak, Methi, Bathua',
+        'Sarson Saag, Soya Saag',
+        'Lettuce (All), Rocket, Kale',
+        'Swiss Chard, Celery',
+        'Microgreens Mix',
+        'Parsley',
+        'Spring Onion',
+        'Fresh Herbs',
+        'Sprouts',
+        'Edible Flowers',
+        'Broccoli',
+        'Chinese Cucumber',
+        'Green Chana',
+        'Mousambi',
+        'Mushrooms',
+        'Sangri',
+      ],
+      useInWeek: [
+        'Cauliflower (White & Exotic)',
+        'Cabbage (Green, Exotic, Lump)',
+        'Carrot (Orange & Red)',
+        'Radish (White & Red)',
+        'Turnip (Shalgam)',
+        'Beetroot',
+        'Peas (Matar)',
+        'French Beans, Gwar Fali',
+        'Seem Fali (Desi & Hybrid)',
+        'Capsicum',
+      ],
+      storeLonger: [
+        'Onion (White)',
+        'Sweet Potato',
+        'Amla',
+        'Karonda',
+      ],
+      hasAllSeasonsNote: true,
+    },
+  };
+
+  const current = shelfData[activeSeason];
+  const maxRows = Math.max(current.eatFirst.length, current.useInWeek.length, current.storeLonger.length);
+
+  return (
+    <div className="space-y-4 mt-2">
+      {/* Season Tabs */}
+      <div className="flex flex-wrap gap-2">
+        {seasons.map((s) => (
+          <button
+            key={s.id}
+            onClick={() => setActiveSeason(s.id)}
+            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 border ${
+              activeSeason === s.id
+                ? 'bg-emerald-600 text-white border-emerald-600 shadow-sm'
+                : 'bg-white text-gray-600 border-gray-300 hover:border-emerald-400 hover:text-emerald-600'
+            }`}
+          >
+            {s.emoji} {s.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Table */}
+      <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+        <table className="w-full border-collapse text-sm">
+          <thead>
+            <tr>
+              <th className="bg-red-100 text-red-700 px-4 py-3 text-center font-semibold border-r border-red-200 w-1/3">
+                🍽️ Eat First
+                <div className="text-red-400 text-xs font-normal">(1–3 Days)</div>
+              </th>
+              <th className="bg-amber-100 text-amber-700 px-4 py-3 text-center font-semibold border-r border-amber-200 w-1/3">
+                🥘 Use in a Week
+                <div className="text-amber-400 text-xs font-normal">(2–5 Days)</div>
+              </th>
+              <th className="bg-green-100 text-green-700 px-4 py-3 text-center font-semibold w-1/3">
+                🧊 Store Longer
+                <div className="text-green-400 text-xs font-normal">(4–7 Days)</div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {Array.from({ length: maxRows }).map((_, i) => (
+              <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}>
+                <td className="px-4 py-2 text-red-800 border-r border-gray-100 align-top">
+                  {current.eatFirst[i] || ''}
+                </td>
+                <td className="px-4 py-2 text-amber-800 border-r border-gray-100 align-top">
+                  {current.useInWeek[i] || ''}
+                </td>
+                <td className="px-4 py-2 text-green-800 align-top">
+                  {current.storeLonger[i] || ''}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Notes */}
+      <div className="space-y-1 text-sm text-gray-500">
+        {current.hasAllSeasonsNote && (
+          <p>👉 Including All Seasons items.</p>
+        )}
+        <p>👉 This is an indicative list based on seasonal variations, natural availability and farm production.</p>
+      </div>
+
+      {/* Freshness Guarantee */}
+      <div className="p-4 bg-emerald-50 rounded-xl border border-emerald-200 space-y-2">
+        <p className="text-emerald-700 text-sm">👉 Enjoy a <strong>7-Day Freshness Guarantee</strong> on all vegetables, excluding Eat First items and Leafy Greens.</p>
+        <p className="text-emerald-700 text-sm">👉 Packaged dry items carry their own freshness details—please refer to the MFG date and best-before on the packaging.</p>
+      </div>
+    </div>
+  );
+};
+
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(null);
   const [activeCategory, setActiveCategory] = useState('general');
@@ -44,6 +241,11 @@ const FAQSection = () => {
         id: 6,
         question: "Can I place bulk orders?",
         answer: "Yes, for longer subscriptions or large quantity offers, please call us at +91 9211585002"
+      },
+      {
+        id: 7,
+        question: "Can I order unlimited quantities of every item in my bag?",
+        answer: "Your subscription includes all items featured in the standard bag, up to your plan limit. Select products may have quantity caps, thoughtfully adjusted based on seasonal availability and harvest cycles to ensure equitable access for all members of our farm community."
       }
     ],
     delivery: [
@@ -101,6 +303,11 @@ const FAQSection = () => {
       }
     ],
     returns: [
+      {
+        id: 30,
+        question: "What's the shelf life and seasonality of vegetables?",
+        answerComponent: <ShelfLifeTable />,
+      },
       {
         id: 22,
         question: "I have allergies/dietary restrictions, Is Naturally Good suitable for me?",
@@ -276,8 +483,10 @@ const FAQSection = () => {
                     className="overflow-hidden"
                   >
                     <div className="pb-8">
-                      <div className="text-gray-600 leading-relaxed text-lg md:text-xl whitespace-pre-line">
-                        {faq.answer}
+                      <div className="text-gray-600 leading-relaxed text-lg md:text-xl">
+                        {faq.answerComponent ? faq.answerComponent : (
+                          <span className="whitespace-pre-line">{faq.answer}</span>
+                        )}
                       </div>
                     </div>
                   </motion.div>
