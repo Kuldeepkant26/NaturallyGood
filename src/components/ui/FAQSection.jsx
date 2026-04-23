@@ -6,9 +6,9 @@ const ShelfLifeTable = () => {
   const [activeSeason, setActiveSeason] = useState('all');
 
   const seasons = [
-    { id: 'all', label: 'All Seasons', emoji: '🌿' },
-    { id: 'summer', label: 'Summers Only', emoji: '☀️' },
-    { id: 'winter', label: 'Winters Only', emoji: '❄️' },
+    { id: 'all', label: 'All Seasons' },
+    { id: 'summer', label: 'Summers Only' },
+    { id: 'winter', label: 'Winters Only' },
   ];
 
   const shelfData = {
@@ -140,7 +140,7 @@ const ShelfLifeTable = () => {
                 : 'bg-white text-gray-600 border-gray-300 hover:border-emerald-400 hover:text-emerald-600'
             }`}
           >
-            {s.emoji} {s.label}
+            {s.label}
           </button>
         ))}
       </div>
@@ -150,30 +150,30 @@ const ShelfLifeTable = () => {
         <table className="w-full border-collapse text-sm">
           <thead>
             <tr>
-              <th className="bg-red-100 text-red-700 px-4 py-3 text-center font-semibold border-r border-red-200 w-1/3">
-                🍽️ Eat First
-                <div className="text-red-400 text-xs font-normal">(1–3 Days)</div>
+              <th className="bg-green-800 text-white px-4 py-3 text-center font-semibold border-r border-green-700 w-1/3">
+                Eat First
+                <div className="text-green-200 text-xs font-normal">(1–3 Days)</div>
               </th>
-              <th className="bg-amber-100 text-amber-700 px-4 py-3 text-center font-semibold border-r border-amber-200 w-1/3">
-                🥘 Use in a Week
-                <div className="text-amber-400 text-xs font-normal">(2–5 Days)</div>
+              <th className="bg-green-500 text-white px-4 py-3 text-center font-semibold border-r border-green-400 w-1/3">
+                Use in a Week
+                <div className="text-green-100 text-xs font-normal">(2–5 Days)</div>
               </th>
-              <th className="bg-green-100 text-green-700 px-4 py-3 text-center font-semibold w-1/3">
-                🧊 Store Longer
-                <div className="text-green-400 text-xs font-normal">(4–7 Days)</div>
+              <th className="bg-green-100 text-green-800 px-4 py-3 text-center font-semibold w-1/3">
+                Store Longer
+                <div className="text-green-600 text-xs font-normal">(4–7 Days)</div>
               </th>
             </tr>
           </thead>
           <tbody>
             {Array.from({ length: maxRows }).map((_, i) => (
               <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}>
-                <td className="px-4 py-2 text-red-800 border-r border-gray-100 align-top">
+                <td className="px-4 py-2 text-green-900 border-r border-gray-100 align-top">
                   {current.eatFirst[i] || ''}
                 </td>
-                <td className="px-4 py-2 text-amber-800 border-r border-gray-100 align-top">
+                <td className="px-4 py-2 text-green-700 border-r border-gray-100 align-top">
                   {current.useInWeek[i] || ''}
                 </td>
-                <td className="px-4 py-2 text-green-800 align-top">
+                <td className="px-4 py-2 text-green-600 align-top">
                   {current.storeLonger[i] || ''}
                 </td>
               </tr>
@@ -185,15 +185,15 @@ const ShelfLifeTable = () => {
       {/* Notes */}
       <div className="space-y-1 text-sm text-gray-500">
         {current.hasAllSeasonsNote && (
-          <p>👉 Including All Seasons items.</p>
+          <p>Including All Seasons items.</p>
         )}
-        <p>👉 This is an indicative list based on seasonal variations, natural availability and farm production.</p>
+        <p>This is an indicative list based on seasonal variations, natural availability and farm production.</p>
       </div>
 
       {/* Freshness Guarantee */}
       <div className="p-4 bg-emerald-50 rounded-xl border border-emerald-200 space-y-2">
-        <p className="text-emerald-700 text-sm">👉 Enjoy a <strong>7-Day Freshness Guarantee</strong> on all vegetables, excluding Eat First items and Leafy Greens.</p>
-        <p className="text-emerald-700 text-sm">👉 Packaged dry items carry their own freshness details—please refer to the MFG date and best-before on the packaging.</p>
+        <p className="text-emerald-700 text-sm">Enjoy a <strong>7-Day Freshness Guarantee</strong> on all vegetables, excluding Eat First items and Leafy Greens.</p>
+        <p className="text-emerald-700 text-sm">Packaged dry items carry their own freshness details—please refer to the MFG date and best-before on the packaging.</p>
       </div>
     </div>
   );
