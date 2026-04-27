@@ -277,7 +277,7 @@ const FAQSection = () => {
       {
         id: 16,
         question: "Can I skip a delivery if I am travelling?",
-        answer: "If you are travelling or indulging in festivities, you can skip your next bag or pause your deliveries through our app. If you are away for a longer period you can write to us on EatFresh@NaturallyGood.in mentioning your Customer and Order ID with the subject 'Delivery Hold'."
+        answer: "If you are travelling or indulging in festivities, you can skip your next bag or pause your deliveries through our app. If you are away for a longer period you can write to us on EatFresh@NaturallyGood.in mentioning your Customer and Order ID with the subject 'Delivery Hold'.\n\nIf you do not prepare, reschedule or skip your bag before 8 PM prior to the delivery day, a standard bag based on your previous preferences will be automatically scheduled and delivered."
       }
     ],
     order: [
@@ -299,7 +299,7 @@ const FAQSection = () => {
       {
         id: 19,
         question: "What is your refund policy for early cancellation of subscription?",
-        answer: "If you decide to end your subscription early, no worries! We'll refund the remaining amount on a pro-rata basis, depending on how many bags you've already received. The refund will be worked out using the current price of a single bag multiplied by the number of bags delivered. This amount will then be deducted from what you've already paid for your subscription."
+        answer: "If you decide to end your subscription early, no worries! We'll refund the remaining amount on a pro-rata basis, depending on how many bags you've already received. The refund will be worked out using the current price of a single bag multiplied by the number of bags delivered. This amount will then be deducted from what you've already paid for your subscription.\n\nIf the service has not been initiated, any refund request will be reviewed and may be granted at the sole discretion of the company.\n\nAll refunds will be subject to a deduction of 3% + GST towards payment gateway/platform service charges."
       }
     ],
     returns: [
