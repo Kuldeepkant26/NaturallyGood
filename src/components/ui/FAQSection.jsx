@@ -276,7 +276,8 @@ const FAQSection = () => {
       },
       {
         id: 16,
-        question: "Can I skip a delivery if I am travelling?",
+        question: "Can I skip or reschedule a delivery if I am travelling?",
+        tag: "Reschedule your bag",
         answer: "If you are travelling or indulging in festivities, you can skip your next bag or pause your deliveries through our app. If you are away for a longer period you can write to us on EatFresh@NaturallyGood.in mentioning your Customer and Order ID with the subject 'Delivery Hold'.\n\nIf you do not prepare, reschedule or skip your bag before 8 PM prior to the delivery day, a standard bag based on your previous preferences will be automatically scheduled and delivered."
       }
     ],
@@ -461,9 +462,16 @@ const FAQSection = () => {
                 onClick={() => toggleFAQ(index)}
                 className="w-full py-8 text-left focus:outline-none group flex items-center justify-between hover:bg-gray-50/50 transition-colors duration-200"
               >
-                <h3 className="text-xl md:text-2xl font-medium text-gray-900 pr-6 leading-relaxed">
-                  {faq.question}
-                </h3>
+                <div className="flex flex-row items-center gap-3 pr-6 flex-wrap">
+                  <h3 className="text-xl md:text-2xl font-medium text-gray-900 leading-relaxed">
+                    {faq.question}
+                  </h3>
+                  {faq.tag && (
+                    <span className="inline-block flex-shrink-0 text-xs font-semibold text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full uppercase tracking-wide">
+                      {faq.tag}
+                    </span>
+                  )}
+                </div>
                 <div className="flex-shrink-0">
                   {openIndex === index ? (
                     <Minus className="w-8 h-8 text-gray-600" />
