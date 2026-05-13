@@ -230,7 +230,7 @@ const FAQSection = () => {
       {
         id: 4,
         question: "Can I pause/ cancel my subscription?",
-        answer: "We have got you. To pause or cancel at any time, go to your account section on our app or contact our customer support team."
+        answer: "We have got you. To pause or cancel at any time, go to your account section on our app or contact our customer support team. Please note: If no action is taken within 15 days of purchasing the subscription, or if first two consecutive deliveries are missed after subscription activation, the subscription account will be deactivated. Reactivation charges of ₹1000 + GST will apply."
       },
       {
         id: 5,
