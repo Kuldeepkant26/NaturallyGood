@@ -294,7 +294,7 @@ const FAQSection = () => {
       {
         id: 18,
         question: "How soon will I get a refund if I cancel?",
-        answer: "It will reflect in your original payment method in 7 Working Days. You may write to us at EatFresh@NaturallyGood.in or call at +91 9211585002 for any assistance."
+        answer: "It will reflect in your original payment method within 7 working days on a pro-rata basis for your remaining bags, after deduction of any applicable government taxes and any third-party/platform charges. You may write to us at EatFresh@NaturallyGood.in or call us at +91-9211585002 for any assistance."
       },
       {
         id: 19,
