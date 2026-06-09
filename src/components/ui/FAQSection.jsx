@@ -284,7 +284,7 @@ const FAQSection = () => {
       {
         id: 16,
         question: "I received some poor produce. What to do ?",
-        answer: "We are very sorry to hear about some unhappy vegetables or produce that showed up in your bag! You can go to our app, go to orders> delivered> support and raise a support ticket. You can also send an email to our customer happiness team at EatFresh@NaturallyGood.in within 24 Hours of Delivery.\n\nWe will make sure the matter is looked into and you receive a replacement. If you are able to provide some photos of any unsatisfactory produce in your email we would really appreciate it, as photos can help us better identify the issue you have experienced and make sure it is addressed."
+        answer: "Since we work with fresh, naturally grown produce, occasional imperfections may occur due to extreme weather conditions, transportation, or logistics handling. In most cases, these vegetables remain perfectly safe, nutritious, and suitable for consumption.\n\nHowever, member satisfaction is important to us. If you receive any produce that you feel is not up to your expectations, you can go to our app, go to orders> delivered> support and raise a support ticket. You can also send an email to our customer happiness team at EatFresh@NaturallyGood.in within 24 Hours of Delivery and we will be happy to arrange a replacement or provide an appropriate resolution."
       },
       {
         id: 17,
