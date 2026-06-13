@@ -34,7 +34,7 @@ const SubscriptionSection = () => {
         { name: 'Dedicated Wellness Advisor', included: true },
         { name: 'Recipe Support', included: true },
         { name: 'Bag Customisation', included: true },
-        { name: 'Complimentary Membership worth ₹1000', included: true },
+        { name: 'Membership worth ₹1000', included: true },
         { name: 'Complimentary Farm Visit', included: false },
         { name: 'Pure Raw Honey', included: false },
         { name: 'A2 Pure Cow Ghee', included: false },
@@ -88,7 +88,7 @@ const SubscriptionSection = () => {
         { name: 'Dedicated Wellness Advisor', included: true },
         { name: 'Recipe Support', included: true },
         { name: 'Bag Customisation', included: true },
-        { name: 'Complimentary Membership worth ₹1000', included: true },
+        { name: 'Membership worth ₹1000', included: true },
         { name: 'Complimentary Farm Visit', included: true },
         { name: 'Pure Raw Honey', value: '300 Gms', included: true },
         { name: 'A2 Pure Cow Ghee', included: false },
@@ -142,7 +142,7 @@ const SubscriptionSection = () => {
         { name: 'Dedicated Wellness Advisor', included: true },
         { name: 'Recipe Support', included: true },
         { name: 'Bag Customisation', included: true },
-        { name: 'Complimentary Membership worth ₹1000', included: true },
+        { name: 'Membership worth ₹1000', included: true },
         { name: 'Complimentary Farm Visit', included: true },
         { name: 'Pure Raw Honey', value: '300 Gms', included: true },
         { name: 'A2 Pure Cow Ghee', value: '500 Gms', included: true },
@@ -196,7 +196,7 @@ const SubscriptionSection = () => {
         { name: 'Dedicated Wellness Advisor', included: true },
         { name: 'Recipe Support', included: true },
         { name: 'Bag Customisation', included: true },
-        { name: 'Complimentary Membership worth ₹1000', included: true },
+        { name: 'Membership worth ₹1000', included: true },
         { name: 'Complimentary Farm Visit', included: true },
         { name: 'Pure Raw Honey', value: '300 Gms', included: true },
         { name: 'A2 Pure Cow Ghee', value: '1 KG', included: true },
@@ -375,7 +375,7 @@ Please help me complete the subscription process. Thank you!`;
                     {plan.standardizedBenefits.map((benefit, benefitIndex) => (
                       <li
                         key={benefitIndex}
-                        className="flex items-center text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300"
+                        className={`flex items-center text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300 ${benefit.name === 'Free Membership ₹1000 Value' ? 'overflow-hidden' : ''}`}
                       >
                         {benefit.included ? (
                           <CheckCircle 
@@ -387,7 +387,7 @@ Please help me complete the subscription process. Thank you!`;
                             className="w-4 h-4 mr-2 flex-shrink-0 text-red-500 group-hover:scale-110 transition-all duration-300" 
                           />
                         )}
-                        <span className="group-hover:translate-x-1 transition-transform duration-300">
+                        <span className={`group-hover:translate-x-1 transition-transform duration-300 ${benefit.name === 'Free Membership ₹1000 Value' ? 'whitespace-nowrap' : ''}`}>
                           {benefit.name === 'Organic Vegetable Bags' && benefit.value ? (
                             <>
                               <span className="font-semibold">{benefit.value}</span> {benefit.name}
@@ -554,7 +554,7 @@ Please help me complete the subscription process. Thank you!`;
                               ) : (
                                 <X className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 flex-shrink-0 mt-0.5 text-red-500" />
                               )}
-                              <span>
+                              <span className={benefit.name === 'Free Membership ₹1000 Value' ? 'whitespace-nowrap' : ''}>
                                 {benefit.name === 'Organic Vegetable Bags' && benefit.value ? (
                                   <>
                                     <span className="font-semibold text-green-600">{benefit.value}</span> {benefit.name}

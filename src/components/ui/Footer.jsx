@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import NGlogo from '../../assets/NGlogo.png';
 import NGlogoText from '../../assets/NGlogoText.png';
+import isoLogo from '../../assets/certificate-iso-9001-golden-logo-png_seeklogo-614384 Background Removed.png';
+import fssaiLogo from '../../assets/fssi-logo.jpg';
 import './Footer.css';
 import { handleFooterTabClick, navigateToTab } from '../../utils/tabNavigation';
 
@@ -221,6 +223,10 @@ const Footer = () => {
             <p className="copyright">
               © {currentYear} Naturally Good. All rights reserved.
             </p>
+            <div className="footer-certificates" aria-label="Our certifications">
+              <img src={isoLogo} alt="ISO 9001 certified" className="footer-certificate-logo" />
+              <img src={fssaiLogo} alt="FSSAI certified" className="footer-certificate-logo" />
+            </div>
             <div className="footer-bottom-links">
               <Link to="/privacy-policy.php">Privacy Policy</Link>
               <Link to="/terms-and-conditions.php">Terms of Service</Link>

@@ -9,7 +9,6 @@ import ProductsSection from '../components/ui/ProductsSection'
 import FAQSection from '../components/ui/FAQSection'
 import SEOHead from '../components/SEO/SEOHead'
 import StructuredData from '../components/SEO/StructuredData'
-import CertificatesSection from '../components/ui/CertificatesSection'
 
 function Home() {
     const [showSplash, setShowSplash] = useState(() => {
@@ -67,7 +66,6 @@ function Home() {
             <StructuredData type="localbusiness" />
             {/* Main Content - Always rendered */}
             <HeroSection />
-            <CertificatesSection />
             <ProductsSection />
             <SubscriptionSection />
             <AddOnsSection />
