@@ -4,6 +4,7 @@ import NGlogo from '../../assets/NGlogo.png';
 import NGlogoText from '../../assets/NGlogoText.png';
 import isoLogo from '../../assets/certificate-iso-9001-golden-logo-png_seeklogo-614384 Background Removed.png';
 import fssaiLogo from '../../assets/fssi-logo.jpg';
+import hundredPercentOrganicLogo from '../../assets/hundredpercentorganiclogo.avif';
 import './Footer.css';
 import { handleFooterTabClick, navigateToTab } from '../../utils/tabNavigation';
 
@@ -226,6 +227,7 @@ const Footer = () => {
             <div className="footer-certificates" aria-label="Our certifications">
               <img src={isoLogo} alt="ISO 9001 certified" className="footer-certificate-logo" />
               <img src={fssaiLogo} alt="FSSAI certified" className="footer-certificate-logo" />
+              <img src={hundredPercentOrganicLogo} alt="100% Organic certified" className="footer-certificate-logo" />
             </div>
             <div className="footer-bottom-links">
               <Link to="/privacy-policy.php">Privacy Policy</Link>
