@@ -4,6 +4,7 @@ import { Package, Heart, ShoppingBag, Star, ArrowRight, CheckCircle, X, Smartpho
 
 // Import vegetable images configuration
 import { vegetableImages } from '../../assets/vegetables/imageConfig.js';
+import superFoodImage from '../../assets/Super-food.jpg';
 
 // Custom WhatsApp Icon Component
 const WhatsAppIcon = ({ className }) => (
@@ -163,7 +164,7 @@ const AddOnsSection = () => {
       {
         name: 'Diet Super Food Pack',
         description: 'Power your day with nutrient-rich super diet food crafted for everyday wellness.',
-        image: vegetableImages['fresh-spinach'],
+        image: superFoodImage,
         price: 'Rs. 999 per Pack',
         features: [
           'Rich in Antioxidants',
