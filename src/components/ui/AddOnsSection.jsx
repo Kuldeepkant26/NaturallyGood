@@ -161,14 +161,14 @@ const AddOnsSection = () => {
         ]
       },
       {
-        name: 'Detox Pack',
-        description: 'Cleanse, refresh, and reset your body with our natural detox essentials.',
+        name: 'Diet Super Food Pack',
+        description: 'Power your day with nutrient-rich super diet food crafted for everyday wellness.',
         image: vegetableImages['fresh-spinach'],
-        price: 'Rs. 799 per Pack',
+        price: 'Rs. 999 per Pack',
         features: [
-          'Supports digestion',
-          'Flushes out toxins',
-          'Restores natural balance'
+          'Rich in Antioxidants',
+          'Support Immunity',
+          'High in protein & fiber'
         ]
       }
     ],
