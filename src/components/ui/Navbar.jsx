@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
+import { FaAmazon } from 'react-icons/fa';
+import { ShoppingCart } from 'lucide-react';
 import { useNavigateToProducts } from '../../utils/navigationUtils';
 import NaturallyGoodLogo from '../../assets/NaturalyGoodLogo.jpeg';
 import NGlogo from '../../assets/NGlogo.png';
@@ -334,6 +336,38 @@ const Navbar = () => {
                 </svg>
               </motion.a>
 
+              {/* Amazon Store Icon */}
+              <motion.a
+                href="https://www.amazon.in/stores/page/AE239A1E-5728-41DC-ABD6-305BC1A096E0"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-emerald-700 hover:text-emerald-600 transition-colors duration-300"
+                whileHover={{ scale: 1.2, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: 0.5 }}
+                title="Shop on Amazon"
+              >
+                <FaAmazon className="w-6 h-6" />
+              </motion.a>
+
+              {/* NG Store Icon */}
+              <motion.a
+                href="https://shop.naturallygood.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-emerald-700 hover:text-emerald-600 transition-colors duration-300"
+                whileHover={{ scale: 1.2, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: 0.55 }}
+                title="Shop on NG Store"
+              >
+                <ShoppingCart className="w-6 h-6" />
+              </motion.a>
+
               {/* Download App Icon - Navigate to App Page */}
               <motion.div
                 className="text-emerald-700 hover:text-emerald-600 transition-colors duration-300 cursor-pointer"
@@ -341,7 +375,7 @@ const Navbar = () => {
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: 0.5 }}
+                transition={{ duration: 0.4, delay: 0.6 }}
                 title="Download App"
                 onClick={handleAppDownload}
               >
@@ -536,6 +570,45 @@ const Navbar = () => {
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                     </svg>
+                  </motion.a>
+                </div>
+
+                {/* Mobile Shop Buttons */}
+                <div className="flex space-x-2 mt-2">
+                  <motion.a
+                    href="https://www.amazon.in/stores/page/AE239A1E-5728-41DC-ABD6-305BC1A096E0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 px-2 py-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-medium rounded-lg shadow-md transition-all duration-300 flex items-center justify-center space-x-1.5"
+                    style={{background: 'linear-gradient(to right, #79B927, #00963F)'}}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.4 }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    title="Shop on Amazon"
+                  >
+                    <FaAmazon className="w-4 h-4" />
+                    <span className="text-sm">Amazon</span>
+                  </motion.a>
+
+                  <motion.a
+                    href="https://shop.naturallygood.in"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 px-2 py-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-medium rounded-lg shadow-md transition-all duration-300 flex items-center justify-center space-x-1.5"
+                    style={{background: 'linear-gradient(to right, #79B927, #00963F)'}}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.45 }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    title="Shop on NG Store"
+                  >
+                    <ShoppingCart className="w-4 h-4" />
+                    <span className="text-sm">NG Store</span>
                   </motion.a>
                 </div>
               </div>
