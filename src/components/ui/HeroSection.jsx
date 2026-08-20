@@ -291,12 +291,17 @@ const HeroSection = () => {
             </>
           )}
           
-          <div 
+          <div
             className="hero-cta-group animate-fade-in-up"
             style={{ animationDelay: '0.7s', display: 'flex', gap: '1rem' }}
           >
-            <Link to="/about" className="hero-cta-secondary">
-              Learn More
+            <a
+              href="https://shop.naturallygood.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-cta-primary"
+            >
+              Shop Now
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -307,15 +312,10 @@ const HeroSection = () => {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="m9 12l2 2 4-4"
+                  d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 1.945-4.665 2.457-7.078a1.125 1.125 0 00-1.13-1.337H5.106M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
                 />
               </svg>
-            </Link>
+            </a>
             <a
               href="https://wa.me/919643722200"
               target="_blank"
@@ -338,30 +338,56 @@ const HeroSection = () => {
               </svg>
             </a>
           </div>
-          
-          <a
-            href="#premium-offerings"
-            onClick={(e) => handleFooterTabClick(e, 'naturally-curious')}
-            className="hero-farm-link animate-fade-in-up"
-            style={{ animationDelay: '0.9s' }}
+
+          <div
+            className="hero-cta-group animate-fade-in-up"
+            style={{ animationDelay: '0.8s', display: 'flex', gap: '1rem', marginTop: '1rem', alignItems: 'center' }}
           >
-            <span>Your Fully Managed Organic Vegetable Farm</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-              width="16"
-              height="16"
+            <Link to="/about" className="hero-cta-secondary">
+              Learn More
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m9 12l2 2 4-4"
+                />
+              </svg>
+            </Link>
+
+            <a
+              href="#premium-offerings"
+              onClick={(e) => handleFooterTabClick(e, 'naturally-curious')}
+              className="hero-farm-link"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-              />
-            </svg>
-          </a>
+              <span>Managed Organic Farm</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                width="16"
+                height="16"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                />
+              </svg>
+            </a>
+          </div>
         </div>
       )}
     </section>
