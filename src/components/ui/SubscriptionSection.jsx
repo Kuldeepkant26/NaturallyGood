@@ -20,17 +20,17 @@ const SubscriptionSection = () => {
       title: 'WELLNESS STARTER',
       subtitle: 'Monthly',
       duration: '4 Weekly Delivery/Month • 1 Month',
-      originalPrice: '₹9,000',
-      discountedPrice: '₹9,000',
-      monthlyRate: '₹9,000 per month',
-      bagRate: '₹2,250 per basket',
-      discount: '0% off',
+      originalPrice: '₹12,000',
+      discountedPrice: '₹9,500',
+      monthlyRate: '₹9,500 per month',
+      bagRate: '₹2,375 per basket',
+      discount: '21% off',
       popular: false,
       color: 'from-light-green to-dark-green',
       colorStyle: {background: `linear-gradient(to right, #79B927, #00963F)`},
       organicBags: '4',
       standardizedBenefits: [
-        { name: 'Organic Vegetable Bags', value: '4', included: true },
+        { name: 'x 10kg Organic Vegetable Bags', value: '4', included: true },
         { name: 'Dedicated Wellness Advisor', included: true },
         { name: 'Recipe Support', included: true },
         { name: 'Bag Customisation', included: true },
@@ -74,17 +74,17 @@ const SubscriptionSection = () => {
       title: 'WELLNESS PLUS',
       subtitle: 'Quarterly',
       duration: '4 Weekly Delivery/Month • 3 Months',
-      originalPrice: '₹33,600',
-      discountedPrice: '₹24,000',
-      monthlyRate: '₹8,000 per month',
-      bagRate: '₹2,000 per basket',
+      originalPrice: '₹36,000',
+      discountedPrice: '₹25,500',
+      monthlyRate: '₹8,500 per month',
+      bagRate: '₹2,125 per basket',
       discount: '29% off',
       popular: true,
       color: 'from-emerald-400 to-emerald-600',
       colorStyle: {background: `linear-gradient(to right, #9AC5A9, #7FB069)`},
       organicBags: '12',
       standardizedBenefits: [
-        { name: 'Organic Vegetable Bags', value: '12', included: true },
+        { name: 'x 10kg Organic Vegetable Bags', value: '12', included: true },
         { name: 'Dedicated Wellness Advisor', included: true },
         { name: 'Recipe Support', included: true },
         { name: 'Bag Customisation', included: true },
@@ -128,17 +128,17 @@ const SubscriptionSection = () => {
       title: 'WELLNESS PREMIUM',
       subtitle: 'Semi Annual',
       duration: '4 Weekly Delivery/Month • 6 Months',
-      originalPrice: '₹67,200',
-      discountedPrice: '₹42,000',
-      monthlyRate: '₹7,000 per month',
-      bagRate: '₹1,750 per basket',
+      originalPrice: '₹72,000',
+      discountedPrice: '₹45,000',
+      monthlyRate: '₹7,500 per month',
+      bagRate: '₹1,875 per basket',
       discount: '38% off',
       recommended: true,
       color: 'from-yellow-400 to-yellow-500',
       colorStyle: {background: `linear-gradient(to right, #FECE13, #F4C430)`},
       organicBags: '24',
       standardizedBenefits: [
-        { name: 'Organic Vegetable Bags', value: '24', included: true },
+        { name: 'x 10kg Organic Vegetable Bags', value: '24', included: true },
         { name: 'Dedicated Wellness Advisor', included: true },
         { name: 'Recipe Support', included: true },
         { name: 'Bag Customisation', included: true },
@@ -182,17 +182,17 @@ const SubscriptionSection = () => {
       title: 'WELLNESS 360°',
       subtitle: 'Annual',
       duration: '4 Weekly Delivery/Month • 12 Months',
-      originalPrice: '₹1,34,400',
-      discountedPrice: '₹72,000',
-      monthlyRate: '₹6,000 per month',
-      bagRate: '₹1,500 per basket',
+      originalPrice: '₹1,44,000',
+      discountedPrice: '₹78,000',
+      monthlyRate: '₹6,500 per month',
+      bagRate: '₹1,625 per basket',
       discount: '46% off',
       popular: false,
       color: 'from-red-500 to-red-600',
       colorStyle: {background: `linear-gradient(to right, #FF4646, #E53E3E)`},
       organicBags: '48',
       standardizedBenefits: [
-        { name: 'Organic Vegetable Bags', value: '48', included: true },
+        { name: 'x 10kg Organic Vegetable Bags', value: '48', included: true },
         { name: 'Dedicated Wellness Advisor', included: true },
         { name: 'Recipe Support', included: true },
         { name: 'Bag Customisation', included: true },
@@ -388,7 +388,7 @@ Please help me complete the subscription process. Thank you!`;
                           />
                         )}
                         <span className={`group-hover:translate-x-1 transition-transform duration-300 ${benefit.name === 'Free Membership ₹1000 Value' ? 'whitespace-nowrap' : ''}`}>
-                          {benefit.name === 'Organic Vegetable Bags' && benefit.value ? (
+                          {benefit.name === 'x 10kg Organic Vegetable Bags' && benefit.value ? (
                             <>
                               <span className="font-semibold">{benefit.value}</span> {benefit.name}
                             </>
@@ -555,7 +555,7 @@ Please help me complete the subscription process. Thank you!`;
                                 <X className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 flex-shrink-0 mt-0.5 text-red-500" />
                               )}
                               <span className={benefit.name === 'Free Membership ₹1000 Value' ? 'whitespace-nowrap' : ''}>
-                                {benefit.name === 'Organic Vegetable Bags' && benefit.value ? (
+                                {benefit.name === 'x 10kg Organic Vegetable Bags' && benefit.value ? (
                                   <>
                                     <span className="font-semibold text-green-600">{benefit.value}</span> {benefit.name}
                                   </>
