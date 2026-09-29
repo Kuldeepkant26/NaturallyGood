@@ -294,12 +294,12 @@ const FAQSection = () => {
       {
         id: 18,
         question: "How soon will I get a refund if I cancel?",
-        answer: "It will reflect in your original payment method within 7 working days on a pro-rata basis for your remaining bags, after deduction of any applicable government taxes and any third-party/platform charges. You may write to us at EatFresh@NaturallyGood.in or call us at +91-9211585002 for any assistance."
+        answer: "It will reflect in your original payment method within 7 working days on a pro-rata basis for your remaining bags, after deduction of any applicable government taxes and any third-party/platform charges.\n\nAny refund request will be reviewed and may be granted at the sole discretion of the company.\n\nYou may write to us at EatFresh@NaturallyGood.in or call us at +91-9211585002 for any assistance."
       },
       {
         id: 19,
         question: "What is your refund policy for early cancellation of subscription?",
-        answer: "If you decide to end your subscription early, no worries! We'll refund the remaining amount on a pro-rata basis, depending on how many bags you've already received. The refund will be worked out using the current price of a single bag multiplied by the number of bags delivered. This amount will then be deducted from what you've already paid for your subscription.\n\nIf the service has not been initiated, any refund request will be reviewed and may be granted at the sole discretion of the company.\n\nAll refunds will be subject to a deduction of 3% + GST towards payment gateway/platform service charges."
+        answer: "If you decide to end your subscription early, no worries! We'll refund the remaining amount on a pro-rata basis, depending on how many bags you've already received. The refund will be worked out using the current price of a single bag multiplied by the number of bags delivered. This amount will then be deducted from what you've already paid for your subscription.\n\nAny refund request will be reviewed and may be granted at the sole discretion of the company.\n\nAll refunds will be subject to a deduction of 3% + GST towards payment gateway/platform service charges."
       }
     ],
     returns: [

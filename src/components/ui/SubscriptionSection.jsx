@@ -930,7 +930,7 @@ Please help me complete the subscription process. Thank you!`;
   };
 
   return (
-    <section id="subscription" className="relative overflow-hidden bg-[#F6FAF2] py-16 sm:py-24 wide:py-16">
+    <section id="subscription" className="relative scroll-mt-20 overflow-hidden bg-[#F6FAF2] py-16 sm:py-24 wide:py-16">
       {/* Background glow and leaves */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div className="absolute -left-40 -top-40 h-[30rem] w-[30rem] rounded-full bg-[#79B927]/15 blur-3xl" />
@@ -946,6 +946,10 @@ Please help me complete the subscription process. Thank you!`;
           <SectionHead className="subs-head" />
           <FeatureStrip className="subs-strip" />
           <GoodFoodBadge className="subs-badge" />
+
+          {/* Jump targets for the bag-size cards in ProductsSection */}
+          <span id="plans-7kg" aria-hidden="true" className="subs-anchor1 scroll-mt-24" />
+          <span id="plans-10kg" aria-hidden="true" className="subs-anchor2 scroll-mt-24" />
 
           <AudiencePanel group={smallHousehold} className="subs-panel1 mt-6 wide:mt-0" />
           <PlanGrid plans={smallHousehold.plans} onOpen={handlePlanClick} onOrder={handleWhatsAppOrder} className="subs-cards1" />

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Leaf, Package, ShoppingBag, Heart, Star, ArrowRight, CheckCircle, X, Phone, Smartphone, Mail } from 'lucide-react';
+import { Leaf, Package, ShoppingBag, Heart, ArrowRight, CheckCircle, X, Carrot, Wheat, Salad, Sun, Users, ChevronRight } from 'lucide-react';
 
 // Import vegetable images configuration
 import { vegetableImages } from '../../assets/vegetables/imageConfig.js';
@@ -73,15 +73,58 @@ import kakdi from '../../assets/Vegies3/Kakdi 1.jpg';
 import microgreens from '../../assets/Vegies1/microgreens.jpg';
 import redLettuce from '../../assets/Vegies3/Red Lettuce.jpg';
 
-// Custom WhatsApp Icon Component
-const WhatsAppIcon = ({ className }) => (
-  <svg
-    className={className}
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
+import bagVegetablesImage from '../../assets/bag-contents/vegetables.webp';
+import bagStaplesImage from '../../assets/bag-contents/staples.webp';
+import bagGreensImage from '../../assets/bag-contents/greens.webp';
+import bagSeasonImage from '../../assets/bag-contents/season.webp';
+
+// "Choose what fits your home" cards jump to that bag size's plans in SubscriptionSection
+const bagSizes = [
+  { label: '7 KG BAG', bestFor: 'Best for 1–3 people', target: 'plans-7kg' },
+  { label: '10 KG BAG', bestFor: 'Best for 3–5 people', target: 'plans-10kg' },
+];
+
+const bagContents = [
+  {
+    icon: Carrot,
+    title: 'Seasonal Vegetables & Exotics',
+    text: 'Everyday favourites plus seasonal varieties.',
+    image: bagVegetablesImage,
+    rowClass: 'bg-[#F6FAF2]',
+    iconClass: 'bg-[#E1F0D6] text-[#2F7D34]',
+  },
+  {
+    icon: Wheat,
+    title: 'Staples & Condiments',
+    text: 'Useful kitchen essentials to complement your fresh produce.',
+    image: bagStaplesImage,
+    rowClass: 'bg-[#FFF8F0]',
+    iconClass: 'bg-[#FBE5D0] text-[#8A5A2B]',
+  },
+  {
+    icon: Salad,
+    title: 'Salads, Greens & Herbs',
+    text: 'Fresh additions for everyday meals and healthier choices.',
+    image: bagGreensImage,
+    rowClass: 'bg-[#F4FAF0]',
+    iconClass: 'bg-[#E1F0D6] text-[#2F7D34]',
+  },
+  {
+    icon: Sun,
+    title: 'Curated for the Season',
+    text: "Your bag changes with what's growing best at the farm.",
+    image: bagSeasonImage,
+    rowClass: 'bg-[#FFFBEE]',
+    iconClass: 'bg-[#FDF0C6] text-[#B7791F]',
+  },
+];
+
+// Two-leaf mark for the "You stay in control" row
+const LeavesIcon = ({ className }) => (
+  <svg viewBox="0 0 48 48" aria-hidden="true" className={className}>
+    <path d="M22 43C11 39 6 27 10 10c11 4 17 14 12 33Z" fill="#2E8B3A" />
+    <path d="M26 43c11-3 16-12 13-26-10 3-15 12-13 26Z" fill="#7CC243" />
+    <path d="M22 43c-2-10-5-19-11-28M26 43c1-8 5-15 11-21" fill="none" stroke="#E6F4DA" strokeWidth="1.5" strokeLinecap="round" />
   </svg>
 );
 
@@ -92,23 +135,9 @@ const ProductsSection = () => {
   const [visibleRows, setVisibleRows] = useState(3); // Show 3 rows initially
   const ref = useRef(null);
 
-  // Function to detect device and redirect to appropriate app store
-  const handleAppDownload = () => {
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    
-    // Check if iOS device
-    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-      window.open('https://apps.apple.com/in/app/naturally-good/id6749650953', '_blank');
-    }
-    // Check if Android device
-    else if (/android/i.test(userAgent)) {
-      window.open('https://play.google.com/store/apps/details?id=com.naturallygood.app', '_blank');
-    }
-    // Default fallback (could be desktop or other devices) - show both options
-    else {
-      // For desktop or other devices, redirect to Play Store as default
-      window.open('https://play.google.com/store/apps/details?id=com.naturallygood.app', '_blank');
-    }
+  // Bag cards and the CTA jump to the plans below (anchor placement lives in SubscriptionSection.css)
+  const scrollToPlans = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   // Listen for tab activation events from footer navigation
@@ -336,11 +365,6 @@ const ProductsSection = () => {
     ]
   };
 
-  const handleWhatsAppOrder = () => {
-    const message = `Hi! I'm interested in your seasonal veggie basket and would like to know more about the products.`;
-    window.open(`https://wa.me/919643722200?text=${encodeURIComponent(message)}`, '_blank');
-  };
-
   const handleProductClick = (product) => {
     setSelectedProduct(product);
     // Prevent background scrolling
@@ -545,127 +569,96 @@ const ProductsSection = () => {
           </div>
         )}
 
-        {/* Bottom Info */}
-        <div className="rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-white mx-4 sm:mx-0 relative" style={{background: '#00963F'}}>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center">
-            <div>
-              <h3 className="text-xl sm:text-2xl font-bold mb-4">What does your Organic Seasonal Bag contains</h3>
-              <div className="space-y-3">
-                <div className="flex items-start sm:items-center">
-                  <Star className="w-5 h-5 mr-3 mt-0.5 sm:mt-0 text-yellow-300 flex-shrink-0" />
-                  <span className="text-sm sm:text-base">4-5 kg mix of Seasonal Veggies & Exotics</span>
-                </div>
-                <div className="flex items-start sm:items-center">
-                  <Star className="w-5 h-5 mr-3 mt-0.5 sm:mt-0 text-yellow-300 flex-shrink-0" />
-                  <span className="text-sm sm:text-base">3-4 kg mix of Aromatic Staples & Condiments</span>
-                </div>
-                <div className="flex items-start sm:items-center">
-                  <Star className="w-5 h-5 mr-3 mt-0.5 sm:mt-0 text-yellow-300 flex-shrink-0" />
-                  <span className="text-sm sm:text-base">0.5-1 kg mix of Nutritious Salads & Assortments</span>
-                </div>
-                <div className="flex items-start sm:items-center">
-                  <Star className="w-5 h-5 mr-3 mt-0.5 sm:mt-0 text-yellow-300 flex-shrink-0" />
-                  <span className="text-sm sm:text-base">0.5-1 kg mix of Vitality Greens & Herbs</span>
-                </div>
-              </div>
-              <p className="text-green-100 text-xs sm:text-sm mt-4 leading-relaxed">
-                *The actual selection varies based on seasonal availability and harvest. 
-                We recommend going with our farmers' choice for the freshest produce.
-              </p>
-            </div>
-            
-            <div className="flex flex-col items-center text-center">
-              <motion.button
-                onClick={handleWhatsAppOrder}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto bg-white font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center text-sm sm:text-base min-w-[200px]"
-                style={{ WebkitTapHighlightColor: 'transparent', color: '#00963F' }}
+        {/* Bag sizes */}
+        <div>
+          <h3 className="text-center text-2xl font-extrabold tracking-tight text-[#16301F] sm:text-3xl">
+            Choose what fits your home
+          </h3>
+          <div className="mx-auto mt-5 grid max-w-3xl grid-cols-1 gap-3 min-[30rem]:grid-cols-2 sm:gap-4">
+            {bagSizes.map((size) => (
+              <button
+                key={size.label}
+                type="button"
+                onClick={() => scrollToPlans(size.target)}
+                className="group flex items-center gap-3 rounded-2xl border border-[#DCEAD3] bg-white p-4 text-left shadow-[0_10px_30px_-22px_rgba(22,70,35,0.5)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#A9D18E] hover:bg-[#F4FAEF] hover:shadow-[0_16px_36px_-22px_rgba(22,70,35,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00963F] sm:gap-4 sm:p-5"
+                style={{ WebkitTapHighlightColor: 'transparent' }}
               >
-                <span>Order Your Bag</span>
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
-              </motion.button>
-              
-              {/* Contact icons below button on mobile, hidden on larger screens */}
-              <div className="flex md:hidden justify-center gap-4 mt-6">
-                <motion.button
-                  onClick={() => window.open('tel:+919643722200', '_self')}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-300 shadow-lg"
-                  title="Call"
-                >
-                  <Phone className="w-6 h-6 text-white" />
-                </motion.button>
-                <motion.button
-                  onClick={handleWhatsAppOrder}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-300 shadow-lg"
-                  title="WhatsApp"
-                >
-                  <WhatsAppIcon className="w-6 h-6 text-white" />
-                </motion.button>
-                <motion.button
-                  onClick={() => window.open('mailto:eatfresh@naturallygood.in', '_self')}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-300 shadow-lg"
-                  title="Email"
-                >
-                  <Mail className="w-6 h-6 text-white" />
-                </motion.button>
-                <motion.button
-                  onClick={handleAppDownload}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-300 shadow-lg"
-                  title="Mobile App"
-                >
-                  <Smartphone className="w-6 h-6 text-white" />
-                </motion.button>
-              </div>
-            </div>
+                <Users className="h-9 w-9 shrink-0 text-[#1F7A3A] sm:h-10 sm:w-10" strokeWidth={1.5} />
+                <span className="min-w-0 flex-1">
+                  <span className="block text-lg font-extrabold tracking-tight text-[#16301F] sm:text-xl">{size.label}</span>
+                  <span className="block text-sm text-gray-600 sm:text-[15px]">{size.bestFor}</span>
+                </span>
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-white text-[#1F7A3A] shadow-md ring-1 ring-black/5 transition-transform duration-300 group-hover:translate-x-0.5">
+                  <ChevronRight className="h-5 w-5" />
+                </span>
+              </button>
+            ))}
           </div>
-          
-          {/* Vertical ordering icons positioned on the right border - Hidden on mobile, visible on larger screens */}
-          <div className="hidden md:flex absolute right-4 top-1/2 transform -translate-y-1/2 flex-col gap-4">
-            <motion.button
-              onClick={() => window.open('tel:+919643722200', '_self')}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-300 shadow-lg"
-              title="Call"
+        </div>
+
+        {/* What's inside the bag */}
+        <div className="relative mt-6 overflow-hidden rounded-3xl bg-gradient-to-br from-[#1F6F38] via-[#1B6532] to-[#14532A] p-4 text-white shadow-[0_30px_60px_-35px_rgba(20,83,42,0.8)] sm:mt-8 sm:p-8 lg:p-10">
+          <Leaf
+            aria-hidden="true"
+            className="absolute right-4 top-4 h-9 w-9 -rotate-12 text-[#B5E061] sm:right-8 sm:top-8 sm:h-16 sm:w-16"
+            strokeWidth={1.25}
+          />
+          <h3 className="text-[1.75rem] font-extrabold leading-[1.1] tracking-tight sm:max-w-[85%] sm:text-4xl lg:text-[2.75rem]">
+            What's Inside Your
+            <span className="block text-[#B5E061]">Naturally Good Bag?</span>
+          </h3>
+          <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-white/85 sm:text-lg">
+            A wholesome mix of seasonal produce for your family — grown and curated by us, from our farm to your home.
+          </p>
+
+          <ul className="mt-6 grid gap-3 sm:gap-4 lg:grid-cols-2">
+            {bagContents.map((item) => {
+              const Icon = item.icon;
+              return (
+                <li
+                  key={item.title}
+                  className={`relative flex min-h-[104px] items-center gap-3 overflow-hidden rounded-2xl py-3.5 pl-3.5 pr-[30%] sm:min-h-[136px] sm:gap-5 sm:py-4 sm:pl-5 sm:pr-[42%] ${item.rowClass}`}
+                >
+                  <span className={`relative z-10 grid h-11 w-11 shrink-0 place-items-center rounded-full sm:h-16 sm:w-16 ${item.iconClass}`}>
+                    <Icon className="h-5 w-5 sm:h-8 sm:w-8" strokeWidth={1.6} />
+                  </span>
+                  <div className="relative z-10">
+                    <h4 className="text-[15px] font-bold leading-snug text-[#16301F] sm:text-lg">{item.title}</h4>
+                    <p className="mt-1 text-[13px] leading-snug text-gray-600 sm:text-[15px]">{item.text}</p>
+                  </div>
+                  {/* Photo fades in from the left so the text stays readable */}
+                  <img
+                    src={item.image}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-y-0 right-0 h-full w-[34%] object-cover [mask-image:linear-gradient(to_right,transparent,black_45%)] sm:w-[46%]"
+                  />
+                </li>
+              );
+            })}
+          </ul>
+
+          <div className="mt-3 flex items-center gap-4 rounded-2xl bg-[#E6F4DA] p-4 text-[#284A2F] sm:mt-4 sm:gap-5 sm:p-5">
+            <LeavesIcon className="h-10 w-10 shrink-0 sm:h-12 sm:w-12" />
+            <span aria-hidden="true" className="h-10 w-px shrink-0 bg-[#9CC97A] sm:h-12" />
+            <p className="text-[13px] leading-snug sm:text-base">
+              <strong className="block text-[15px] text-[#16301F] sm:text-lg">You stay in control.</strong>
+              Personalise your preferences in the app, while our farmers help curate the freshest seasonal mix for you.
+            </p>
+          </div>
+
+          <div className="mt-6 flex flex-col items-center gap-3 sm:mt-8">
+            <button
+              type="button"
+              onClick={() => scrollToPlans('subscription')}
+              className="group inline-flex w-full max-w-md items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold text-[#1B6532] shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1B6532] sm:text-lg"
+              style={{ WebkitTapHighlightColor: 'transparent' }}
             >
-              <Phone className="w-6 h-6 text-white" />
-            </motion.button>
-            <motion.button
-              onClick={handleWhatsAppOrder}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-300 shadow-lg"
-              title="WhatsApp"
-            >
-              <WhatsAppIcon className="w-6 h-6 text-white" />
-            </motion.button>
-            <motion.button
-              onClick={() => window.open('mailto:eatfresh@naturallygood.in', '_self')}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-300 shadow-lg"
-              title="Email"
-            >
-              <Mail className="w-6 h-6 text-white" />
-            </motion.button>
-            <motion.button
-              onClick={handleAppDownload}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-300 shadow-lg"
-              title="Mobile App"
-            >
-              <Smartphone className="w-6 h-6 text-white" />
-            </motion.button>
+              Choose Your Bag
+              <ArrowRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
+            </button>
+            <p className="text-center text-sm text-white/85">Start with 1 bag. Save more with 4, 12, 24 or 48 bags.</p>
           </div>
         </div>
 
