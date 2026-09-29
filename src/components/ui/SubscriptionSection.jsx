@@ -8,6 +8,7 @@ import {
   Gem,
   Leaf,
   ShieldCheck,
+  ShoppingBag,
   ShoppingBasket,
   SlidersHorizontal,
   Smartphone,
@@ -31,7 +32,7 @@ const SCRIPT_FONT = { fontFamily: "'Caveat', 'Segoe Script', cursive", fontWeigh
 // Labels are split into lines where the design breaks them
 const featureStrip = [
   { icon: Sprout, lines: ['Freshly', 'harvested produce'] },
-  { icon: Truck, lines: ['Weekly', 'delivery'] },
+  { icon: Truck, lines: ['Doorstep', 'delivery'] },
   { icon: SlidersHorizontal, lines: ['Personalised', 'for your family'] },
   { icon: UserRound, lines: ['Dedicated', 'wellness advisor'] },
   { icon: ShieldCheck, lines: ['7-day', 'freshness guarantee'] },
@@ -60,7 +61,7 @@ const smallHouseholdPlans = [
     originalPrice: '₹10,000',
     discountedPrice: '₹8,999',
     monthlyRate: '₹8,999 per month',
-    bagRate: '₹2,250 per basket',
+    bagRate: '₹2,250 per bag',
     discount: '10% off',
     popular: false,
     theme: planThemes.monthly,
@@ -69,7 +70,7 @@ const smallHouseholdPlans = [
       { name: 'x 7kg Organic Vegetable Bags', value: '4', included: true },
       { name: 'Dedicated Wellness Advisor', included: true },
       { name: 'Recipe Support', included: true },
-      { name: 'Bag Customisation', included: true },
+      { name: 'Bag Personalization', included: true },
       { name: 'Membership worth ₹1000', included: true },
       { name: 'Complimentary Farm Visit', included: false },
       { name: 'Pure Raw Honey', included: false },
@@ -92,7 +93,7 @@ const smallHouseholdPlans = [
     originalPrice: '₹30,000',
     discountedPrice: '₹23,999',
     monthlyRate: '₹7,999 per month',
-    bagRate: '₹2,000 per basket',
+    bagRate: '₹2,000 per bag',
     discount: '20% off',
     popular: true,
     theme: planThemes.quarterly,
@@ -101,7 +102,7 @@ const smallHouseholdPlans = [
       { name: 'x 7kg Organic Vegetable Bags', value: '12', included: true },
       { name: 'Dedicated Wellness Advisor', included: true },
       { name: 'Recipe Support', included: true },
-      { name: 'Bag Customisation', included: true },
+      { name: 'Bag Personalization', included: true },
       { name: 'Membership worth ₹1000', included: true },
       { name: 'Complimentary Farm Visit', included: true },
       { name: 'Pure Raw Honey', value: '300 Gms', included: true },
@@ -124,7 +125,7 @@ const smallHouseholdPlans = [
     originalPrice: '₹60,000',
     discountedPrice: '₹41,999',
     monthlyRate: '₹6,999 per month',
-    bagRate: '₹1,750 per basket',
+    bagRate: '₹1,750 per bag',
     discount: '30% off',
     recommended: true,
     theme: planThemes.semiAnnual,
@@ -133,7 +134,7 @@ const smallHouseholdPlans = [
       { name: 'x 7kg Organic Vegetable Bags', value: '24', included: true },
       { name: 'Dedicated Wellness Advisor', included: true },
       { name: 'Recipe Support', included: true },
-      { name: 'Bag Customisation', included: true },
+      { name: 'Bag Personalization', included: true },
       { name: 'Membership worth ₹1000', included: true },
       { name: 'Complimentary Farm Visit', included: true },
       { name: 'Pure Raw Honey', value: '300 Gms', included: true },
@@ -156,7 +157,7 @@ const smallHouseholdPlans = [
     originalPrice: '₹1,20,000',
     discountedPrice: '₹71,999',
     monthlyRate: '₹5,999 per month',
-    bagRate: '₹1,500 per basket',
+    bagRate: '₹1,500 per bag',
     discount: '40% off',
     popular: false,
     theme: planThemes.annual,
@@ -165,7 +166,7 @@ const smallHouseholdPlans = [
       { name: 'x 7kg Organic Vegetable Bags', value: '48', included: true },
       { name: 'Dedicated Wellness Advisor', included: true },
       { name: 'Recipe Support', included: true },
-      { name: 'Bag Customisation', included: true },
+      { name: 'Bag Personalization', included: true },
       { name: 'Membership worth ₹1000', included: true },
       { name: 'Complimentary Farm Visit', included: true },
       { name: 'Pure Raw Honey', value: '300 Gms', included: true },
@@ -192,7 +193,7 @@ const familyPlans = [
     originalPrice: '₹12,000',
     discountedPrice: '₹9,999',
     monthlyRate: '₹9,999 per month',
-    bagRate: '₹2,500 per basket',
+    bagRate: '₹2,500 per bag',
     discount: '17% off',
     popular: false,
     theme: planThemes.monthly,
@@ -201,7 +202,7 @@ const familyPlans = [
       { name: 'x 10kg Organic Vegetable Bags', value: '4', included: true },
       { name: 'Dedicated Wellness Advisor', included: true },
       { name: 'Recipe Support', included: true },
-      { name: 'Bag Customisation', included: true },
+      { name: 'Bag Personalization', included: true },
       { name: 'Membership worth ₹1000', included: true },
       { name: 'Complimentary Farm Visit', included: false },
       { name: 'Pure Raw Honey', included: false },
@@ -247,7 +248,7 @@ const familyPlans = [
     originalPrice: '₹36,000',
     discountedPrice: '₹26,999',
     monthlyRate: '₹8,999 per month',
-    bagRate: '₹2,250 per basket',
+    bagRate: '₹2,250 per bag',
     discount: '25% off',
     popular: true,
     theme: planThemes.quarterly,
@@ -256,7 +257,7 @@ const familyPlans = [
       { name: 'x 10kg Organic Vegetable Bags', value: '12', included: true },
       { name: 'Dedicated Wellness Advisor', included: true },
       { name: 'Recipe Support', included: true },
-      { name: 'Bag Customisation', included: true },
+      { name: 'Bag Personalization', included: true },
       { name: 'Membership worth ₹1000', included: true },
       { name: 'Complimentary Farm Visit', included: true },
       { name: 'Pure Raw Honey', value: '300 Gms', included: true },
@@ -302,7 +303,7 @@ const familyPlans = [
     originalPrice: '₹72,000',
     discountedPrice: '₹47,999',
     monthlyRate: '₹7,999 per month',
-    bagRate: '₹2,000 per basket',
+    bagRate: '₹2,000 per bag',
     discount: '33% off',
     recommended: true,
     theme: planThemes.semiAnnual,
@@ -311,7 +312,7 @@ const familyPlans = [
       { name: 'x 10kg Organic Vegetable Bags', value: '24', included: true },
       { name: 'Dedicated Wellness Advisor', included: true },
       { name: 'Recipe Support', included: true },
-      { name: 'Bag Customisation', included: true },
+      { name: 'Bag Personalization', included: true },
       { name: 'Membership worth ₹1000', included: true },
       { name: 'Complimentary Farm Visit', included: true },
       { name: 'Pure Raw Honey', value: '300 Gms', included: true },
@@ -357,7 +358,7 @@ const familyPlans = [
     originalPrice: '₹1,44,000',
     discountedPrice: '₹83,999',
     monthlyRate: '₹6,999 per month',
-    bagRate: '₹1,750 per basket',
+    bagRate: '₹1,750 per bag',
     discount: '42% off',
     popular: false,
     theme: planThemes.annual,
@@ -366,7 +367,7 @@ const familyPlans = [
       { name: 'x 10kg Organic Vegetable Bags', value: '48', included: true },
       { name: 'Dedicated Wellness Advisor', included: true },
       { name: 'Recipe Support', included: true },
-      { name: 'Bag Customisation', included: true },
+      { name: 'Bag Personalization', included: true },
       { name: 'Membership worth ₹1000', included: true },
       { name: 'Complimentary Farm Visit', included: true },
       { name: 'Pure Raw Honey', value: '300 Gms', included: true },
@@ -410,8 +411,8 @@ const familyPlans = [
 const planGroups = [
   {
     id: 'small-household',
+    bagSize: '7kg bag',
     heading: '1–3 PEOPLE',
-    bestFor: ['Best for', '1–3 people'],
     blurb: 'Perfect for couples or small families.',
     image: smallHouseholdImage,
     imageAlt: 'A couple unpacking a NaturallyGood box of fresh farm vegetables',
@@ -419,8 +420,8 @@ const planGroups = [
   },
   {
     id: 'family',
+    bagSize: '10kg bag',
     heading: '3–5 PEOPLE',
-    bestFor: ['Best for', '3–5 people'],
     blurb: 'Ideal for growing families.',
     image: familyImage,
     imageAlt: 'A couple with a NaturallyGood box and a bag full of fresh vegetables',
@@ -437,12 +438,12 @@ const themeVars = ({ from, to, border, soft, glow }) => ({
   '--accent-glow': glow,
 });
 
-// Breaks a label where the design does, except below `breakClassName`'s width where it stays on one line
-const Lines = ({ lines, breakClassName = 'min-[30rem]:block' }) =>
+// Breaks a label where the design does, except on narrow phones where it stays on one line
+const Lines = ({ lines }) =>
   lines.map((line, index) => (
     <Fragment key={line}>
       {index > 0 && ' '}
-      <span className={index > 0 ? breakClassName : undefined}>{line}</span>
+      <span className={index > 0 ? 'min-[30rem]:block' : undefined}>{line}</span>
     </Fragment>
   ));
 
@@ -486,9 +487,12 @@ const BenefitItem = ({ benefit, term }) => (
     <span className={benefit.included ? 'text-gray-700' : 'text-gray-400'}>
       {!benefit.included && <span className="sr-only">Not included: </span>}
       {benefit.name.startsWith('x ') && benefit.value ? (
-        // The bag count is stored as the value, so it leads the label ("4 x 10kg ...")
+        // The bag count is stored as the value, so it leads the label ("4 x 10kg ...") as a highlighted chip
         <>
-          <span className="font-semibold text-[#15291D]">{benefit.value} {benefit.name}</span>
+          <span className="rounded-[0.35em] bg-[color:var(--accent-soft)] px-[0.4em] py-[0.05em] font-extrabold text-[color:var(--accent-strong)] ring-1 ring-[color:var(--accent-border)]">
+            {benefit.value}
+          </span>{' '}
+          <span className="font-semibold text-[#15291D]">{benefit.name}</span>
           {term && (
             <>
               {' '}
@@ -599,13 +603,19 @@ const AudiencePanel = ({ group, className = '' }) => (
     className={`@container overflow-hidden rounded-[24px] border border-[#E1EEDA] bg-white shadow-[0_24px_60px_-40px_rgba(22,70,35,0.45)] ${className}`}
   >
     <div className="grid h-full md:grid-cols-2 wide:flex wide:flex-col">
-      <div className="relative z-10 flex flex-col justify-center p-6 sm:p-8 lg:px-12 wide:justify-start wide:px-5 wide:pb-0 wide:pt-6">
-        <h3 className="text-[2.6rem] font-black leading-none tracking-tight text-[#15291D] sm:text-5xl lg:text-[3.5rem] wide:text-[length:clamp(1.9rem,13.5cqi,2.9rem)]">
-          {group.heading}
+      <div className="relative z-10 flex flex-col items-start justify-center p-6 sm:p-8 lg:px-12 wide:justify-start wide:px-5 wide:pb-0 wide:pt-6">
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#EAF6E4] px-3 py-1 text-[13px] font-semibold text-[#1F7A3A] ring-1 ring-[#D3E9C8] wide:text-[length:clamp(0.72rem,4.2cqi,0.85rem)]">
+          <ShoppingBag className="h-[1.1em] w-[1.1em]" />
+          {group.bagSize}
+        </span>
+        <h3 className="mt-4 text-[#15291D] wide:mt-3">
+          <span className="block text-xs font-bold uppercase tracking-[0.18em] text-gray-500 wide:text-[length:clamp(0.65rem,3.8cqi,0.78rem)]">
+            Best for
+          </span>
+          <span className="mt-1.5 block text-[2.6rem] font-black leading-none tracking-tight sm:text-5xl lg:text-[3.5rem] wide:text-[length:clamp(1.9rem,13.5cqi,2.9rem)]">
+            {group.heading}
+          </span>
         </h3>
-        <p className="mt-4 text-lg font-semibold leading-tight text-[#15291D] wide:mt-3 wide:text-[length:clamp(1rem,6.6cqi,1.35rem)]">
-          <Lines lines={group.bestFor} breakClassName="wide:block" />
-        </p>
         <PeopleIcon className="mt-4 h-8 w-14 text-[#1F8A3B] wide:mt-3" />
         <p className="mt-3 max-w-xs text-[15px] leading-snug text-gray-600 wide:mt-2 wide:text-[length:clamp(0.8rem,4.9cqi,0.95rem)]">
           {group.blurb}
@@ -681,7 +691,7 @@ const PlanCard = ({ plan, onOpen, onOrder }) => {
         {/* Benefits */}
         <ul className="flex-1 space-y-[0.5em] px-[1.15em] pt-[0.95em] leading-snug">
           {plan.standardizedBenefits.map((benefit) => (
-            <BenefitItem key={benefit.name} benefit={benefit} term={plan.term} />
+            <BenefitItem key={benefit.name} benefit={benefit} />
           ))}
         </ul>
 
@@ -713,7 +723,7 @@ const PlanCard = ({ plan, onOpen, onOrder }) => {
               aria-hidden="true"
               className="absolute inset-0 -translate-x-full -skew-x-12 bg-gradient-to-r from-white/0 via-white/25 to-white/0 transition-transform duration-1000 ease-out group-hover:translate-x-full"
             />
-            <span className="relative">Start Membership</span>
+            <span className="relative">Subscribe Now</span>
             <ArrowRight className="relative h-[1.05em] w-[1.05em] transition-transform duration-200 group-hover/cta:translate-x-1" />
           </button>
           <button
@@ -724,7 +734,7 @@ const PlanCard = ({ plan, onOpen, onOrder }) => {
             }}
             className="mt-[0.35em] w-full rounded-lg py-[0.35em] text-[0.86em] font-medium text-gray-500 transition-colors hover:text-[color:var(--accent-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-strong)]"
           >
-            View plan details
+            View details
           </button>
         </div>
       </div>
