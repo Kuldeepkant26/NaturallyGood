@@ -1,0 +1,71 @@
+/* ==========================================================================
+   SUBSCRIPTION PLANS LAYOUT
+   Stacked below 1400px. From 1400px it follows the client's poster:
+   headline + audience panels on the left, feature strip + plan cards on the right
+   ========================================================================== */
+
+.subs-layout {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    'head'
+    'strip'
+    'panel1'
+    'cards1'
+    'panel2'
+    'cards2';
+  row-gap: 1.75rem;
+}
+
+.subs-head { grid-area: head; }
+.subs-strip { grid-area: strip; }
+.subs-panel1 { grid-area: panel1; }
+.subs-cards1 { grid-area: cards1; }
+.subs-panel2 { grid-area: panel2; }
+.subs-cards2 { grid-area: cards2; }
+
+/* The badge sits in the top corner until the poster layout gives it a cell */
+.subs-badge {
+  position: absolute;
+  top: -1.5rem;
+  right: 0;
+}
+
+@media (width >= 64rem) {
+  .subs-layout {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    grid-template-areas:
+      'head   strip'
+      'panel1 panel1'
+      'cards1 cards1'
+      'panel2 panel2'
+      'cards2 cards2';
+    column-gap: 3rem;
+  }
+
+  .subs-strip { align-self: center; }
+}
+
+@media (width >= 87.5rem) {
+  .subs-layout {
+    /* Left column | strip | badge; the cards span both the strip and badge columns */
+    grid-template-columns: minmax(0, 25fr) minmax(0, 75fr) auto;
+    /* The headline spans rows 1-2, so row 2 absorbs its extra height and row 3
+       lets the first audience panel fill the rest of the first card row */
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+      'head   strip  badge'
+      'head   cards1 cards1'
+      'panel1 cards1 cards1'
+      'panel2 cards2 cards2';
+    column-gap: 1rem;
+    row-gap: 1.5rem;
+  }
+
+  .subs-badge {
+    position: static;
+    grid-area: badge;
+    place-self: center;
+  }
+}

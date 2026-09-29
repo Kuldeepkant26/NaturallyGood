@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @import "./css/colors.css";
 
+@theme {
+  /* 1400px: wide enough for the subscription plans poster layout (panels | 4 cards) */
+  --breakpoint-wide: 87.5rem;
+}
+
 /* Custom Scrollbar Styles */
 .toc-scrollbar::-webkit-scrollbar {
   width: 6px;
