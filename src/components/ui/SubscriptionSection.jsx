@@ -3,9 +3,11 @@ import { motion, AnimatePresence } from 'motion/react';
 import {
   ArrowRight,
   Award,
+  BadgePercent,
   Check,
   Clock,
   Gem,
+  IndianRupee,
   Leaf,
   ShieldCheck,
   ShoppingBag,
@@ -415,7 +417,11 @@ const planGroups = [
     heading: '1–3 PEOPLE',
     blurb: 'Perfect for couples or small families.',
     image: smallHouseholdImage,
-    imageAlt: 'A couple unpacking a NaturallyGood box of fresh farm vegetables',
+    imageSize: [1700, 596],
+    imageAlt: 'Young parents and their child unpacking a box of fresh farm vegetables',
+    // Horizontal focus of the photo crop: banners/phones, then the tall poster-layout panel
+    photoX: '52%',
+    photoXWide: '52%',
     plans: smallHouseholdPlans
   },
   {
@@ -424,7 +430,10 @@ const planGroups = [
     heading: '3–5 PEOPLE',
     blurb: 'Ideal for growing families.',
     image: familyImage,
-    imageAlt: 'A couple with a NaturallyGood box and a bag full of fresh vegetables',
+    imageSize: [1700, 526],
+    imageAlt: 'Parents and their two children unpacking a box of fresh farm vegetables',
+    photoX: '56%',
+    photoXWide: '66%',
     plans: familyPlans
   }
 ];
@@ -598,47 +607,83 @@ const GoodFoodBadge = ({ className = '' }) => (
 );
 
 // A banner above the cards on smaller screens, a tall panel beside them in the poster layout
-const AudiencePanel = ({ group, className = '' }) => (
-  <div
-    className={`@container overflow-hidden rounded-[24px] border border-[#E1EEDA] bg-white shadow-[0_24px_60px_-40px_rgba(22,70,35,0.45)] ${className}`}
-  >
-    <div className="grid h-full md:grid-cols-2 wide:flex wide:flex-col">
-      <div className="relative z-10 flex flex-col items-start justify-center p-6 sm:p-8 lg:px-12 wide:justify-start wide:px-5 wide:pb-0 wide:pt-6">
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#EAF6E4] px-3 py-1 text-[13px] font-semibold text-[#1F7A3A] ring-1 ring-[#D3E9C8] wide:text-[length:clamp(0.72rem,4.2cqi,0.85rem)]">
-          <ShoppingBag className="h-[1.1em] w-[1.1em]" />
-          {group.bagSize}
-        </span>
-        <h3 className="mt-4 text-[#15291D] wide:mt-3">
-          <span className="block text-xs font-bold uppercase tracking-[0.18em] text-gray-500 wide:text-[length:clamp(0.65rem,3.8cqi,0.78rem)]">
-            Best for
+// "At a glance" figures come from the group's plans, so they follow any price change
+const planHighlights = (plans) => {
+  const amount = (text) => Number(text.replace(/[^\d]/g, ''));
+  const lowestBagRate = Math.min(...plans.map((plan) => amount(plan.bagRate)));
+  const bestDiscount = Math.max(...plans.map((plan) => parseInt(plan.discount, 10)));
+  return { fromPrice: `₹${lowestBagRate.toLocaleString('en-IN')}`, saveUpTo: `${bestDiscount}%` };
+};
+
+const AudiencePanel = ({ group, className = '' }) => {
+  const highlights = planHighlights(group.plans);
+
+  return (
+    <div
+      className={`@container overflow-hidden rounded-[24px] border border-[#E1EEDA] bg-white shadow-[0_24px_60px_-40px_rgba(22,70,35,0.45)] ${className}`}
+    >
+      <div className="grid h-full md:grid-cols-2 wide:flex wide:flex-col">
+        <div className="relative z-10 flex flex-col items-start justify-center p-6 sm:p-8 lg:px-12 wide:flex-1 wide:justify-start wide:px-5 wide:pb-3 wide:pt-6">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#EAF6E4] px-3 py-1 text-[13px] font-semibold text-[#1F7A3A] ring-1 ring-[#D3E9C8] wide:text-[length:clamp(0.72rem,4.2cqi,0.85rem)]">
+            <ShoppingBag className="h-[1.1em] w-[1.1em]" />
+            {group.bagSize}
           </span>
-          <span className="mt-1.5 block text-[2.6rem] font-black leading-none tracking-tight sm:text-5xl lg:text-[3.5rem] wide:text-[length:clamp(1.9rem,13.5cqi,2.9rem)]">
-            {group.heading}
-          </span>
-        </h3>
-        <PeopleIcon className="mt-4 h-8 w-14 text-[#1F8A3B] wide:mt-3" />
-        <p className="mt-3 max-w-xs text-[15px] leading-snug text-gray-600 wide:mt-2 wide:text-[length:clamp(0.8rem,4.9cqi,0.95rem)]">
-          {group.blurb}
-        </p>
-      </div>
-      <div className="relative order-first h-52 sm:h-64 md:order-none md:h-auto md:min-h-[260px] wide:min-h-[160px] wide:flex-1">
-        <img
-          src={group.image}
-          alt={group.imageAlt}
-          width="1000"
-          height="796"
-          loading="lazy"
-          decoding="async"
-          className="absolute inset-0 h-full w-full object-cover object-[60%_8%] wide:object-[50%_10%]"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-t from-white via-white/0 to-white/0 md:bg-gradient-to-r md:via-white/5 wide:bg-gradient-to-b wide:via-white/0 wide:via-25%"
-        />
+          <h3 className="mt-4 text-[#15291D] wide:mt-3">
+            <span className="block text-xs font-bold uppercase tracking-[0.18em] text-gray-500 wide:text-[length:clamp(0.65rem,3.8cqi,0.78rem)]">
+              Best for
+            </span>
+            <span className="mt-1.5 block text-[2.6rem] font-black leading-none tracking-tight sm:text-5xl lg:text-[3.5rem] wide:text-[length:clamp(1.9rem,13.5cqi,2.9rem)]">
+              {group.heading}
+            </span>
+          </h3>
+          {/* Takes the spare height of a tall poster panel; the highlights show only when they fit (see .subs-glance) */}
+          <div className="subs-glance-slot flex w-full flex-col justify-center wide:min-h-0 wide:flex-1">
+            <ul className="subs-glance w-full flex-col gap-2 rounded-xl border border-[#E1EEDA] bg-[#F6FAF2] px-3.5 py-3 text-[length:clamp(0.78rem,4.6cqi,0.92rem)] text-gray-700">
+              <li className="flex items-center gap-2">
+                <IndianRupee className="h-[1.15em] w-[1.15em] shrink-0 text-[#1F8A3B]" />
+                <span>
+                  From <strong className="font-bold text-[#15291D]">{highlights.fromPrice}</strong> per bag
+                </span>
+              </li>
+              <li className="flex items-center gap-2">
+                <BadgePercent className="h-[1.15em] w-[1.15em] shrink-0 text-[#1F8A3B]" />
+                <span>
+                  Save up to <strong className="font-bold text-[#15291D]">{highlights.saveUpTo}</strong>
+                </span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Truck className="h-[1.15em] w-[1.15em] shrink-0 text-[#1F8A3B]" />
+                <span>Weekly doorstep delivery</span>
+              </li>
+            </ul>
+          </div>
+          <PeopleIcon className="mt-4 h-8 w-14 text-[#1F8A3B] wide:mt-3" />
+          <p className="mt-3 max-w-xs text-[15px] leading-snug text-gray-600 wide:mt-2 wide:text-[length:clamp(0.8rem,4.9cqi,0.95rem)]">
+            {group.blurb}
+          </p>
+        </div>
+        {/* Group photos are wide, so in the tall poster panel the photo keeps a landscape shape (~1.3:1)
+            and the text above takes the spare height instead of the photo being cropped to a sliver */}
+        <div className="relative order-first h-52 sm:h-64 md:order-none md:h-auto md:min-h-[260px] wide:min-h-[160px] wide:shrink wide:grow-0 wide:basis-[77cqi]">
+          <img
+            src={group.image}
+            alt={group.imageAlt}
+            width={group.imageSize[0]}
+            height={group.imageSize[1]}
+            loading="lazy"
+            decoding="async"
+            style={{ '--photo-x': group.photoX, '--photo-x-wide': group.photoXWide }}
+            className="absolute inset-0 h-full w-full object-cover object-[var(--photo-x)_50%] wide:object-[var(--photo-x-wide)_50%]"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-t from-white via-white/0 to-white/0 md:bg-gradient-to-r md:via-white/0 md:via-20% wide:bg-gradient-to-b wide:via-10%"
+          />
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 const PlanCard = ({ plan, onOpen, onOrder }) => {
   const Icon = plan.icon;

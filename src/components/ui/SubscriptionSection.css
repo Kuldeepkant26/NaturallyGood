@@ -29,6 +29,10 @@
 .subs-anchor1 { grid-area: panel1; align-self: start; }
 .subs-anchor2 { grid-area: panel2; align-self: start; }
 
+/* "At a glance" plan highlights fill the spare height of the tall poster panels.
+   They show only when that height is there, so they can never stretch a card row. */
+.subs-glance { display: none; }
+
 /* The badge sits in the top corner until the poster layout gives it a cell */
 .subs-badge {
   position: absolute;
@@ -75,4 +79,11 @@
 
   /* The 1–3 cards start beside the headline, above their audience panel */
   .subs-anchor1 { grid-area: cards1; }
+
+  /* Size containment: the slot gets only leftover height and adds none of its own */
+  .subs-glance-slot { container-type: size; }
+
+  @container (min-height: 7.5rem) {
+    .subs-glance { display: flex; }
+  }
 }
