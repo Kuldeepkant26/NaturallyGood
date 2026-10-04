@@ -768,7 +768,7 @@ const PlanCard = ({ plan, onOpen, onOrder }) => {
               aria-hidden="true"
               className="absolute inset-0 -translate-x-full -skew-x-12 bg-gradient-to-r from-white/0 via-white/25 to-white/0 transition-transform duration-1000 ease-out group-hover:translate-x-full"
             />
-            <span className="relative">Subscribe Now</span>
+            <span className="relative">Start Now</span>
             <ArrowRight className="relative h-[1.05em] w-[1.05em] transition-transform duration-200 group-hover/cta:translate-x-1" />
           </button>
           <button
